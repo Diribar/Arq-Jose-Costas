@@ -19,6 +19,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// *********** Para conectarse con el servidor ********************
+app.listen(3001, () => console.log("Servidor funcionando en puerto 3001..."));
+
 app.use('/users', usersRouter);
 app.use('/', indexRouter);
 
