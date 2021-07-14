@@ -2,12 +2,21 @@
 	<body>
 		<header class="flex-row">
 			<% for (n of titulos_encabezado) { %>
-				<div class="flex-row">
-					<%= n %> 
+				<div>
+					<a href=""><%= n.nombre_a_mostrar %></a>
 				</div>
 			<% } %> 
 		</header>
-		<h1><%= title %></h1>
-		<p>Welcome to <%= title %></p>
+		<main>
+			<% for (n of titulos_encabezado) { %>
+				<section id="<%= n.seccion %>" 
+					style="
+						background-color: <%= n.color_fondo %>; 
+						color: <%= n.color_letras %>"
+				>
+					<%- include(n.id + "-" + n.seccion) %>
+				</section>
+			<% } %> 
+		</main>
 	</body>
 </html>

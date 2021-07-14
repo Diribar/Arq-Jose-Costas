@@ -13,6 +13,7 @@ var app = express();
 app.set("views", [
 	path.resolve(__dirname, "./views"),
 	path.resolve(__dirname, "./views/partials"),
+	path.resolve(__dirname, "./views/secciones"),
 ]);
 app.set('view engine', 'ejs');
 

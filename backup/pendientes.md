@@ -1,1 +1,2 @@
-header div --> text-align: center
+error en style background-color
+inactivar GET comments en Terminal

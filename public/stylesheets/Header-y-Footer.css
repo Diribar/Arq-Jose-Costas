@@ -1,14 +1,13 @@
-header {
-	
-}
-
 header div {
-	color: RGB(242,242,242);
 	background-color: RGB(127,127,127);
-	font-size: 22px;
 	padding: 10px 15px;
 	font-weight: bold;
 	flex-grow: 1;
 	text-align: center;
 	border: 2px solid white;
+}
+
+header div a {
+	color: RGB(242,242,242);
+	font-size: 22px;
 }
