@@ -44,9 +44,16 @@ module.exports = {
 				color_letras: "white",
 			},
 		];
+		let inicio_imagenes = [
+			"Buenos Aires",
+			"Instituto", 
+			["Teatro Aptra 1", "Teatro Aptra 2"],
+			"Cocina"
+		];
 		res.render("home", {
 			title: "Arq. José Costas",
 			titulos_encabezado,
+			inicio_imagenes,
 		});
 	}
 }

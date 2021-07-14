@@ -1,6 +1,25 @@
-<div>
-	w
+<div class="partes flex-col texto">
+	<p>ARQ & HAB</p>
+	<p>Arquitectura y Habilitaciones</p>
+	<p>Estudio de Arquitectura</p>
+	<p>CABA</p>
+	<p>Proyectos y Obras nuevas</p>
+	<p>Remodelaciones</p>
+	<p>Habilitaciones Comerciales</p>
+	<br>
+	<p>Arq. José Ricardo Costas</p>
+	<p>Mat. CPAU 28.861</p>
+	<p>Celular: (11) 5462 2786</p>
+	<p>josericardocostas@hotmail.com</p>
 </div>
-<div>
-	e
+<div class="partes">
+	<% for (n of inicio_imagenes) { %>
+		<% if (typeof n == "string") { %>
+			<img src="./imagenes/inicio/<%= n %>.jpg" alt="" height="150px">
+		<% } else { %> 
+			<% for (m of n) { %>
+				<img src="./imagenes/inicio/<%= m %>.jpg" alt="" height="150px">
+			<% } %>
+		<% } %>
+	<% } %> 
 </div>

@@ -7,3 +7,8 @@ body {--Arial: Arial, Helvetica, sans-serif}
 	font-family: var(--Calibri);
 	font-size: 14px;
 }
+
+p {
+	font-family: Open Sans;
+	font-size: 18px;
+}

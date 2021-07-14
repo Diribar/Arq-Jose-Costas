@@ -7,6 +7,10 @@ main #inicio {
 	flex-direction: row;
 }
 
-main #inicio div {
+main #inicio .partes {
 	width: 50vw
+}
+
+main #inicio .imagenes {
+	position: relative;
 }
