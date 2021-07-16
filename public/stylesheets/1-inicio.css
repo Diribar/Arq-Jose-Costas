@@ -8,7 +8,7 @@ main #inicio .partes {
 }
 
 main #inicio .partes.texto {
-	margin: 25px;
+	padding: 50px 50px;
 }
 
 main #inicio .partes.texto h1 {

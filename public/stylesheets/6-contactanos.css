@@ -1,0 +1,29 @@
+main #contactanos {
+	padding: 50px 50px;
+}
+
+main #contactanos section {
+	justify-content: space-evenly;
+}
+
+main #contactanos form {
+	width: 50%;
+	font-size: 1rem;
+}
+
+main #contactanos form input {
+	margin-bottom: 30px;
+}
+
+main #contactanos form input, main #contactanos form textarea {
+	padding: 10px;
+	border-radius: 10px;
+}
+
+main #contactanos .texto {
+	justify-content: center;
+}
+
+main #contactanos .texto h2 {
+	margin-bottom: 0;
+}

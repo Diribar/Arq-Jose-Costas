@@ -1,0 +1,13 @@
+main #quienes_somos {
+	padding: 25px 150px 25px 50px;
+	display: flex;
+	flex-direction: row;
+}
+
+main #quienes_somos #texto {
+	padding-right: 25px;
+}
+
+main #quienes_somos img {
+	height: 100%;
+}
