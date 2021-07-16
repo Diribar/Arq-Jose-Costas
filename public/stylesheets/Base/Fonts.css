@@ -1,14 +1,16 @@
 /* FONTS */
-body {--Calibri: Calibri, 'Trebuchet MS', sans-serif}
-body {--Arial: Arial, Helvetica, sans-serif}
+body {--OpenSans: Open Sans, Calibri}
 
 /* GENERAL */
 *, body, optgroup, button, select, option, input, i {
-	font-family: var(--Calibri);
-	font-size: 14px;
+	font-family: var(--OpenSans);
 }
 
 p {
-	font-family: Open Sans;
-	font-size: 18px;
+	font-size: 1rem;
+}
+
+h1 {
+	font-size: 2rem;
+	margin-top: .25rem;
 }

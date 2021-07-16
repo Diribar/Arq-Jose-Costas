@@ -1,0 +1,26 @@
+main #habilitaciones {
+	display: flex;
+	flex-direction: row;
+}
+
+main #habilitaciones .partes.texto {
+	margin: 25px;
+	width: 65vw;
+}
+
+main #habilitaciones .partes.imagenes {
+	display: flex;
+	justify-content: center;
+	flex-grow: 1;
+	overflow: hidden;
+}
+
+main #habilitaciones .partes.imagenes img {
+	max-height: 550px;
+	width: auto;
+}
+
+main #habilitaciones h2 {
+	font-size: 1.2rem;
+	margin-bottom: 0;
+}
