@@ -1,4 +1,4 @@
-<div class="partes flex-col texto">
+<div id="texto" class="flex-col">
 	<p>ARQ & HAB</p>
 	<p>Arquitectura y Habilitaciones</p>
 	<h1>Estudio de Arquitectura</h1>
@@ -12,14 +12,20 @@
 	<p>Celular: (11) 5462 2786</p>
 	<p>josericardocostas@hotmail.com</p>
 </div>
-<div class="partes">
-	<% for (n of inicio_imagenes) { %>
-		<% if (typeof n == "string") { %>
-			<img src="./imagenes/1-inicio/<%= n %>.jpg" alt="" height="150px">
-		<% } else { %> 
-			<% for (m of n) { %>
-				<img src="./imagenes/1-inicio/<%= m %>.jpg" alt="" height="150px">
-			<% } %>
-		<% } %>
-	<% } %> 
+<div id="imagenes">
+	<ul>
+		<% for (n of inicio_imagenes) { %>
+			<li>
+				<% if (typeof n == "string") { %>
+					<img id="una" src="./imagenes/1-inicio/<%= n %>.jpg">
+				<% } else { %>
+					<div id="varias">
+						<% for (m of n) { %>
+							<img src="./imagenes/1-inicio/<%= m %>.jpg">
+						<% } %>
+					</div>
+				<% } %>
+			</li>
+		<% } %> 
+	</ul>
 </div>
