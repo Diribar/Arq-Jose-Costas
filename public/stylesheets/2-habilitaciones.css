@@ -5,13 +5,14 @@ main #habilitaciones {
 
 main #habilitaciones .partes.texto {
 	margin: 25px;
-	width: 65vw;
+	width: 45vw;
 }
 
 main #habilitaciones .partes.imagenes {
 	display: flex;
+	flex-direction: row;
 	justify-content: center;
-	flex-grow: 1;
+	width: 55vw;
 	overflow: hidden;
 }
 

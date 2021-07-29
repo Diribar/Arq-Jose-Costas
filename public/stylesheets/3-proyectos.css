@@ -4,15 +4,26 @@ main #proyectos {
 }
 
 main #proyectos #parte_texto {
+	margin: 25px;
+	width: 45vw;
+	display: flex;
+	flex-direction: column;
+}
+
+main #proyectos #parte_texto h1 {
+	margin-bottom: 0;
+}
+
+main #proyectos #parte_texto #botones {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-around;
+	flex-grow: 1;
 	margin: 25px;
-	width: 45vw;
 }
 
-main #proyectos #parte_texto button {
+main #proyectos #parte_texto #botones button {
 	padding: 20px;
 	font-weight: bold;
 	font-size: 1rem;
@@ -24,13 +35,14 @@ main #proyectos #parte-imagen {
 	flex-direction: row;
 	justify-content: center;
 	overflow: hidden;
-	width: 45vw;	
-	height: 400px;
+	width: 55vw;
+	height: 535px;
 }
 
 main #proyectos #parte-imagen img {
 	height: 100%;
-	width: 100%;
+	width: auto;
+	min-width: 70%;
 }
 
 main #proyectos h2 {
