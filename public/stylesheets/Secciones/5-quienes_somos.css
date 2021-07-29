@@ -7,9 +7,15 @@ main #quienes_somos #texto {
 	padding-right: 25px;
 }
 
+main #quienes_somos #texto ul {
+	margin: 0;
+}
+
 main #quienes_somos #texto li {
 	line-height: 1.5rem;
 	margin-top: .5rem;
+	margin-left: -40px;
+	list-style: none;
 }
 
 main #quienes_somos #imagen {
