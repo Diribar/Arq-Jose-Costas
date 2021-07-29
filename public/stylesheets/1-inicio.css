@@ -3,23 +3,20 @@ main #inicio {
 	flex-direction: row;
 }
 
-main #inicio .partes {
+main #inicio .texto {
 	width: 50vw
 }
 
-main #inicio .partes.texto {
-	padding: 50px 50px;
-}
-
-main #inicio .partes.texto h1 {
+main #inicio .texto h1 {
 	margin-bottom: 0;
 }
 
-main #inicio .partes.texto h2 {
+main #inicio .texto h2 {
 	font-size: 2em;
 	margin-top: 0;
 }
 
 main #inicio .imagenes {
+	width: 50vw;
 	position: relative;
 }
