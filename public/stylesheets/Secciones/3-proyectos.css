@@ -20,6 +20,7 @@ main #proyectos #parte_texto #botones {
 	justify-content: space-around;
 	flex-grow: 1;
 	margin: 25px;
+	background-color: var(--gris-oscuro);
 }
 
 main #proyectos #parte_texto #botones button {

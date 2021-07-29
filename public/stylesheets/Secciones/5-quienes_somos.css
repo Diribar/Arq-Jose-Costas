@@ -7,8 +7,9 @@ main #quienes_somos #texto {
 	padding-right: 25px;
 }
 
-main #quienes_somos #texto p {
-	
+main #quienes_somos #texto li {
+	line-height: 1.5rem;
+	margin-top: .5rem;
 }
 
 main #quienes_somos #imagen {
