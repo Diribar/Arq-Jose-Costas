@@ -1,3 +1,11 @@
+header {
+	position: fixed;
+	width: 100vw;
+	top: 0;
+}
+main {
+	margin-top: 50px;
+}
 header div {
 	background-color: RGB(127,127,127);
 	padding: 10px 15px;

@@ -1,3 +1,25 @@
-#inicio .texto {
+main #inicio {
+	display: flex;
+	flex-direction: row;
+}
+
+main #inicio .partes {
+	width: 50vw
+}
+
+main #inicio .partes.texto {
 	margin: 25px;
+}
+
+main #inicio .partes.texto h1 {
+	margin-bottom: 0;
+}
+
+main #inicio .partes.texto h2 {
+	font-size: 2em;
+	margin-top: 0;
+}
+
+main #inicio .imagenes {
+	position: relative;
 }

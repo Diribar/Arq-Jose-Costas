@@ -1,6 +1,6 @@
 {
-  "name": "sitio-web",
-  "version": "0.0.0",
+  "name": "arq-jose-costas",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "nodemon -e js ./bin/www"
