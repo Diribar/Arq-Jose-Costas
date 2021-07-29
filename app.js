@@ -4,13 +4,17 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var homeRouter = require('./rutas y controladores/home_ruta');
+var usersRouter = require('./rutas y controladores/users');
 
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set("views", [
+	path.resolve(__dirname, "./views"),
+	path.resolve(__dirname, "./views/partials"),
+	path.resolve(__dirname, "./views/secciones"),
+]);
 app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
@@ -23,7 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.listen(3001, () => console.log("Servidor funcionando en puerto 3001..."));
 
 app.use('/users', usersRouter);
-app.use('/', indexRouter);
+app.use('/', homeRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

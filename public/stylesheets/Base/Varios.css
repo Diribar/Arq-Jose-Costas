@@ -1,0 +1,5 @@
+/* Formato para elementos */
+hr {margin: 2px 0; overflow: hidden; border-top: 1px solid rgba(0,0,0,.15)}
+i {font-style: normal;}
+a {text-decoration: none;}
+p {margin-block-start: 0px; margin-block-end: 0px}

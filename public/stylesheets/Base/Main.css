@@ -1,0 +1,16 @@
+body {
+	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+main #inicio {
+	display: flex;
+	flex-direction: row;
+}
+
+main #inicio .partes {
+	width: 50vw
+}
+
+main #inicio .imagenes {
+	position: relative;
+}
