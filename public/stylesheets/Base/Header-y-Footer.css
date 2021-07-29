@@ -2,11 +2,12 @@ header {
 	position: fixed;
 	width: 100vw;
 	top: 0;
+	z-index: 1;
 }
 main {
 	margin-top: 50px;
 }
-header div {
+header nav {
 	background-color: RGB(127,127,127);
 	padding: 10px 15px;
 	font-weight: bold;
@@ -15,7 +16,7 @@ header div {
 	border: 2px solid white;
 }
 
-header div a {
+header nav a {
 	color: RGB(242,242,242);
 	font-size: 22px;
 }
