@@ -6,11 +6,11 @@ INICIO
 PROYECTOS
 	- Secuencia de fotos (que se disuelvan)
 
-CONTACTENOS
-	- Envío de mail
-
 FOOTER
 	- Hacer el pie de página
+
+CONTACTENOS
+	- Envío de mail
 
 OTROS
 	- Subir a internet en modo prueba
@@ -20,6 +20,8 @@ LOGIN
 
 EDICION DE SECCIONES
 	- Hacer la vista
+	- Grabar en la BD
+	- Actualizar las vistas
 
 PARA CONSULTARLE A PABLO
 	- Inactivar GET comments en Terminal

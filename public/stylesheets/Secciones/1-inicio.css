@@ -22,15 +22,25 @@
 	width: 55vw;
     overflow: hidden;
 	margin: 20px 0;
+	position: relative;
 }
 
 #inicio #imagenes ul {
+	position: absolute;
 	display: flex;
     padding: 0;
     width: 500%;
 	height: 100%;
 	margin: 0;
-    animation: secuencia 10s infinite normal;
+    animation: secuencia 60s infinite normal;
+	z-index: 0;
+}
+
+#inicio #imagenes #iconos {
+	z-index: 20;
+	width: 100%;
+	height: 100%;
+	text-align: center;
 }
 
 #inicio #imagenes ul li {
@@ -66,4 +76,10 @@
     75%, 95% {margin-left: -300%;}
 	100%, 100% {margin-left: -400%;}
 
+}
+
+.fa-pause-circle, .fa-play-circle {
+	z-index: 20;
+	font-size: 50px;
+	color: white;
 }
