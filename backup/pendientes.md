@@ -24,5 +24,4 @@ EDICION DE SECCIONES
 	- Actualizar las vistas
 
 PARA CONSULTARLE A PABLO
-	- Inactivar GET comments en Terminal
 	- Aparente error en "style background-color"

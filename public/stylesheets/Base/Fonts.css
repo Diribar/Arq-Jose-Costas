@@ -1,9 +1,5 @@
-/* FONTS */
-body {--OpenSans: Open Sans, Calibri}
-
-/* GENERAL */
 *, body, optgroup, button, select, option, input, i {
-	font-family: var(--OpenSans);
+	font-family: 'Open Sans', Roboto,'Helvetica Neue', sans-serif;
 }
 
 p {
