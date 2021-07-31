@@ -3,22 +3,18 @@ INICIO
 
 CONTACTENOS
 	- Validaciones on-line
-	- Envío de mail
 	- Botón submit
+	- Envío de mail
 
-FOOTER
-	- Hacer el pie de página
+FOOTER -> hacerlo
 
-OTROS
-	- Subir a internet en modo prueba
+OTROS -> Subir a internet en modo prueba
 
-LOGIN
-	- Hacer la vista
+LOGIN -> Hacer la vista
 
 EDICION DE SECCIONES
-	- Hacer la vista
+	- Hacer la vista del formulario
 	- Grabar en la BD
-	- Actualizar las vistas
+	- Actualizar las vistas de usuario
 
-PARA CONSULTARLE A PABLO
-	- Aparente error en "style background-color"
+REVISAR DE PABLO -> Falso error en "style background-color"
