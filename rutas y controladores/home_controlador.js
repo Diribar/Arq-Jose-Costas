@@ -1,18 +1,18 @@
 module.exports = {
-	home: (req,res) => {
+	home: (req, res) => {
 		let titulos_encabezado = [
 			{
 				id: 1,
 				seccion: "inicio",
 				nombre_a_mostrar: "Inicio",
-				color_fondo: "RGBA(241, 199, 87, 0.8)",
+				color_fondo: "#f1c757",
 				color_letras: "RGB(118, 113, 113)",
 			},
 			{
 				id: 2,
 				seccion: "habilitaciones",
 				nombre_a_mostrar: "Habilitaciones",
-				color_fondo: "RGBA(82, 83, 83, 0.8)",
+				color_fondo: "#828383",
 				color_letras: "white",
 			},
 			{
@@ -55,5 +55,9 @@ module.exports = {
 			titulos_encabezado,
 			inicio_imagenes,
 		});
-	}
+	},
+
+	loginForm: (req, res) => {
+		res.send("Formulario de login")
+	},
 }

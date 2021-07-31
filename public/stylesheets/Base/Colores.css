@@ -1,12 +1,13 @@
 /* COLORES */
 body {
 	--amarillo-claro:RGB(255,242,204);
+	--amarillo-oscuro: #f1c757;
 	--azul: RGB(37,64,97);
 	--azul-frances: RGB(31,73,125);
 	--celeste-claro: RGB(220,230,242);
 	--celeste-oscuro: #C7D7EA;
 	--gris-claro: RGB(242,242,242);
-	--gris-oscuro: #757575;
+	--gris-oscuro: #828383;
 	--naranja-oscuro: #F57C00;
 	--rojo: RGB(192,80,77);
 	--rojo-claro: (251,229,214);
