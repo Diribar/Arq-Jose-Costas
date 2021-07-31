@@ -1,16 +1,16 @@
 INICIO
-	- Pausa/Play a la secuencia de transición de fotos (inicio)
-		<i class="fas fa-play-circle"></i>
-		<i class="fas fa-pause-circle"></i>
+	- Imagen previa / imagen futura
 
 PROYECTOS
 	- Secuencia de fotos (que se disuelvan)
 
+CONTACTENOS
+	- Validaciones on-line
+	- Envío de mail
+	- Botón submit
+
 FOOTER
 	- Hacer el pie de página
-
-CONTACTENOS
-	- Envío de mail
 
 OTROS
 	- Subir a internet en modo prueba

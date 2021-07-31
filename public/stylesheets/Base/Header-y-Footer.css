@@ -8,7 +8,7 @@ main {
 	margin-top: 50px;
 }
 header nav {
-	background-color: RGB(127,127,127);
+	background-color: var(--gris-letras);
 	padding: 10px 15px;
 	font-weight: bold;
 	flex-grow: 1;

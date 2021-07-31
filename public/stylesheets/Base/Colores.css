@@ -8,6 +8,8 @@ body {
 	--celeste-oscuro: #C7D7EA;
 	--gris-claro: RGB(242,242,242);
 	--gris-oscuro: #828383;
+	--gris-letras: RGB(118, 113, 113);
+	/* --gris-letras: RGB(127,127,127); */
 	--naranja-oscuro: #F57C00;
 	--rojo: RGB(192,80,77);
 	--rojo-claro: (251,229,214);

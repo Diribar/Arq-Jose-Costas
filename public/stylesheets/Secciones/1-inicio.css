@@ -1,7 +1,8 @@
 #inicio {
 	display: flex;
 	flex-direction: row;
-	padding: 0 50px
+	padding: 0 50px;
+	color: var(--gris-letras);
 }
 
 #inicio #texto {
@@ -9,34 +10,49 @@
 	margin: 50px 0
 }
 
+#inicio #texto #centrar {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
 #inicio #texto #logo1 {
-	font-family: 'Open Sans', Roboto,'Helvetica Neue', sans-serif;
-	font-size: 48px;
+	font-size: 60px;
 	color: ivory;
 	font-weight: bolder;
-	text-shadow: 2px 0 0 var(--gris-oscuro), -2px 0 0 var(--gris-oscuro), 0 2px 0 var(--gris-oscuro), 0 -2px 0 var(--gris-oscuro), 1px 1px var(--gris-oscuro), -1px -1px 0 var(--gris-oscuro), 1px -1px 0 var(--gris-oscuro), -1px 1px 0 var(--gris-oscuro);
+	text-shadow: 2px 0 0 var(--gris-letras), -2px 0 0 var(--gris-letras), 0 2px 0 var(--gris-letras), 0 -2px 0 var(--gris-letras), 1px 1px var(--gris-letras), -1px -1px 0 var(--gris-letras), 1px -1px 0 var(--gris-letras), -1px 1px 0 var(--gris-letras);
 }
 
 #inicio #texto #logo2 {
-	
+	font-size: 24px;
+	color: var(--gris-letras);
+	font-weight: bolder;
 }
 
 #inicio #texto h1 {
-	margin-bottom: 0;
-}
-
-#inicio #texto h2 {
-	font-size: 2em;
-	margin-top: 0;
+	font-size: 24px;
+	margin-top: 20px;
+	margin-bottom: 0px;
 }
 
 #inicio #texto #tareas p {
 	margin-top: 0.25rem;
+	margin-left: 10px;
 	font-weight: bold;
+	font-style: italic;
+}
+
+#inicio #texto #datos {
+	margin-top: 20px;
+}
+
+#inicio #texto #datos p {
+	margin-top: .5rem;
+	color: var(--gris-letras);
 }
 
 #inicio #imagenes {
-	width: 55vw;
+	flex-grow: 1;
     overflow: hidden;
 	margin: 20px 0;
 	position: relative;
