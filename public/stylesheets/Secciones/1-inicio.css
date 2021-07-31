@@ -84,11 +84,15 @@
 	height: 100%;
 }
 
+#inicio #imagenes ul li img#una {
+	min-width: 100%;
+}
+
 #inicio #imagenes ul li div#varias {
 	width: 100%;
 	display: flex;
 	flex-direction: row;
-	justify-content: space-evenly;
+	justify-content: space-between;
 }
 
 #inicio #imagenes ul li div#varias img {

@@ -50,6 +50,7 @@ main #proyectos #imagen div img {
 	position: absolute;
 	height: 100%;
 	width: auto;
+	min-width: 70%;
 }
 
 main #proyectos #imagen div img#uno {animation: banner1 15s infinite normal;}
