@@ -1,9 +1,6 @@
 INICIO
 	- Imagen previa / imagen futura
 
-PROYECTOS
-	- Secuencia de fotos (que se disuelvan)
-
 CONTACTENOS
 	- Validaciones on-line
 	- Envío de mail
