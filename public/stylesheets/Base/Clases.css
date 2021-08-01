@@ -6,6 +6,7 @@
 .dropdown-content {display: none;}
 .flex-col {display: flex;flex-direction: column;}
 .flex-row {display: flex;flex-direction: row;}
+.justify-center {justify-content: center;}
 .grow {flex-grow: 1;}
 .ocultar {display: none;}
 .relative {position: relative;}

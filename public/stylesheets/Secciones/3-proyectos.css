@@ -3,17 +3,17 @@ main #proyectos {
 	flex-direction: row;
 }
 
-main #proyectos #parte_texto {
+main #proyectos #texto {
 	display: flex;
 	flex-direction: column;
 	width: 45vw;
 }
 
-main #proyectos #parte_texto h1 {
+main #proyectos #texto h1 {
 	margin-bottom: 0;
 }
 
-main #proyectos #parte_texto #botones {
+main #proyectos #texto #botones {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -22,7 +22,7 @@ main #proyectos #parte_texto #botones {
 	margin: 25px;
 }
 
-main #proyectos #parte_texto #botones button {
+main #proyectos #texto #botones button {
 	padding: 20px;
 	font-weight: bold;
 	font-size: 1rem;
@@ -31,22 +31,32 @@ main #proyectos #parte_texto #botones button {
 	color: white;
 }
 
-main #proyectos #parte-imagen {
+main #proyectos #imagen {
 	display: flex;
 	flex-direction: row;
-	justify-content: center;
-	overflow: hidden;
-	width: 55vw;
+	/* flex-grow: 1; */
+	width: 50vw;
 	height: 535px;
 }
 
-main #proyectos #parte-imagen img {
+main #proyectos #imagen div {
+	height: 100%;
+	width: 100%;
+    position: relative;
+	overflow: hidden;
+}
+
+main #proyectos #imagen div img {
+	position: absolute;
 	height: 100%;
 	width: auto;
 	min-width: 70%;
 }
 
-main #proyectos h2 {
-	font-size: 1.2rem;
-	margin-bottom: 0;
-}
+main #proyectos #imagen div img#uno {animation: banner1 15s infinite normal;}
+main #proyectos #imagen div img#dos {animation: banner2 15s infinite normal;}
+main #proyectos #imagen div img#tres {animation: banner3 15s infinite normal;}
+
+@keyframes banner1 {0%, 23% {opacity: 1} 33%, 56% {opacity: 0} 66%, 90% {opacity: 0} 100% {opacity: 1;}}
+@keyframes banner2 {0%, 23% {opacity: 0} 33%, 56% {opacity: 1} 66%, 90% {opacity: 0} 100% {opacity: 0;}}
+@keyframes banner3 {0%, 23% {opacity: 0} 33%, 56% {opacity: 0} 66%, 90% {opacity: 1} 100% {opacity: 0;}}
