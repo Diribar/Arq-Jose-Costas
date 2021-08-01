@@ -3,25 +3,30 @@ main #habilitaciones {
 	flex-direction: row;
 }
 
-main #habilitaciones .texto {
+main #habilitaciones #texto {
 	width: 45vw;
 }
 
-main #habilitaciones .texto h2 {
+main #habilitaciones #texto #comentarioH1 {
+	margin-top: .5rem;
+	line-height: 1.5rem;
+}
+
+main #habilitaciones #texto h2 {
 	font-size: 1.2rem;
 	margin-bottom: 0;
 }
 
-main #habilitaciones .imagenes {
+main #habilitaciones #imagenes {
 	position: relative;
 	display: flex;
+	flex-grow: 1;
 	flex-direction: row;
 	justify-content: center;
-	width: 55vw;
 	overflow: hidden;
 }
 
-main #habilitaciones .imagenes img {
+main #habilitaciones #imagenes img {
 	position: absolute;
 	height: 100%;
 	width: auto;

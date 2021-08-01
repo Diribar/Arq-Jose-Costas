@@ -1,22 +1,138 @@
-main #inicio {
+#inicio {
 	display: flex;
 	flex-direction: row;
+	padding: 0 50px;
+	color: var(--gris-letras);
 }
 
-main #inicio .texto {
-	width: 50vw
+#inicio #texto {
+	width: 45vw;
+	margin: 50px 0
 }
 
-main #inicio .texto h1 {
-	margin-bottom: 0;
+#inicio #texto #centrar {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
-main #inicio .texto h2 {
-	font-size: 2em;
-	margin-top: 0;
+#inicio #texto #logo1 {
+	font-size: 60px;
+	color: ivory;
+	font-weight: bolder;
+	text-shadow: 2px 0 0 var(--gris-letras), -2px 0 0 var(--gris-letras), 0 2px 0 var(--gris-letras), 0 -2px 0 var(--gris-letras), 1px 1px var(--gris-letras), -1px -1px 0 var(--gris-letras), 1px -1px 0 var(--gris-letras), -1px 1px 0 var(--gris-letras);
 }
 
-main #inicio .imagenes {
-	width: 50vw;
+#inicio #texto #logo2 {
+	font-size: 24px;
+	color: var(--gris-letras);
+	font-weight: bolder;
+}
+
+#inicio #texto h1 {
+	font-size: 24px;
+	margin-top: 20px;
+	margin-bottom: 0px;
+}
+
+#inicio #texto #tareas p {
+	margin-top: 0.25rem;
+	margin-left: 10px;
+	font-weight: bold;
+	font-style: italic;
+}
+
+#inicio #texto #datos {
+	margin-top: 20px;
+}
+
+#inicio #texto #datos p {
+	margin-top: .5rem;
+	color: var(--gris-letras);
+}
+
+#inicio #imagenes {
+	flex-grow: 1;
+    overflow: hidden;
+	margin: 20px 0;
 	position: relative;
 }
+
+#inicio #imagenes ul {
+	position: absolute;
+	display: flex;
+    padding: 0;
+    width: 500%;
+	height: 100%;
+	margin: 0;
+    animation: secuencia 10s infinite;
+	animation-direction: normal;
+}
+
+#inicio #imagenes ul li {
+    width: 100%;
+    list-style: none;
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	overflow: hidden;
+}
+
+#inicio #imagenes ul li img#una, #inicio #imagenes ul li div#varias {
+	position: absolute;
+	height: 100%;
+}
+
+#inicio #imagenes ul li div#varias {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+}
+
+#inicio #imagenes ul li div#varias img {
+	height: 100%;
+}
+
+@keyframes secuencia {
+    0%, 20% {margin-left: 0;}
+    25%, 45% {margin-left: -100%;}
+    50%, 70% {margin-left: -200%;}
+    75%, 95% {margin-left: -300%;}
+	100%, 100% {margin-left: -400%;}
+
+}
+
+#inicio #imagenes #iconos {
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	opacity: 0;
+	transition-duration: 1s;
+}
+
+#inicio #imagenes #iconos:hover {
+	opacity: 1;
+}
+
+.fas {
+	z-index: 1;
+	font-size: 50px;
+	color: var(--gris-oscuro);
+	text-shadow: 2px 2px 2px white;
+	transition-duration: .5s;
+}
+
+.fa-pause-circle, .fa-play-circle {
+	background-color: ivory;
+	border-radius: 50%;
+}
+
+.fas:hover {
+	transform: scale(1.5);
+}
+

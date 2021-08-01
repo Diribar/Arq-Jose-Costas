@@ -1,25 +1,48 @@
-<div class="partes flex-col texto">
-	<p>ARQ & HAB</p>
-	<p>Arquitectura y Habilitaciones</p>
-	<h1>Estudio de Arquitectura</h1>
-	<h2>CABA</h2>
-	<p>Proyectos y Obras nuevas</p>
-	<p>Remodelaciones</p>
-	<p>Habilitaciones Comerciales</p>
-	<br>
-	<p>Arq. José Ricardo Costas</p>
-	<p>Mat. CPAU 28.861</p>
-	<p>Celular: (11) 5462 2786</p>
-	<p>josericardocostas@hotmail.com</p>
+<div id="texto" class="flex-col">
+	<div class="flex-row">
+		<div id="centrar">
+			<p id="logo1">ARQ & HAB</p>
+			<p id="logo2">Arquitectura y Habilitaciones</p>
+		</div>
+		<div id="grow">
+		</div>
+	</div>
+	<h1>Estudio de Arquitectura - CABA</h1>
+	<div id="tareas">
+		<p>Proyectos y Obras nuevas</p>
+		<p>Remodelaciones</p>
+		<p>Habilitaciones Comerciales</p>
+	</div>
+	<div id="datos">
+		<p>Arq. José Ricardo Costas</p>
+		<p>Mat. CPAU 28.861</p>
+		<p>Celular: (11) 5462 2786</p>
+		<p>josericardocostas@hotmail.com</p>
+	</div>
 </div>
-<div class="partes">
-	<% for (n of inicio_imagenes) { %>
-		<% if (typeof n == "string") { %>
-			<img src="./imagenes/1-inicio/<%= n %>.jpg" alt="" height="150px">
-		<% } else { %> 
-			<% for (m of n) { %>
-				<img src="./imagenes/1-inicio/<%= m %>.jpg" alt="" height="150px">
-			<% } %>
-		<% } %>
-	<% } %> 
+<div id="imagenes">
+	<ul>
+		<% for (n of inicio_imagenes) { %>
+			<li>
+				<% if (typeof n == "string") { %>
+					<img id="una" src="./imagenes/1-inicio/<%= n %>.jpg">
+				<% } else { %>
+					<div id="varias">
+						<% for (m of n) { %>
+							<img src="./imagenes/1-inicio/<%= m %>.jpg">
+						<% } %>
+					</div>
+				<% } %>
+			</li>
+		<% } %> 
+		<li>
+			<img id="una" src="./imagenes/1-inicio/<%= inicio_imagenes[0] %>.jpg">
+		</li>
+	</ul>
+	<div id="iconos">
+		<i class="fas fa-chevron-left"></i>
+		<i class="fas fa-pause-circle"></i>
+		<i class="fas fa-play-circle ocultar"></i>
+		<i class="fas fa-chevron-right"></i>
+	</div>
 </div>
