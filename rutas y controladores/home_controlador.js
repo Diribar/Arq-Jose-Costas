@@ -19,7 +19,7 @@ module.exports = {
 				id: 3,
 				seccion: "proyectos",
 				nombre_a_mostrar: "Proyectos y Obras",
-				color_fondo: "RGBA(241, 199, 87, 0.8)",
+				color_fondo: "#f1c757",
 				color_letras: "RGB(118, 113, 113)",
 			},
 			{
@@ -33,7 +33,7 @@ module.exports = {
 				id: 5,
 				seccion: "quienes_somos",
 				nombre_a_mostrar: "Quiénes Somos",
-				color_fondo: "RGBA(241, 199, 87, 0.8)",
+				color_fondo: "#f1c757",
 				color_letras: "RGB(118, 113, 113)",
 			},
 			{
