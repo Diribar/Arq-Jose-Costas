@@ -50,10 +50,25 @@ module.exports = {
 			["Teatro Aptra 1", "Teatro Aptra 2"],
 			"Cocina"
 		];
+		let clientes = [
+			{
+				nombre: "Aptra",
+				imagen: "Aptra.jpg",
+			},
+			{
+				nombre: "Furman",
+				imagen: "Furman.webp",
+			},
+			{
+				nombre: "Ysonut",
+				imagen: "Ysonut.svg",
+			},
+		];
 		res.render("home", {
 			title: "Arq. José Costas",
 			titulos_encabezado,
 			inicio_imagenes,
+			clientes,
 		});
 	},
 
