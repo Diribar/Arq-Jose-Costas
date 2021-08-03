@@ -1,8 +1,5 @@
 URL
 www.arquitectojosecostas.com.ar <-- esta
-www.arquitecto-jose-costas.com.ar
-
-INICIO -> La flecha, retrocede, pero sigue el movimiento
 
 PROYECTOS
 	- "Antes de remodelar"
@@ -23,6 +20,8 @@ CONTACTENOS
 	- Envío de mail
 
 FOOTER -> hacerlo
+
+INICIO -> Comentarle a José por qué la flecha retrocede, pero NO sigue el movimiento
 
 OTROS -> Subir a internet en modo prueba
 
