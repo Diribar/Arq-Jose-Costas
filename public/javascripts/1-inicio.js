@@ -23,11 +23,11 @@ window.addEventListener("load", () => {
 			}, parseInt(transicion))
 		}
 		secuencia >= imagenes.length - 1
-			? (iconos[0].style.opacity = 0)
-			: (iconos[0].style.opacity = 1);
+			? iconos[0].classList.add("ocultar")
+			: iconos[0].classList.remove("ocultar");
 		secuencia == imagenes.length - 2
-			? (iconos[3].style.opacity = 0)
-			: (iconos[3].style.opacity = 1);
+			? iconos[3].classList.add("ocultar")
+			: iconos[3].classList.remove("ocultar");
 	}
 
 	// Ejecutar
@@ -38,7 +38,6 @@ window.addEventListener("load", () => {
 			// Pausa o flechas
 			if (i==0 || i==1 || i==3) {
 				clearInterval(loop);
-				contenedor.style.transitionDuration = '0s'
 				iconos[1].classList.add("ocultar")
 				iconos[2].classList.remove("ocultar")
 			}
@@ -64,6 +63,12 @@ window.addEventListener("load", () => {
 				margen = secuencia * ancho
 				contenedor.style.transform = 'translateX(-' + margen + 'px)'
 			}
+			secuencia == 0
+				? iconos[0].classList.add("ocultar")
+				: iconos[0].classList.remove("ocultar");
+			secuencia == imagenes.length - 2
+				? iconos[3].classList.add("ocultar")
+				: iconos[3].classList.remove("ocultar");
 		})
 	}
 })

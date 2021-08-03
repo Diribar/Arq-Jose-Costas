@@ -13,10 +13,10 @@ header nav {
 	font-weight: bold;
 	flex-grow: 1;
 	text-align: center;
-	border: 2px solid white;
+	border: 2px solid var(--blanco-letras);
 }
 
 header nav a {
-	color: RGB(242,242,242);
+	color: var(--blanco-letras);
 	font-size: 22px;
 }
