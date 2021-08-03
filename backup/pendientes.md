@@ -1,8 +1,10 @@
+INICIO
+	- Secuencia == 0 ? ocultar flecha izq.
+	- Secuencia == length -2 ?? ocultar flecha der.
+
 URL
 www.arquitectojosecostas.com.ar <-- esta
 
-PROYECTOS
-	- "Antes de remodelar"
 
 QUIENES SOMOS
 	- Agregar "Nuestros Clientes
