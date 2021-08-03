@@ -22,6 +22,12 @@ window.addEventListener("load", () => {
 				contenedor.style.transform = 'translateX(0px)'
 			}, parseInt(transicion))
 		}
+		secuencia >= imagenes.length - 1
+			? (iconos[0].style.opacity = 0)
+			: (iconos[0].style.opacity = 1);
+		secuencia == imagenes.length - 2
+			? (iconos[3].style.opacity = 0)
+			: (iconos[3].style.opacity = 1);
 	}
 
 	// Ejecutar
@@ -39,8 +45,8 @@ window.addEventListener("load", () => {
 			// Flecha izquierda
 			if (i == 0) {
 				secuencia = -parseInt(contenedor.style.transform.slice(11,-3))/ancho
-				secuencia == 0 ? (secuencia = imagenes.length - 1) : ""
 				secuencia = secuencia - 1
+				//secuencia == 0 ?  : ""
 				margen = secuencia * ancho
 				contenedor.style.transform = 'translateX(-' + margen + 'px)'
 			}
