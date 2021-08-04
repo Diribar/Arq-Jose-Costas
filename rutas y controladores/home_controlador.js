@@ -1,5 +1,5 @@
 module.exports = {
-	home: (req, res) => {
+	homeForm: (req, res) => {
 		let titulos_encabezado = [
 			{
 				id: 1,
@@ -98,6 +98,10 @@ module.exports = {
 			inicio_imagenes,
 			clientes,
 		});
+	},
+
+	homeGuardar: (req, res) => {
+		res.send("Recibí el mensaje del cliente")
 	},
 
 	loginForm: (req, res) => {

@@ -2,7 +2,7 @@ CONTACTENOS
 	- Validaciones on-line
 	- Botón submit a la derecha
 	- Validaciones back-end
-	- Captcha
+	- Suma
 	- Envío de mail
 
 INICIO 
