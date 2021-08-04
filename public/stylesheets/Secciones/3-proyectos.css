@@ -34,8 +34,7 @@ main #proyectos #texto #botones button {
 main #proyectos #imagen {
 	display: flex;
 	flex-direction: row;
-	/* flex-grow: 1; */
-	width: 50vw;
+	flex-grow: 1;
 	height: 535px;
 }
 

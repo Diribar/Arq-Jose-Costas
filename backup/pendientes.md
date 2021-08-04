@@ -6,8 +6,8 @@ CONTACTENOS
 FOOTER -> hacerlo
 
 INICIO 
-	- Comentarle a José por qué la flecha retrocede, pero NO sigue el movimiento (experiencia de usuario)
 	- Circulitos en vez de flechas
+	- Comentarle a José por qué la flecha retrocede, pero NO sigue el movimiento (experiencia de usuario)
 
 OTROS -> Subir a internet en modo prueba
 

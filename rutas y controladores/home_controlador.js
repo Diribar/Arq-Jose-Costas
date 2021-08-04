@@ -57,11 +57,39 @@ module.exports = {
 			},
 			{
 				nombre: "Furman",
-				imagen: "Furman.webp",
+				imagen: "Furman.png",
 			},
 			{
 				nombre: "Ysonut",
-				imagen: "Ysonut.svg",
+				imagen: "Ysonut.jfif",
+			},
+			{
+				nombre: "TCMax",
+				imagen: "TCMax.jpg",
+			},
+			{
+				nombre: "Kopelco",
+				imagen: "Kopelco.png",
+			},
+			{
+				nombre: "Dullyll",
+				imagen: "Dullyll.jpg",
+			},
+			{
+				nombre: "Brothers viajes",
+				imagen: "Brothers viajes.jpeg",
+			},
+			{
+				nombre: "MP Inmuebles",
+				imagen: "MP Inmuebles.png",
+			},
+			{
+				nombre: "Distribuidora Don Gaspar",
+				imagen: "Distrib. Don Gaspar.jfif",
+			},
+			{
+				nombre: "El tanque cultural",
+				imagen: "El tanque cultural.jpg",
 			},
 		];
 		res.render("home", {
