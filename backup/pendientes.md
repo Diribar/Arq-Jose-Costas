@@ -1,13 +1,12 @@
 CONTACTENOS
 	- Validaciones on-line
 	- Botón submit a la derecha
+	- Validaciones back-end
+	- Captcha
 	- Envío de mail
 
-FOOTER -> hacerlo
-
 INICIO 
-	- Circulitos en vez de flechas
-	- Comentarle a José por qué la flecha retrocede, pero NO sigue el movimiento (experiencia de usuario)
+	- Comentarle a José por qué la flecha retrocede, pero interrumpe el movimiento (experiencia de usuario)
 
 OTROS -> Subir a internet en modo prueba
 

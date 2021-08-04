@@ -56,30 +56,16 @@ main #quienes_somos #clientes ul {
 main #quienes_somos #clientes ul li {
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+	justify-content: center;
 	text-align: center;
 	margin: 20px 10px;
-}
-
-main #quienes_somos #clientes ul li #imagen {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	flex-grow: 1;
-	margin-bottom: 10px;
 	width: 200px;
-	/* border: red 2px solid; */
+	flex-grow: 1;
+	border-radius: 20px;
+	overflow: hidden;
 }
 
-main #quienes_somos #clientes ul li #imagen img {
+main #quienes_somos #clientes ul li img {
 	object-fit: contain;
 	margin: 0;
-}
-
-main #quienes_somos #clientes ul li p {
-	font-weight: bold;
-	color: var(--blanco-letras);
-	background-color: var(--gris-oscuro);
-	padding: 5px 10px;
-	border-radius: 20px;
 }
