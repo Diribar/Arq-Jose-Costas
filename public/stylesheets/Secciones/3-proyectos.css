@@ -77,6 +77,3 @@ main #proyectos #imagen div img#tres {animation: banner3 15s infinite normal;}
 @keyframes banner1 {0%, 23% {opacity: 1} 33%, 56% {opacity: 0} 66%, 90% {opacity: 0} 100% {opacity: 1;}}
 @keyframes banner2 {0%, 23% {opacity: 0} 33%, 56% {opacity: 1} 66%, 90% {opacity: 0} 100% {opacity: 0;}}
 @keyframes banner3 {0%, 23% {opacity: 0} 33%, 56% {opacity: 0} 66%, 90% {opacity: 1} 100% {opacity: 0;}}
-/* @keyframes banner1 {0%, 23% {opacity: 1}}
-@keyframes banner2 {0%, 23% {opacity: 0}}
-@keyframes banner3 {0%, 23% {opacity: 0}} */

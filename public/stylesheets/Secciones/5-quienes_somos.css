@@ -3,6 +3,10 @@ main #quienes_somos {
 	flex-direction: column;
 }
 
+main #quienes_somos h2 {
+	margin-bottom: 0;
+}
+
 main #quienes_somos #titulo {
 	display: flex;
 	flex-direction: row;
@@ -27,11 +31,10 @@ main #quienes_somos #titulo #texto li {
 }
 
 main #quienes_somos #titulo #imagen {
-	margin-right: 50px;
 	position: relative;
 	width: 250px;
 	overflow: hidden;
-	border-radius: 50px;
+	border-radius: 30px;
 }
 
 main #quienes_somos #titulo #imagen img {
@@ -44,8 +47,10 @@ main #quienes_somos #titulo #imagen img {
 main #quienes_somos #clientes ul {
 	display: flex;
 	flex-direction: row;
+	flex-wrap: wrap;
 	justify-content: space-evenly;
-	
+	padding: 0;
+	margin: 0;
 }
 
 main #quienes_somos #clientes ul li {
@@ -53,6 +58,7 @@ main #quienes_somos #clientes ul li {
 	flex-direction: column;
 	justify-content: space-between;
 	text-align: center;
+	margin: 20px 10px;
 }
 
 main #quienes_somos #clientes ul li #imagen {
@@ -61,12 +67,19 @@ main #quienes_somos #clientes ul li #imagen {
 	justify-content: center;
 	flex-grow: 1;
 	margin-bottom: 10px;
+	width: 200px;
+	/* border: red 2px solid; */
 }
 
 main #quienes_somos #clientes ul li #imagen img {
-	width: 200px;
+	object-fit: contain;
+	margin: 0;
 }
 
 main #quienes_somos #clientes ul li p {
 	font-weight: bold;
+	color: var(--blanco-letras);
+	background-color: var(--gris-oscuro);
+	padding: 5px 10px;
+	border-radius: 20px;
 }

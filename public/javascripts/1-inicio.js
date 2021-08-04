@@ -1,6 +1,5 @@
 window.addEventListener("load", () => {
 	// Declarar las variables
-	let ancho = document.querySelector("#inicio #imagenes").offsetWidth;
 	let contenedor = document.querySelector("#inicio #imagenes ul")
 	contenedor.style.transform = 'translateX(0px)'
 	let imagenes = document.querySelectorAll("#inicio #imagenes ul li")
@@ -10,6 +9,7 @@ window.addEventListener("load", () => {
 
 	// Función slider
 	let slider = () => {
+		ancho = document.querySelector("#inicio #imagenes").offsetWidth;
 		contenedor.style.transitionDuration = transicion
 		secuencia = -parseInt(contenedor.style.transform.slice(11,-3))/ancho
 		secuencia = secuencia + 1
@@ -35,6 +35,7 @@ window.addEventListener("load", () => {
 
 	for (let i=0; i<iconos.length; i++) {
 		iconos[i].addEventListener("click", () => {
+			ancho = document.querySelector("#inicio #imagenes").offsetWidth;
 			// Pausa o flechas
 			if (i==0 || i==1 || i==3) {
 				clearInterval(loop);

@@ -47,7 +47,7 @@ module.exports = {
 		let inicio_imagenes = [
 			"Buenos Aires",
 			"Instituto", 
-			["Teatro Aptra 1", "Teatro Aptra 2"],
+			"Teatro Aptra 2",
 			"Cocina"
 		];
 		let clientes = [
@@ -76,20 +76,20 @@ module.exports = {
 				imagen: "Dullyll.jpg",
 			},
 			{
-				nombre: "Brothers viajes",
-				imagen: "Brothers viajes.jpeg",
+				nombre: "Brothers Viajes",
+				imagen: "Brothers Viajes.jpeg",
 			},
 			{
 				nombre: "MP Inmuebles",
 				imagen: "MP Inmuebles.png",
 			},
 			{
-				nombre: "Distribuidora Don Gaspar",
+				nombre: "Distrib. Don Gaspar",
 				imagen: "Distrib. Don Gaspar.jfif",
 			},
 			{
-				nombre: "El tanque cultural",
-				imagen: "El tanque cultural.jpg",
+				nombre: "El Tanque Cultural",
+				imagen: "El Tanque Cultural.jpg",
 			},
 		];
 		res.render("home", {
