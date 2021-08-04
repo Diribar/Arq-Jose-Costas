@@ -1,27 +1,85 @@
 main #quienes_somos {
 	display: flex;
+	flex-direction: column;
+}
+
+main #quienes_somos h2 {
+	margin-bottom: 0;
+}
+
+main #quienes_somos #titulo {
+	display: flex;
 	flex-direction: row;
+	flex-wrap: nowrap;
 }
 
-main #quienes_somos #texto {
+main #quienes_somos #titulo #texto {
 	padding-right: 25px;
+	width: 0%;
+	flex-grow: 1;
 }
 
-main #quienes_somos #texto ul {
+main #quienes_somos #titulo #texto ul {
 	margin: 0;
 }
 
-main #quienes_somos #texto li {
+main #quienes_somos #titulo #texto li {
 	line-height: 1.5rem;
 	margin-top: .5rem;
 	margin-left: -40px;
 	list-style: none;
 }
 
-main #quienes_somos #imagen {
-	padding-right: 150px;
+main #quienes_somos #titulo #imagen {
+	position: relative;
+	width: 250px;
+	overflow: hidden;
+	border-radius: 30px;
 }
 
-main #quienes_somos img {
+main #quienes_somos #titulo #imagen img {
 	height: 100%;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+main #quienes_somos #clientes ul {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	padding: 0;
+	margin: 0;
+}
+
+main #quienes_somos #clientes ul li {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	text-align: center;
+	margin: 20px 10px;
+}
+
+main #quienes_somos #clientes ul li #imagen {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	flex-grow: 1;
+	margin-bottom: 10px;
+	width: 200px;
+	/* border: red 2px solid; */
+}
+
+main #quienes_somos #clientes ul li #imagen img {
+	object-fit: contain;
+	margin: 0;
+}
+
+main #quienes_somos #clientes ul li p {
+	font-weight: bold;
+	color: var(--blanco-letras);
+	background-color: var(--gris-oscuro);
+	padding: 5px 10px;
+	border-radius: 20px;
 }

@@ -1,21 +1,3 @@
-INICIO
-	- Secuencia == 0 ? ocultar flecha izq.
-	- Secuencia == length -2 ?? ocultar flecha der.
-
-URL
-www.arquitectojosecostas.com.ar <-- esta
-
-
-QUIENES SOMOS
-	- Agregar "Nuestros Clientes
-		- Aptra
-		- Instituto Furman
-		- TIC (Centro de Imágenes)
-		- Ysonut
-		- Greeping?
-	- El nombre debajo del logo
-	- La imagen de la cara, sólo hasta "eficiencia"
-
 CONTACTENOS
 	- Validaciones on-line
 	- Botón submit a la derecha
@@ -23,7 +5,9 @@ CONTACTENOS
 
 FOOTER -> hacerlo
 
-INICIO -> Comentarle a José por qué la flecha retrocede, pero NO sigue el movimiento
+INICIO 
+	- Circulitos en vez de flechas
+	- Comentarle a José por qué la flecha retrocede, pero NO sigue el movimiento (experiencia de usuario)
 
 OTROS -> Subir a internet en modo prueba
 

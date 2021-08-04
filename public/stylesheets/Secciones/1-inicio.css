@@ -85,7 +85,10 @@
 }
 
 #inicio #imagenes ul li img#una {
-	min-width: 100%;
+	width: 100%;
+	object-fit: cover;
+	top: 50%;
+	transform: translateY(-50%);
 }
 
 #inicio #imagenes ul li div#varias {
@@ -97,7 +100,6 @@
 
 #inicio #imagenes ul li div#varias img {
 	height: 100%;
-
 }
 
 #inicio #imagenes #iconos {
@@ -144,4 +146,3 @@
 .fas:hover {
 	transform: scale(1.5);
 }
-

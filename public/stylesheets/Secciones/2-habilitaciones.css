@@ -22,12 +22,11 @@ main #habilitaciones #imagenes {
 	display: flex;
 	flex-grow: 1;
 	flex-direction: row;
-	justify-content: center;
-	overflow: hidden;
 }
 
 main #habilitaciones #imagenes img {
 	position: absolute;
 	height: 100%;
-	width: auto;
+	width: 100%;
+	object-fit: cover;
 }

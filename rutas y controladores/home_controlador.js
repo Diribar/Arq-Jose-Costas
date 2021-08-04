@@ -47,13 +47,56 @@ module.exports = {
 		let inicio_imagenes = [
 			"Buenos Aires",
 			"Instituto", 
-			["Teatro Aptra 1", "Teatro Aptra 2"],
+			"Teatro Aptra 2",
 			"Cocina"
+		];
+		let clientes = [
+			{
+				nombre: "Aptra",
+				imagen: "Aptra.jpg",
+			},
+			{
+				nombre: "Furman",
+				imagen: "Furman.png",
+			},
+			{
+				nombre: "Ysonut",
+				imagen: "Ysonut.jfif",
+			},
+			{
+				nombre: "TCMax",
+				imagen: "TCMax.jpg",
+			},
+			{
+				nombre: "Kopelco",
+				imagen: "Kopelco.png",
+			},
+			{
+				nombre: "Dullyll",
+				imagen: "Dullyll.jpg",
+			},
+			{
+				nombre: "Brothers Viajes",
+				imagen: "Brothers Viajes.jpeg",
+			},
+			{
+				nombre: "MP Inmuebles",
+				imagen: "MP Inmuebles.png",
+			},
+			{
+				nombre: "Distrib. Don Gaspar",
+				imagen: "Distrib. Don Gaspar.jfif",
+			},
+			{
+				nombre: "El Tanque Cultural",
+				imagen: "El Tanque Cultural.jpg",
+			},
 		];
 		res.render("home", {
 			title: "Arq. José Costas",
 			titulos_encabezado,
 			inicio_imagenes,
+			clientes,
 		});
 	},
 
