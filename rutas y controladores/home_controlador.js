@@ -1,3 +1,7 @@
+// **** Requires ***********
+const nodemailer = require("nodemailer");
+
+// **** Exportar ***********
 module.exports = {
 	homeForm: (req, res) => {
 		res.render("home", {
@@ -11,7 +15,8 @@ module.exports = {
 	},
 
 	homeGuardar: (req, res) => {
-		let {nombre, mail, telefono, comentario, suma1, suma2, suma} = req.body
+		let { nombre, mail, telefono, comentario, suma1, suma2, suma } =
+			req.body;
 		// Validaciones
 		let errorNombre = !/^[A-Z ]+$/i.test(nombre) || nombre == "";
 		let errorMail =
@@ -21,7 +26,13 @@ module.exports = {
 		let errorComentario = comentario == "";
 		let errorSuma = parseInt(suma1) + parseInt(suma2) != suma || suma == "";
 		// Volver al formulario si hay algún error
-		if (errorNombre || errorMail || errorTelefono || errorComentario || errorSuma) {
+		if (
+			errorNombre ||
+			errorMail ||
+			errorTelefono ||
+			errorComentario ||
+			errorSuma
+		) {
 			res.render("home", {
 				datos: req.body,
 				title: "Arq. José Costas",
@@ -32,7 +43,7 @@ module.exports = {
 				suma2: Math.round(Math.random() * 12),
 			});
 		}
-		return res.send("éxito")
+		return res.send("éxito");
 	},
 
 	loginForm: (req, res) => {
@@ -40,6 +51,7 @@ module.exports = {
 	},
 };
 
+// **** Variables **********
 let datosBD = {
 	titulos_encabezado: [
 		{
@@ -85,12 +97,7 @@ let datosBD = {
 			color_letras: "white",
 		},
 	],
-	inicio_imagenes: [
-		"Buenos Aires",
-		"Instituto",
-		"Teatro Aptra 2",
-		"Cocina",
-	],
+	inicio_imagenes: ["Buenos Aires", "Instituto", "Teatro Aptra 2", "Cocina"],
 	clientes: [
 		{
 			nombre: "Aptra",
@@ -133,4 +140,4 @@ let datosBD = {
 			imagen: "El Tanque Cultural.jpg",
 		},
 	],
-}
+};
