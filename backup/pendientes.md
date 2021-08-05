@@ -1,5 +1,4 @@
 CONTACTENOS
-	- Validaciones on-line
 	- Validaciones back-end
 	- Envío de mail
 
