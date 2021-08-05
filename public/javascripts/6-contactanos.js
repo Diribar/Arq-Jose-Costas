@@ -16,8 +16,8 @@ window.addEventListener("load", () => {
 	RegEx2 = [...RegEx2, /^[\w\-\.\+]+\@[a-z0-9\.\-]+\.[a-z0-9]{2,5}$/i];
 
 	// Teléfono
-	RegEx1 = [...RegEx1, /[0-9 -()/+]/];
-	RegEx2 = [...RegEx2, /^[0-9 -()/+]+$/];
+	RegEx1 = [...RegEx1, /[\d -()/+]/];
+	RegEx2 = [...RegEx2, /^[\d -()/+]+$/];
 
 	// Comentario
 	RegEx1 = [...RegEx1, /[\w\W]/];

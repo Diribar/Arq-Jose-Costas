@@ -17,7 +17,7 @@ module.exports = {
 		let errorMail =
 			!/^[\w\-\.\+]+\@[a-z0-9\.\-]+\.[a-z0-9]{2,5}$/i.test(mail) ||
 			mail == "";
-		let errorTelefono = !/^[0-9 -()/+]+$/.test(telefono) || telefono == "";
+		let errorTelefono = !/^[\d -()/+]+$/.test(telefono) || telefono == "";
 		let errorComentario = comentario == "";
 		let errorSuma = parseInt(suma1) + parseInt(suma2) != suma || suma == "";
 		// Volver al formulario si hay algún error
