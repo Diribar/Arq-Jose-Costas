@@ -36,6 +36,7 @@ window.addEventListener("load", () => {
 	for (let i=0; i<iconos.length; i++) {
 		iconos[i].addEventListener("click", () => {
 			ancho = document.querySelector("#inicio #imagenes").offsetWidth;
+			contenedor.style.transitionDuration = transicion;
 			// Pausa o flechas
 			if (i==0 || i==1 || i==3) {
 				clearInterval(loop);

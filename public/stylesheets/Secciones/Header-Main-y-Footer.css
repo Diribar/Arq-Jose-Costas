@@ -4,9 +4,7 @@ header {
 	top: 0;
 	z-index: 9;
 }
-main {
-	margin-top: 50px;
-}
+
 header nav {
 	background-color: var(--gris-oscuro);
 	padding: 10px 15px;
@@ -19,4 +17,19 @@ header nav {
 header nav a {
 	color: var(--blanco-letras);
 	font-size: 22px;
+}
+
+main {
+	margin-top: 50px;
+}
+
+.seccion {
+	padding: 50px;
+}
+
+footer {
+	background-color: var(--amarillo-oscuro);
+	padding: 5px 15px;
+	color: var(--gris-letras);
+	font-size: 0.8rem;
 }
