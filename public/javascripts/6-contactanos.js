@@ -33,7 +33,7 @@ window.addEventListener("load", () => {
 	let avisoErrorComentario = document.querySelector(
 		"#contactanos form .fa-times-circle#comentario"
 	);
-	// Validar la suma
+	// Suma
 	let suma1 = parseInt(
 		document.querySelector("#contactanos input[name='suma1']").value
 	);
@@ -113,3 +113,10 @@ window.addEventListener("load", () => {
 		}
 	});
 })
+
+// Ayudamemoria de RegEx
+// ^ indica que el patrón debe iniciar con los caracteres dentro de los corchetes
+// $ indica que el patrón debe finalizar con los caracteres dentro de los corchetes
+// [A-Z] indica que los caracteres admitidos son letras del alfabeto
+// + indica que los caracteres dentro de los corchetes se pueden repetir
+// i indica que validaremos letras mayúsculas y minúsculas (case-insensitive)
