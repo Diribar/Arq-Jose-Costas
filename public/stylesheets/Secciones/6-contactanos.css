@@ -1,40 +1,86 @@
 main #contactanos {
-	padding: 50px 150px 50px 50px;
-}
-
-main #contactanos section {
-	justify-content: space-evenly;
+	padding: 50px;
 }
 
 main #contactanos form {
+	justify-content: space-evenly;
+	margin-right: 5%;
+}
+
+main #contactanos form h1 {
+	margin: 0;
+}
+
+main #contactanos form #inputs {
 	width: 50%;
+}
+
+main #contactanos form #inputs input, 
+main #contactanos form #inputs textarea {
+	margin-top: 30px;
 	font-size: 1rem;
-}
-
-main #contactanos form input {
-	margin-bottom: 30px;
-}
-
-main #contactanos form input, main #contactanos form textarea {
 	padding: 10px;
 	border-radius: 10px;
 }
 
-main #contactanos form #submit {
-	align-items: center;
-	/* position: absolute; */
+main #contactanos form .fa-times-circle {
+	color: red;
+	background-color: white;
+	position: absolute;
+	border-radius: 50%;
 }
 
-main #contactanos form #submit input {
-	margin-bottom: 0px;
-	width: 30px;
-	margin: 0 20px 0 10px;
+main #contactanos form #inputs .fa-times-circle {
+	top: 40px;
+	left: -30px;
 }
 
-main #contactanos #texto {
+main #contactanos form #submit .fa-times-circle {
+	bottom: -25px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+main #contactanos form #texto {
 	justify-content: center;
+	margin-left: 20px;
 }
 
-main #contactanos #texto h2 {
+main #contactanos form #texto h2 {
 	margin-bottom: 0;
+}
+
+main #contactanos form #texto p {
+	margin-top: .5rem;
+}
+
+main #contactanos form #texto #submit {
+	margin-top: 2rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+main #contactanos form #texto #submit label {
+	color: var(--amarillo-oscuro);
+}
+
+main #contactanos form #texto #submit input {
+	text-align: center;
+	width: 30px;
+	margin: 0 10px;
+	padding: 5px;
+	border-radius: 10px;
+	color: var(--gris-letras);
+}
+
+main #contactanos form #texto #submit button {
+	margin-left: 20px;
+	padding: 10px 20px;
+	border-radius: 10px;
+	font-weight: bold;
+	background-color: var(--gris-claro);
+	color: var(--gris-letras);
+	font-size: 1.5rem;
 }

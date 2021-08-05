@@ -120,7 +120,7 @@
 	opacity: 1;
 }
 
-.fas {
+#inicio #imagenes #iconos .fas {
 	z-index: 1;
 	font-size: 50px;
 	color: var(--gris-oscuro);
@@ -128,21 +128,21 @@
 	transition-duration: .5s;
 }
 
-.fas:nth-child(1) {
+#inicio #imagenes #iconos .fas:nth-child(1) {
 	position: absolute;
 	left: 10px;
 }
 
-.fas:nth-child(4) {
+#inicio #imagenes #iconos .fas:nth-child(4) {
 	position: absolute;
 	right: 10px;
 }
 
-.fa-pause-circle, .fa-play-circle {
+#inicio #imagenes #iconos .fa-pause-circle, .fa-play-circle {
 	background-color: var(--blanco-letras);
 	border-radius: 50%;
 }
 
-.fas:hover {
+#inicio #imagenes #iconos .fas:hover {
 	transform: scale(1.5);
 }
