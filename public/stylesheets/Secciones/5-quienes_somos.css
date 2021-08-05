@@ -55,17 +55,16 @@ main #quienes_somos #clientes ul {
 
 main #quienes_somos #clientes ul li {
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	text-align: center;
+	flex-direction: row;
+	align-items: center;
 	margin: 20px 10px;
 	width: 200px;
-	flex-grow: 1;
+	list-style: none;
 	border-radius: 20px;
-	overflow: hidden;
 }
 
 main #quienes_somos #clientes ul li img {
-	object-fit: contain;
+	width: 100%;
+	height: auto;
 	margin: 0;
 }

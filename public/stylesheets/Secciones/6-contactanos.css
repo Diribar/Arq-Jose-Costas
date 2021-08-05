@@ -20,10 +20,21 @@ main #contactanos form input, main #contactanos form textarea {
 	border-radius: 10px;
 }
 
-main #contactanos .texto {
+main #contactanos form #submit {
+	align-items: center;
+	/* position: absolute; */
+}
+
+main #contactanos form #submit input {
+	margin-bottom: 0px;
+	width: 30px;
+	margin: 0 20px 0 10px;
+}
+
+main #contactanos #texto {
 	justify-content: center;
 }
 
-main #contactanos .texto h2 {
+main #contactanos #texto h2 {
 	margin-bottom: 0;
 }
