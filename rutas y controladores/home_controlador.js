@@ -97,6 +97,8 @@ module.exports = {
 			titulos_encabezado,
 			inicio_imagenes,
 			clientes,
+			suma1: Math.round(Math.random() * 12),
+			suma2: Math.round(Math.random() * 12),
 		});
 	},
 

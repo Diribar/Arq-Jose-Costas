@@ -1,21 +1,40 @@
-<h1>Contactanos</h1>
-<section class="flex-row">
-	<form action="/" method="POST" class="flex-col">
-		<input type="text" name="nombre" placeholder="Nombre">
-		<input type="text" name="mail" placeholder="E-Mail">
-		<input type="text" name="telefono" placeholder="Teléfono (opcional)">
-		<textarea name="mensaje" rows="8" placeholder="Mensaje"></textarea>
+<form action="/" method="POST" class="flex-row">
+	<section id="inputs" class="flex-col">
+		<h1>Contactanos</h1>
+		<div class="relative flex-col">
+			<input class="input" type="text" name="nombre" placeholder="Nombre">
+			<i class="fas fa-times-circle ocultar" id="nombre"></i>
+		</div>
+		<div class="relative flex-col">
+			<input class="input" type="text" name="mail" placeholder="E-Mail">
+			<i class="fas fa-times-circle ocultar" id="mail"></i>
+		</div>
+		<div class="relative flex-col">
+			<input class="input" type="text" name="telefono" placeholder="Teléfono (opcional)">
+			<i class="fas fa-times-circle ocultar"></i>
+		</div>
+		<div class="relative flex-col" id="textArea">
+			<textarea class="input" name="mensaje" rows="8" placeholder="Mensaje"></textarea>
+			<i class="fas fa-times-circle ocultar"></i>
+		</div>
+	</section>
+	<section id="texto" class="flex-col">
+		<div class="flex-col">
+			<h2>Arq. José Ricardo Costas</h2>
+			<p>Mat. CPAU 28.861</p>
+			<br>
+			<p>Celular: (11) 5462 2786</p>
+			<p>Mail: josericardocostas@hotmail.com</p>
+		</div>
 		<div id="submit" class="flex-row">
-			<label for="soyHumano" class="noSeleccionable">3 + 4 =</label>
-			<input type="text" name="soyHumano">
+			<input id="suma1" name="suma1" type="number" class="ocultar" value="<%= suma1 %>">
+			<input id="suma2" name="suma2" type="number" class="ocultar" value="<%= suma2 %>">
+			<label for="validar" class="noSeleccionable"><%= suma1 %>  + <%= suma2 %>  =</label>
+			<div class="relative flex-col">
+				<input id="validar" class="input" type="number" name="validar">
+				<i class="fas fa-times-circle ocultar"></i>
+			</div>
 			<button type="submit">Enviar</button>
 		</div>
-	</form>
-	<div id="texto" class="flex-col">
-		<h2>Arq. José Ricardo Costas</h2>
-		<p>Mat. CPAU 28.861</p>
-		<br>
-		<p>Celular: (11) 5462 2786</p>
-		<p>Mail: josericardocostas@hotmail.com</p>
-	</div>
-</section>
+	</section>
+</form>

@@ -30,6 +30,10 @@ main {
 footer {
 	background-color: var(--amarillo-oscuro);
 	padding: 5px 15px;
+}
+
+footer p {
 	color: var(--gris-letras);
-	font-size: 0.8rem;
+	font-size: 0.9rem;
+	font-style: italic;
 }
