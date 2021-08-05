@@ -1,39 +1,32 @@
 window.addEventListener("load", () => {
 	// Variables generales
 	let form = document.querySelector("#contactanos form");
+	let formEnviado = document.querySelector("#contactanos #formEnviado").innerHTML;
 	let inputs = document.querySelectorAll("#contactanos form .input");
-	let avisoError = document.querySelectorAll(
-		"#contactanos form .fa-times-circle"
-	);
+	let avisoError = document.querySelectorAll("#contactanos .fa-times-circle");
+	let RegEx1 = [];
+	let RegEx2 = [];
+
 	// Nombre
-	let validarNombre = document.querySelector(
-		"#contactanos form .input[name='nombre']"
-	);
-	let avisoErrorNombre = document.querySelector(
-		"#contactanos form .fa-times-circle#nombre"
-	);
+	RegEx1 = [...RegEx1, /[A-Z ]/i];
+	RegEx2 = [...RegEx2, /^[A-Z ]+$/i];
+
 	// Mail
-	let validarMail = document.querySelector(
-		"#contactanos form .input[name='mail']"
-	);
-	let avisoErrorMail = document.querySelector(
-		"#contactanos form .fa-times-circle#mail"
-	);
+	RegEx1 = [...RegEx1, /[\w\-\.\+\@]/i];
+	RegEx2 = [...RegEx2, /^[\w\-\.\+]+\@[a-z0-9\.\-]+\.[a-z0-9]{2,5}$/i];
+
 	// Teléfono
-	let validarTelefono = document.querySelector(
-		"#contactanos form .input[name='telefono']"
-	);
-	let avisoErrorTelefono = document.querySelector(
-		"#contactanos form .fa-times-circle#telefono"
-	);
+	RegEx1 = [...RegEx1, /[0-9 -()/+]/];
+	RegEx2 = [...RegEx2, /^[0-9 -()/+]+$/];
+
 	// Comentario
-	let validarComentario = document.querySelector(
-		"#contactanos form .input[name='comentario']"
-	);
-	let avisoErrorComentario = document.querySelector(
-		"#contactanos form .fa-times-circle#comentario"
-	);
+	RegEx1 = [...RegEx1, /[\w\W]/];
+	RegEx2 = [...RegEx2, /^[\w\W]+$/];
+
 	// Suma
+	RegEx1 = [...RegEx1, /[\d]/];
+	RegEx2 = [...RegEx2, /^[\d]+$/];
+
 	let suma1 = parseInt(
 		document.querySelector("#contactanos input[name='suma1']").value
 	);
@@ -47,51 +40,28 @@ window.addEventListener("load", () => {
 		"#contactanos form .fa-times-circle#suma"
 	);
 
-	// Validar nombre
-	validarNombre.addEventListener("keypress", (e) => {
-		!/[A-Z ]/i.test(e.key)
-			? e.preventDefault()
-			: avisoErrorNombre.classList.add("ocultar");
-	});
-	validarNombre.addEventListener("change", () => {
-		nombre = validarNombre.value;
-		!/^[A-Z ]+$/i.test(nombre)
-			? avisoErrorNombre.classList.remove("ocultar")
-			: avisoErrorNombre.classList.add("ocultar");
-	});
+	// Función validar contenidos
+	let validarContenido = (i) => {
+		aux = inputs[i].value;
+		!RegEx2[i].test(aux)
+			? avisoError[i].classList.remove("ocultar")
+			: avisoError[i].classList.add("ocultar");
+	}
 
-	// Validar mail
-	validarMail.addEventListener("change", () => {
-		mail = validarMail.value;
-		!/^[\w\-\.\+]+\@[a-z0-9\.\-]+\.[a-z0-9]{2,5}$/i.test(mail)
-			? avisoErrorMail.classList.remove("ocultar")
-			: avisoErrorMail.classList.add("ocultar");
-	});
-
-	// Validar teléfono
-	validarTelefono.addEventListener("keypress", (e) => {
-		!/[0-9 -()/+]/.test(e.key)
-			? e.preventDefault()
-			: avisoErrorTelefono.classList.add("ocultar");
-	});
-	validarTelefono.addEventListener("change", () => {
-		telefono = validarTelefono.value;
-		!/^[0-9 -()/+]+$/.test(telefono)
-			? avisoErrorTelefono.classList.remove("ocultar")
-			: avisoErrorTelefono.classList.add("ocultar");
-	});
-
-	// Validar comentario
-	validarComentario.addEventListener("keypress", () => {
-		avisoErrorComentario.classList.add("ocultar");
-	});
+	// Validar campos
+	for (let i = 0; i < inputs.length; i++) {
+		formEnviado == "SI" ? validarContenido(i) : null;
+		inputs[i].addEventListener("keypress", (e) => {
+			!RegEx1[i].test(e.key)
+				? e.preventDefault()
+				: avisoError[i].classList.add("ocultar");
+		});
+		inputs[i].addEventListener("change", () => {
+			validarContenido(i)
+		});
+	}
 
 	// Validar suma
-	validarSuma.addEventListener("keypress", (e) => {
-		!/[0-9]/.test(e.key)
-			? e.preventDefault()
-			: avisoErrorTelefono.classList.add("ocultar");
-	});
 	validarSuma.addEventListener("change", () => {
 		suma1 + suma2 != validarSuma.value
 			? avisoErrorSuma.classList.remove("ocultar")
@@ -113,10 +83,3 @@ window.addEventListener("load", () => {
 		}
 	});
 })
-
-// Ayudamemoria de RegEx
-// ^ indica que el patrón debe iniciar con los caracteres dentro de los corchetes
-// $ indica que el patrón debe finalizar con los caracteres dentro de los corchetes
-// [A-Z] indica que los caracteres admitidos son letras del alfabeto
-// + indica que los caracteres dentro de los corchetes se pueden repetir
-// i indica que validaremos letras mayúsculas y minúsculas (case-insensitive)
