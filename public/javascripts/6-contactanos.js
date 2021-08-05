@@ -1,36 +1,51 @@
 window.addEventListener("load", () => {
 	// Variables generales
-	let form = document.querySelector("#contactanos form")
-	let inputs = document.querySelectorAll("#contactanos form .input")
-	let avisoError = document.querySelectorAll("#contactanos form .fa-times-circle");
+	let form = document.querySelector("#contactanos form");
+	let inputs = document.querySelectorAll("#contactanos form .input");
+	let avisoError = document.querySelectorAll(
+		"#contactanos form .fa-times-circle"
+	);
 	// Nombre
-	let validarNombre = document.querySelector("#contactanos form .input[name='nombre']");
-	let avisoErrorNombre = document.querySelector("#contactanos form .fa-times-circle#nombre");
+	let validarNombre = document.querySelector(
+		"#contactanos form .input[name='nombre']"
+	);
+	let avisoErrorNombre = document.querySelector(
+		"#contactanos form .fa-times-circle#nombre"
+	);
 	// Mail
-	let validarMail = document.querySelector("#contactanos form .input[name='mail']");
-	let avisoErrorMail = document.querySelector("#contactanos form .fa-times-circle#mail");
+	let validarMail = document.querySelector(
+		"#contactanos form .input[name='mail']"
+	);
+	let avisoErrorMail = document.querySelector(
+		"#contactanos form .fa-times-circle#mail"
+	);
 	// Teléfono
-	let validarTelefono = document.querySelector("#contactanos form .input[name='telefono']");
-	let avisoErrorTelefono = document.querySelector("#contactanos form .fa-times-circle#telefono");
+	let validarTelefono = document.querySelector(
+		"#contactanos form .input[name='telefono']"
+	);
+	let avisoErrorTelefono = document.querySelector(
+		"#contactanos form .fa-times-circle#telefono"
+	);
 	// Comentario
-	let validarComentario = document.querySelector("#contactanos form .input[name='comentario']");
-	let avisoErrorComentario = document.querySelector("#contactanos form .fa-times-circle#comentario");
+	let validarComentario = document.querySelector(
+		"#contactanos form .input[name='comentario']"
+	);
+	let avisoErrorComentario = document.querySelector(
+		"#contactanos form .fa-times-circle#comentario"
+	);
 	// Validar la suma
-	let suma1 = parseInt(document.querySelector("#contactanos input[name='suma1']").value);
-	let suma2 = parseInt(document.querySelector("#contactanos input[name='suma2']").value);
-	let validarSuma = document.querySelector("#contactanos form .input[name='suma']");
-	let avisoErrorSuma = document.querySelector("#contactanos form .fa-times-circle#suma");
-
-	// Prevenir el submit si hay errores
-	form.addEventListener("submit", (e) => {
-		//e.preventDefault();
-		for (let i=0; i<inputs.length; i++) {
-			if (inputs[i].value == "") {
-				avisoError[i].classList.remove("ocultar");
-			}
-			!avisoError[i].classList.value.includes("ocultar") ? e.preventDefault() : ""
-		}
-	})
+	let suma1 = parseInt(
+		document.querySelector("#contactanos input[name='suma1']").value
+	);
+	let suma2 = parseInt(
+		document.querySelector("#contactanos input[name='suma2']").value
+	);
+	let validarSuma = document.querySelector(
+		"#contactanos form .input[name='suma']"
+	);
+	let avisoErrorSuma = document.querySelector(
+		"#contactanos form .fa-times-circle#suma"
+	);
 
 	// Validar nombre
 	validarNombre.addEventListener("keypress", (e) => {
@@ -81,5 +96,20 @@ window.addEventListener("load", () => {
 		suma1 + suma2 != validarSuma.value
 			? avisoErrorSuma.classList.remove("ocultar")
 			: avisoErrorSuma.classList.add("ocultar");
+	});
+
+	// Prevenir el submit si hay errores
+	form.addEventListener("submit", (e) => {
+		suma1 + suma2 != validarSuma.value
+			? avisoErrorSuma.classList.remove("ocultar")
+			: avisoErrorSuma.classList.add("ocultar");
+		for (let i = 0; i < inputs.length; i++) {
+			if (inputs[i].value == "") {
+				avisoError[i].classList.remove("ocultar");
+			}
+			!avisoError[i].classList.value.includes("ocultar")
+				? e.preventDefault()
+				: "";
+		}
 	});
 })
