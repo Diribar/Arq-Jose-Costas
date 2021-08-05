@@ -46,9 +46,9 @@ module.exports = {
 		];
 		let inicio_imagenes = [
 			"Buenos Aires",
-			"Instituto", 
+			"Instituto",
 			"Teatro Aptra 2",
-			"Cocina"
+			"Cocina",
 		];
 		let clientes = [
 			{
@@ -103,10 +103,18 @@ module.exports = {
 	},
 
 	homeGuardar: (req, res) => {
-		res.send("Recibí el mensaje del cliente")
+		res.send("Recibí el mensaje del cliente");
+
+		// Validaciones
+		let errorNombre = !/^[A-Z ]+$/i.test(nombre) || nombre == "";
+		let errorMail =
+			!/^[\w\-\.\+]+\@[a-z0-9\.\-]+\.[a-z0-9]{2,5}$/i.test(mail) ||
+			mail == "";
+		let errorTelefono = !/^[0-9 -()/+]+$/.test(telefono) || telefono == "";
+		let errorSuma = suma1 + suma2 != suma || suma == "";
 	},
 
 	loginForm: (req, res) => {
-		res.send("Formulario de login")
+		res.send("Formulario de login");
 	},
-}
+};
