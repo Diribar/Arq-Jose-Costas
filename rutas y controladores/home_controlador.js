@@ -26,7 +26,7 @@ module.exports = {
 				id: 4,
 				seccion: "servicios",
 				nombre_a_mostrar: "Otros Servicios",
-				color_fondo: "RGBA(82, 83, 83, 0.8)",
+				color_fondo: "#828383",
 				color_letras: "white",
 			},
 			{
@@ -40,7 +40,7 @@ module.exports = {
 				id: 6,
 				seccion: "contactanos",
 				nombre_a_mostrar: "Contactanos",
-				color_fondo: "RGBA(82, 83, 83, 0.8)",
+				color_fondo: "#828383",
 				color_letras: "white",
 			},
 		];

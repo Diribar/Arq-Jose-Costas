@@ -33,7 +33,7 @@ window.addEventListener("load", () => {
 	let avisoErrorComentario = document.querySelector(
 		"#contactanos form .fa-times-circle#comentario"
 	);
-	// Validar la suma
+	// Suma
 	let suma1 = parseInt(
 		document.querySelector("#contactanos input[name='suma1']").value
 	);

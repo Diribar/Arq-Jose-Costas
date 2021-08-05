@@ -28,12 +28,12 @@ main {
 }
 
 footer {
-	background-color: var(--amarillo-oscuro);
+	background-color: var(--gris-oscuro);
 	padding: 5px 15px;
+	border-top: solid var(--amarillo-claro) 1px;
 }
 
 footer p {
-	color: var(--gris-letras);
+	color: var(--amarillo-claro);
 	font-size: 0.9rem;
-	font-style: italic;
 }
