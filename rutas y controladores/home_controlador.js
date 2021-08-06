@@ -1,3 +1,7 @@
+// **** Requires ***********
+const nodemailer = require("nodemailer");
+
+// **** Exportar ***********
 module.exports = {
 	homeForm: (req, res) => {
 		res.render("home", {
@@ -11,17 +15,24 @@ module.exports = {
 	},
 
 	homeGuardar: (req, res) => {
-		let {nombre, mail, telefono, comentario, suma1, suma2, suma} = req.body
+		let { nombre, mail, telefono, comentario, suma1, suma2, suma } =
+			req.body;
 		// Validaciones
 		let errorNombre = !/^[A-Z ]+$/i.test(nombre) || nombre == "";
 		let errorMail =
 			!/^[\w\-\.\+]+\@[a-z0-9\.\-]+\.[a-z0-9]{2,5}$/i.test(mail) ||
 			mail == "";
-		let errorTelefono = !/^[0-9 -()/+]+$/.test(telefono) || telefono == "";
+		let errorTelefono = !/^[\d -()/+]+$/.test(telefono) || telefono == "";
 		let errorComentario = comentario == "";
 		let errorSuma = parseInt(suma1) + parseInt(suma2) != suma || suma == "";
 		// Volver al formulario si hay algún error
-		if (errorNombre || errorMail || errorTelefono || errorComentario || errorSuma) {
+		if (
+			errorNombre ||
+			errorMail ||
+			errorTelefono ||
+			errorComentario ||
+			errorSuma
+		) {
 			res.render("home", {
 				datos: req.body,
 				title: "Arq. José Costas",
@@ -32,7 +43,8 @@ module.exports = {
 				suma2: Math.round(Math.random() * 12),
 			});
 		}
-		return res.send("éxito")
+		enviarMail().catch(console.error);
+		return res.send("éxito");
 	},
 
 	loginForm: (req, res) => {
@@ -40,6 +52,7 @@ module.exports = {
 	},
 };
 
+// **** Variables **********
 let datosBD = {
 	titulos_encabezado: [
 		{
@@ -85,12 +98,7 @@ let datosBD = {
 			color_letras: "white",
 		},
 	],
-	inicio_imagenes: [
-		"Buenos Aires",
-		"Instituto",
-		"Teatro Aptra 2",
-		"Cocina",
-	],
+	inicio_imagenes: ["Buenos Aires", "Instituto", "Teatro Aptra 2", "Cocina"],
 	clientes: [
 		{
 			nombre: "Aptra",
@@ -133,4 +141,38 @@ let datosBD = {
 			imagen: "El Tanque Cultural.jpg",
 		},
 	],
+};
+
+// Función enviar mail
+let enviarMail = async () => {
+	// Generate test SMTP service account from ethereal.email
+	// Only needed if you don't have a real mail account for testing
+	let testAccount = await nodemailer.createTestAccount();
+
+	// create reusable transporter object using the default SMTP transport
+	let transporter = nodemailer.createTransport({
+		host: "smtp.ethereal.email",
+		port: 587,
+		secure: false, // true for 465, false for other ports
+		auth: {
+			user: testAccount.user, // generated ethereal user
+			pass: testAccount.pass, // generated ethereal password
+		},
+	});
+
+	// send mail with defined transport object
+	let info = await transporter.sendMail({
+		from: '"Fred Foo 👻" <foo@example.com>', // sender address
+		to: "bar@example.com, baz@example.com", // list of receivers
+		subject: "Hello ✔", // Subject line
+		text: "Hello world?", // plain text body
+		html: "<b>Hello world?</b>", // html body
+	});
+
+	console.log("Message sent: %s", info.messageId, "qué?", "sí");
+	// Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+
+	// Preview only available when sending through an Ethereal account
+	console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+	// Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
 }

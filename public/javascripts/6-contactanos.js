@@ -1,7 +1,9 @@
 window.addEventListener("load", () => {
 	// Variables generales
 	let form = document.querySelector("#contactanos form");
-	let formEnviado = document.querySelector("#contactanos #formEnviado").innerHTML;
+	let formEnviado = document.querySelector(
+		"#contactanos #formEnviado"
+	).innerHTML;
 	let inputs = document.querySelectorAll("#contactanos form .input");
 	let avisoError = document.querySelectorAll("#contactanos .fa-times-circle");
 	let RegEx1 = [];
@@ -16,8 +18,8 @@ window.addEventListener("load", () => {
 	RegEx2 = [...RegEx2, /^[\w\-\.\+]+\@[a-z0-9\.\-]+\.[a-z0-9]{2,5}$/i];
 
 	// Teléfono
-	RegEx1 = [...RegEx1, /[0-9 -()/+]/];
-	RegEx2 = [...RegEx2, /^[0-9 -()/+]+$/];
+	RegEx1 = [...RegEx1, /[\d -()/+]/];
+	RegEx2 = [...RegEx2, /^[\d -()/+]+$/];
 
 	// Comentario
 	RegEx1 = [...RegEx1, /[\w\W]/];
@@ -46,7 +48,12 @@ window.addEventListener("load", () => {
 		!RegEx2[i].test(aux)
 			? avisoError[i].classList.remove("ocultar")
 			: avisoError[i].classList.add("ocultar");
-	}
+	};
+
+	// Si el form fue enviado, ir a Contactanos
+	formEnviado == "SI"
+		? document.querySelector("#contactanos").scrollIntoView()
+		: "";
 
 	// Validar campos
 	for (let i = 0; i < inputs.length; i++) {
@@ -57,7 +64,7 @@ window.addEventListener("load", () => {
 				: avisoError[i].classList.add("ocultar");
 		});
 		inputs[i].addEventListener("change", () => {
-			validarContenido(i)
+			validarContenido(i);
 		});
 	}
 
@@ -82,4 +89,4 @@ window.addEventListener("load", () => {
 				: "";
 		}
 	});
-})
+});
