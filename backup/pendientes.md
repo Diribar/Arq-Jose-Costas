@@ -1,5 +1,4 @@
 CONTACTENOS
-	- Validaciones back-end
 	- Envío de mail
 
 INICIO 

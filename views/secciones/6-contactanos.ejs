@@ -1,21 +1,28 @@
 <form action="/" method="POST" class="flex-row">
 	<section id="inputs" class="flex-col">
 		<h1>Contactanos</h1>
+		<p id="formEnviado" class="" ><%= locals.datos ? "SI" : "NO" %></p>
 		<div class="relative flex-col">
-			<input class="input" type="text" name="nombre" placeholder="Nombre">
-			<i class="fas fa-times-circle ocultar" id="nombre"></i>
+			<input class="input" type="text" name="nombre" placeholder="Nombre" 
+				value="<%= locals.datos ? datos.nombre : null %>"
+			>
+			<i class="fas fa-times-circle ocultar"></i>
 		</div>
 		<div class="relative flex-col">
-			<input class="input" type="text" name="mail" placeholder="E-Mail">
-			<i class="fas fa-times-circle ocultar" id="mail"></i>
+			<input class="input" type="text" name="mail" placeholder="E-Mail"
+				value="<%= locals.datos ? datos.mail : null %>"
+			>
+			<i class="fas fa-times-circle ocultar"></i>
 		</div>
 		<div class="relative flex-col">
-			<input class="input" type="text" name="telefono" placeholder="Teléfono (opcional)">
-			<i class="fas fa-times-circle ocultar" id="telefono"></i>
+			<input class="input" type="text" name="telefono" placeholder="Teléfono (opcional)"
+				value="<%= locals.datos ? datos.telefono : null %>"
+			>
+			<i class="fas fa-times-circle ocultar"></i>
 		</div>
 		<div class="relative flex-col">
-			<textarea class="input" name="comentario" rows="8" placeholder="Comentario"></textarea>
-			<i class="fas fa-times-circle ocultar" id="comentario"></i>
+			<textarea class="input" name="comentario" rows="8" placeholder="Comentario"><%= locals.datos ? datos.comentario : null %></textarea>
+			<i class="fas fa-times-circle ocultar"></i>
 		</div>
 	</section>
 	<section id="texto" class="flex-col">
@@ -27,11 +34,13 @@
 			<p>Mail: josericardocostas@hotmail.com</p>
 		</div>
 		<div id="submit" class="flex-row">
-			<input id="suma1" name="suma1" type="number" class="ocultar" value="<%= suma1 %>">
-			<input id="suma2" name="suma2" type="number" class="ocultar" value="<%= suma2 %>">
+			<input name="suma1" type="number" class="ocultar" value="<%= suma1 %>">
+			<input name="suma2" type="number" class="ocultar" value="<%= suma2 %>">
 			<label for="suma" class="noSeleccionable"><%= suma1 %>  + <%= suma2 %>  =</label>
 			<div class="relative flex-col">
-				<input id="suma" class="input" type="text" name="suma">
+				<input class="input" type="text" name="suma"
+					value="<%= locals.datos ? "X" : null %>"
+				>
 				<i class="fas fa-times-circle ocultar" id="suma"></i>
 			</div>
 			<button type="submit">Enviar</button>
