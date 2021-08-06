@@ -145,41 +145,44 @@ let datosBD = {
 
 // Función enviar mail
 let enviarMail = async (nombre, mail, telefono, comentario) => {
-	// Generate test SMTP service account from ethereal.email
-	// Only needed if you don't have a real mail account for testing
-	//let testAccount = await nodemailer.createTestAccount();
 
 	// create reusable transporter object using the default SMTP transport
 	let transporter = nodemailer.createTransport({
-		service: "gmail",
+		host: "smtp.gmail.com",
+		port: 465,
+		secure: true, // true for 465, false for other ports
 		auth: {
-			user: "app.guitar.shop@gmail.com",
-			pass: "digitalhouse",
-		},
-		tls: {
-			rejectUnauthorized: false,
+			user: "mensaje.web.01@gmail.com", // generated mail address
+			pass: "rudhfurovpjsjjzp", // generated  password
 		},
 	});
-
+	transporter.verify().then(() => {
+		//console.log("Listo para enviar mails");
+	});
+	
 	// send mail with defined transport object
 	let datos = {
-		from: nombre + " <" + mail + ">", // sender address
-		to: "sp2015w@gmail.com", // list of receivers
+		from: '"Mensaje de la página web" <mensaje.web.01@gmail.com>', // sender address
+		to: "josericardocostas@hotmail.com", // list of receivers
 		subject: "Mensaje de la página web", // Subject line
 		text: comentario + "\n" + nombre + "\n" + telefono, // plain text body
 		html:
 			comentario.replace(/\r/g, "<br>") +
 			"<br>" +
+			"<br>" +
 			nombre +
 			"<br>" +
-			telefono,
+			telefono +
+			"<br>" +
+			mail,
 	};
-	let info = await transporter.sendMail(datos, (error, info) => {
-		if (error) {
-			console.log(error);
-		} else {
-			console.log("Email sent: " + info.response);
-		}
-	});
+	await transporter.sendMail(datos);
 
+	// await transporter.sendMail(info, (error, info) => {
+	// 	if (error) {
+	// 		console.log(error);
+	// 	} else {
+	// 		console.log("Email sent: " + info.response);
+	// 	}
+	// });
 };

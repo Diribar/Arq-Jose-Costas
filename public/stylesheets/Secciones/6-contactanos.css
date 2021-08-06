@@ -22,6 +22,7 @@ main #contactanos form #inputs textarea {
 	padding: 10px;
 	border-radius: 10px;
 	resize: none;
+	line-height: 1.5rem;
 }
 
 main #contactanos form .fa-times-circle {
