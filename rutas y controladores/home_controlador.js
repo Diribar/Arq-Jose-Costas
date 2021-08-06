@@ -163,7 +163,7 @@ let enviarMail = async (nombre, mail, telefono, comentario) => {
 	// send mail with defined transport object
 	let datos = {
 		from: '"Mensaje de la página web" <mensaje.web.01@gmail.com>', // sender address
-		to: "diegoiribarren2015@gmail.com", // list of receivers
+		to: "josericardocostas@hotmail.com", // list of receivers
 		subject: "Mensaje de la página web", // Subject line
 		text: comentario + "\n" + nombre + "\n" + telefono, // plain text body
 		html:
