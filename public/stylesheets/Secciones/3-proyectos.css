@@ -25,10 +25,11 @@ main #proyectos #texto #botones {
 main #proyectos #texto #botones button {
 	padding: 20px;
 	font-weight: bold;
-	font-size: 1rem;
-	border-radius: 10px;
-	background-color: var(--gris-oscuro);
-	color: white;
+	font-size: 1.5rem;
+	background-color: transparent;
+	color: var(--gris-letras);
+	border: 2px var(--gris-letras) solid;
+	width: 350px;
 }
 
 main #proyectos #imagen {
