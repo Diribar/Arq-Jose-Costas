@@ -7,44 +7,25 @@ main #quienes_somos h2 {
 	margin-bottom: 0;
 }
 
-main #quienes_somos #titulo {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-}
-
-main #quienes_somos #titulo #texto {
-	padding-right: 25px;
-	width: 0%;
-	flex-grow: 1;
-}
-
-main #quienes_somos #titulo #texto h2 {
+main #quienes_somos #arquitecto h2 {
 	margin-top: 0;
 }
 
-main #quienes_somos #titulo #texto ul {
+main #quienes_somos #arquitecto img {
+	max-height: 230px;
+	float: right;
+	margin-left: 20px;
+}
+
+main #quienes_somos #arquitecto ul {
 	margin: 0;
 }
 
-main #quienes_somos #titulo #texto li {
+main #quienes_somos #arquitecto li {
 	line-height: 1.5rem;
 	margin-top: .5rem;
 	margin-left: -40px;
 	list-style: none;
-}
-
-main #quienes_somos #titulo #imagen {
-	position: relative;
-	width: 250px;
-	overflow: hidden;
-}
-
-main #quienes_somos #titulo #imagen img {
-	height: 100%;
-	position: absolute;
-	left: 50%;
-	transform: translateX(-50%);
 }
 
 main #quienes_somos #clientes ul {
