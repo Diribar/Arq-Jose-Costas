@@ -1,7 +1,3 @@
-
-CONTÁCTENOS
-Teléfono -> quitar el "obligatorio"
-
 OTROS -> Subir a internet en modo prueba
 
 LOGIN -> Hacer la vista
