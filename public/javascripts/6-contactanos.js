@@ -75,15 +75,14 @@ window.addEventListener("load", () => {
 			: avisoErrorSuma.classList.add("ocultar");
 	});
 
-	// Prevenir el submit si hay errores
+	// Acciones si se elije "submit"
 	form.addEventListener("submit", (e) => {
-		suma1 + suma2 != validarSuma.value
-			? avisoErrorSuma.classList.remove("ocultar")
-			: avisoErrorSuma.classList.add("ocultar");
 		for (let i = 0; i < inputs.length; i++) {
-			if (inputs[i].value == "") {
+			// Avisar si hay campos vacíos
+			if (inputs[i].value == "" && i != 2) {
 				avisoError[i].classList.remove("ocultar");
 			}
+			// Prevenir el submit si hay errores
 			!avisoError[i].classList.value.includes("ocultar")
 				? e.preventDefault()
 				: "";
