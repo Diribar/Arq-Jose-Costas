@@ -3,6 +3,7 @@ window.addEventListener("load", () => {
 	let contenedor = document.querySelector("#inicio #imagenes ul")
 	contenedor.style.transform = 'translateX(0px)'
 	let imagenes = document.querySelectorAll("#inicio #imagenes ul li")
+	let dots = document.querySelectorAll("#inicio #imagenes .dot");
 	let iconos = document.querySelectorAll("#inicio #imagenes #iconos .fas");
 	var transicion = '1000ms'
 	let duracionLoop = 3000
@@ -12,8 +13,9 @@ window.addEventListener("load", () => {
 		ancho = document.querySelector("#inicio #imagenes").offsetWidth;
 		contenedor.style.transitionDuration = transicion
 		secuencia = -parseInt(contenedor.style.transform.slice(11,-3))/ancho
-		secuencia = secuencia + 1
-		margen = secuencia * ancho
+		dots[secuencia].classList.remove("current");
+		secuencia = secuencia + 1;
+		margen = secuencia * ancho;
 		contenedor.style.transform = 'translateX(-' + margen + 'px)'
 		if (secuencia >= imagenes.length - 1) {
 			setTimeout(() => {
@@ -22,12 +24,15 @@ window.addEventListener("load", () => {
 				contenedor.style.transform = 'translateX(0px)'
 			}, parseInt(transicion))
 		}
-		secuencia >= imagenes.length - 1
+		secuencia == imagenes.length - 2
+			? iconos[imagenes.length - 2].classList.add("ocultar")
+			: iconos[imagenes.length - 2].classList.remove("ocultar");
+		secuencia == imagenes.length - 1
 			? iconos[0].classList.add("ocultar")
 			: iconos[0].classList.remove("ocultar");
-		secuencia == imagenes.length - 2
-			? iconos[3].classList.add("ocultar")
-			: iconos[3].classList.remove("ocultar");
+		secuencia != imagenes.length - 1
+			? dots[secuencia].classList.add("current")
+			: dots[0].classList.add("current")
 	}
 
 	// Ejecutar
@@ -46,8 +51,9 @@ window.addEventListener("load", () => {
 			// Flecha izquierda
 			if (i == 0) {
 				secuencia = -parseInt(contenedor.style.transform.slice(11,-3))/ancho
+				dots[secuencia].classList.remove("current");
 				secuencia = secuencia - 1
-				//secuencia == 0 ?  : ""
+				dots[secuencia].classList.add("current");
 				margen = secuencia * ancho
 				contenedor.style.transform = 'translateX(-' + margen + 'px)'
 			}
@@ -60,8 +66,10 @@ window.addEventListener("load", () => {
 			// Flecha derecha
 			if (i == 3 ) {
 				secuencia = -parseInt(contenedor.style.transform.slice(11,-3))/ancho
+				dots[secuencia].classList.remove("current");
 				secuencia == 3 ? (secuencia =  -1) : ""
 				secuencia = secuencia + 1
+				dots[secuencia].classList.add("current");
 				margen = secuencia * ancho
 				contenedor.style.transform = 'translateX(-' + margen + 'px)'
 			}
