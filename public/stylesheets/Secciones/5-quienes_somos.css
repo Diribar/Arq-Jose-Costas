@@ -3,6 +3,10 @@ main #quienes_somos {
 	flex-direction: column;
 }
 
+main #quienes_somos h1 {
+	margin-bottom: 0;
+}
+
 main #quienes_somos h2 {
 	margin-bottom: 0;
 }
@@ -34,7 +38,6 @@ main #quienes_somos #titulo #imagen {
 	position: relative;
 	width: 250px;
 	overflow: hidden;
-	border-radius: 30px;
 }
 
 main #quienes_somos #titulo #imagen img {
