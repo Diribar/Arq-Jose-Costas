@@ -3,10 +3,6 @@ main #quienes_somos {
 	flex-direction: column;
 }
 
-main #quienes_somos h1 {
-	margin-bottom: 0;
-}
-
 main #quienes_somos h2 {
 	margin-bottom: 0;
 }
@@ -21,6 +17,10 @@ main #quienes_somos #titulo #texto {
 	padding-right: 25px;
 	width: 0%;
 	flex-grow: 1;
+}
+
+main #quienes_somos #titulo #texto h2 {
+	margin-top: 0;
 }
 
 main #quienes_somos #titulo #texto ul {
@@ -57,17 +57,15 @@ main #quienes_somos #clientes ul {
 }
 
 main #quienes_somos #clientes ul li {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
 	margin: 20px 10px;
 	width: 200px;
+	height: 160px;
 	list-style: none;
-	border-radius: 20px;
 }
 
 main #quienes_somos #clientes ul li img {
 	width: 100%;
-	height: auto;
+	height: 100%;
 	margin: 0;
+	object-fit: cover;
 }

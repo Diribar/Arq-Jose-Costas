@@ -106,11 +106,11 @@ let datosBD = {
 		},
 		{
 			nombre: "Furman",
-			imagen: "Furman.png",
+			imagen: "Furman.jpg",
 		},
 		{
 			nombre: "Ysonut",
-			imagen: "Ysonut.jfif",
+			imagen: "Ysonut.jpg",
 		},
 		{
 			nombre: "TCMax",
@@ -118,7 +118,7 @@ let datosBD = {
 		},
 		{
 			nombre: "Kopelco",
-			imagen: "Kopelco.png",
+			imagen: "Kopelco.jpg",
 		},
 		{
 			nombre: "Dullyll",
@@ -126,19 +126,19 @@ let datosBD = {
 		},
 		{
 			nombre: "Brothers Viajes",
-			imagen: "Brothers Viajes.jpeg",
+			imagen: "Brothers-Viajes.jpg",
 		},
 		{
 			nombre: "MP Inmuebles",
-			imagen: "MP Inmuebles.png",
+			imagen: "MP-Inmuebles.jpg",
 		},
 		{
 			nombre: "Distrib. Don Gaspar",
-			imagen: "Distrib. Don Gaspar.jfif",
+			imagen: "Don-Gaspar.jpg",
 		},
 		{
 			nombre: "El Tanque Cultural",
-			imagen: "El Tanque Cultural.jpg",
+			imagen: "El-Tanque-Cultural.jpg",
 		},
 	],
 };
