@@ -146,7 +146,7 @@
 }
 
 #inicio #imagenes #iconos .fa-pause-circle,
-.fa-play-circle {
+#inicio #imagenes #iconos .fa-play-circle {
 	background-color: var(--blanco-letras);
 	border-radius: 50%;
 }
