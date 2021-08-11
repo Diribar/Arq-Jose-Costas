@@ -71,35 +71,36 @@
 
 #inicio #imagenes ul li {
     width: 100%;
+	height: 100%;
     list-style: none;
-	position: relative;
+}
+
+#inicio #imagenes ul li img {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+
+#inicio #dots {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
-	overflow: hidden;
-}
-
-#inicio #imagenes ul li img#una, #inicio #imagenes ul li div#varias {
 	position: absolute;
-	height: 100%;
-}
-
-#inicio #imagenes ul li img#una {
 	width: 100%;
-	object-fit: cover;
-	top: 50%;
-	transform: translateY(-50%);
+	bottom: 5px
 }
 
-#inicio #imagenes ul li div#varias {
-	width: 100%;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
+#inicio #dots .dot {
+	border-radius: 50%;
+	width: 10px;
+	height: 15px;
+	margin: 0 5px;
+	background-color: rgba(0, 0, 0, .3);
+	border: 2px white solid;
 }
 
-#inicio #imagenes ul li div#varias img {
-	height: 100%;
+#inicio #dots .dot.current {
+	background-color: white;
 }
 
 #inicio #imagenes #iconos {
