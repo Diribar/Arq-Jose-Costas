@@ -44,7 +44,7 @@ module.exports = {
 			});
 		}
 		enviarMail(nombre, mail, telefono, comentario).catch(console.error);
-		return res.send("éxito");
+		return res.send("su mensaje fue enviado con éxito");
 	},
 
 	loginForm: (req, res) => {
