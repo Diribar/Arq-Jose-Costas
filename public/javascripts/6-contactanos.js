@@ -35,7 +35,6 @@ window.addEventListener("load", () => {
 	let cambiarSumandos = () => {
 		suma1.innerHTML = Math.round(Math.random() * 12);
 		suma2.innerHTML = Math.round(Math.random() * 12);
-		console.log("hecho")
 	}
 
 	// Validar campos
