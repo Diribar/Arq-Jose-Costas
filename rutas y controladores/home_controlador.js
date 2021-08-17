@@ -44,41 +44,14 @@ module.exports = {
 			});
 		}
 		enviarMail(nombre, mail, telefono, comentario).catch(console.error);
-		return res.send("su mensaje fue enviado con éxito");
+		return res.send("Tiene inactivado javascript en el front-end. Su mensaje fue enviado con éxito");
 	},
 
-	form: (req, res) => {
-		let { nombre, mail, telefono, comentario, suma1, suma2, suma } =
-			req.body;
-		res.send(req.body);
-		// Validaciones
-		let errorNombre = !/^[A-Z ]+$/i.test(nombre) || nombre == "";
-		let errorMail =
-			!/^[\w\-\.\+]+\@[a-z0-9\.\-]+\.[a-z0-9]{2,5}$/i.test(mail) ||
-			mail == "";
-		let errorTelefono = !/^[\d -()/+]+$/.test(telefono) || telefono == "";
-		let errorComentario = comentario == "";
-		let errorSuma = parseInt(suma1) + parseInt(suma2) != suma || suma == "";
-		// Volver al formulario si hay algún error
-		if (
-			errorNombre ||
-			errorMail ||
-			errorTelefono ||
-			errorComentario ||
-			errorSuma
-		) {
-			res.render("home", {
-				datos: req.body,
-				title: "Arq. José Costas",
-				titulos_encabezado: datosBD.titulos_encabezado,
-				inicio_imagenes: datosBD.inicio_imagenes,
-				clientes: datosBD.clientes,
-				suma1: Math.round(Math.random() * 12),
-				suma2: Math.round(Math.random() * 12),
-			});
-		}
-		enviarMail(nombre, mail, telefono, comentario).catch(console.error);
-		return res.send("su mensaje fue enviado con éxito");
+	form: async (req, res) => {
+		let { nombre, mail, telefono, comentario } = req.query;
+		comentario = decodeURIComponent(comentario);
+		await enviarMail(nombre, mail, telefono, comentario).catch(console.error);
+		return res.json();
 	},
 
 	loginForm: (req, res) => {
@@ -179,7 +152,6 @@ let datosBD = {
 
 // Función enviar mail
 let enviarMail = async (nombre, mail, telefono, comentario) => {
-
 	// create reusable transporter object using the default SMTP transport
 	let transporter = nodemailer.createTransport({
 		host: "smtp.gmail.com",
@@ -193,15 +165,14 @@ let enviarMail = async (nombre, mail, telefono, comentario) => {
 	transporter.verify().then(() => {
 		//console.log("Listo para enviar mails");
 	});
-	
 	// send mail with defined transport object
 	let datos = {
 		from: '"Mensaje de la página web" <mensaje.web.01@gmail.com>', // sender address
-		to: "josericardocostas@hotmail.com", // list of receivers
+		to: "diegoiribarren2015@gmail.com", // josericardocostas@hotmail.com
 		subject: "Mensaje de la página web", // Subject line
-		text: comentario + "\n" + nombre + "\n" + telefono, // plain text body
+		text: comentario + "\n" + nombre + "\n" + telefono + "\n" + mail, // plain text body
 		html:
-			comentario.replace(/\r/g, "<br>") +
+			comentario.replace(/\n/g, "<br>") +
 			"<br>" +
 			"<br>" +
 			nombre +
@@ -211,7 +182,6 @@ let enviarMail = async (nombre, mail, telefono, comentario) => {
 			mail,
 	};
 	await transporter.sendMail(datos);
-
 	// await transporter.sendMail(info, (error, info) => {
 	// 	if (error) {
 	// 		console.log(error);
