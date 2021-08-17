@@ -1,5 +1,6 @@
 main #contactanos {
 	padding: 50px;
+	position: relative;
 }
 
 main #contactanos form {
@@ -85,5 +86,48 @@ main #contactanos form #texto #submit button {
 	font-weight: bold;
 	background-color: var(--gris-claro);
 	color: var(--gris-letras);
-	font-size: 1.5rem;
+	font-size: 1.3rem;
+}
+
+main #contactanos #background {
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	height: 100%;
+	width: 100%;
+	background-color: var(--gris-oscuro);
+	opacity: 50%;
+}
+
+main #contactanos #envioExitoso {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 40px 30px;
+	background-color: var(--gris-claro);
+	/* display: flex; */
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-radius: 15px;
+	border: var(--amarillo-oscuro) 5px solid
+}
+
+main #contactanos #envioExitoso p {
+	color: var(--gris-oscuro);
+	font-weight: bold;
+}
+
+main #contactanos #envioExitoso img {
+	height: 100px;
+	margin: 40px;
+}
+
+main #contactanos #envioExitoso button {
+	background-color: var(--gris-oscuro);
+	font-weight: bold;
+	color: var(--gris-claro);
+	padding: 5px 10px;
+	border-radius: 5px;
 }
