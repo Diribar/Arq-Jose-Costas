@@ -1,4 +1,4 @@
-OTROS -> Subir a internet en modo prueba
+OTROS -> Subir a internet
 
 LOGIN -> Hacer la vista
 
