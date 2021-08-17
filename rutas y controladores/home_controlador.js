@@ -172,7 +172,7 @@ let enviarMail = async (nombre, mail, telefono, comentario) => {
 		subject: "Mensaje de la página web", // Subject line
 		text: comentario + "\n" + nombre + "\n" + telefono + "\n" + mail, // plain text body
 		html:
-			comentario.replace(/\n/g, "<br>") +
+			comentario.replace(/\r/g, "<br>").replace(/\n/g, "<br>") +
 			"<br>" +
 			"<br>" +
 			nombre +
