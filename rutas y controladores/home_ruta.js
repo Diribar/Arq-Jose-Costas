@@ -7,6 +7,8 @@ const controlador = require("./home_controlador");
 router.get("/", controlador.homeForm);
 router.post("/", controlador.homeGuardar);
 
+router.get("/form", controlador.form);
+
 router.get("/login", controlador.loginForm)
 
 // Exportarlo **********************************************
