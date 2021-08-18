@@ -47,6 +47,40 @@ module.exports = {
 		return res.send("su mensaje fue enviado con éxito");
 	},
 
+	form: (req, res) => {
+		let { nombre, mail, telefono, comentario, suma1, suma2, suma } =
+			req.body;
+		res.send(req.body);
+		// Validaciones
+		let errorNombre = !/^[A-Z ]+$/i.test(nombre) || nombre == "";
+		let errorMail =
+			!/^[\w\-\.\+]+\@[a-z0-9\.\-]+\.[a-z0-9]{2,5}$/i.test(mail) ||
+			mail == "";
+		let errorTelefono = !/^[\d -()/+]+$/.test(telefono) || telefono == "";
+		let errorComentario = comentario == "";
+		let errorSuma = parseInt(suma1) + parseInt(suma2) != suma || suma == "";
+		// Volver al formulario si hay algún error
+		if (
+			errorNombre ||
+			errorMail ||
+			errorTelefono ||
+			errorComentario ||
+			errorSuma
+		) {
+			res.render("home", {
+				datos: req.body,
+				title: "Arq. José Costas",
+				titulos_encabezado: datosBD.titulos_encabezado,
+				inicio_imagenes: datosBD.inicio_imagenes,
+				clientes: datosBD.clientes,
+				suma1: Math.round(Math.random() * 12),
+				suma2: Math.round(Math.random() * 12),
+			});
+		}
+		enviarMail(nombre, mail, telefono, comentario).catch(console.error);
+		return res.send("su mensaje fue enviado con éxito");
+	},
+
 	loginForm: (req, res) => {
 		res.send("Formulario de login");
 	},

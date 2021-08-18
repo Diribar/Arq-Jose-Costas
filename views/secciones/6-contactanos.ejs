@@ -1,7 +1,6 @@
 <form action="/" method="POST" class="flex-row">
 	<section id="inputs" class="flex-col">
 		<h1>Contactanos</h1>
-		<p id="formEnviado" class="ocultar"><%= locals.datos ? "SI" : "NO" %></p>
 		<div class="relative flex-col">
 			<input class="input" type="text" name="nombre" placeholder="Nombre" 
 				value="<%= locals.datos ? datos.nombre : null %>"
@@ -33,16 +32,17 @@
 			<p>Celular: (11) 5462 2786</p>
 			<p>Mail: josericardocostas@hotmail.com</p>
 		</div>
-		<div id="submit" class="flex-row">
-			<input name="suma1" type="number" class="ocultar" value="<%= suma1 %>">
-			<input name="suma2" type="number" class="ocultar" value="<%= suma2 %>">
-			<label for="suma" class="noSeleccionable"><%= suma1 %> + <%= suma2 %>  =</label>
+		<div id="submit">
+			<p id="suma1" class="noSeleccionable"><%= suma1 %></p>
+			<p class="noSeleccionable">+</p>
+			<p id="suma2" class="noSeleccionable"><%= suma2 %></p>
+			<p class="noSeleccionable">=</p>
 			<div class="relative flex-col">
-				<input class="input" type="text" name="suma"
+				<input id="suma" class="input" type="text" name="suma"
 					value="<%= locals.datos ? "X" : null %>"
 					autocomplete="off"
 				>
-				<i class="fas fa-times-circle ocultar" id="suma"></i>
+				<i class="fas fa-times-circle ocultar" id="errorSuma"></i>
 			</div>
 			<button type="submit">Enviar</button>
 		</div>

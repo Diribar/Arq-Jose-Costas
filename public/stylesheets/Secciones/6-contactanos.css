@@ -64,8 +64,9 @@ main #contactanos form #texto #submit {
 	align-items: center;
 }
 
-main #contactanos form #texto #submit label {
+main #contactanos form #texto #submit .noSeleccionable {
 	color: var(--amarillo-oscuro);
+	margin: 0 2px;
 }
 
 main #contactanos form #texto #submit input {
