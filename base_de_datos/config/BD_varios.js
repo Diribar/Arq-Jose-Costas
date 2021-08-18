@@ -2,12 +2,15 @@ const db = require("../modelos");
 
 module.exports = {
 	ObtenerTodos: (entidad) => {
-		return db[entidad].findAll({});
+		return db[entidad].findAll({
+			order: [["orden", "ASC"]],
+		});
 	},
 
 	ObtenerTodosConInclude: (entidad, include) => {
 		return db[entidad].findAll({
 			include: include,
+			order: [["orden", "ASC"]],
 		});
 	},
 

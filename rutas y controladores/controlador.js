@@ -9,15 +9,16 @@ module.exports = {
 			"titulos_encabezado",
 			["color_fondo", "color_letras"]
 		);
-		titulos_encabezado = ordenarDatos(titulos_encabezado);
 		inicio_imagenes = await BD_varios.ObtenerTodos("inicio_imagenes");
-		inicio_imagenes = ordenarDatos(inicio_imagenes);
-		//return res.send(inicio_imagenes);
+		nuestros_clientes = await BD_varios.ObtenerTodos("nuestros_clientes");
+		imagenes_varias = await BD_varios.ObtenerTodos("imagenes_varias");
+		return res.send(imagenes_varias);
 		res.render("home", {
 			title: "Arq. José Costas",
 			titulos_encabezado,
 			inicio_imagenes,
-			clientes: datosBD.clientes,
+
+			nuestros_clientes,
 			suma1: Math.round(Math.random() * 12),
 			suma2: Math.round(Math.random() * 12),
 		});
@@ -70,52 +71,6 @@ module.exports = {
 	loginForm: (req, res) => {
 		res.send("Formulario de login");
 	},
-};
-
-// **** Variables **********
-let datosBD = {
-	clientes: [
-		{
-			nombre: "Aptra",
-			imagen: "Aptra.jpg",
-		},
-		{
-			nombre: "Furman",
-			imagen: "Furman.jpg",
-		},
-		{
-			nombre: "Ysonut",
-			imagen: "Ysonut.jpg",
-		},
-		{
-			nombre: "TCMax",
-			imagen: "TCMax.jpg",
-		},
-		{
-			nombre: "Kopelco",
-			imagen: "Kopelco.jpg",
-		},
-		{
-			nombre: "Dullyll",
-			imagen: "Dullyll.jpg",
-		},
-		{
-			nombre: "Brothers Viajes",
-			imagen: "Brothers-Viajes.jpg",
-		},
-		{
-			nombre: "MP Inmuebles",
-			imagen: "MP-Inmuebles.jpg",
-		},
-		{
-			nombre: "Distrib. Don Gaspar",
-			imagen: "Don-Gaspar.jpg",
-		},
-		{
-			nombre: "El Tanque Cultural",
-			imagen: "El-Tanque-Cultural.jpg",
-		},
-	],
 };
 
 // Función enviar mail

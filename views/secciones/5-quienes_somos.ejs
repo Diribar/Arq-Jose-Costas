@@ -3,7 +3,7 @@
 	<h2>
 		Arq. José R. Costas
 		<a class="sinPointer" href="/login" target="_blank">
-			<img src="/imagenes/5-quienes_somos/Avatar.jpg" alt="">
+			<img src="/imagenes/5-quienes_somos/<%= imagen_avatar %>" alt="">
 		</a>
 	</h2>
 	<ul>
@@ -16,7 +16,7 @@
 <section id="clientes">
 	<h2>Nuestros Clientes</h2>
 	<ul>
-		<% for (n of clientes) { %> 
+		<% for (n of nuestros_clientes) { %> 
 			<li>
 				<img src="/imagenes/5-quienes_somos/<%= n.imagen %> " alt="<%= n.nombre %>">
 			</li>
