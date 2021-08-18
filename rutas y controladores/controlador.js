@@ -4,10 +4,12 @@ const BD_varios = require("../base_de_datos/funciones/BD_varios");
 
 // **** Exportar ***********
 module.exports = {
-	homeForm: (req, res) => {
+	homeForm: async (req, res) => {
+		titulos_encabezado = await BD_varios.ObtenerTodos("titulos_encabezado");
+		return res.send(titulos_encabezado)
 		res.render("home", {
 			title: "Arq. José Costas",
-			titulos_encabezado: datosBD.titulos_encabezado,
+			titulos_encabezado,
 			inicio_imagenes: datosBD.inicio_imagenes,
 			clientes: datosBD.clientes,
 			suma1: Math.round(Math.random() * 12),
@@ -45,13 +47,17 @@ module.exports = {
 			});
 		}
 		enviarMail(nombre, mail, telefono, comentario).catch(console.error);
-		return res.send("Tiene inactivado javascript en el front-end. Su mensaje fue enviado con éxito");
+		return res.send(
+			"Tiene inactivado javascript en el front-end. Su mensaje fue enviado con éxito"
+		);
 	},
 
 	form: async (req, res) => {
 		let { nombre, mail, telefono, comentario } = req.query;
 		comentario = decodeURIComponent(comentario);
-		await enviarMail(nombre, mail, telefono, comentario).catch(console.error);
+		await enviarMail(nombre, mail, telefono, comentario).catch(
+			console.error
+		);
 		return res.json();
 	},
 
