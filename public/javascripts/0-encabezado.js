@@ -7,7 +7,7 @@ window.addEventListener("load", () => {
 			aux = encabezado[i].href;
 			posicion = aux.lastIndexOf("/");
 			destino = aux.slice(posicion + 1);
-			document.querySelector(destino).scrollIntoView();
+			//document.querySelector(destino).scrollIntoView();
 			// window.scrollTo(0, 200);
 			// window.scrollBy(0, -10);
 		});
