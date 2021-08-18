@@ -3,16 +3,15 @@ window.addEventListener("load", () => {
 	let form = document.querySelector("#contactanos form");
 	let inputs = document.querySelectorAll("#contactanos form .input");
 	let avisoError = document.querySelectorAll("#contactanos .fa-times-circle");
-	let RegEx1 = [];
-	let RegEx2 = [];
 	let suma1 = document.querySelector("#contactanos #suma1");
 	let suma2 = document.querySelector("#contactanos #suma2");
 	let suma = document.querySelector("#contactanos #suma");
 	let errorSuma = document.querySelector("#contactanos #errorSuma");
+	let envioExitoso = document.querySelector("#contactanos ");
 
 	// Nombre
-	RegEx1 = [...RegEx1, /[A-Z ]/i];
-	RegEx2 = [...RegEx2, /^[A-Z ]+$/i];
+	RegEx1 = [/[A-Z ]/i];
+	RegEx2 = [/^[A-Z ]+$/i];
 
 	// Mail
 	RegEx1 = [...RegEx1, /[\w\-\.\+\@]/i];
@@ -59,26 +58,26 @@ window.addEventListener("load", () => {
 	});
 
 	// Acciones si se elije "submit"
-	form.addEventListener("submit", (e) => {
+	form.addEventListener("submit", async (e) => {
 		e.preventDefault();
-		let error = false;
+		var error = false;
 		for (let i = 0; i < inputs.length; i++) {
 			// Avisar si hay campos vacíos
 			if (inputs[i].value == "" && i != 2) {
 				avisoError[i].classList.remove("ocultar");
 			}
-			// Prevenir el submit si hay errores
+			// Detectar si hay errores
 			!avisoError[i].classList.value.includes("ocultar")
 				? (error = true)
 				: "";
 		}
-		//if (!error) {
+		if (!error) {
 		datos = "";
 		for (n of inputs) {
-			datos = datos + n.name + "=" + n.value + "&";
+			datos = datos + n.name + "=" + encodeURIComponent(n.value) + "&";
 		}
-		//}
-		//console.log(datos);
-		//fetch("/form/?" + datos);
+		}
+		mailEnviado = await fetch("/form/?" + datos).then(n => n.json);
+		
 	});
 });
