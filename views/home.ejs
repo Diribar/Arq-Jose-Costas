@@ -10,10 +10,7 @@
 		<main>
 			<% for (n of titulos_encabezado) { %>
 				<section id="<%= n.seccion %>" class="seccion"
-					style="
-						background-color: <%= n.color_fondo %>;
-						color: <%= n.color_letras %>
-					"
+					style="background-color: <%= n.color_fondo.color %>; color: <%= n.color_letras.color %>"
 				>
 					<%- include(n.id + "-" + n.seccion) %>
 				</section>

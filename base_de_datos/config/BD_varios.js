@@ -1,14 +1,20 @@
 const db = require("../modelos");
 
 module.exports = {
-	ObtenerPorId: (id, entidad, include) => {
-	 	return db[entidad].findByPk(id, {
-	 		include: [include],
-	 	});
-	},
-
 	ObtenerTodos: (entidad) => {
 		return db[entidad].findAll({});
+	},
+
+	ObtenerTodosConInclude: (entidad, include) => {
+		return db[entidad].findAll({
+			include: include,
+		});
+	},
+
+	ObtenerPorId: (id, entidad, include) => {
+		return db[entidad].findByPk(id, {
+			include: [include],
+		});
 	},
 
 	ObtenerFiltrandoPorCampo: (entidad, campoWhere, valorWhere) => {

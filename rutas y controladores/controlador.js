@@ -1,12 +1,15 @@
 // **** Requires ***********
 const nodemailer = require("nodemailer");
-const BD_varios = require("../base_de_datos/funciones/BD_varios");
+const BD_varios = require("../base_de_datos/config/BD_varios");
 
 // **** Exportar ***********
 module.exports = {
 	homeForm: async (req, res) => {
-		titulos_encabezado = await BD_varios.ObtenerTodos("titulos_encabezado");
-		return res.send(titulos_encabezado)
+		titulos_encabezado = await BD_varios.ObtenerTodosConInclude(
+			"titulos_encabezado",
+			["color_fondo", "color_letras"]
+		);
+		//return res.send(titulos_encabezado)
 		res.render("home", {
 			title: "Arq. José Costas",
 			titulos_encabezado,
@@ -68,50 +71,6 @@ module.exports = {
 
 // **** Variables **********
 let datosBD = {
-	titulos_encabezado: [
-		{
-			id: 1,
-			seccion: "inicio",
-			nombre_a_mostrar: "Inicio",
-			color_fondo: "var(--amarillo-oscuro)",
-			color_letras: "var(--gris-letras)",
-		},
-		{
-			id: 2,
-			seccion: "habilitaciones",
-			nombre_a_mostrar: "Habilitaciones",
-			color_fondo: "var(--gris-oscuro)",
-			color_letras: "white",
-		},
-		{
-			id: 3,
-			seccion: "proyectos",
-			nombre_a_mostrar: "Proyectos y Obras",
-			color_fondo: "var(--amarillo-oscuro)",
-			color_letras: "var(--gris-letras)",
-		},
-		{
-			id: 4,
-			seccion: "servicios",
-			nombre_a_mostrar: "Otros Servicios",
-			color_fondo: "var(--gris-oscuro)",
-			color_letras: "white",
-		},
-		{
-			id: 5,
-			seccion: "quienes_somos",
-			nombre_a_mostrar: "Quiénes Somos",
-			color_fondo: "var(--amarillo-oscuro)",
-			color_letras: "var(--gris-letras)",
-		},
-		{
-			id: 6,
-			seccion: "contactanos",
-			nombre_a_mostrar: "Contactanos",
-			color_fondo: "var(--gris-oscuro)",
-			color_letras: "white",
-		},
-	],
 	inicio_imagenes: ["Buenos Aires", "Instituto", "Teatro Aptra 2", "Cocina"],
 	clientes: [
 		{
