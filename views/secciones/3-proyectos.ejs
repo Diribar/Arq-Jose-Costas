@@ -3,30 +3,30 @@
 		<h1>Proyectos y Obras</h1>
 	</div>
 	<div id="botones">
-		<button>
-			Integral de edificios
-		</button>
-		<button>
-			De mediana escala
-		</button>
-		<button>
-			De menor escala
-		</button>
+		<% for (n of proyectos_datos) { %>
+			<button>
+				<%= n.nombre_a_mostrar %> 
+			</button>
+		<% } %> 
 	</div>
 </section>
 <section id="imagen">
-	<div id="gran_escala" class="flex-row justify-center">
-		<figure class="justify-center flex-row">
-			<img id="uno" src="./imagenes/3-proyectos/1-Gran escala 1.jpg">
-			<figcaption>Antes de remodelar</figcaption>
-		</figure>
-		<!-- <img id="uno" src="./imagenes/3-proyectos/1-Gran escala 1.jpg"> -->
-		<img id="dos" src="./imagenes/3-proyectos/1-Gran escala 2.jpg">
-		<img id="tres" src="./imagenes/3-proyectos/1-Gran escala 3.jpg">
-	</div>
+	<% for (n of proyectos_datos) { %>
+		<div id="gran_escala" class="flex-row justify-center">
+			<figure class="justify-center flex-row">
+				<img 
+					style="animation: banner1 15s infinite normal" 
+					src="./imagenes/3-proyectos/1-Gran escala 1.jpg"
+				>
+				<figcaption>Antes de remodelar</figcaption>
+			</figure>
+			<img id="dos" src="./imagenes/3-proyectos/1-Gran escala 2.jpg">
+			<img id="tres" src="./imagenes/3-proyectos/1-Gran escala 3.jpg">
+		</div>
+	<% } %>
 	<div id="mediana_escala" class="ocultar justify-center">
 		<figure class="justify-center flex-row">
-			<img id="uno" src="./imagenes/3-proyectos/2-Mediana escala 1.jpg">
+			<img style="animation: banner1 15s infinite normal" src="./imagenes/3-proyectos/2-Mediana escala 1.jpg">
 			<figcaption>Antes de remodelar</figcaption>
 		</figure>
 		<!-- <img id="uno" src="./imagenes/3-proyectos/2-Mediana escala 1.jpg"> -->
@@ -38,7 +38,6 @@
 			<img id="uno" src="./imagenes/3-proyectos/3-Menor escala 1.jpg">
 			<figcaption>Antes de remodelar</figcaption>
 		</figure>
-		<!-- <img id="uno" src="./imagenes/3-proyectos/3-Menor escala 1.jpg"> -->
 		<img id="dos" src="./imagenes/3-proyectos/3-Menor escala 2.jpg">
 		<img id="tres" src="./imagenes/3-proyectos/3-Menor escala 3.jpg">
 	</div>

@@ -3,7 +3,7 @@ const db = require("../modelos");
 module.exports = {
 	ObtenerTitulos: () => {
 		return db.titulos_encabezado.findAll({
-			include: ["color_fondo", "color_letras"],
+			include: ["color_fondo", "color_letras", "imagen"],
 			order: [["orden", "ASC"]],
 		});
 	},
