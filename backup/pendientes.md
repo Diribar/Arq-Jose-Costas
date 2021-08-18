@@ -1,7 +1,3 @@
-FORM CONTACTANOS
-    - Enviar la info sin refresar la página
-	- Cartel de "mail enviado satisfactoriamente"
-
 OTROS -> Subir a internet
 
 LOGIN -> Hacer la vista

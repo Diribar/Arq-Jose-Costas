@@ -7,7 +7,9 @@ window.addEventListener("load", () => {
 	let suma2 = document.querySelector("#contactanos #suma2");
 	let suma = document.querySelector("#contactanos #suma");
 	let errorSuma = document.querySelector("#contactanos #errorSuma");
-	let envioExitoso = document.querySelector("#contactanos ");
+	let background = document.querySelector("#contactanos #background");
+	let envioExitoso = document.querySelector("#contactanos #envioExitoso");
+	let entendido = document.querySelector("#contactanos #envioExitoso button");
 
 	// Nombre
 	RegEx1 = [/[A-Z ]/i];
@@ -30,6 +32,10 @@ window.addEventListener("load", () => {
 	RegEx2 = [...RegEx2, /^[\d]+$/];
 
 	// Función validar contenidos
+	let cambiarSumandos = () => {
+		suma1.innerHTML = Math.round(Math.random() * 12);
+		suma2.innerHTML = Math.round(Math.random() * 12);
+	}
 
 	// Validar campos
 	for (let i = 0; i < inputs.length; i++) {
@@ -52,8 +58,7 @@ window.addEventListener("load", () => {
 			suma.value
 		) {
 			errorSuma.classList.remove("ocultar");
-			suma1.innerHTML = Math.round(Math.random() * 12);
-			suma2.innerHTML = Math.round(Math.random() * 12);
+			cambiarSumandos();
 		} else errorSuma.classList.add("ocultar");
 	});
 
@@ -72,12 +77,23 @@ window.addEventListener("load", () => {
 				: "";
 		}
 		if (!error) {
-		datos = "";
-		for (n of inputs) {
-			datos = datos + n.name + "=" + encodeURIComponent(n.value) + "&";
+			datos = "";
+			for (n of inputs) {
+				datos = datos + n.name + "=" + encodeURIComponent(n.value) + "&";
+			}
+			mailEnviado = await fetch("/form/?" + datos).then(n => n.json);
+			envioExitoso.style.display = "flex"
+			background.classList.remove("ocultar");
 		}
-		}
-		mailEnviado = await fetch("/form/?" + datos).then(n => n.json);
-		
 	});
+
+	entendido.addEventListener("click", () => {
+		envioExitoso.style.display = "none";
+		background.classList.add("ocultar");
+		for (n of inputs) {
+			n.value = ""
+		}
+		cambiarSumandos();
+	})
+
 });

@@ -16,7 +16,7 @@ header nav {
 
 header nav a {
 	color: var(--blanco-letras);
-	font-size: 22px;
+	font-size: 1.3rem;
 }
 
 main {
