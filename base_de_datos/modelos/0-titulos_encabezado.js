@@ -2,8 +2,8 @@ module.exports = (sequelize, dt) => {
 	const alias = "titulos_encabezado";
 	const columns = {
 		id: { type: dt.INTEGER, primaryKey: true },
-		seccion: { type: dt.STRING(20) },
 		orden: { type: dt.INTEGER },
+		nombre_seccion: { type: dt.STRING(20) },
 		nombre_a_mostrar: { type: dt.STRING(20) },
 		color_fondo_id: { type: dt.INTEGER },
 		color_letras_id: { type: dt.INTEGER },

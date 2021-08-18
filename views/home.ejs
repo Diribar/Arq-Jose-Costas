@@ -3,16 +3,16 @@
 		<header class="flex-row">
 			<% for (n of titulos_encabezado) { %>
 				<nav>
-					<a href="#<%= n.seccion %>"><%= n.nombre_a_mostrar %></a>
+					<a href="#<%= n.nombre_seccion %>"><%= n.nombre_a_mostrar %></a>
 				</nav>
 			<% } %> 
 		</header>
 		<main>
 			<% for (n of titulos_encabezado) { %>
-				<section id="<%= n.seccion %>" class="seccion"
+				<section id="<%= n.nombre_seccion %>" class="seccion"
 					style="background-color: <%= n.color_fondo.color %>; color: <%= n.color_letras.color %>"
 				>
-					<%- include(n.id + "-" + n.seccion) %>
+					<%- include(n.id + "-" + n.nombre_seccion) %>
 				</section>
 			<% } %>
 		</main>
