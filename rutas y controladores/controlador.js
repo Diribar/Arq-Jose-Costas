@@ -9,11 +9,14 @@ module.exports = {
 			"titulos_encabezado",
 			["color_fondo", "color_letras"]
 		);
-		//return res.send(titulos_encabezado)
+		titulos_encabezado = ordenarDatos(titulos_encabezado);
+		inicio_imagenes = await BD_varios.ObtenerTodos("inicio_imagenes");
+		inicio_imagenes = ordenarDatos(inicio_imagenes);
+		//return res.send(inicio_imagenes);
 		res.render("home", {
 			title: "Arq. José Costas",
 			titulos_encabezado,
-			inicio_imagenes: datosBD.inicio_imagenes,
+			inicio_imagenes,
 			clientes: datosBD.clientes,
 			suma1: Math.round(Math.random() * 12),
 			suma2: Math.round(Math.random() * 12),
@@ -71,7 +74,6 @@ module.exports = {
 
 // **** Variables **********
 let datosBD = {
-	inicio_imagenes: ["Buenos Aires", "Instituto", "Teatro Aptra 2", "Cocina"],
 	clientes: [
 		{
 			nombre: "Aptra",
@@ -155,4 +157,18 @@ let enviarMail = async (nombre, mail, telefono, comentario) => {
 	// 		console.log("Email sent: " + info.response);
 	// 	}
 	// });
+};
+
+// Función ordenar alfabéticamente
+let ordenarDatos = (datos) => {
+	datos.length > 1
+		? datos.sort((a, b) => {
+			return b.orden < a.orden
+				? 1
+				: b.orden > a.orden
+					? -1
+					: 0;
+		})
+		: "";
+	return datos;
 };
