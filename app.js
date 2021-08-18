@@ -4,8 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var homeRouter = require('./rutas y controladores/home_ruta');
-var usersRouter = require('./rutas y controladores/users');
+var router = require('./rutas y controladores/ruta');
 
 var app = express();
 
@@ -26,8 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // *********** Para conectarse con el servidor ********************
 app.listen(3001, () => console.log("Servidor funcionando en puerto 3001..."));
 
-app.use('/users', usersRouter);
-app.use('/', homeRouter);
+app.use('/', router);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

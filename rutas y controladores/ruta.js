@@ -1,7 +1,7 @@
 // Requires ************************************************
 var express = require("express");
 var router = express.Router();
-const controlador = require("./home_controlador");
+const controlador = require("./controlador");
 
 // Controladores *******************************************
 router.get("/", controlador.homeForm);
