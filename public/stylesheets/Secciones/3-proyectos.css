@@ -48,7 +48,6 @@
 #proyectos #imagen .grupo figcaption {
 	position: absolute;
 	bottom: 0px;
-	background-color: var(--gris-letras);
 	color: aliceblue;
 	padding: 10px 15px;
 	border-radius: 10px;

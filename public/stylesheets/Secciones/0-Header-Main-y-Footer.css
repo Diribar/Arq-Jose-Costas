@@ -26,12 +26,10 @@ main {
 }
 
 footer {
-	background-color: var(--gris-oscuro);
 	padding: 5px 15px;
-	border-top: solid var(--amarillo-claro) 1px;
+	border-top: solid 1px RGB(255,242,204);
 }
 
 footer p {
-	color: var(--amarillo-claro);
 	font-size: 0.9rem;
 }
