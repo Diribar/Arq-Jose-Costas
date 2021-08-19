@@ -3,7 +3,7 @@
 	<h2>
 		<%= quienes_somos.find(n => n.grupo == 1 && n.orden == 1).contenido %>
 		<a class="sinPointer" href="/login" target="_blank">
-			<img src="/imagenes/5-quienes_somos/<%= n.imagen.nombre %>" alt="<%= n.imagen.lugar %>">
+			<img src="/imagenes/varias/<%= n.imagen.nombre %>" alt="<%= n.imagen.lugar %>">
 		</a>
 	</h2>
 	<ul>
@@ -18,7 +18,7 @@
 	<ul>
 		<% for (n of clientes_imagenes) { %> 
 			<li>
-				<img src="/imagenes/5-quienes_somos/<%= n.imagen %> " alt="<%= n.nombre %>">
+				<img src="/imagenes/5-clientes/<%= n.imagen %> " alt="<%= n.nombre %>">
 			</li>
 		<% } %> 
 	</ul>
