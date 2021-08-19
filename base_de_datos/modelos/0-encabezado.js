@@ -7,7 +7,7 @@ module.exports = (sequelize, dt) => {
 		color_letras_id: { type: dt.INTEGER },
 	};
 	const config = {
-		tableName: "0_encabezado",
+		tableName: "0_encabezado_y_footer",
 		timestamps: false,
 	};
 	const entidad = sequelize.define(alias, columns, config);

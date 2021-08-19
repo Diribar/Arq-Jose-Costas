@@ -2,11 +2,10 @@ const db = require("../modelos");
 
 module.exports = {
 	ObtenerColoresEncabezado: () => {
-		return db.encabezado
-			.findAll({
-				include: ["color_fondo", "color_letras"],
-			})
-			.then((n) => n[0]);
+		return db.encabezado.findAll({
+			include: ["color_fondo", "color_letras"],
+			order: [["orden", "ASC"]],
+		});
 	},
 
 	ObtenerTitulos: () => {
