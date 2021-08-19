@@ -8,13 +8,20 @@ module.exports = {
 		});
 	},
 
-	ObtenerProyectos: () => {
-		return db.proyectos_datos.findAll({
+	ObtenerProyectos: async () => {
+		let aux = await db.proyectos_datos.findAll({
 			include: ["proyecto_imagenes"],
 			order: [
 				["orden", "ASC"],
 			],
 		});
+		aux = aux.map((n) => {
+			n.proyecto_imagenes.sort((a, b) => {
+				return a.orden < b.orden ? -1 : a > b ? 1 : 0;
+			})
+			return n
+		})
+		return aux
 	},
 
 	ObtenerTodos: (entidad) => {
