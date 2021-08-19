@@ -7,6 +7,7 @@ module.exports = (sequelize, dt) => {
 		nombre_a_mostrar: { type: dt.STRING(20) },
 		color_fondo_id: { type: dt.INTEGER },
 		color_letras_id: { type: dt.INTEGER },
+		imagen_id: { type: dt.INTEGER },
 	};
 	const config = {
 		tableName: "0_titulos_encabezado",
@@ -16,6 +17,7 @@ module.exports = (sequelize, dt) => {
 	entidad.associate = n => {
 		entidad.belongsTo(n.colores, {as: "color_fondo", foreignKey: "color_fondo_id"});
 		entidad.belongsTo(n.colores, {as: "color_letras", foreignKey: "color_letras_id"});
+		entidad.belongsTo(n.imagenes_varias, {as: "imagen", foreignKey: "imagen_id"});
 	};
 	return entidad;
 };
