@@ -8,6 +8,15 @@ module.exports = {
 		});
 	},
 
+	ObtenerProyectos: () => {
+		return db.proyectos_datos.findAll({
+			include: ["proyecto_imagenes"],
+			order: [
+				["orden", "ASC"],
+			],
+		});
+	},
+
 	ObtenerTodos: (entidad) => {
 		return db[entidad].findAll({
 			order: [["orden", "ASC"]],
