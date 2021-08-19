@@ -46,14 +46,6 @@ main #proyectos #imagen div {
 	overflow: hidden;
 }
 
-main #proyectos #imagen div figure {
-	height: 100%;
-	width: 100%;
-    position: relative;
-	overflow: hidden;
-	margin: 0;
-}
-
 figcaption {
 	position: absolute;
 	bottom: 0px;
@@ -69,8 +61,6 @@ main #proyectos #imagen div img {
 	width: auto;
 	min-width: 70%;
 }
-
-main #proyectos #imagen div figcaption {animation: banner1 15s infinite normal;}
 
 @keyframes banner1 {0%, 23% {opacity: 1} 33%, 56% {opacity: 0} 66%, 90% {opacity: 0} 100% {opacity: 1;}}
 @keyframes banner2 {0%, 23% {opacity: 0} 33%, 56% {opacity: 1} 66%, 90% {opacity: 0} 100% {opacity: 0;}}

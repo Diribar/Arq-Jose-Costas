@@ -12,37 +12,16 @@
 </section>
 <section id="imagen">
 	<% for (let i=0; i<proyectos.length; i++) { %>
-		<div 
-			id="<%= proyectos[i].categoria %>" 
-			class="justify-center <%- i==0 ? 'flex-row' : 'ocultar' %> "
-		>
+		<div class="justify-center grupo <%- i==0 ? 'flex-row' : 'ocultar' %> ">
 			<% for (let j=0; j<proyectos[i].imagenes.length; j++) { %> 
-				<figure class="justify-center flex-row">
 					<img 
-						style="animation: banner<%= j+1 %> 915s infinite normal"
+						style="animation: banner<%= j+1 %> 15s infinite normal"
 						src="./imagenes/3-proyectos/<%= proyectos[i].imagenes[j].nombre %>"
 					>
 					<% if (proyectos[i].imagenes[j].texto) { %>
-						<figcaption><%= proyectos[i].imagenes[j].texto %> </figcaption>
+						<figcaption style="animation: banner<%= j+1 %> 15s infinite normal"><%= proyectos[i].imagenes[j].texto %> </figcaption>
 					<% } %> 
-				</figure>
 			<% } %> 
 		</div>
 	<% } %>
-	<!-- <div id="mediana_escala" class="ocultar justify-center">
-		<figure class="justify-center flex-row">
-			<img style="animation: banner1 15s infinite normal" src="./imagenes/3-proyectos/2-Mediana escala 1.jpg">
-			<figcaption>Antes de remodelar</figcaption>
-		</figure>
-		<img id="dos" src="./imagenes/3-proyectos/2-Mediana escala 2.jpg">
-		<img id="tres" src="./imagenes/3-proyectos/2-Mediana escala 3.jpg">
-	</div>
-	<div id="menor_escala" class="ocultar justify-center">
-		<figure class="justify-center flex-row">
-			<img id="uno" src="./imagenes/3-proyectos/3-Menor escala 1.jpg">
-			<figcaption>Antes de remodelar</figcaption>
-		</figure>
-		<img id="dos" src="./imagenes/3-proyectos/3-Menor escala 2.jpg">
-		<img id="tres" src="./imagenes/3-proyectos/3-Menor escala 3.jpg">
-	</div> -->
 </section>
