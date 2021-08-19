@@ -12,12 +12,9 @@
 </section>
 <section id="imagen">
 	<% for (let i=0; i<proyectos.length; i++) { %>
-		<div class="justify-center grupo <%- i==0 ? 'flex-row' : 'ocultar' %> ">
+		<div class="grupo <%- i==0 ? 'flex-row' : 'ocultar' %> ">
 			<% for (let j=0; j<proyectos[i].imagenes.length; j++) { %> 
-					<img 
-						style="animation: banner<%= j+1 %> 15s infinite normal"
-						src="./imagenes/3-proyectos/<%= proyectos[i].imagenes[j].nombre %>"
-					>
+					<img style="animation: banner<%= j+1 %> 15s infinite normal" src="./imagenes/3-proyectos/<%= proyectos[i].imagenes[j].nombre %>">
 					<% if (proyectos[i].imagenes[j].texto) { %>
 						<figcaption style="animation: banner<%= j+1 %> 15s infinite normal"><%= proyectos[i].imagenes[j].texto %> </figcaption>
 					<% } %> 

@@ -39,14 +39,15 @@ main #proyectos #imagen {
 	height: 535px;
 }
 
-main #proyectos #imagen div {
+main #proyectos #imagen .grupo {
 	height: 100%;
 	width: 100%;
     position: relative;
 	overflow: hidden;
+	justify-content: center;
 }
 
-figcaption {
+main #proyectos #imagen .grupo figcaption {
 	position: absolute;
 	bottom: 0px;
 	background-color: var(--gris-letras);
@@ -55,11 +56,11 @@ figcaption {
 	border-radius: 10px;
 }
 
-main #proyectos #imagen div img {
+main #proyectos #imagen .grupo img {
 	position: absolute;
 	height: 100%;
 	width: auto;
-	min-width: 70%;
+	
 }
 
 @keyframes banner1 {0%, 23% {opacity: 1} 33%, 56% {opacity: 0} 66%, 90% {opacity: 0} 100% {opacity: 1;}}
