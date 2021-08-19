@@ -9,7 +9,7 @@ module.exports = {
 		proyectos = await BD_varios.ObtenerProyectos();
 		inicio_imagenes = await BD_varios.ObtenerTodos("inicio_imagenes");
 		clientes_imagenes = await BD_varios.ObtenerTodos("clientes_imagenes");
-		return res.send(proyectos);
+		//return res.send(proyectos);
 		res.render("home", {
 			title: "Arq. José Costas",
 			titulos_encabezado,

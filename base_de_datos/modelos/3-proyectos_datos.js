@@ -3,6 +3,7 @@ module.exports = (sequelize, dt) => {
 	const columns = {
 		id: { type: dt.INTEGER, primaryKey: true },
 		orden: { type: dt.INTEGER },
+		categoria: { type: dt.STRING(50) },
 		nombre_a_mostrar: { type: dt.STRING(50) },
 	};
 	const config = {
@@ -11,7 +12,7 @@ module.exports = (sequelize, dt) => {
 	};
 	const entidad = sequelize.define(alias, columns, config);
 	entidad.associate = n => {
-		entidad.hasMany(n.proyectos_imagenes, {as: "proyecto_imagenes",foreignKey: "proyecto_id"});
+		entidad.hasMany(n.proyectos_imagenes, {as: "imagenes",foreignKey: "proyecto_id"});
 	};
 	return entidad;
 };

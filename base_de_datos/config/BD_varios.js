@@ -8,20 +8,24 @@ module.exports = {
 		});
 	},
 
-	ObtenerProyectos: async () => {
-		let aux = await db.proyectos_datos.findAll({
-			include: ["proyecto_imagenes"],
-			order: [
-				["orden", "ASC"],
-			],
-		});
-		aux = aux.map((n) => {
-			n.proyecto_imagenes.sort((a, b) => {
-				return a.orden < b.orden ? -1 : a > b ? 1 : 0;
+	ObtenerProyectos: () => {
+		return db.proyectos_datos
+			.findAll({
+				include: ["imagenes"],
+				order: [["orden", "ASC"]],
 			})
-			return n
-		})
-		return aux
+			.then((n) =>
+				n.map((m) => {
+					m.imagenes.sort((a, b) => {
+						return a.orden < b.orden
+							? -1 
+							: a.orden > b.orden 
+								? 1 
+								: 0;
+					});
+					return m;
+				})
+			);
 	},
 
 	ObtenerTodos: (entidad) => {
