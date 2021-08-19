@@ -1,27 +1,18 @@
 <section id="texto">
 	<h1><%= n.titulo_seccion %></h1>
 	<div id="comentarioH1">
-		<p>Tenemos una dilatada experiencia en sus diferentes tipos y complejidades.</p>
-		<p>Nuestro servicio profesional garantiza su aprobación, en los tipos de actividades que distingue la normativa de la Ciudad de Buenos Aires:</p>
+		<% for (m of habilitaciones.filter(m => m.grupo == 1)) { %>
+			<p><%= m.contenido %> </p>
+		<% } %> 
 	</div>
 	<ul>
-		<li>
-			<h2>Comercios Minoristas y/o Mayoristas</h2>
-			<p>Indumentaria, alimentos, electrodomésticos, etc...</p>
-		</li>
-		<li>
-			<h2>Servicios y Espectáculos</h2>
-			<p>Oficinas, peluquerías, agencias, salones de fiestas, centros culturales.</p>
-		</li>
-		<li>
-			<h2>Especiales</h2>
-			<p>Institutos de enseñanza, consultorios.</p>
-		</li>
-		<li>
-			<h2>Industrias y Depósitos</h2>
-			<p></p>
-		</li>
-
+		<% casos = habilitaciones.filter(m => (m.grupo > 1 && m.orden == 1)).length %>
+		<% for (let i=0; i<casos; i++) { %>
+			<li>
+				<h2><%= habilitaciones.find(n => n.grupo == i+2 && n.orden == 1).contenido %></h2>
+				<p><%= habilitaciones.find(n => n.grupo == i+2 && n.orden == 2).contenido %></p>
+			</li>
+		<% } %> 
 	</ul>
 </section>
 <section id="imagenes">

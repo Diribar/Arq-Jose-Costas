@@ -9,21 +9,20 @@
 	</div>
 	<h1><%= n.titulo_seccion %></h1>
 	<div id="tareas">
-		<p>Proyectos y Obras nuevas</p>
-		<p>Remodelaciones</p>
-		<p>Habilitaciones Comerciales</p>
+		<% for (m of inicio.filter(m => m.grupo == 1)) { %>
+			<p><%= m.contenido %> </p>
+		<% } %> 
 	</div>
 	<div id="datos">
-		<p>Arq. José Ricardo Costas</p>
-		<p>Mat. CPAU 28.861</p>
-		<p>Celular: (11) 5462 2786</p>
-		<p>josericardocostas@hotmail.com</p>
+		<% for (m of inicio.filter(m => m.grupo == 2)) { %>
+			<p><%= m.contenido %> </p>
+		<% } %> 
 	</div>
 </section>
 <section id="imagenes">
 	<ul>
-		<% for (n of inicio_imagenes) { %>
-			<li><img src="./imagenes/1-inicio/<%= n.nombre %>"></li>
+		<% for (m of inicio_imagenes) { %>
+			<li><img src="./imagenes/1-inicio/<%= m.nombre %>"></li>
 		<% } %> 
 		<li>
 			<img src="./imagenes/1-inicio/<%= inicio_imagenes[0].nombre %>">
