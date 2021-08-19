@@ -1,6 +1,7 @@
 <h1><%= n.titulo_seccion %></h1>
 <img src="/imagenes/4-servicios/<%= n.imagen.nombre %>" alt="<%= n.imagen.lugar %>"">
-<h2>Habilitación de carteles comerciales</h2>
-<h2>Obtención de certificado de conservación de fachadas</h2>
-<p>según ley 6116 (ex 257)</p>
-<h2>Asesoramiento en Seguridad e Higiene en la construcción</h2>
+<% casos = servicios.filter(m => m.orden == 1).length %>
+<% for (let i=0; i<casos; i++) { %>
+		<h2><%= servicios.find(n => n.grupo == i+1 && n.orden == 1).contenido %></h2>
+		<p><%= servicios.find(n => n.grupo == i+1 && n.orden == 2).contenido %></p>
+<% } %> 

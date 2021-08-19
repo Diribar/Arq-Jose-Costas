@@ -5,7 +5,7 @@ const BD_varios = require("../base_de_datos/config/BD_varios");
 // **** Exportar ***********
 module.exports = {
 	homeForm: async (req, res) => {
-		//return res.send(await BD_varios.ObtenerTodos("inicio"));
+		//return res.send(await BD_varios.ObtenerTodos("quienes_somos"));
 		res.render("home", {
 			title: "Arq. José Costas",
 			titulos_encabezado: await BD_varios.ObtenerTitulos(),
@@ -13,9 +13,12 @@ module.exports = {
 			inicio_imagenes: await BD_varios.ObtenerTodos("inicio_imagenes"),
 			habilitaciones: await BD_varios.ObtenerTodos("habilitaciones"),
 			proyectos: await BD_varios.ObtenerProyectos(),
+			servicios: await BD_varios.ObtenerTodos("servicios"),
+			quienes_somos: await BD_varios.ObtenerTodos("quienes_somos"),
 			clientes_imagenes: await BD_varios.ObtenerTodos(
 				"clientes_imagenes"
 			),
+			contactanos: await BD_varios.ObtenerTodos("contactanos"),
 			suma1: Math.round(Math.random() * 12),
 			suma2: Math.round(Math.random() * 12),
 		});

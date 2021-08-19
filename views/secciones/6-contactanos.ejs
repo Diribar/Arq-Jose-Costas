@@ -26,11 +26,12 @@
 	</section>
 	<section id="texto" class="flex-col">
 		<div class="flex-col">
-			<h2>Arq. José Ricardo Costas</h2>
-			<p>Mat. CPAU 28.861</p>
-			<br>
-			<p>Celular: (11) 5462 2786</p>
-			<p>Mail: josericardocostas@hotmail.com</p>
+			<h2><%= contactanos.find(n => n.grupo == 1).contenido %></h2>
+			<% casos = contactanos.filter(m => (m.grupo == 2)).length %>
+			<% for (let i=0; i<casos; i++) { %>
+				<p><%= contactanos.find(n => n.grupo == 2 && n.orden == i+1).contenido %></p>
+				<%- i == 0 ? '<br>' : '' %> 
+			<% } %> 
 		</div>
 		<div id="submit">
 			<p id="suma1" class="noSeleccionable"><%= suma1 %></p>
