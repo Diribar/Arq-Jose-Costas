@@ -1,7 +1,7 @@
 FORMULARIOS
-- Principal				--> Form + Guardar
-- Texto Específico		--> Form + Guardar
-- Imágenes específico	--> Form + Guardar
+- Principal             --> Form + Guardar
+- Texto Específico      --> Form + Guardar
+- Imágenes específico   --> Form + Guardar
 
 LOGIN -> Hacer la vista
 
