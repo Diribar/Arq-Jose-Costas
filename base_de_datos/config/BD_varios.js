@@ -9,7 +9,7 @@ module.exports = {
 	},
 
 	ObtenerProyectos: () => {
-		return db.proyectos_datos
+		return db.proyectos
 			.findAll({
 				include: ["imagenes"],
 				order: [["orden", "ASC"]],
