@@ -60,7 +60,7 @@ main #proyectos #imagen .grupo img {
 	position: absolute;
 	height: 100%;
 	width: auto;
-	
+	min-width: 70%;
 }
 
 @keyframes banner1 {0%, 23% {opacity: 1} 33%, 56% {opacity: 0} 66%, 90% {opacity: 0} 100% {opacity: 1;}}
