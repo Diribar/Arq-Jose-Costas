@@ -9,25 +9,53 @@
 					<tr>
 						<th>Sección</th>
 						<th>Orden</th>
-						<th>Nombre en el Encabezado</th>
-						<th>Nombre en la Sección</th>
+						<th>Nombre en el<br>Encabezado</th>
+						<th>Nombre en el<br>Título de la Sección</th>
 						<th>Color de Fondo</th>
 						<th>Color de Letras</th>
-						<th>Imagen Individual</th>
-						<th>Editar Texto</th>
-						<th>Editar Imágenes</th>
+						<th>Imagen<br>Individual</th>
+						<th>Editar<br>Texto</th>
+						<th>Editar<br>Imágenes</th>
 					</tr>
 				</thead>
 				<tbody>
 					<% for (let i=0; i<titulos.length; i++) { %> 
 						<tr>
-							<td><%= n.nombre_seccion %></td>
+							<td><%= titulos[i].nombre_seccion %></td>
 							<td>Up/Down</td>
-							<td><input type="text" name="nombre_a_mostrar" value="<%= n.nombre_a_mostrar %>"></td>
-							<td><input type="text" name="titulo_seccion" value="<%= n.titulo_seccion %>"></td>
-							<td><%= n.color_fondo.nombre %></td>
-							<td><%= n.color_letras.nombre %></td>
-							<td><img src="<%= n.imagen_id %>" alt=""></td>
+							<td><input type="text" name="nombre_a_mostrar" value="<%= titulos[i].nombre_a_mostrar %>"></td>
+							<td><input type="text" name="titulo_seccion" value="<%= titulos[i].titulo_seccion %>"></td>
+							<td>
+								<select name="color_fondo_id">
+									<% for (n of colores) { %>
+										<option 
+											value="<%= n.id %>" 
+											<%- n.id == titulos[i].color_fondo_id ? 'selected' : "" %> 
+										>
+											<%= n.nombre %>
+										</option>
+									<% } %> 
+								</select>
+							</td>
+							<td>
+								<select name="color_fondo_id">
+									<% for (n of colores) { %>
+										<option 
+											value="<%= n.id %>" 
+											<%- n.id == titulos[i].color_letras_id ? 'selected' : "" %> 
+										>
+											<%= n.nombre %>
+										</option>
+									<% } %> 
+								</select>
+							</td>
+							<td>
+								<% if (titulos[i].imagen_id) { %> 
+									<img src="/imagenes/varias/<%= titulos[i].imagen.nombre %>" height="100px">
+								<% } else { %>
+									-
+								<% } %> 
+							</td>
 							<td>SI/NO</td>
 							<td>SI/NO</td>
 						</tr>

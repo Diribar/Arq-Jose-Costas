@@ -1,8 +1,7 @@
 #editar_home #tabla {
 	border-collapse: collapse;
 	margin: 25px auto;
-	font-size: 0.95rem;
-	min-width: 400px;
+	font-size: 0.9rem;
 	border-radius: 15px 15px 0 0;
 	overflow: hidden;
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
@@ -15,13 +14,8 @@
 	font-weight: bold;
 }
 
-#editar_home #tabla th {
+#editar_home #tabla thead tr th {
 	padding: 12px 15px;
-}
-
-#editar_home #tabla td {
-	padding: 5px 15px;
-	height: 2rem;
 }
 
 #editar_home #tabla tbody tr {
@@ -34,4 +28,15 @@
 
 #editar_home #tabla tbody tr:last-of-type {
 	border-bottom: 2px solid #009879;
+}
+
+#editar_home #tabla tbody tr td {
+	padding: 1px 10px;
+	height: 2rem;
+	border: 2px solid red;
+}
+
+#editar_home #tabla tbody tr td input {
+	border: none;
+	background-color: transparent;
 }

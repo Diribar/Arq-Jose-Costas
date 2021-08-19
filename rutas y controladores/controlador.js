@@ -65,6 +65,7 @@ module.exports = {
 			),
 			contactanos: await BD_varios.ObtenerTodos("contactanos"),
 			footer: encabezado[1],
+			colores: await BD_varios.ObtenerColores(),
 		});
 	},
 };
