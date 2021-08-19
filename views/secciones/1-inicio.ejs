@@ -7,7 +7,7 @@
 		<div id="grow">
 		</div>
 	</div>
-	<h1>Estudio de Arquitectura - CABA</h1>
+	<h1><%= n.titulo_seccion %></h1>
 	<div id="tareas">
 		<p>Proyectos y Obras nuevas</p>
 		<p>Remodelaciones</p>
@@ -37,7 +37,7 @@
 	</div>
 	<nav id="dots">
 		<% for (let i=0; i<inicio_imagenes.length; i++) { %>
-			<button class="<% if (i==0) { %>dot current<% } else { %>dot<% } %> "></button>
+			<button class="dot <%- i==0 ? 'current' : '' %>"></button>
 		<% } %>
 		<p></p>
 	</nav>
