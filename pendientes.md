@@ -1,10 +1,8 @@
-
-
-OTROS -> Subir a internet
+FORMULARIOS
+- Principal				--> Form + Guardar
+- Texto Específico		--> Form + Guardar
+- Imágenes específico	--> Form + Guardar
 
 LOGIN -> Hacer la vista
 
-EDICION DE SECCIONES
-- Hacer la vista del formulario
-- Grabar en la BD
-- Actualizar las vistas de usuario
+OTROS -> Subir a internet
