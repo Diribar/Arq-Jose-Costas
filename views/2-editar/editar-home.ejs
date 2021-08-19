@@ -1,25 +1,40 @@
 <%- include('2-editarHead', {titulo: "Edición - Menú Principal"}) %>
-<body>
+<body id="editar_home">
 	<header>Edición - Menú Principal</header>
 	<main>
-		<table>
-			<thead>
-				<tr>
-					<th>Sección</th>
-					<th>Orden</th>
-					<th>Nombre en el Encabezado</th>
-					<th>Nombre en la Sección</th>
-					<th>Color de Fondo</th>
-					<th>Color de Letras</th>
-					<th>Imagen Individual</th>
-					<th>Editar Texto</th>
-					<th>Editar Imágenes</th>
-				</tr>
-			</thead>
-			<tbody>
-				
-			</tbody>
-		</table>
+		<form action="" method="POST">
+			<table id="tabla">
+				<caption>Aspectos a Editar</caption>
+				<thead>
+					<tr>
+						<th>Sección</th>
+						<th>Orden</th>
+						<th>Nombre en el Encabezado</th>
+						<th>Nombre en la Sección</th>
+						<th>Color de Fondo</th>
+						<th>Color de Letras</th>
+						<th>Imagen Individual</th>
+						<th>Editar Texto</th>
+						<th>Editar Imágenes</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% for (let i=0; i<titulos.length; i++) { %> 
+						<tr>
+							<td><%= n.nombre_seccion %></td>
+							<td>Up/Down</td>
+							<td><input type="text" name="nombre_a_mostrar" value="<%= n.nombre_a_mostrar %>"></td>
+							<td><input type="text" name="titulo_seccion" value="<%= n.titulo_seccion %>"></td>
+							<td><%= n.color_fondo.nombre %></td>
+							<td><%= n.color_letras.nombre %></td>
+							<td><img src="<%= n.imagen_id %>" alt=""></td>
+							<td>SI/NO</td>
+							<td>SI/NO</td>
+						</tr>
+					<% } %>
+				</tbody>
+			</table>
+		</form>
 	</main>
 </body>
 </html>
