@@ -5,54 +5,21 @@ const BD_varios = require("../base_de_datos/config/BD_varios");
 // **** Exportar ***********
 module.exports = {
 	homeForm: async (req, res) => {
-		titulos_encabezado = await BD_varios.ObtenerTitulos();
-		proyectos = await BD_varios.ObtenerProyectos();
-		inicio_imagenes = await BD_varios.ObtenerTodos("inicio_imagenes");
-		clientes_imagenes = await BD_varios.ObtenerTodos("clientes_imagenes");
-		//return res.send(proyectos);
+		//return res.send(await BD_varios.ObtenerProyectos());
 		res.render("home", {
 			title: "Arq. José Costas",
-			titulos_encabezado,
-			inicio_imagenes,
-			proyectos,
-			clientes_imagenes,
+			titulos_encabezado: await BD_varios.ObtenerTitulos(),
+			inicio_imagenes: await BD_varios.ObtenerTodos("inicio_imagenes"),
+			proyectos: await BD_varios.ObtenerProyectos(),
+			clientes_imagenes: await BD_varios.ObtenerTodos("clientes_imagenes"),
 			suma1: Math.round(Math.random() * 12),
 			suma2: Math.round(Math.random() * 12),
 		});
 	},
 
 	homeGuardar: (req, res) => {
-		let { nombre, mail, telefono, comentario, suma1, suma2, suma } =
-			req.body;
-		// Validaciones
-		let errorNombre = !/^[A-Z ]+$/i.test(nombre) || nombre == "";
-		let errorMail =
-			!/^[\w\-\.\+]+\@[a-z0-9\.\-]+\.[a-z0-9]{2,5}$/i.test(mail) ||
-			mail == "";
-		let errorTelefono = !/^[\d -()/+]+$/.test(telefono) || telefono == "";
-		let errorComentario = comentario == "";
-		let errorSuma = parseInt(suma1) + parseInt(suma2) != suma || suma == "";
-		// Volver al formulario si hay algún error
-		if (
-			errorNombre ||
-			errorMail ||
-			errorTelefono ||
-			errorComentario ||
-			errorSuma
-		) {
-			res.render("home", {
-				datos: req.body,
-				title: "Arq. José Costas",
-				titulos_encabezado: datosBD.titulos_encabezado,
-				inicio_imagenes: datosBD.inicio_imagenes,
-				clientes: datosBD.clientes,
-				suma1: Math.round(Math.random() * 12),
-				suma2: Math.round(Math.random() * 12),
-			});
-		}
-		enviarMail(nombre, mail, telefono, comentario).catch(console.error);
 		return res.send(
-			"Tiene inactivado javascript en el front-end. Su mensaje fue enviado con éxito"
+			"Tiene inactivado javascript en el front-end. Actívelo para poder enviar el mail correctamente. Gracias."
 		);
 	},
 
@@ -109,18 +76,4 @@ let enviarMail = async (nombre, mail, telefono, comentario) => {
 	// 		console.log("Email sent: " + info.response);
 	// 	}
 	// });
-};
-
-// Función ordenar alfabéticamente
-let ordenarDatos = (datos) => {
-	datos.length > 1
-		? datos.sort((a, b) => {
-			return b.orden < a.orden
-				? 1
-				: b.orden > a.orden
-					? -1
-					: 0;
-		})
-		: "";
-	return datos;
 };
