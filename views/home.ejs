@@ -1,23 +1,23 @@
-<%- include('head', {titulo: title}) %>
-	<body>
-		<header class="flex-row">
-			<% for (n of titulos_encabezado) { %>
-				<nav>
-					<a href="#<%= n.nombre_seccion %>"><%= n.nombre_a_mostrar %></a>
-				</nav>
-			<% } %> 
-		</header>
-		<main>
-			<% for (n of titulos_encabezado) { %>
-				<section id="<%= n.nombre_seccion %>" class="seccion"
-					style="background-color: <%= n.color_fondo.color %>; color: <%= n.color_letras.color %>"
-				>
-					<%- include(n.id + "-" + n.nombre_seccion) %>
-				</section>
-			<% } %>
-		</main>
-		<footer>
-			<p>Sitio web diseñado por Diego Iribarren. Todos los derechos están reservados para José Costas (año 2021).</p>
-		</footer>
-	</body>
+<%- include('1-homeHead', {titulo: title}) %>
+<body>
+	<header class="flex-row">
+		<% for (n of titulos_encabezado) { %>
+			<nav>
+				<a href="#<%= n.nombre_seccion %>"><%= n.nombre_a_mostrar %></a>
+			</nav>
+		<% } %> 
+	</header>
+	<main>
+		<% for (n of titulos_encabezado) { %>
+			<section id="<%= n.nombre_seccion %>" class="seccion"
+				style="background-color: <%= n.color_fondo.color %>; color: <%= n.color_letras.color %>"
+			>
+				<%- include(n.id + "-" + n.nombre_seccion) %>
+			</section>
+		<% } %>
+	</main>
+	<footer>
+		<p>Sitio web diseñado por Diego Iribarren. Todos los derechos están reservados para José Costas (año 2021).</p>
+	</footer>
+</body>
 </html>
