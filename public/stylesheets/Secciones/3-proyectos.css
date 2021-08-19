@@ -1,19 +1,19 @@
-main #proyectos {
+#proyectos {
 	display: flex;
 	flex-direction: row;
 }
 
-main #proyectos #texto {
+#proyectos #texto {
 	display: flex;
 	flex-direction: column;
 	width: 45vw;
 }
 
-main #proyectos #texto h1 {
+#proyectos #texto h1 {
 	margin-bottom: 0;
 }
 
-main #proyectos #texto #botones {
+#proyectos #texto #botones {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -22,24 +22,22 @@ main #proyectos #texto #botones {
 	margin: 25px;
 }
 
-main #proyectos #texto #botones button {
+#proyectos #texto #botones button {
 	padding: 20px;
 	font-weight: bold;
 	font-size: 1.5rem;
-	background-color: transparent;
-	color: var(--gris-letras);
-	border: 2px var(--gris-letras) solid;
+	border: 2px solid;
 	width: 350px;
 }
 
-main #proyectos #imagen {
+#proyectos #imagen {
 	display: flex;
 	flex-direction: row;
 	flex-grow: 1;
 	height: 535px;
 }
 
-main #proyectos #imagen .grupo {
+#proyectos #imagen .grupo {
 	height: 100%;
 	width: 100%;
     position: relative;
@@ -47,7 +45,7 @@ main #proyectos #imagen .grupo {
 	justify-content: center;
 }
 
-main #proyectos #imagen .grupo figcaption {
+#proyectos #imagen .grupo figcaption {
 	position: absolute;
 	bottom: 0px;
 	background-color: var(--gris-letras);
@@ -56,7 +54,7 @@ main #proyectos #imagen .grupo figcaption {
 	border-radius: 10px;
 }
 
-main #proyectos #imagen .grupo img {
+#proyectos #imagen .grupo img {
 	position: absolute;
 	height: 100%;
 	width: auto;

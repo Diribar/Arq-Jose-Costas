@@ -3,9 +3,9 @@
 		<h1><%= n.titulo_seccion %></h1>
 	</div>
 	<div id="botones">
-		<% for (n of proyectos) { %>
-			<button>
-				<%= n.nombre_a_mostrar %> 
+		<% for (m of proyectos) { %>
+			<button style="background-color: <%= m.color_fondo.color %>; color: <%= m.color_letras.color %>; border-color: <%= m.color_borde.color %>">
+				<%= m.nombre_a_mostrar %> 
 			</button>
 		<% } %> 
 	</div>

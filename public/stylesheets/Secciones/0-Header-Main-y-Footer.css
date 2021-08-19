@@ -6,16 +6,14 @@ header {
 }
 
 header nav {
-	background-color: var(--gris-oscuro);
 	padding: 10px 15px;
 	font-weight: bold;
 	flex-grow: 1;
 	text-align: center;
-	border: 2px solid var(--blanco-letras);
+	border: 2px solid;
 }
 
 header nav a {
-	color: var(--blanco-letras);
 	font-size: 1.3rem;
 }
 
