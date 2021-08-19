@@ -4,7 +4,7 @@ const BD_varios = require("../base_de_datos/config/BD_varios");
 
 // **** Exportar ***********
 module.exports = {
-	homeForm: async (req, res) => {
+	home: async (req, res) => {
 		//return res.send(await BD_varios.ObtenerTodos("quienes_somos"));
 		res.render("home", {
 			title: "Arq. José Costas",
@@ -24,13 +24,7 @@ module.exports = {
 		});
 	},
 
-	homeGuardar: (req, res) => {
-		return res.send(
-			"Tiene inactivado javascript en el front-end. Actívelo para poder enviar el mail correctamente. Gracias."
-		);
-	},
-
-	form: async (req, res) => {
+	contactanosFrontEnd: async (req, res) => {
 		let { nombre, mail, telefono, comentario } = req.query;
 		comentario = decodeURIComponent(comentario);
 		await enviarMail(nombre, mail, telefono, comentario).catch(
@@ -39,8 +33,34 @@ module.exports = {
 		return res.json();
 	},
 
+	contactanosBackEnd: (req, res) => {
+		return res.send(
+			"Tiene inactivado javascript en el front-end. Actívelo para poder enviar el mail correctamente. Gracias."
+		);
+	},
+
 	loginForm: (req, res) => {
-		res.send("Formulario de login");
+		// return res.send("Formulario de login");
+		res.redirect("/editar");
+	},
+
+	editarHomeForm: async (req, res) => {
+		res.render("editar-home", {
+			title: "Arq. José Costas",
+			titulos_encabezado: await BD_varios.ObtenerTitulos(),
+			inicio: await BD_varios.ObtenerTodos("inicio"),
+			inicio_imagenes: await BD_varios.ObtenerTodos("inicio_imagenes"),
+			habilitaciones: await BD_varios.ObtenerTodos("habilitaciones"),
+			proyectos: await BD_varios.ObtenerProyectos(),
+			servicios: await BD_varios.ObtenerTodos("servicios"),
+			quienes_somos: await BD_varios.ObtenerTodos("quienes_somos"),
+			clientes_imagenes: await BD_varios.ObtenerTodos(
+				"clientes_imagenes"
+			),
+			contactanos: await BD_varios.ObtenerTodos("contactanos"),
+			suma1: Math.round(Math.random() * 12),
+			suma2: Math.round(Math.random() * 12),
+		});
 	},
 };
 
