@@ -1,5 +1,5 @@
 module.exports = (sequelize, dt) => {
-	const alias = "nuestros_clientes";
+	const alias = "clientes_imagenes";
 	const columns = {
 		id: { type: dt.INTEGER, primaryKey: true },
 		orden: { type: dt.INTEGER },
