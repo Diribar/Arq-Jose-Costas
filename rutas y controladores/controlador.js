@@ -48,8 +48,11 @@ module.exports = {
 	},
 
 	editarHomeForm: async (req, res) => {
+		let encabezado = await BD_varios.ObtenerColoresEncabezado();
+		//return res.send(encabezado[1]);
 		res.render("editar-home", {
 			title: "Arq. José Costas",
+			encabezado: encabezado[0],
 			titulos: await BD_varios.ObtenerTitulos(),
 			inicio: await BD_varios.ObtenerTodos("inicio"),
 			inicio_imagenes: await BD_varios.ObtenerTodos("inicio_imagenes"),
@@ -61,8 +64,7 @@ module.exports = {
 				"clientes_imagenes"
 			),
 			contactanos: await BD_varios.ObtenerTodos("contactanos"),
-			suma1: Math.round(Math.random() * 12),
-			suma2: Math.round(Math.random() * 12),
+			footer: encabezado[1],
 		});
 	},
 };
