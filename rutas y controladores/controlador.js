@@ -8,7 +8,8 @@ module.exports = {
 		//return res.send(await BD_varios.ObtenerTodos("quienes_somos"));
 		res.render("home", {
 			title: "Arq. José Costas",
-			titulos_encabezado: await BD_varios.ObtenerTitulos(),
+			encabezado: await BD_varios.ObtenerColoresEncabezado(),
+			titulos: await BD_varios.ObtenerTitulos(),
 			inicio: await BD_varios.ObtenerTodos("inicio"),
 			inicio_imagenes: await BD_varios.ObtenerTodos("inicio_imagenes"),
 			habilitaciones: await BD_varios.ObtenerTodos("habilitaciones"),
@@ -47,7 +48,7 @@ module.exports = {
 	editarHomeForm: async (req, res) => {
 		res.render("editar-home", {
 			title: "Arq. José Costas",
-			titulos_encabezado: await BD_varios.ObtenerTitulos(),
+			titulos: await BD_varios.ObtenerTitulos(),
 			inicio: await BD_varios.ObtenerTodos("inicio"),
 			inicio_imagenes: await BD_varios.ObtenerTodos("inicio_imagenes"),
 			habilitaciones: await BD_varios.ObtenerTodos("habilitaciones"),

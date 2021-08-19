@@ -2,7 +2,6 @@
 	display: flex;
 	flex-direction: row;
 	padding: 0 50px;
-	color: var(--gris-letras);
 }
 
 #inicio #texto {
@@ -20,15 +19,15 @@
 	font-size: 60px;
 	color: ivory;
 	font-weight: bolder;
-	text-shadow: 2px 0 0 var(--gris-letras), -2px 0 0 var(--gris-letras),
-		0 2px 0 var(--gris-letras), 0 -2px 0 var(--gris-letras),
-		1px 1px var(--gris-letras), -1px -1px 0 var(--gris-letras),
-		1px -1px 0 var(--gris-letras), -1px 1px 0 var(--gris-letras);
+	text-shadow: 2px 0 0 RGB(118, 113, 113), -2px 0 0 RGB(118, 113, 113),
+		0 2px 0 RGB(118, 113, 113), 0 -2px 0 RGB(118, 113, 113),
+		1px 1px RGB(118, 113, 113), -1px -1px 0 RGB(118, 113, 113),
+		1px -1px 0 RGB(118, 113, 113), -1px 1px 0 RGB(118, 113, 113);
 }
 
 #inicio #texto #logo2 {
 	font-size: 24px;
-	color: var(--gris-letras);
+	color: RGB(118, 113, 113);
 	font-weight: bolder;
 }
 
@@ -51,7 +50,6 @@
 
 #inicio #texto #datos p {
 	margin-top: 0.5rem;
-	color: var(--gris-letras);
 }
 
 #inicio #imagenes {
@@ -127,11 +125,11 @@
 #inicio #imagenes #iconos .fas {
 	z-index: 1;
 	font-size: 50px;
-	color: var(--gris-oscuro);
-	text-shadow: 2px 0 0 var(--blanco-letras), -2px 0 0 var(--blanco-letras),
-		0 2px 0 var(--blanco-letras), 0 -2px 0 var(--blanco-letras),
-		1px 1px var(--blanco-letras), -1px -1px 0 var(--blanco-letras),
-		1px -1px 0 var(--blanco-letras), -1px 1px 0 var(--blanco-letras);
+	color: #828383;
+	text-shadow: 2px 0 0 RGB(242,242,242), -2px 0 0 RGB(242,242,242),
+		0 2px 0 RGB(242,242,242), 0 -2px 0 RGB(242,242,242),
+		1px 1px RGB(242,242,242), -1px -1px 0 RGB(242,242,242),
+		1px -1px 0 RGB(242,242,242), -1px 1px 0 RGB(242,242,242);
 	transition-duration: 0.5s;
 }
 
@@ -147,7 +145,7 @@
 
 #inicio #imagenes #iconos .fa-pause-circle,
 #inicio #imagenes #iconos .fa-play-circle {
-	background-color: var(--blanco-letras);
+	background-color: RGB(242,242,242);
 	border-radius: 50%;
 }
 
