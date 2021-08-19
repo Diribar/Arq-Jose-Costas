@@ -24,12 +24,6 @@ module.exports = {
 		});
 	},
 
-	homeGuardar: (req, res) => {
-		return res.send(
-			"Tiene inactivado javascript en el front-end. Actívelo para poder enviar el mail correctamente. Gracias."
-		);
-	},
-
 	form: async (req, res) => {
 		let { nombre, mail, telefono, comentario } = req.query;
 		comentario = decodeURIComponent(comentario);
@@ -37,6 +31,12 @@ module.exports = {
 			console.error
 		);
 		return res.json();
+	},
+
+	homeGuardar: (req, res) => {
+		return res.send(
+			"Tiene inactivado javascript en el front-end. Actívelo para poder enviar el mail correctamente. Gracias."
+		);
 	},
 
 	loginForm: (req, res) => {

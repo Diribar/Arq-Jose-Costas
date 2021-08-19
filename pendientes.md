@@ -1,5 +1,4 @@
-CONVERTIR TODO EN BD
-- Inicio
+
 
 OTROS -> Subir a internet
 
