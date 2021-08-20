@@ -9,6 +9,8 @@ module.exports = (sequelize, dt) => {
 		color_fondo_id: { type: dt.INTEGER },
 		color_letras_id: { type: dt.INTEGER },
 		imagen_id: { type: dt.INTEGER },
+		editar_texto: { type: dt.BOOLEAN },
+		editar_imagenes: { type: dt.BOOLEAN },
 	};
 	const config = {
 		tableName: "0_titulos",

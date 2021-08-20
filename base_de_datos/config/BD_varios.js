@@ -1,6 +1,12 @@
 const db = require("../modelos");
 
 module.exports = {
+	ObtenerColores: () => {
+		return db.colores.findAll({
+			order: [["nombre", "ASC"]],
+		});
+	},
+
 	ObtenerColoresEncabezado: () => {
 		return db.encabezado.findAll({
 			include: ["color_fondo", "color_letras"],
@@ -18,7 +24,12 @@ module.exports = {
 	ObtenerProyectos: () => {
 		return db.proyectos
 			.findAll({
-				include: ["color_fondo", "color_letras", "color_borde", "imagenes"],
+				include: [
+					"color_fondo",
+					"color_letras",
+					"color_borde",
+					"imagenes",
+				],
 				order: [["orden", "ASC"]],
 			})
 			.then((n) =>

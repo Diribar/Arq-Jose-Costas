@@ -8,7 +8,6 @@ module.exports = {
 		let encabezado = await BD_varios.ObtenerColoresEncabezado();
 		//return res.send(encabezado[1]);
 		res.render("home", {
-			title: "Arq. José Costas",
 			encabezado: encabezado[0],
 			titulos: await BD_varios.ObtenerTitulos(),
 			inicio: await BD_varios.ObtenerTodos("inicio"),
@@ -50,21 +49,11 @@ module.exports = {
 	editarHomeForm: async (req, res) => {
 		let encabezado = await BD_varios.ObtenerColoresEncabezado();
 		//return res.send(encabezado[1]);
-		res.render("editar-home", {
-			title: "Arq. José Costas",
+		res.render("1-editarHome", {
 			encabezado: encabezado[0],
 			titulos: await BD_varios.ObtenerTitulos(),
-			inicio: await BD_varios.ObtenerTodos("inicio"),
-			inicio_imagenes: await BD_varios.ObtenerTodos("inicio_imagenes"),
-			habilitaciones: await BD_varios.ObtenerTodos("habilitaciones"),
-			proyectos: await BD_varios.ObtenerProyectos(),
-			servicios: await BD_varios.ObtenerTodos("servicios"),
-			quienes_somos: await BD_varios.ObtenerTodos("quienes_somos"),
-			clientes_imagenes: await BD_varios.ObtenerTodos(
-				"clientes_imagenes"
-			),
-			contactanos: await BD_varios.ObtenerTodos("contactanos"),
 			footer: encabezado[1],
+			colores: await BD_varios.ObtenerColores(),
 		});
 	},
 };
