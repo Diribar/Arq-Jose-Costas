@@ -4,13 +4,19 @@ USE jose_costas;
 
 CREATE TABLE colores (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-	nombre VARCHAR(20) NOT NULL,
-	color VARCHAR(20) NOT NULL,
+	nombre VARCHAR(20) NOT NULL UNIQUE,
+	color VARCHAR(20) NOT NULL UNIQUE,
 	PRIMARY KEY (id)	
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 INSERT INTO colores (nombre, color)
-VALUES ('amarillo-claro', 'RGB(255,242,204)'), ('amarillo-oscuro', '#F1C757'), ('azul', 'RGB(37,64,97)'), ('azul-frances', 'RGB(31,73,125)'), ('blanco-letras', 'RGB(242,242,242)'), ('celeste-claro', 'RGB(220,230,242)'), ('celeste-oscuro', '#C7D7EA'), ('gris-claro', 'RGB(242,242,242)'), ('gris-oscuro', '#828383'), ('gris-letras', 'RGB(118, 113, 113)'), ('naranja-oscuro', '#F57C00'), ('rojo', 'RGB(192,80,77)'), ('rojo-claro', '(251,229,214)'), ('verde', 'RGB(79,98,40)'), ('verde-claro', 'RGB(226,240,217)'), ('blanco', 'white')
-;
+VALUES 
+	('Amarillo oscuro', '#F1C757'), 
+	('Gris claro', 'RGB(242,242,242)'), 
+	('Gris oscuro', '#828383'), 
+	('Gris oscuro +', 'RGB(118, 113, 113)'),  
+	('Blanco', 'white'), 
+	('Transparente', 'transparent') 
+	;
 
 CREATE TABLE imagenes_varias (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -25,7 +31,19 @@ VALUES
 	('Avatar', 'Avatar.jpg')
 	;
 
-CREATE TABLE 0_titulos_encabezado (
+CREATE TABLE 0_encabezado_y_footer (
+	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+	orden INT UNSIGNED NOT NULL,
+	color_fondo_id INT UNSIGNED NOT NULL,
+	color_letras_id INT UNSIGNED NOT NULL,
+	PRIMARY KEY (id),
+	FOREIGN KEY (color_fondo_id) REFERENCES colores(id),
+	FOREIGN KEY (color_letras_id) REFERENCES colores(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO 0_encabezado_y_footer (orden, color_fondo_id, color_letras_id)
+VALUES (1, 4, 2), (2, 4, 2);
+
+CREATE TABLE 0_titulos (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
 	orden INT UNSIGNED NOT NULL,
 	nombre_seccion VARCHAR(20) NOT NULL,
@@ -34,19 +52,21 @@ CREATE TABLE 0_titulos_encabezado (
 	color_fondo_id INT UNSIGNED NOT NULL,
 	color_letras_id INT UNSIGNED NOT NULL,
 	imagen_id INT UNSIGNED NULL,
+	editar_texto BOOLEAN NOT NULL,
+	editar_imagenes BOOLEAN NOT NULL,
 	PRIMARY KEY (id),
 	FOREIGN KEY (color_fondo_id) REFERENCES colores(id),
 	FOREIGN KEY (color_letras_id) REFERENCES colores(id),
 	FOREIGN KEY (imagen_id) REFERENCES imagenes_varias(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-INSERT INTO 0_titulos_encabezado (nombre_seccion, orden, nombre_a_mostrar, titulo_seccion, color_fondo_id, color_letras_id, imagen_id)
+INSERT INTO 0_titulos (nombre_seccion, orden, nombre_a_mostrar, titulo_seccion, color_fondo_id, color_letras_id, imagen_id, editar_texto, editar_imagenes)
 VALUES 
-	('inicio', 1, 'Inicio', 'Estudio de Arquitectura - CABA', 2, 10, null), 
-	('habilitaciones', 2, 'Habilitaciones', 'Habilitaciones Comerciales', 9, 16, 1), 
-	('proyectos', 3, 'Proyectos y Obras', 'Proyectos y Obras', 2, 10, null),
-	('servicios', 4, 'Otros Servicios', 'Otros Servicios', 9, 16, 2),
-	('quienes_somos', 5, 'Quiénes Somos', 'Quiénes Somos', 2, 10, 3),
-	('contactanos', 6, 'Contactanos', 'Contactanos', 9, 16, null)
+	('inicio', 1, 'Inicio', 'Estudio de Arquitectura - CABA', 1, 4, null, 1, 1), 
+	('habilitaciones', 2, 'Habilitaciones', 'Habilitaciones Comerciales', 3, 5, 1, 1, 0), 
+	('proyectos', 3, 'Proyectos y Obras', 'Proyectos y Obras', 1, 4, null, 1, 1),
+	('servicios', 4, 'Otros Servicios', 'Otros Servicios', 3, 5, 2, 1, 0),
+	('quienes_somos', 5, 'Quiénes Somos', 'Quiénes Somos', 1, 4, 3, 1, 0),
+	('contactanos', 6, 'Contactanos', 'Contactanos', 3, 5, null, 1, 0)
 	;
 
 CREATE TABLE 1_inicio_datos (
@@ -74,7 +94,7 @@ CREATE TABLE 1_inicio_imagenes (
 	PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 INSERT INTO 1_inicio_imagenes (orden, nombre)
-VALUES (1, 'Buenos Aires.jpg'), (2, 'Instituto.jpg'), (3, 'Teatro Aptra 2.jpg'), (4, 'Cocina.jpg')
+VALUES (1, 'Buenos Aires.jpg'), (2, 'Instituto.jpg'), (3, 'Teatro Aptra.jpg'), (4, 'Cocina.jpg')
 ;
 
 CREATE TABLE 2_habilitaciones_datos (
@@ -102,13 +122,18 @@ CREATE TABLE 3_proyectos_datos (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
 	orden INT UNSIGNED NOT NULL,
 	nombre_a_mostrar VARCHAR(50) NOT NULL,
-	PRIMARY KEY (id)
+	color_fondo_id INT UNSIGNED NOT NULL,
+	color_letras_id INT UNSIGNED NOT NULL,
+	color_borde_id INT UNSIGNED NOT NULL,
+	PRIMARY KEY (id),
+	FOREIGN KEY (color_fondo_id) REFERENCES colores(id),
+	FOREIGN KEY (color_letras_id) REFERENCES colores(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-INSERT INTO 3_proyectos_datos (orden, nombre_a_mostrar)
+INSERT INTO 3_proyectos_datos (orden, nombre_a_mostrar, color_fondo_id, color_letras_id, color_borde_id)
 VALUES 
-	(1, 'Integral de Edificios'), 
-	(2, 'Mediana Escala'), 
-	(3, 'Menor Escala')
+	(1, 'Integral de Edificios', 6, 4, 4), 
+	(2, 'Mediana Escala', 6, 4, 4), 
+	(3, 'Menor Escala', 6, 4, 4)
 	;
 
 CREATE TABLE 3_proyectos_imagenes (
