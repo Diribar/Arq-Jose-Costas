@@ -85,3 +85,20 @@
 #editar_home #tabla tbody tr td .fa-times-circle {
 	color: red;
 }
+
+#editar_home #botones {
+	margin-top: 25px;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+#editar_home #botones button {
+	background-color: #1E5417;
+	border-radius: 10px;
+	padding: 5px 10px;
+}
+
+#editar_home #botones button a {
+	color: #ffffff;
+	font-weight: bold;
+}

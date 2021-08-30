@@ -43,7 +43,7 @@ module.exports = {
 
 	loginForm: (req, res) => {
 		// return res.send("Formulario de login");
-		res.redirect("/editar");
+		res.redirect("/editar/home");
 	},
 
 	editarHomeForm: async (req, res) => {
@@ -56,6 +56,10 @@ module.exports = {
 			colores: await BD_varios.ObtenerColores(),
 		});
 	},
+
+	editarTexto: (req, res) => {
+		res.send("Editar texto")
+	}
 };
 
 // Función enviar mail
