@@ -81,7 +81,7 @@ window.addEventListener("load", () => {
 			for (n of inputs) {
 				datos = datos + n.name + "=" + encodeURIComponent(n.value) + "&";
 			}
-			mailEnviado = await fetch("/form/?" + datos).then(n => n.json);
+			mailEnviado = await fetch("/contactanos/?" + datos).then(n => n.json);
 			envioExitoso.style.display = "flex"
 			background.classList.remove("ocultar");
 		}
