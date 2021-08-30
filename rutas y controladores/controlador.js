@@ -76,7 +76,7 @@ let enviarMail = async (nombre, mail, telefono, comentario) => {
 	// send mail with defined transport object
 	let datos = {
 		from: '"Mensaje de la página web" <mensaje.web.01@gmail.com>', // sender address
-		to: "diegoiribarren2015@gmail.com", // josericardocostas@hotmail.com
+		to: "josericardocostas@hotmail.com", // josericardocostas@hotmail.com
 		subject: "Mensaje de la página web", // Subject line
 		text: comentario + "\n" + nombre + "\n" + telefono + "\n" + mail, // plain text body
 		html:
