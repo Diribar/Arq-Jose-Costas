@@ -1,10 +1,6 @@
 <%- include('2-editarHead', {titulo: "Edición - Menú Principal"}) %>
 <body id="editar_home">
 	<main>
-		<p id="cfe" class="ocultar"><%= encabezado.color_fondo.color %> </p>
-		<p id="cle" class="ocultar"><%= encabezado.color_letras.color %> </p>
-		<p id="cff" class="ocultar"><%= footer.color_fondo.color %> </p>
-		<p id="clf" class="ocultar"><%= footer.color_letras.color %> </p>
 		<form action="" method="POST">
 			<table id="tabla">
 				<caption>Aspectos a Editar</caption>
@@ -23,6 +19,8 @@
 				</thead>
 				<tbody>
 					<tr id="encabezado">
+						<td id="cfe" class="ocultar"><%= encabezado.color_fondo.color %></td>
+						<td id="cle" class="ocultar"><%= encabezado.color_letras.color %></td>
 						<td><strong>encabezado</strong></td>
 						<td class="center">-</td>
 						<td>-</td>
@@ -56,7 +54,9 @@
 						<td class="center">-</td>
 					</tr>
 					<% for (let i=0; i<titulos.length; i++) { %> 
-						<tr>
+						<tr class="fila numero<%= i %>">
+							<td class="cff ocultar"><%= titulos[i].color_fondo.color %></td>
+							<td class="clf ocultar"><%= titulos[i].color_letras.color %></td>
 							<td>
 								<strong><%= titulos[i].nombre_seccion %></strong>
 							</td>
@@ -71,7 +71,7 @@
 								<input type="text" name="titulo_seccion" value="<%= titulos[i].titulo_seccion %>">
 							</td>
 							<td>
-								<select name="color_fondo_id">
+								<select name="color_fondo_fila">
 									<% for (n of colores) { %>
 										<option 
 											value="<%= n.id %>" 
@@ -83,7 +83,7 @@
 								</select>
 							</td>
 							<td>
-								<select name="color_letras_id">
+								<select name="color_letras_fila">
 									<% for (n of colores) { %>
 										<option 
 											value="<%= n.id %>" 
@@ -113,6 +113,8 @@
 						</tr>
 					<% } %>
 					<tr id="footer">
+						<td id="cff" class="ocultar"><%= footer.color_fondo.color %></td>
+						<td id="clf" class="ocultar"><%= footer.color_letras.color %></td>
 						<td><strong>footer</strong></td>
 						<td class="center">-</td>
 						<td>-</td>

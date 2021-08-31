@@ -6,11 +6,11 @@ window.addEventListener("load", () => {
 	let titulo_seccion = document.querySelectorAll(
 		"input[name='titulo_seccion']"
 	);
-	let color_fondo_id = document.querySelectorAll(
-		"select[name='color_fondo_id']"
+	let color_fondo_fila = document.querySelectorAll(
+		"select[name='color_fondo_fila']"
 	);
-	let color_letras_id = document.querySelectorAll(
-		"select[name='color_letras_id']"
+	let color_letras_fila = document.querySelectorAll(
+		"select[name='color_letras_fila']"
 	);
 
 	// Acciones si se cambia un valor
@@ -25,22 +25,24 @@ window.addEventListener("load", () => {
 			campo = "titulo_seccion";
 			cambiarValor(i + 1, dato, campo);
 		});
-		color_fondo_id[i].addEventListener("change", () => {
-			dato = color_fondo_id[i].value;
+		color_fondo_fila[i].addEventListener("change", async () => {
+			dato = color_fondo_fila[i].value;
 			campo = "color_fondo_id";
-			cambiarValor(i + 1, dato, campo);
+			await cambiarValor(i + 1, dato, campo);
+			location.reload();
 		});
-		color_letras_id[i].addEventListener("change", () => {
-			dato = color_letras_id[i].value;
+		color_letras_fila[i].addEventListener("change", async () => {
+			dato = color_letras_fila[i].value;
 			campo = "color_letras_id";
-			cambiarValor(i + 1, dato, campo);
+			await cambiarValor(i + 1, dato, campo);
+			location.reload();
 		});
 	}
 });
 
-const cambiarValor = (orden, dato, campo) => {
-	fetch(
-		"/editar/cambiar_titulos/?orden=" +
+const cambiarValor = async (orden, dato, campo) => {
+	await fetch(
+		"/editar/cambiar_filas/?orden=" +
 			orden +
 			"&dato=" +
 			dato +

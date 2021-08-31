@@ -24,7 +24,7 @@ module.exports = {
 		return res.json();
 	},
 
-	cambiar_titulos: async (req, res) => {
+	cambiar_filas: async (req, res) => {
 		let { orden, dato, campo } = req.query;
 		let id = await BD_varios.Orden_obtener_id(orden);
 		await BD_varios.Cambiar_valores("titulos", id, dato, campo);
