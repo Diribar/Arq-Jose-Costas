@@ -45,14 +45,14 @@
 				>
 				<i class="fas fa-times-circle ocultar" id="errorSuma"></i>
 			</div>
-			<button style="background-color: <%= n.color_letras.color %> " type="submit">Enviar</button>
+			<button style="background-color: <%= n.color_letras.codigo %> " type="submit">Enviar</button>
 		</div>
 	</section>
 </form>
 <section id="background" class="ocultar">
 </section>
-<section id="envioExitoso" class="ocultar" style="background-color: <%= n.color_letras.color %>">
-	<p style="color: <%= n.color_fondo.color %> ">¡Su mensaje fue enviado correctamente!</p>
+<section id="envioExitoso" class="ocultar" style="background-color: <%= n.color_letras.codigo %>">
+	<p style="color: <%= n.color_fondo.codigo %> ">¡Su mensaje fue enviado correctamente!</p>
 	<img src="/imagenes/6-contactanos/ok.png">
-	<button style="background-color: <%= n.color_fondo.color %>; color: <%= n.color_letras.color %>">Entendido</button>
+	<button style="background-color: <%= n.color_fondo.codigo %>; color: <%= n.color_letras.codigo %>">Entendido</button>
 </section>

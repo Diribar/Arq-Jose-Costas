@@ -1,71 +1,25 @@
 <!-- https://htmlcolorcodes.com/es/selector-de-color/ -->
-<%- include('2-editarHead', {titulo: "Edición - Menú Principal"}) %>
-<body id="editar_home">
+<%- include('2-editarHead-colores', {titulo: "Edición - Colores"}) %>
+<body id="editar_colores">
 	<main>
 		<table id="tabla">
-			<caption>Aspectos a Editar</caption>
+			<caption>Editar Colores</caption>
 			<thead>
 				<tr>
-					<th>Sección</th>
-					<th class="center">Orden</th>
-					<th>Nombre en el<br>Encabezado</th>
-					<th>Nombre en el<br>Título de la Sección</th>
-					<th>Color de Fondo</th>
-					<th>Color de Letras</th>
-					<th class="center">Imagen<br>Individual</th>
-					<th class="center">Editar<br>Texto</th>
-					<th class="center">Editar<br>Imágenes</th>
+					<th>Nombre</th>
+					<th>Código</th>
+					<th>Muestra</th>
+					<th>Comentarios</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr id="encabezado">
-					<td id="cfe" class="ocultar"><%= encabezado.color_fondo.color %></td>
-					<td id="cle" class="ocultar"><%= encabezado.color_letras.color %></td>
-					<td><strong>encabezado</strong></td>
-					<td class="center">-</td>
-					<td>-</td>
-					<td>-</td>
-					<td>
-						<select name="color_fondo_encabezado">
-							<% for (n of colores) { %>
-								<option 
-									value="<%= n.id %>" 
-									<%- n.id == encabezado.color_fondo_id ? 'selected' : "" %> 
-								>
-									<%= n.nombre %>
-								</option>
-							<% } %> 
-						</select>
-					</td>
-					<td>
-						<select name="color_letras_encabezado">
-							<% for (n of colores) { %>
-								<option 
-									value="<%= n.id %>" 
-									<%- n.id == encabezado.color_letras_id ? 'selected' : "" %> 
-								>
-									<%= n.nombre %>
-								</option>
-							<% } %> 
-						</select>
-					</td>
-					<td class="center">-</td>
-					<td class="center">-</td>
-					<td class="center">-</td>
-				</tr>
-				<% for (let i=0; i<titulos.length; i++) { %> 
+				<% for (let i=0; i<colores.length; i++) { %> 
 					<tr class="fila numero<%= i %>">
-						<td class="cff ocultar"><%= titulos[i].color_fondo.color %></td>
-						<td class="clf ocultar"><%= titulos[i].color_letras.color %></td>
 						<td>
-							<strong><%= titulos[i].nombre_seccion %></strong>
-						</td>
-						<td class="center flechas">
-							<%- i>0 ? '<i class="fas fa-arrow-alt-circle-up"></i>' : '' %>
-							<%- i+1<titulos.length ? '<i class="fas fa-arrow-alt-circle-down"></i>' : '' %>
+							<strong><%= colores[i].nombre %></strong>
 						</td>
 						<td>
-							<input type="text" name="nombre_encabezado" value="<%= titulos[i].nombre_a_mostrar %>">
+							<input type="text" name="nombre_encabezado" value="<%= colores[i].codigo %>">
 						</td>
 						<td>
 							<input type="text" name="titulo_seccion" value="<%= titulos[i].titulo_seccion %>">
@@ -112,46 +66,11 @@
 						</td>
 					</tr>
 				<% } %>
-				<tr id="footer">
-					<td id="cff" class="ocultar"><%= footer.color_fondo.color %></td>
-					<td id="clf" class="ocultar"><%= footer.color_letras.color %></td>
-					<td><strong>footer</strong></td>
-					<td class="center">-</td>
-					<td>-</td>
-					<td>-</td>
-					<td>
-						<select name="color_fondo_footer">
-							<% for (n of colores) { %>
-								<option 
-									value="<%= n.id %>" 
-									<%- n.id == footer.color_fondo_id ? 'selected' : "" %> 
-								>
-									<%= n.nombre %>
-								</option>
-							<% } %> 
-						</select>
-					</td>
-					<td>
-						<select name="color_letras_footer">
-							<% for (n of colores) { %>
-								<option 
-									value="<%= n.id %>" 
-									<%- n.id == footer.color_letras_id ? 'selected' : "" %> 
-								>
-									<%= n.nombre %>
-								</option>
-							<% } %> 
-						</select>
-					</td>
-					<td class="center">-</td>
-					<td class="center">-</td>
-					<td class="center">-</td>
-				</tr>
 			</tbody>
 		</table>
 		<div id="botones">
-			<button><a href="/">Volver a la página principal</a></button>
-			<button><a href="/editar/colores">Ir a la Base de Datos de colores</a></button>
+			<button><a href="/">Volver a la página de edición</a></button>
+			<button><a href="/editar/colores">Ir a la Paleta de Colores</a></button>
 		</div>
 	</main>
 </body>

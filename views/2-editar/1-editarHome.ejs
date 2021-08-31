@@ -1,4 +1,4 @@
-<%- include('2-editarHead', {titulo: "Edición - Menú Principal"}) %>
+<%- include('2-editarHead-home', {titulo: "Edición - Menú Principal"}) %>
 <body id="editar_home">
 	<main>
 		<table id="tabla">
@@ -18,8 +18,8 @@
 			</thead>
 			<tbody>
 				<tr id="encabezado">
-					<td id="cfe" class="ocultar"><%= encabezado.color_fondo.color %></td>
-					<td id="cle" class="ocultar"><%= encabezado.color_letras.color %></td>
+					<td id="cfe" class="ocultar"><%= encabezado.color_fondo.codigo %></td>
+					<td id="cle" class="ocultar"><%= encabezado.color_letras.codigo %></td>
 					<td><strong>encabezado</strong></td>
 					<td class="center">-</td>
 					<td>-</td>
@@ -54,8 +54,8 @@
 				</tr>
 				<% for (let i=0; i<titulos.length; i++) { %> 
 					<tr class="fila numero<%= i %>">
-						<td class="cff ocultar"><%= titulos[i].color_fondo.color %></td>
-						<td class="clf ocultar"><%= titulos[i].color_letras.color %></td>
+						<td class="cff ocultar"><%= titulos[i].color_fondo.codigo %></td>
+						<td class="clf ocultar"><%= titulos[i].color_letras.codigo %></td>
 						<td>
 							<strong><%= titulos[i].nombre_seccion %></strong>
 						</td>
@@ -114,8 +114,8 @@
 					</tr>
 				<% } %>
 				<tr id="footer">
-					<td id="cff" class="ocultar"><%= footer.color_fondo.color %></td>
-					<td id="clf" class="ocultar"><%= footer.color_letras.color %></td>
+					<td id="cff" class="ocultar"><%= footer.color_fondo.codigo %></td>
+					<td id="clf" class="ocultar"><%= footer.color_letras.codigo %></td>
 					<td><strong>footer</strong></td>
 					<td class="center">-</td>
 					<td>-</td>

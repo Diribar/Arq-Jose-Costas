@@ -3,6 +3,7 @@ module.exports = (sequelize, dt) => {
 	const columns = {
 		id: { type: dt.INTEGER, primaryKey: true },
 		orden: { type: dt.INTEGER },
+		nombre_seccion: { type: dt.STRING(20) },
 		color_fondo_id: { type: dt.INTEGER },
 		color_letras_id: { type: dt.INTEGER },
 	};
