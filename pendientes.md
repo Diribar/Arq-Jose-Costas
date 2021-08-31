@@ -1,9 +1,7 @@
 EDICIÓN HOME
-- Orden
-- Nombre en el Encabezado
-- Nombre en el Título de la Sección
-- Color de Fondo
-- Color de Letras
+- Cambios sencillos
+	- Colores Encabezado
+	- Colores Footer
 - Imagen individual
 - Link a Editar Texto
 - Link a Editar Imágenes

@@ -24,7 +24,7 @@
 						<td>-</td>
 						<td>-</td>
 						<td>
-							<select name="color_letras_id">
+							<select name="color_fondo_encabezado">
 								<% for (n of colores) { %>
 									<option 
 										value="<%= n.id %>" 
@@ -36,7 +36,7 @@
 							</select>
 						</td>
 						<td>
-							<select name="color_letras_id">
+							<select name="color_letras_encabezado">
 								<% for (n of colores) { %>
 									<option 
 										value="<%= n.id %>" 
@@ -61,7 +61,7 @@
 								<%- i+1<titulos.length ? '<i class="fas fa-arrow-alt-circle-down"></i>' : '' %>
 							</td>
 							<td>
-								<input type="text" name="nombre_a_mostrar" value="<%= titulos[i].nombre_a_mostrar %>">
+								<input type="text" name="nombre_encabezado" value="<%= titulos[i].nombre_a_mostrar %>">
 							</td>
 							<td>
 								<input type="text" name="titulo_seccion" value="<%= titulos[i].titulo_seccion %>">
@@ -114,7 +114,7 @@
 						<td>-</td>
 						<td>-</td>
 						<td>
-							<select name="color_letras_id">
+							<select name="color_fondo_footer">
 								<% for (n of colores) { %>
 									<option 
 										value="<%= n.id %>" 
@@ -126,7 +126,7 @@
 							</select>
 						</td>
 						<td>
-							<select name="color_letras_id">
+							<select name="color_letras_footer">
 								<% for (n of colores) { %>
 									<option 
 										value="<%= n.id %>" 
