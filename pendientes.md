@@ -2,7 +2,6 @@ EDICIÓN HOME
 - Imagen individual
 
 PANEL DE COLORES JS
-- Modificar un color
 - Agregar un color
 - Eliminar un color
 
