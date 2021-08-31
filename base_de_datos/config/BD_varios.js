@@ -65,8 +65,9 @@ module.exports = {
 			.then((n) => n.id);
 	},
 	ID_fijar_orden: (id, orden) => {
-		return db.titulos
-			.update({ orden: orden }, { where: { id: id } })
-			.then((n) => n.id);
+		return db.titulos.update({ orden: orden }, { where: { id: id } });
+	},
+	Cambiar_valor: (id, dato, campo) => {
+		return db.titulos.update({ [campo]: dato }, { where: { id: id } });
 	},
 };

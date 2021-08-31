@@ -18,6 +18,7 @@ router.get("/editar/imagenes/proyectos", controlador_varios.editarHomeForm);
 router.get("/contactanos", controlador_APIs.contactanosFrontEnd);
 router.get("/editar/orden_obtener_id", controlador_APIs.orden_obtener_id);
 router.get("/editar/id_fijar_orden", controlador_APIs.id_fijar_orden);
+router.get("/editar/cambiar_valor", controlador_APIs.cambiar_valor);
 
 // Exportarlo **********************************************
 module.exports = router;

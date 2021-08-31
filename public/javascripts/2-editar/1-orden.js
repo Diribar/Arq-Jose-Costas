@@ -6,10 +6,10 @@ window.addEventListener("load", () => {
 	// Acciones si se elige una flecha
 	for (let i = 0; i < flechasUp.length; i++) {
 		flechasUp[i].addEventListener("click", async () => {
-			cambiarOrden(i, 2, 1);
+			await cambiarOrden(i, 2, 1);
 		});
 		flechasDown[i].addEventListener("click", async () => {
-			cambiarOrden(i, 1, 2);
+			await cambiarOrden(i, 1, 2);
 		});
 	}
 });
