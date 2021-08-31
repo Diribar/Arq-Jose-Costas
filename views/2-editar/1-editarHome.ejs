@@ -61,8 +61,8 @@
 							<strong><%= titulo.nombre_seccion %></strong>
 						</td>
 						<td class="center flechas">
-							<%- titulo != titulos[0] ? '<i class="fas fa-arrow-alt-circle-up"></i>' : '' %>
-							<%- titulo != titulos[titulos.length-1] ? '<i class="fas fa-arrow-alt-circle-down"></i>' : '' %>
+							<i class="fas fa-arrow-alt-circle-up <%- titulo == titulos[0] ? 'ocultar' : '' %>"></i>
+							<i class="fas fa-arrow-alt-circle-down <%- titulo == titulos[titulos.length-1] ? 'ocultar' : '' %>"></i>
 						</td>
 						<td>
 							<input type="text" name="nombre_encabezado" value="<%= titulo.nombre_a_mostrar %>">

@@ -1,6 +1,6 @@
 window.addEventListener("load", () => {
-	filas = document.querySelectorAll(".filas");
-	IDs = document.querySelectorAll(".filas .id");
+	let filas = document.querySelectorAll(".filas");
+	let IDs = document.querySelectorAll(".filas .id");
 	for (let i = 0; i < filas.length; i++) {
 		id = IDs[i].innerHTML
 		cff = document.querySelector(".filas.idNum" + id + " .cff").innerHTML;

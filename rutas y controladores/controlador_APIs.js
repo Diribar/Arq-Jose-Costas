@@ -12,12 +12,6 @@ module.exports = {
 		return res.json();
 	},
 
-	orden_obtener_id: async (req, res) => {
-		let { orden } = req.query;
-		let id = await BD_varios.Orden_obtener_id(orden);
-		return res.json(id);
-	},
-
 	id_fijar_orden: async (req, res) => {
 		let { id, orden } = req.query;
 		await BD_varios.ID_fijar_orden(id, orden);
@@ -25,8 +19,7 @@ module.exports = {
 	},
 
 	cambiar_filas: async (req, res) => {
-		let { orden, dato, campo } = req.query;
-		let id = await BD_varios.Orden_obtener_id(orden);
+		let { id, dato, campo } = req.query;
 		await BD_varios.Cambiar_valores("titulos", id, dato, campo);
 		return res.json();
 	},
