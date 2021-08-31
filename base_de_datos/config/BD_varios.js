@@ -72,13 +72,6 @@ module.exports = {
 			where: { seccion_id: seccion_id },
 		});
 	},
-	Orden_obtener_id: (orden) => {
-		return db.titulos
-			.findOne({
-				where: { orden: orden },
-			})
-			.then((n) => n.id);
-	},
 	ID_fijar_orden: (id, orden) => {
 		return db.titulos.update({ orden: orden }, { where: { id: id } });
 	},

@@ -52,22 +52,23 @@
 					<td class="center">-</td>
 					<td class="center">-</td>
 				</tr>
-				<% for (let i=0; i<titulos.length; i++) { %> 
-					<tr class="fila numero<%= i %>">
-						<td class="cff ocultar"><%= titulos[i].color_fondo.codigo %></td>
-						<td class="clf ocultar"><%= titulos[i].color_letras.codigo %></td>
+				<% for (titulo of titulos) { %>
+					<tr class="filas idNum<%= titulo.id %>">
+						<td class="cff ocultar"><%= titulo.color_fondo.codigo %></td>
+						<td class="clf ocultar"><%= titulo.color_letras.codigo %></td>
+						<td class="id ocultar"><%= titulo.id %></td>
 						<td>
-							<strong><%= titulos[i].nombre_seccion %></strong>
+							<strong><%= titulo.nombre_seccion %></strong>
 						</td>
 						<td class="center flechas">
-							<%- i>0 ? '<i class="fas fa-arrow-alt-circle-up"></i>' : '' %>
-							<%- i+1<titulos.length ? '<i class="fas fa-arrow-alt-circle-down"></i>' : '' %>
+							<i class="fas fa-arrow-alt-circle-up <%- titulo == titulos[0] ? 'ocultar' : '' %>"></i>
+							<i class="fas fa-arrow-alt-circle-down <%- titulo == titulos[titulos.length-1] ? 'ocultar' : '' %>"></i>
 						</td>
 						<td>
-							<input type="text" name="nombre_encabezado" value="<%= titulos[i].nombre_a_mostrar %>">
+							<input type="text" name="nombre_encabezado" value="<%= titulo.nombre_a_mostrar %>">
 						</td>
 						<td>
-							<input type="text" name="titulo_seccion" value="<%= titulos[i].titulo_seccion %>">
+							<input type="text" name="titulo_seccion" value="<%= titulo.titulo_seccion %>">
 						</td>
 						<td>
 							<select name="color_fondo_fila">
@@ -75,7 +76,7 @@
 								<% for (n of colores) { %>
 									<option 
 										value="<%= n.id %>" 
-										<%- n.id == titulos[i].color_fondo_id ? 'selected' : "" %> 
+										<%- n.id == titulo.color_fondo_id ? 'selected' : "" %> 
 									>
 										<%= n.nombre %>
 									</option>
@@ -88,27 +89,27 @@
 								<% for (n of colores) { %>
 									<option 
 										value="<%= n.id %>" 
-										<%- n.id == titulos[i].color_letras_id ? 'selected' : "" %> 
+										<%- n.id == titulo.color_letras_id ? 'selected' : "" %> 
 									>
 										<%= n.nombre %>
 									</option>
 								<% } %> 
 							</select>
 						</td>
-						<% if (titulos[i].imagen_id) { %>
+						<% if (titulo.imagen_id) { %>
 							<td class="td_imagen">
 								<div class="div_imagen">
-									<img src="/imagenes/varias/<%= titulos[i].imagen.nombre %>">
+									<img src="/imagenes/varias/<%= titulo.imagen.nombre %>">
 								</div>
 							</td>
 						<% } else { %>
 							<td class="center">-</td>
 						<% } %> 
 						<td class="center">
-							<%- titulos[i].editar_texto ? '<a href="/editar/texto/' + titulos[i].nombre_seccion + '"><i class="fas fa-check-circle"></i></a>' : '<i class="fas fa-times-circle"></i>' %>
+							<%- titulo.editar_texto ? '<a href="/editar/texto/' + titulo.nombre_seccion + '"><i class="fas fa-check-circle"></i></a>' : '<i class="fas fa-times-circle"></i>' %>
 						</td>
 						<td class="center">
-							<%- titulos[i].editar_imagenes ? '<a href="/editar/imagenes/' + titulos[i].nombre_seccion + '"><i class="fas fa-check-circle"></i></a>' : '<i class="fas fa-times-circle"></i>' %>
+							<%- titulo.editar_imagenes ? '<a href="/editar/imagenes/' + titulo.nombre_seccion + '"><i class="fas fa-check-circle"></i></a>' : '<i class="fas fa-times-circle"></i>' %>
 						</td>
 					</tr>
 				<% } %>
