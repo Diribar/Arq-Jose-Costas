@@ -34,13 +34,12 @@ window.addEventListener("load", () => {
 });
 
 const changeColor = async (id, dato, campo) => {
-	await fetch(
-		"/editar/cambiar_color_filas/?id=" +
-			id +
+	fetch(
+		"/editar/cambiar_filas/?orden=" +
+			orden +
 			"&dato=" +
 			dato +
 			"&campo=" +
 			campo
 	);
-	location.reload();
 };

@@ -40,7 +40,7 @@ window.addEventListener("load", () => {
 
 const cambiarValor = (orden, dato, campo) => {
 	fetch(
-		"/editar/cambiar_titulos/?orden=" +
+		"/editar/cambiar_filas/?orden=" +
 			orden +
 			"&dato=" +
 			dato +
