@@ -2,14 +2,16 @@ PANEL DE COLORES JS
 - Agregar un color
 - Eliminar un color
 
-EDICIÓN HOME
-- Imagen individual
-
 EDITAR TEXTO
 - Orden
 - Grupo
 - Orden
 - Texto
+
+LOGIN -> Hacer la vista
+
+EDICIÓN HOME
+- Imagen individual
 
 EDITAR IMAGENES INICIO
 - Orden
@@ -20,5 +22,3 @@ EDITAR IMAGENES PROYECTOS
 - Orden
 - Imagen
 - Texto
-
-LOGIN -> Hacer la vista
