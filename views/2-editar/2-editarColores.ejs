@@ -20,7 +20,7 @@
 						<td>
 							<input type="text" name="nombre_encabezado" value="<%= color.codigo %>">
 						</td>
-						<td style="background-color: <%= color.codigo %>;"></td>
+						<td style="background-color: <%= color.codigo %>" id="muestra"></td>
 						<td>
 							<% let en_uso = color.encabezado_cf.length + color.encabezado_cl.length + color.titulos_cf.length + color.titulos_cl.length + color.proyectos_cf.length + color.proyectos_cl.length + color.proyectos_cb.length %>
 							<% if (en_uso) { %>
@@ -28,27 +28,27 @@
 									<option class="ocultar" selected>En uso por</option>
 									<!-- Color de Fondo -->
 									<% for (sector of color.encabezado_cf) { %>
-										<option>Color de fondo - <%= sector.nombre_seccion %></option>
+										<option>Fondo - <%= sector.nombre_seccion %></option>
 									<% } %> 
 									<% for (sector of color.titulos_cf) { %>
-										<option>Color de fondo - <%= sector.nombre_seccion %></option>
+										<option>Fondo - <%= sector.nombre_seccion %></option>
+									<% } %> 
+									<% if (color.proyectos_cf.length) { %>
+										<option>Fondo - etiq. proyectos</option>
 									<% } %> 
 									<!-- Color de Letras -->
 									<% for (sector of color.encabezado_cl) { %>
-										<option>Color de letras - <%= sector.nombre_seccion %></option>
+										<option>Letras - <%= sector.nombre_seccion %></option>
 									<% } %> 
 									<% for (sector of color.titulos_cl) { %>
-										<option>Color de letras - <%= sector.nombre_seccion %></option>
-									<% } %> 
-									<!-- Etiquetas de Proyectos -->
-									<% if (color.proyectos_cf.length) { %>
-										<option>Etiq. Proyectos - fondo</option>
+										<option>Letras - <%= sector.nombre_seccion %></option>
 									<% } %> 
 									<% if (color.proyectos_cl.length) { %>
-										<option>Etiq. Proyectos - letras</option>
+										<option>Letras - etiq. proyectos</option>
 									<% } %> 
+									<!-- Color de Bordes -->
 									<% if (color.proyectos_cb.length) { %>
-										<option>Etiq. Proyectos - borde</option>
+										<option>Borde - etiq. proyectos</option>
 									<% } %> 
 								</select>
 							<% } else { %>
@@ -61,6 +61,7 @@
 		</table>
 		<div id="botones">
 			<button><a href="/editar/home">Volver a la página de edición</a></button>
+			<button id="agregar">Agregar un color</a></button>
 			<button><a href="https://htmlcolorcodes.com/es/selector-de-color/" target="_blank">Ir a la Paleta de Colores</a></button>
 		</div>
 	</main>

@@ -8,7 +8,7 @@
 
 #editar_colores #tabla {
 	border-collapse: collapse;
-	margin: 0 auto;
+	margin: auto;
 	border-radius: 15px;
 	overflow: hidden;
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
@@ -69,9 +69,11 @@
 }
 
 #editar_colores #botones {
-	margin-top: 25px;
 	display: flex;
 	justify-content: space-evenly;
+	width: 800px;
+	margin: auto;
+	margin-top: 30px;
 }
 
 #editar_colores #botones button {
@@ -82,9 +84,13 @@
 	line-height: 1;
 }
 
+#editar_colores #botones button,
 #editar_colores #botones button a {
 	color: #ffffff;
 	font-weight: bold;
 	font-size: .9rem;
 }
 
+#editar_colores #muestra {
+	border: .5px lightgray solid;
+}

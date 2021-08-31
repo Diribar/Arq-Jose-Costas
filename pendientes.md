@@ -2,9 +2,14 @@ EDICIÓN HOME
 - Imagen individual
 
 PANEL DE COLORES
-- JS: Select <-- focus
-- HTML: Options c/link
-- CSS: Uneven con color distinto
+- JS:
+	- Select <-- focus
+	- Modificar un color
+	- Agregar un color
+	- Eliminar un color
+	- Modificar un color
+- HTML: 
+	- Options c/link
 
 EDITAR TEXTO
 - Orden
