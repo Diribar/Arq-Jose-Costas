@@ -2,12 +2,9 @@ EDICIÓN HOME
 - Imagen individual
 
 PANEL DE COLORES
-- Tabla
-	- Nombre
-	- Código del color
-	- Muestra
-	- En uso por / Borrar / Agregar
-- General: ir a paleta de colores
+- JS: Select <-- focus
+- HTML: Options c/link
+- CSS: Uneven con color distinto
 
 EDITAR TEXTO
 - Orden

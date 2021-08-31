@@ -48,7 +48,6 @@ module.exports = {
 	},
 
 	editarColores: async (req, res) => {
-		//return res.send(encabezado[1]);
 		res.render("2-editarColores", {
 			colores: await BD_varios.ObtenerColoresConRelaciones(),
 		});
