@@ -2,8 +2,8 @@
 <body>
 	<header class="flex-row">
 		<% for (n of titulos) { %>
-			<nav style="background-color: <%= encabezado.color_fondo.color %>; border-color: <%= encabezado.color_letras.color %>">
-				<a style="color: <%= encabezado.color_letras.color %>" href="#<%= n.nombre_seccion %>"><%= n.nombre_a_mostrar %></a>
+			<nav style="background-color: <%= encabezado.color_fondo.codigo %>; border-color: <%= encabezado.color_letras.codigo %>">
+				<a style="color: <%= encabezado.color_letras.codigo %>" href="#<%= n.nombre_seccion %>"><%= n.nombre_a_mostrar %></a>
 			</nav>
 		<% } %> 
 	</header>
@@ -12,14 +12,14 @@
 			<section 
 				id="<%= n.nombre_seccion %>" 
 				class="seccion"
-				style="background-color: <%= n.color_fondo.color %>; color: <%= n.color_letras.color %>"
+				style="background-color: <%= n.color_fondo.codigo %>; color: <%= n.color_letras.codigo %>"
 			>
 				<%- include(n.id + "-" + n.nombre_seccion) %>
 			</section>
 		<% } %>
 	</main>
-	<footer style="background-color: <%= footer.color_fondo.color %>">
-		<p style="color: <%= footer.color_letras.color %>">Sitio web diseñado por Diego Iribarren. Todos los derechos están reservados para José Costas (año 2021).</p>
+	<footer style="background-color: <%= footer.color_fondo.codigo %>">
+		<p style="color: <%= footer.color_letras.codigo %>">Sitio web diseñado por Diego Iribarren. Todos los derechos están reservados para José Costas (año 2021).</p>
 	</footer>
 </body>
 </html>

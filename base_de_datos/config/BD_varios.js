@@ -7,6 +7,21 @@ module.exports = {
 		});
 	},
 
+	ObtenerColoresConRelaciones: () => {
+		return db.colores.findAll({
+			include: [
+				"encabezado_cf",
+				"titulos_cf",
+				"proyectos_cf",
+				"encabezado_cl",
+				"titulos_cl",
+				"proyectos_cl",
+				"proyectos_cb",
+			],
+			order: [["nombre", "ASC"]],
+		});
+	},
+
 	ObtenerColoresEncabezado: () => {
 		return db.encabezado.findAll({
 			include: ["color_fondo", "color_letras"],

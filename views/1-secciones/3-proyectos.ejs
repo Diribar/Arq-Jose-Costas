@@ -4,7 +4,7 @@
 	</div>
 	<div id="botones">
 		<% for (m of proyectos) { %>
-			<button style="background-color: <%= m.color_fondo.color %>; color: <%= m.color_letras.color %>; border-color: <%= m.color_borde.color %>">
+			<button style="background-color: <%= m.color_fondo.codigo %>; color: <%= m.color_letras.codigo %>; border-color: <%= m.color_borde.codigo %>">
 				<%= m.nombre_a_mostrar %> 
 			</button>
 		<% } %> 
@@ -16,7 +16,7 @@
 			<% for (let j=0; j<proyectos[i].imagenes.length; j++) { %> 
 					<img style="animation: banner<%= j+1 %> 15s infinite normal" src="./imagenes/3-proyectos/<%= proyectos[i].imagenes[j].nombre %>">
 					<% if (proyectos[i].imagenes[j].texto) { %>
-						<figcaption style="animation: banner<%= j+1 %> 15s infinite normal; background-color: <%= n.color_letras.color %> "><%= proyectos[i].imagenes[j].texto %> </figcaption>
+						<figcaption style="animation: banner<%= j+1 %> 15s infinite normal; background-color: <%= n.color_letras.codigo %> "><%= proyectos[i].imagenes[j].texto %> </figcaption>
 					<% } %> 
 			<% } %> 
 		</div>

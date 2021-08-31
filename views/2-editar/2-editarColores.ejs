@@ -1,157 +1,68 @@
-<!-- https://htmlcolorcodes.com/es/selector-de-color/ -->
-<%- include('2-editarHead', {titulo: "Edición - Menú Principal"}) %>
-<body id="editar_home">
+<%- include('3-editarHead-colores', {titulo: "Edición - Colores"}) %>
+<body id="editar_colores">
 	<main>
 		<table id="tabla">
-			<caption>Aspectos a Editar</caption>
+			<caption>Editar Colores</caption>
 			<thead>
 				<tr>
-					<th>Sección</th>
-					<th class="center">Orden</th>
-					<th>Nombre en el<br>Encabezado</th>
-					<th>Nombre en el<br>Título de la Sección</th>
-					<th>Color de Fondo</th>
-					<th>Color de Letras</th>
-					<th class="center">Imagen<br>Individual</th>
-					<th class="center">Editar<br>Texto</th>
-					<th class="center">Editar<br>Imágenes</th>
+					<th>Nombre</th>
+					<th>Código</th>
+					<th>Muestra</th>
+					<th>Comentarios</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr id="encabezado">
-					<td id="cfe" class="ocultar"><%= encabezado.color_fondo.color %></td>
-					<td id="cle" class="ocultar"><%= encabezado.color_letras.color %></td>
-					<td><strong>encabezado</strong></td>
-					<td class="center">-</td>
-					<td>-</td>
-					<td>-</td>
-					<td>
-						<select name="color_fondo_encabezado">
-							<% for (n of colores) { %>
-								<option 
-									value="<%= n.id %>" 
-									<%- n.id == encabezado.color_fondo_id ? 'selected' : "" %> 
-								>
-									<%= n.nombre %>
-								</option>
+				<% for (color of colores) { %> 
+					<tr>
+						<td>
+							<input type="text" name="nombre_encabezado" value="<%= color.nombre %>" style="font-weight: bold">
+						</td>
+						<td>
+							<input type="text" name="nombre_encabezado" value="<%= color.codigo %>">
+						</td>
+						<td style="background-color: <%= color.codigo %>" id="muestra"></td>
+						<td>
+							<% let en_uso = color.encabezado_cf.length + color.encabezado_cl.length + color.titulos_cf.length + color.titulos_cl.length + color.proyectos_cf.length + color.proyectos_cl.length + color.proyectos_cb.length %>
+							<% if (en_uso) { %>
+								<select>
+									<option class="ocultar" selected>En uso por</option>
+									<!-- Color de Fondo -->
+									<% for (sector of color.encabezado_cf) { %>
+										<option>Fondo - <%= sector.nombre_seccion %></option>
+									<% } %> 
+									<% for (sector of color.titulos_cf) { %>
+										<option>Fondo - <%= sector.nombre_seccion %></option>
+									<% } %> 
+									<% if (color.proyectos_cf.length) { %>
+										<option>Fondo - etiq. proyectos</option>
+									<% } %> 
+									<!-- Color de Letras -->
+									<% for (sector of color.encabezado_cl) { %>
+										<option>Letras - <%= sector.nombre_seccion %></option>
+									<% } %> 
+									<% for (sector of color.titulos_cl) { %>
+										<option>Letras - <%= sector.nombre_seccion %></option>
+									<% } %> 
+									<% if (color.proyectos_cl.length) { %>
+										<option>Letras - etiq. proyectos</option>
+									<% } %> 
+									<!-- Color de Bordes -->
+									<% if (color.proyectos_cb.length) { %>
+										<option>Borde - etiq. proyectos</option>
+									<% } %> 
+								</select>
+							<% } else { %>
+								-
 							<% } %> 
-						</select>
-					</td>
-					<td>
-						<select name="color_letras_encabezado">
-							<% for (n of colores) { %>
-								<option 
-									value="<%= n.id %>" 
-									<%- n.id == encabezado.color_letras_id ? 'selected' : "" %> 
-								>
-									<%= n.nombre %>
-								</option>
-							<% } %> 
-						</select>
-					</td>
-					<td class="center">-</td>
-					<td class="center">-</td>
-					<td class="center">-</td>
-				</tr>
-				<% for (let i=0; i<titulos.length; i++) { %> 
-					<tr class="fila numero<%= i %>">
-						<td class="cff ocultar"><%= titulos[i].color_fondo.color %></td>
-						<td class="clf ocultar"><%= titulos[i].color_letras.color %></td>
-						<td>
-							<strong><%= titulos[i].nombre_seccion %></strong>
-						</td>
-						<td class="center flechas">
-							<%- i>0 ? '<i class="fas fa-arrow-alt-circle-up"></i>' : '' %>
-							<%- i+1<titulos.length ? '<i class="fas fa-arrow-alt-circle-down"></i>' : '' %>
-						</td>
-						<td>
-							<input type="text" name="nombre_encabezado" value="<%= titulos[i].nombre_a_mostrar %>">
-						</td>
-						<td>
-							<input type="text" name="titulo_seccion" value="<%= titulos[i].titulo_seccion %>">
-						</td>
-						<td>
-							<select name="color_fondo_fila">
-								<% for (n of colores) { %>
-									<option 
-										value="<%= n.id %>" 
-										<%- n.id == titulos[i].color_fondo_id ? 'selected' : "" %> 
-									>
-										<%= n.nombre %>
-									</option>
-								<% } %> 
-							</select>
-						</td>
-						<td>
-							<select name="color_letras_fila">
-								<% for (n of colores) { %>
-									<option 
-										value="<%= n.id %>" 
-										<%- n.id == titulos[i].color_letras_id ? 'selected' : "" %> 
-									>
-										<%= n.nombre %>
-									</option>
-								<% } %> 
-							</select>
-						</td>
-						<% if (titulos[i].imagen_id) { %>
-							<td class="td_imagen">
-								<div class="div_imagen">
-									<img src="/imagenes/varias/<%= titulos[i].imagen.nombre %>">
-								</div>
-							</td>
-						<% } else { %>
-							<td class="center">-</td>
-						<% } %> 
-						</td>
-						<td class="center">
-							<%- titulos[i].editar_texto ? '<a href="/editar/texto/' + titulos[i].nombre_seccion + '"><i class="fas fa-check-circle"></i></a>' : '<i class="fas fa-times-circle"></i>' %>
-						</td>
-						<td class="center">
-							<%- titulos[i].editar_imagenes ? '<a href="/editar/imagenes/' + titulos[i].nombre_seccion + '"><i class="fas fa-check-circle"></i></a>' : '<i class="fas fa-times-circle"></i>' %>
 						</td>
 					</tr>
 				<% } %>
-				<tr id="footer">
-					<td id="cff" class="ocultar"><%= footer.color_fondo.color %></td>
-					<td id="clf" class="ocultar"><%= footer.color_letras.color %></td>
-					<td><strong>footer</strong></td>
-					<td class="center">-</td>
-					<td>-</td>
-					<td>-</td>
-					<td>
-						<select name="color_fondo_footer">
-							<% for (n of colores) { %>
-								<option 
-									value="<%= n.id %>" 
-									<%- n.id == footer.color_fondo_id ? 'selected' : "" %> 
-								>
-									<%= n.nombre %>
-								</option>
-							<% } %> 
-						</select>
-					</td>
-					<td>
-						<select name="color_letras_footer">
-							<% for (n of colores) { %>
-								<option 
-									value="<%= n.id %>" 
-									<%- n.id == footer.color_letras_id ? 'selected' : "" %> 
-								>
-									<%= n.nombre %>
-								</option>
-							<% } %> 
-						</select>
-					</td>
-					<td class="center">-</td>
-					<td class="center">-</td>
-					<td class="center">-</td>
-				</tr>
 			</tbody>
 		</table>
 		<div id="botones">
-			<button><a href="/">Volver a la página principal</a></button>
-			<button><a href="/editar/colores">Ir a la Base de Datos de colores</a></button>
+			<button><a href="/editar/home">Volver a la página de edición</a></button>
+			<button id="agregar">Agregar un color</a></button>
+			<button><a href="https://htmlcolorcodes.com/es/selector-de-color/" target="_blank">Ir a la Paleta de Colores</a></button>
 		</div>
 	</main>
 </body>

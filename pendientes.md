@@ -2,12 +2,14 @@ EDICIÓN HOME
 - Imagen individual
 
 PANEL DE COLORES
-- Tabla
-	- Nombre
-	- Código del color
-	- Muestra
-	- En uso por / Borrar / Agregar
-- General: ir a paleta de colores
+- JS:
+	- Select <-- focus
+	- Modificar un color
+	- Agregar un color
+	- Eliminar un color
+	- Modificar un color
+- HTML: 
+	- Options c/link
 
 EDITAR TEXTO
 - Orden

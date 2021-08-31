@@ -1,5 +1,4 @@
 // **** Requires ***********
-const nodemailer = require("nodemailer");
 const BD_varios = require("../base_de_datos/config/BD_varios");
 
 // **** Exportar ***********
@@ -48,8 +47,10 @@ module.exports = {
 		});
 	},
 
-	editarColores: (req, res) => {
-		res.send("Editar colores");
+	editarColores: async (req, res) => {
+		res.render("2-editarColores", {
+			colores: await BD_varios.ObtenerColoresConRelaciones(),
+		});
 	},
 
 	editarTexto: (req, res) => {
