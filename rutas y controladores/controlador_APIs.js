@@ -36,6 +36,12 @@ module.exports = {
 		await BD_varios.Cambiar_valores("encabezado", id, dato, campo);
 		return res.json();
 	},
+
+	cambiar_color: async (req, res) => {
+		let { id, dato, campo } = req.query;
+		await BD_varios.Cambiar_valores("colores", id, dato, campo);
+		return res.json();
+	},
 };
 
 // Función enviar mail
