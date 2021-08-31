@@ -12,7 +12,7 @@ window.addEventListener("load", () => {
 		nombre[i].addEventListener("change", () => {
 			dato_id = id[i].innerHTML
 			dato = nombre[i].value;
-			cambiarValor(dato_id, dato, "nombre");
+			cambiarValor(dato_id, dato);
 		});
 	}
 });
@@ -23,7 +23,6 @@ const cambiarValor = async (id, dato, campo) => {
 			id +
 			"&dato=" +
 			dato +
-			"&campo=" +
-			campo
+			"&campo=nombre"
 	);
 };

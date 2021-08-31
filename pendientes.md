@@ -1,9 +1,9 @@
-EDICIÓN HOME
-- Imagen individual
-
 PANEL DE COLORES JS
 - Agregar un color
 - Eliminar un color
+
+EDICIÓN HOME
+- Imagen individual
 
 EDITAR TEXTO
 - Orden
