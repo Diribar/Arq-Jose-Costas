@@ -12,41 +12,41 @@
 				</tr>
 			</thead>
 			<tbody>
-				<% for (let i=0; i<colores.length; i++) { %> 
+				<% for (color of <colores) { %> 
 					<tr class="color_existente">
-						<td id="id" class="ocultar"><%= colores[i].id %> </td>
+						<td id="id" class="ocultar"><%= color.id %> </td>
 						<td>
-							<input type="text" name="nombre" value="<%= colores[i].nombre %>" style="font-weight: bold">
+							<input type="text" name="nombre" value="<%= color.nombre %>" style="font-weight: bold">
 						</td>
-						<td><%= colores[i].codigo %></td>
-						<td style="background-color: <%= colores[i].codigo %>" id="muestra"></td>
+						<td><%= color.codigo %></td>
+						<td style="background-color: <%= color.codigo %>" id="muestra"></td>
 						<td>
-							<% let en_uso = colores[i].encabezado_cf.length + colores[i].encabezado_cl.length + colores[i].titulos_cf.length + colores[i].titulos_cl.length + colores[i].proyectos_cf.length + colores[i].proyectos_cl.length + colores[i].proyectos_cb.length %>
+							<% let en_uso = color.encabezado_cf.length + color.encabezado_cl.length + color.titulos_cf.length + color.titulos_cl.length + color.proyectos_cf.length + color.proyectos_cl.length + color.proyectos_cb.length %>
 							<% if (en_uso) { %>
 								<select onchange="location = this.value;">
 									<option class="ocultar" selected>En uso por</option>
 									<!-- Color de Fondo -->
-									<% for (sector of colores[i].encabezado_cf) { %>
+									<% for (sector of color.encabezado_cf) { %>
 										<option value="/editar/home">Fondo - <%= sector.nombre_seccion %></option>
 									<% } %> 
-									<% for (sector of colores[i].titulos_cf) { %>
+									<% for (sector of color.titulos_cf) { %>
 										<option value="/editar/home">Fondo - <%= sector.nombre_seccion %></option>
 									<% } %> 
-									<% if (colores[i].proyectos_cf.length) { %>
+									<% if (color.proyectos_cf.length) { %>
 										<option value="/editar/colores/proyectos">Fondo - etiq. proyectos</option>
 									<% } %> 
 									<!-- Color de Letras -->
-									<% for (sector of colores[i].encabezado_cl) { %>
+									<% for (sector of color.encabezado_cl) { %>
 										<option value="/editar/home">Letras - <%= sector.nombre_seccion %></option>
 									<% } %> 
-									<% for (sector of colores[i].titulos_cl) { %>
+									<% for (sector of color.titulos_cl) { %>
 										<option value="/editar/home">Letras - <%= sector.nombre_seccion %></option>
 									<% } %> 
-									<% if (colores[i].proyectos_cl.length) { %>
+									<% if (color.proyectos_cl.length) { %>
 										<option value="/editar/colores/proyectos">Letras - etiq. proyectos</option>
 									<% } %> 
 									<!-- Color de Bordes -->
-									<% if (colores[i].proyectos_cb.length) { %>
+									<% if (color.proyectos_cb.length) { %>
 										<option value="/editar/colores/proyectos">Borde - etiq. proyectos</option>
 									<% } %> 
 								</select>
