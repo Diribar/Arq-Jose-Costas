@@ -12,7 +12,6 @@ window.addEventListener("load", () => {
 	let color_letras_id = document.querySelectorAll(
 		"select[name='color_letras_id']"
 	);
-	let link = "/editar/cambiar_valor/";
 
 	// Acciones si se cambia un valor
 	for (let i = 0; i < titulo_seccion.length; i++) {
@@ -21,10 +20,10 @@ window.addEventListener("load", () => {
 			campo = "nombre_a_mostrar";
 			cambiarValor(i + 1, dato, campo);
 		});
-		entidad = "titulo_seccion";
-		[entidad][i].addEventListener("change", () => {
-			dato = [entidad][i].value;
-			fetch(link + "?orden=" + orden + "&dato=" + dato + "&campo=" + campo);
+		titulo_seccion[i].addEventListener("change", () => {
+			dato = titulo_seccion[i].value;
+			campo = "titulo_seccion";
+			cambiarValor(i + 1, dato, campo);
 		});
 		color_fondo_id[i].addEventListener("change", () => {
 			dato = color_fondo_id[i].value;
@@ -40,5 +39,12 @@ window.addEventListener("load", () => {
 });
 
 const cambiarValor = (orden, dato, campo) => {
-	fetch(link + orden + "&dato=" + dato + "&campo=" + campo);
+	fetch(
+		"/editar/cambiar_valor/?orden=" +
+			orden +
+			"&dato=" +
+			dato +
+			"&campo=" +
+			campo
+	);
 };
