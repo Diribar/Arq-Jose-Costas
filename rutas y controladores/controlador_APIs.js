@@ -24,10 +24,16 @@ module.exports = {
 		return res.json();
 	},
 
-	cambiar_valor: async (req, res) => {
+	cambiar_titulos: async (req, res) => {
 		let { orden, dato, campo } = req.query;
 		let id = await BD_varios.Orden_obtener_id(orden);
-		await BD_varios.Cambiar_valor(id, dato, campo);
+		await BD_varios.Cambiar_valores("titulos", id, dato, campo);
+		return res.json();
+	},
+
+	cambiar_encabezado: async (req, res) => {
+		let { id, dato, campo } = req.query;
+		await BD_varios.Cambiar_valores("encabezado", id, dato, campo);
 		return res.json();
 	},
 };
