@@ -9,9 +9,9 @@ router.get("/", controlador_varios.home);
 router.post("/contactanos", controlador_varios.contactanosBackEnd);
 router.get("/login", controlador_varios.loginForm);
 router.get("/editar/home", controlador_varios.editarHomeForm);
-router.get("/editar/colores", controlador_varios.editarHomeForm);
-router.get("/editar/texto/:id", controlador_varios.editarHomeForm);
-router.get("/editar/imagenes/inicio", controlador_varios.editarHomeForm);
+router.get("/editar/colores", controlador_varios.editarColores);
+router.get("/editar/texto/:id", controlador_varios.editarTexto);
+router.get("/editar/imagenes/inicio", controlador_varios.editarImagenes);
 router.get("/editar/imagenes/proyectos", controlador_varios.editarHomeForm);
 
 // Controladores de APIs ***********************************

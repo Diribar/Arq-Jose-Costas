@@ -47,7 +47,16 @@ module.exports = {
 			colores: await BD_varios.ObtenerColores(),
 		});
 	},
+
+	editarColores: (req, res) => {
+		res.send("Editar colores");
+	},
+
 	editarTexto: (req, res) => {
 		res.send("Editar texto");
+	},
+
+	editarImagenes: (req, res) => {
+		res.send("Editar imágenes");
 	},
 };
