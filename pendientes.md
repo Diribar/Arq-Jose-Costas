@@ -2,10 +2,12 @@ EDICIÓN HOME
 - Imagen individual
 
 PANEL DE COLORES
-- Nombre
-- Código del color
-- Muestra
-- Borrar / Agregar
+- Tabla
+	- Nombre
+	- Código del color
+	- Muestra
+	- En uso por / Borrar / Agregar
+- General: ir a paleta de colores
 
 EDITAR TEXTO
 - Orden
