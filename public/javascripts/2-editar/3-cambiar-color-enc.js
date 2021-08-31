@@ -23,11 +23,8 @@ window.addEventListener("load", () => {
 	}
 	document.querySelector("#encabezado").style.color = cle;
 	document.querySelector("#encabezado strong").style.color = cle;
-	opciones = document.querySelectorAll("#encabezado select")
-	for (opcion of opciones) {
-		opcion.style.color = cle;
-		//opcion.style.appearance=none
-	}
+	document.querySelectorAll("#encabezado select")[0].style.color = cle;
+	document.querySelectorAll("#encabezado select")[1].style.color = cle;
 
 	// Cambiar los colores del footer
 	let cff = document.querySelector("#cff").innerHTML;
