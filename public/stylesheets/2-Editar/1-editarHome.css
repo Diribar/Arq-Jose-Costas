@@ -3,7 +3,7 @@
 	margin-bottom: 20px;
 	font-weight: bold;
 	font-size: 1.5rem;
-	color: midnightblue;
+	color: #009879;
 }
 
 #editar_home #tabla {
@@ -42,10 +42,15 @@
 }
 
 /* Accesorios */
+#editar_home .fas {
+	border: 1px white solid;
+	border-radius: 50%;
+	background-color: white;
+}
+
 #editar_home .flechas .fas {
 	color: gray;
 	margin: 2px;
-	border: 1.5px white solid;
 }
 
 #editar_home #tabla input,
@@ -92,13 +97,16 @@
 }
 
 #editar_home #botones button {
-	background-color: #1E5417;
-	border-radius: 10px;
+	background-color: #009879;
+	border-radius: 5px;
+	border-color: transparent;
 	padding: 5px 10px;
+	line-height: 1;
 }
 
 #editar_home #botones button a {
 	color: #ffffff;
 	font-weight: bold;
+	font-size: .8rem;
 }
 
