@@ -7,7 +7,7 @@ const controlador_APIs = require("./controlador_APIs");
 // Controladores Varios ************************************
 router.get("/", controlador_varios.home);
 router.post("/contactanos", controlador_varios.contactanosBackEnd);
-router.get("/login", controlador_varios.loginForm)
+router.get("/login", controlador_varios.loginForm);
 router.get("/editar/home", controlador_varios.editarHomeForm);
 router.get("/editar/colores", controlador_varios.editarHomeForm);
 router.get("/editar/texto/:id", controlador_varios.editarHomeForm);
@@ -18,7 +18,8 @@ router.get("/editar/imagenes/proyectos", controlador_varios.editarHomeForm);
 router.get("/contactanos", controlador_APIs.contactanosFrontEnd);
 router.get("/editar/orden_obtener_id", controlador_APIs.orden_obtener_id);
 router.get("/editar/id_fijar_orden", controlador_APIs.id_fijar_orden);
-router.get("/editar/cambiar_valor", controlador_APIs.cambiar_valor);
+router.get("/editar/cambiar_titulos", controlador_APIs.cambiar_titulos);
+router.get("/editar/cambiar_encabezado", controlador_APIs.cambiar_encabezado);
 
 // Exportarlo **********************************************
 module.exports = router;

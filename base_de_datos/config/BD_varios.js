@@ -67,7 +67,10 @@ module.exports = {
 	ID_fijar_orden: (id, orden) => {
 		return db.titulos.update({ orden: orden }, { where: { id: id } });
 	},
-	Cambiar_valor: (id, dato, campo) => {
+	Cambiar_titulos: (id, dato, campo) => {
 		return db.titulos.update({ [campo]: dato }, { where: { id: id } });
+	},
+	Cambiar_encabezado: (id, dato, campo) => {
+		return db.encabezado.update({ [campo]: dato }, { where: { id: id } });
 	},
 };
