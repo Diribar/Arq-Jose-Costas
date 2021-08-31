@@ -1,13 +1,4 @@
 window.addEventListener("load", () => {
-	// Variables generales
-	let color_fondo_fila = document.querySelector(
-		"select[name='color_fondo_filas']"
-	);
-	let color_letras_fila = document.querySelector(
-		"select[name='color_letras_filas']"
-	);
-
-	// Cambiar los colores
 	filas = document.querySelectorAll(".fila");
 	for (let i = 0; i < filas.length; i++) {
 		cff = document.querySelector(".fila.numero" + i + " .cff").innerHTML;
