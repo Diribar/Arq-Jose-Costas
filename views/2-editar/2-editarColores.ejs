@@ -1,5 +1,4 @@
-<!-- https://htmlcolorcodes.com/es/selector-de-color/ -->
-<%- include('2-editarHead-colores', {titulo: "Edición - Colores"}) %>
+<%- include('3-editarHead-colores', {titulo: "Edición - Colores"}) %>
 <body id="editar_colores">
 	<main>
 		<table id="tabla">
@@ -13,64 +12,56 @@
 				</tr>
 			</thead>
 			<tbody>
-				<% for (let i=0; i<colores.length; i++) { %> 
-					<tr class="fila numero<%= i %>">
+				<% for (color of colores) { %> 
+					<tr>
 						<td>
-							<strong><%= colores[i].nombre %></strong>
-						</td>
-						<td>
-							<input type="text" name="nombre_encabezado" value="<%= colores[i].codigo %>">
+							<input type="text" name="nombre_encabezado" value="<%= color.nombre %>" style="font-weight: bold">
 						</td>
 						<td>
-							<input type="text" name="titulo_seccion" value="<%= titulos[i].titulo_seccion %>">
+							<input type="text" name="nombre_encabezado" value="<%= color.codigo %>">
 						</td>
+						<td style="background-color: <%= color.codigo %>;"></td>
 						<td>
-							<select name="color_fondo_fila">
-								<% for (n of colores) { %>
-									<option 
-										value="<%= n.id %>" 
-										<%- n.id == titulos[i].color_fondo_id ? 'selected' : "" %> 
-									>
-										<%= n.nombre %>
-									</option>
-								<% } %> 
-							</select>
-						</td>
-						<td>
-							<select name="color_letras_fila">
-								<% for (n of colores) { %>
-									<option 
-										value="<%= n.id %>" 
-										<%- n.id == titulos[i].color_letras_id ? 'selected' : "" %> 
-									>
-										<%= n.nombre %>
-									</option>
-								<% } %> 
-							</select>
-						</td>
-						<% if (titulos[i].imagen_id) { %>
-							<td class="td_imagen">
-								<div class="div_imagen">
-									<img src="/imagenes/varias/<%= titulos[i].imagen.nombre %>">
-								</div>
-							</td>
-						<% } else { %>
-							<td class="center">-</td>
-						<% } %> 
-						</td>
-						<td class="center">
-							<%- titulos[i].editar_texto ? '<a href="/editar/texto/' + titulos[i].nombre_seccion + '"><i class="fas fa-check-circle"></i></a>' : '<i class="fas fa-times-circle"></i>' %>
-						</td>
-						<td class="center">
-							<%- titulos[i].editar_imagenes ? '<a href="/editar/imagenes/' + titulos[i].nombre_seccion + '"><i class="fas fa-check-circle"></i></a>' : '<i class="fas fa-times-circle"></i>' %>
+							<% let en_uso = color.encabezado_cf.length + color.encabezado_cl.length + color.titulos_cf.length + color.titulos_cl.length + color.proyectos_cf.length + color.proyectos_cl.length + color.proyectos_cb.length %>
+							<% if (en_uso) { %>
+								<select>
+									<option class="ocultar" selected>En uso por</option>
+									<!-- Color de Fondo -->
+									<% for (sector of color.encabezado_cf) { %>
+										<option>Color de fondo - <%= sector.nombre_seccion %></option>
+									<% } %> 
+									<% for (sector of color.titulos_cf) { %>
+										<option>Color de fondo - <%= sector.nombre_seccion %></option>
+									<% } %> 
+									<!-- Color de Letras -->
+									<% for (sector of color.encabezado_cl) { %>
+										<option>Color de letras - <%= sector.nombre_seccion %></option>
+									<% } %> 
+									<% for (sector of color.titulos_cl) { %>
+										<option>Color de letras - <%= sector.nombre_seccion %></option>
+									<% } %> 
+									<!-- Etiquetas de Proyectos -->
+									<% if (color.proyectos_cf.length) { %>
+										<option>Etiq. Proyectos - fondo</option>
+									<% } %> 
+									<% if (color.proyectos_cl.length) { %>
+										<option>Etiq. Proyectos - letras</option>
+									<% } %> 
+									<% if (color.proyectos_cb.length) { %>
+										<option>Etiq. Proyectos - borde</option>
+									<% } %> 
+								</select>
+							<% } else { %>
+								-
+							<% } %> 
 						</td>
 					</tr>
 				<% } %>
 			</tbody>
 		</table>
 		<div id="botones">
-			<button><a href="/">Volver a la página de edición</a></button>
-			<button><a href="/editar/colores">Ir a la Paleta de Colores</a></button>
+			<button><a href="/editar/home">Volver a la página de edición</a></button>
+			<button><a href="https://htmlcolorcodes.com/es/selector-de-color/" target="_blank">Ir a la Paleta de Colores</a></button>
 		</div>
 	</main>
 </body>

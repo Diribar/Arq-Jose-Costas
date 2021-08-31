@@ -17,6 +17,7 @@ module.exports = (sequelize, dt) => {
 		entidad.hasMany(n.titulos, {as: "titulos_cl",foreignKey: "color_letras_id"});
 		entidad.hasMany(n.proyectos, {as: "proyectos_cf",foreignKey: "color_fondo_id"});
 		entidad.hasMany(n.proyectos, {as: "proyectos_cl",foreignKey: "color_letras_id"});
+		entidad.hasMany(n.proyectos, {as: "proyectos_cb",foreignKey: "color_borde_id"});
 	};
 	return entidad;
 };
