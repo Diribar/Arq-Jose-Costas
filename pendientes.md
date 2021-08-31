@@ -1,15 +1,10 @@
 EDICIÓN HOME
 - Imagen individual
 
-PANEL DE COLORES
-- JS:
-	- Select <-- focus
-	- Modificar un color
-	- Agregar un color
-	- Eliminar un color
-	- Modificar un color
-- HTML: 
-	- Options c/link
+PANEL DE COLORES JS
+- Modificar un color
+- Agregar un color
+- Eliminar un color
 
 EDITAR TEXTO
 - Orden

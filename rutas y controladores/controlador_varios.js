@@ -53,6 +53,10 @@ module.exports = {
 		});
 	},
 
+	editarColoresProyectos: async (req, res) => {
+		res.send("editarColoresProyectos");
+	},
+
 	editarTexto: (req, res) => {
 		res.send("Editar texto");
 	},
