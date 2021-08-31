@@ -1,7 +1,5 @@
 EDICIÓN HOME
 - Imagen individual
-- Link a Editar Texto
-- Link a Editar Imágenes
 
 PANEL DE COLORES
 - Nombre
