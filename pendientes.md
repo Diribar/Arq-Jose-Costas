@@ -1,7 +1,5 @@
 EDICIÓN HOME
-- Cambios sencillos
-	- Colores Encabezado
-	- Colores Footer
+- Cambiar los colores de fondo y letras en filas 2 a penúltima
 - Imagen individual
 - Link a Editar Texto
 - Link a Editar Imágenes

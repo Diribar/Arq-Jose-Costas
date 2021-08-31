@@ -1,6 +1,10 @@
 <%- include('2-editarHead', {titulo: "Edición - Menú Principal"}) %>
 <body id="editar_home">
 	<main>
+		<p id="cfe" class="ocultar"><%= encabezado.color_fondo.color %> </p>
+		<p id="cle" class="ocultar"><%= encabezado.color_letras.color %> </p>
+		<p id="cff" class="ocultar"><%= footer.color_fondo.color %> </p>
+		<p id="clf" class="ocultar"><%= footer.color_letras.color %> </p>
 		<form action="" method="POST">
 			<table id="tabla">
 				<caption>Aspectos a Editar</caption>
@@ -18,7 +22,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
+					<tr id="encabezado">
 						<td><strong>encabezado</strong></td>
 						<td class="center">-</td>
 						<td>-</td>
@@ -108,7 +112,7 @@
 							</td>
 						</tr>
 					<% } %>
-					<tr>
+					<tr id="footer">
 						<td><strong>footer</strong></td>
 						<td class="center">-</td>
 						<td>-</td>
