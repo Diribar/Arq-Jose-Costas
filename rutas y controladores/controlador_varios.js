@@ -1,5 +1,6 @@
 // **** Requires ***********
 const BD_varios = require("../base_de_datos/config/BD_varios");
+const nodemailer = require("./nodemailer");
 
 // **** Exportar ***********
 module.exports = {
@@ -32,8 +33,26 @@ module.exports = {
 	},
 
 	loginForm: (req, res) => {
-		// return res.send("Formulario de login");
-		res.redirect("/editar/home");
+		//res.redirect("/editar/home");
+		asunto = "Código de Login";
+		nombre = "";
+		mail = "";
+		telefono = "";
+		codigo = Math.round(Math.random() * Math.pow(10, 10)) + "";
+		comentario = "El código a ingresar para el Login es: " + codigo;
+		req.session.codigo = codigo;
+		nodemailer
+			.enviarMail(asunto, nombre, mail, telefono, comentario)
+			.catch(console.error);
+		return res.render("login");
+	},
+
+	loginDatos: (req, res) => {
+		if (req.body.codigo == req.session.codigo) {
+			return res.redirect("/editar/home");
+		} else {
+			return res.render("login");
+		}
 	},
 
 	editarHomeForm: async (req, res) => {

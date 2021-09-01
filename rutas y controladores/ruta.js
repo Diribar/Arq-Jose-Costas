@@ -8,6 +8,7 @@ const controlador_APIs = require("./controlador_APIs");
 router.get("/", controlador_varios.home);
 router.post("/contactanos", controlador_varios.contactanosBackEnd);
 router.get("/login", controlador_varios.loginForm);
+router.post("/login", controlador_varios.loginDatos);
 router.get("/editar/home", controlador_varios.editarHomeForm);
 router.get("/editar/colores", controlador_varios.editarColores);
 router.get("/editar/colores/proyectos", controlador_varios.editarColoresProyectos);
