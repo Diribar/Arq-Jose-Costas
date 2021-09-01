@@ -4,8 +4,9 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+//var logger = require('morgan');
 var app = express();
+var session = require("express-session");
 
 // view engine setup
 app.set("views", [
@@ -21,6 +22,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({ secret: "keyboard cat", resave: false, saveUninitialized: false }));
 
 // *********** Para conectarse con el servidor ********************
 app.listen(3001, () => console.log("Servidor funcionando en puerto 3001..."));

@@ -10,7 +10,6 @@ window.addEventListener("load", () => {
 			if (i > 0) {
 				id1 = IDs[i].innerHTML;
 				id2 = IDs[i - 1].innerHTML;
-				console.log(id1, id2, i, i + 2);
 				await cambiarOrden(id1, id2, i, i+2);
 			}
 		});
@@ -18,7 +17,6 @@ window.addEventListener("load", () => {
 			if (i < (IDs.length-1)) {
 				id1 = IDs[i].innerHTML;
 				id2 = IDs[i + 1].innerHTML;
-				console.log(id1, id2, i+2, i);
 				await cambiarOrden(id1, id2, i+2, i);
 			}
 		});

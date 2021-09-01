@@ -1,5 +1,3 @@
-LOGIN -> Hacer la vista
-
 EDITAR TEXTO
 - Orden
 - Grupo
