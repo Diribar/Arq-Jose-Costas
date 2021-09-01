@@ -1,13 +1,29 @@
 <%- include('0-head') %>
-
-<body>
-	<% for (let i=1; i<=datos.length; i++) { %>
-		<% grupo = datos.filter(n => n.grupo == i) %>
-		<% if (grupo.length == 0) {break} %>
-		<h1>Grupo <%= i %> </h1>
-		<% for (texto of grupo) { %>
-			<%= texto.contenido %> 
+<%- include('4-editarTexto', {titulo: "Edición - " + titulo.nombre_a_mostrar}) %>
+<body id="editar_texto">
+	<main>
+		<% for (let i=1; i<=datos.length; i++) { %>
+			<% grupo = datos.filter(n => n.grupo == i) %>
+			<% if (grupo.length == 0) {break} %>
+			<table>
+				<caption>Grupo <%= i %></caption>
+				<tbody>
+					<% for (texto of grupo) { %>
+						<tr>
+							<td class="id ocultar"><%= texto.id %></td>
+							<td class="center flechas">
+								<i class="fas fa-arrow-alt-circle-up <%- texto == grupo[0] ? 'ocultar' : '' %>"></i>
+								<i class="fas fa-arrow-alt-circle-down <%- texto == grupo[grupo.length-1] ? 'ocultar' : '' %>"></i>
+							</td>
+							<td>
+								<input type="text" name="contenido" value="<%= texto.contenido %>">
+							</td>
+						</tr>
+					<% } %>
+				</tbody>
+			</table>
+	
 		<% } %> 
-	<% } %> 
+	</main>
 </body>
 </html>

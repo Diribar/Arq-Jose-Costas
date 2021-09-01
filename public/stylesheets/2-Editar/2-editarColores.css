@@ -1,45 +1,7 @@
-#editar_colores #tabla caption {
-	margin-top: 20px;
-	margin-bottom: 20px;
-	font-weight: bold;
-	font-size: 1.5rem;
-	color: #009879;
-}
-
-#editar_colores #tabla {
-	border-collapse: collapse;
-	margin: auto;
-	border-radius: 15px;
-	overflow: hidden;
-	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-	text-align: left;
-}
-
 #editar_colores #tabla,
 #editar_colores #tabla input, 
 #editar_colores #tabla select{
-	font-size: 0.9rem;
-	line-height: 0.9;
 	color: gray;
-}
-
-#editar_colores #tabla thead tr {
-	background-color: #009879;
-	color: #ffffff;
-	font-weight: bold;
-	line-height: 1.25;
-}
-
-#editar_colores #tabla thead tr th {
-	padding: 8px 10px;
-}
-
-#editar_colores #tabla tbody tr {
-	border-bottom: 1px solid #dddddd;
-}
-
-#editar_colores #tabla tbody tr td {
-	padding: 10px 10px;
 }
 
 /* Accesorios */
@@ -54,11 +16,6 @@
 #editar_colores #tabla select:focus {
 	background-color: #EDF9F8;
 	color: #3A4B8C;
-}
-
-#editar_colores #tabla select {
-	appearance: none;
-	padding: 5px;
 }
 
 #editar_colores #tabla #muestra {
@@ -94,26 +51,9 @@
 }
 
 #editar_colores #botones {
-	display: flex;
-	justify-content: space-evenly;
 	width: 800px;
 	margin: auto;
 	margin-top: 30px;
-}
-
-#editar_colores #botones button {
-	background-color: #009879;
-	border-radius: 5px;
-	border-color: transparent;
-	padding: 5px 10px;
-	line-height: 1;
-}
-
-#editar_colores #botones button,
-#editar_colores #botones button a {
-	color: #ffffff;
-	font-weight: bold;
-	font-size: .9rem;
 }
 
 #editar_colores #tabla .color_existente .rojo,
