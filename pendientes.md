@@ -1,14 +1,13 @@
 PANEL DE COLORES JS
-- Evitar agregar un color repetido (nombre y código)
 - Eliminar un color
+
+LOGIN -> Hacer la vista
 
 EDITAR TEXTO
 - Orden
 - Grupo
 - Orden
 - Texto
-
-LOGIN -> Hacer la vista
 
 EDICIÓN HOME
 - Imagen individual

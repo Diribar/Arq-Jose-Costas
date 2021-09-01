@@ -18,7 +18,7 @@
 						<td>
 							<input type="text" name="nombre" value="<%= color.nombre %>" style="font-weight: bold">
 						</td>
-						<td><%= color.codigo %></td>
+						<td id="codigo"><%= color.codigo %></td>
 						<td style="background-color: <%= color.codigo %>" id="muestra"></td>
 						<td>
 							<% let en_uso = color.encabezado_cf.length + color.encabezado_cl.length + color.titulos_cf.length + color.titulos_cl.length + color.proyectos_cf.length + color.proyectos_cl.length + color.proyectos_cb.length %>

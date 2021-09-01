@@ -41,6 +41,7 @@ module.exports = {
 		await BD_varios.Agregar_color(nombre, codigo);
 		return res.json();
 	},
+
 };
 
 // Función enviar mail
