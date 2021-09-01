@@ -1,15 +1,4 @@
 /* Accesorios */
-#editar_home .fas {
-	border: 1px white solid;
-	border-radius: 50%;
-	background-color: white;
-}
-
-#editar_home .flechas .fas {
-	color: gray;
-	margin: 2px;
-}
-
 #editar_home #tabla input,
 #editar_home #tabla select {
 	border: none;

@@ -1,8 +1,8 @@
 EDITAR TEXTO
-- Orden
-- Grupo
-- Orden
-- Texto
+	- Cambiar el orden de textos
+	- Modificar textos
+	- Eliminar textos
+	- Agregar textos
 
 EDICIÓN HOME
 - Imagen individual

@@ -42,6 +42,17 @@
 }
 
 /* Accesorios */
+#tabla .flechas .fas {
+	color: gray;
+	margin: 2px;
+}
+
+#editar_home .fas {
+	border: 1px white solid;
+	border-radius: 50%;
+	background-color: white;
+}
+
 #tabla select {
 	appearance: none;
 	padding: 5px;

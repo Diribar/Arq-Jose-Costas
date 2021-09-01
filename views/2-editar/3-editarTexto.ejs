@@ -1,11 +1,11 @@
 <%- include('0-head') %>
-<%- include('4-editarTexto', {titulo: "Edición - " + titulo.nombre_a_mostrar}) %>
+<%- include('4-headEditarTexto', {titulo: "Edición - " + titulo.nombre_a_mostrar}) %>
 <body id="editar_texto">
 	<main>
 		<% for (let i=1; i<=datos.length; i++) { %>
 			<% grupo = datos.filter(n => n.grupo == i) %>
 			<% if (grupo.length == 0) {break} %>
-			<table>
+			<table id="tabla">
 				<caption>Grupo <%= i %></caption>
 				<tbody>
 					<% for (texto of grupo) { %>
