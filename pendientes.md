@@ -1,8 +1,5 @@
-EDICIÓN HOME
-- Imagen individual
-
 PANEL DE COLORES JS
-- Agregar un color
+- Evitar agregar un color repetido (nombre y código)
 - Eliminar un color
 
 EDITAR TEXTO
@@ -10,6 +7,11 @@ EDITAR TEXTO
 - Grupo
 - Orden
 - Texto
+
+LOGIN -> Hacer la vista
+
+EDICIÓN HOME
+- Imagen individual
 
 EDITAR IMAGENES INICIO
 - Orden
@@ -20,5 +22,3 @@ EDITAR IMAGENES PROYECTOS
 - Orden
 - Imagen
 - Texto
-
-LOGIN -> Hacer la vista

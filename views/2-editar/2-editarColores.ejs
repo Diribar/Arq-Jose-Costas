@@ -6,7 +6,7 @@
 			<thead>
 				<tr>
 					<th>Nombre</th>
-					<th>Código</th>
+					<th style="width: 210px;">Código</th>
 					<th>Muestra</th>
 					<th>Comentarios</th>
 				</tr>
@@ -56,6 +56,12 @@
 						</td>
 					</tr>
 				<% } %>
+				<tr id="color_nuevo" class="ocultar">
+					<td><input name="nombre" type="text" class="rojo"></td>
+					<td><input name="codigo" type="text" class="rojo"></td>
+					<td id="muestra"></td>
+					<td id="confirmar" class="rojo">Completar</td>
+				</tr>
 			</tbody>
 		</table>
 		<div id="botones">
