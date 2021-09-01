@@ -1,5 +1,5 @@
 PANEL DE COLORES JS
-- Agregar un color
+- Evitar agregar un color repetido (nombre y código)
 - Eliminar un color
 
 EDITAR TEXTO

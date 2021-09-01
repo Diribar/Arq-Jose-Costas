@@ -21,6 +21,7 @@ router.get("/editar/id_fijar_orden", controlador_APIs.id_fijar_orden);
 router.get("/editar/cambiar_filas", controlador_APIs.cambiar_filas);
 router.get("/editar/cambiar_encabezado", controlador_APIs.cambiar_encabezado);
 router.get("/editar/cambiar_color", controlador_APIs.cambiar_color);
+router.get("/editar/agregar_color", controlador_APIs.agregar_color);
 
 // Exportarlo **********************************************
 module.exports = router;
