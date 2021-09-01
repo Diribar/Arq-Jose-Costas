@@ -14,7 +14,7 @@
 			<tbody>
 				<% for (color of colores) { %> 
 					<tr class="color_existente">
-						<td id="id" class="ocultar"><%= color.id %> </td>
+						<td id="id" class="ocultar"><%= color.id %></td>
 						<td>
 							<input type="text" name="nombre" value="<%= color.nombre %>" style="font-weight: bold">
 						</td>
@@ -51,8 +51,11 @@
 									<% } %> 
 								</select>
 							<% } else { %>
-								-
-							<% } %> 
+								<div class="eliminar">
+									<i class="far fa-trash-alt"></i>
+									<i class="ocultar"><%= color.id %></i>
+								</div>
+							<% } %>
 						</td>
 					</tr>
 				<% } %>

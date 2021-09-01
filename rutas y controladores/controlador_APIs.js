@@ -42,6 +42,11 @@ module.exports = {
 		return res.json();
 	},
 
+	eliminar_color: async (req, res) => {
+		let { id } = req.query;
+		await BD_varios.Eliminar_color(id);
+		return res.json();
+	},
 };
 
 // Función enviar mail

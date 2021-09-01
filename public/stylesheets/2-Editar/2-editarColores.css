@@ -61,6 +61,15 @@
 	padding: 5px;
 }
 
+#editar_colores #tabla #muestra {
+	border: .5px lightgray solid;
+}
+
+#editar_colores #tabla .color_existente .fa-trash-alt {
+	padding-left: 5px;
+	color: red;
+}
+
 #editar_colores #tabla #color_nuevo td {
 	background-color: RGB(242, 242, 242);
 }
@@ -77,10 +86,6 @@
 	background-color: green; 
 	color: white;
 	cursor: pointer;
-}
-
-#editar_colores #tabla #color_nuevo #muestra {
-	border: .5px lightgray solid;
 }
 
 #editar_colores #tabla #color_nuevo #confirmar {

@@ -17,7 +17,7 @@ window.addEventListener("load", () => {
 	}
 });
 
-const cambiarValor = async (id, dato, campo) => {
+const cambiarValor = async (id, dato) => {
 	await fetch(
 		"/editar/cambiar_color/?id=" +
 			id +

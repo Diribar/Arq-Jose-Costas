@@ -57,9 +57,9 @@ window.addEventListener("load", () => {
 	// Variables
 	codigo = document.querySelector("#color_nuevo input[name='codigo']");
 	codigos = document.querySelectorAll("tr.color_existente #codigo");
-	verColHexa = /#[\dA-F]{6}/g;
-	verColRGB = /RGB\(\d{3}\,\ \d{3}\,\ \d{3}\)/;
-	verColRGBA = /RGBA\(\d{3}\,\ \d{3}\,\ \d{3}\, \d.\d\)/;
+	verColHexa = /^#[\dA-F]{6}$/g;
+	verColRGB = /^RGB\(\d{3}\,\ \d{3}\,\ \d{3}\)$/;
+	verColRGBA = /^RGBA\(\d{3}\,\ \d{3}\,\ \d{3}\, \d.\d\)$/;
 	muestra = document.querySelector("#color_nuevo #muestra");
 	codigo.addEventListener("input", () => {
 		// Validar código vs sintaxis
