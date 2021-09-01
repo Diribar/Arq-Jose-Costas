@@ -42,11 +42,6 @@ module.exports = {
 		return res.json();
 	},
 
-	verificar_color: async (req, res) => {
-		let { dato, campo } = req.query;
-		await BD_varios.Verificar_color(dato, campo);
-		return res.json();
-	},
 };
 
 // Función enviar mail
