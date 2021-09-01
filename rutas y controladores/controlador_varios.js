@@ -55,7 +55,7 @@ module.exports = {
 		}
 	},
 
-	editarHomeForm: async (req, res) => {
+	editarHome: async (req, res) => {
 		let encabezado = await BD_varios.ObtenerColoresEncabezado();
 		//return res.send(encabezado[1]);
 		res.render("1-editarHome", {
@@ -72,15 +72,28 @@ module.exports = {
 		});
 	},
 
+	editarTexto: async(req, res) => {
+		url = req.url;
+		seccion = url.slice(url.lastIndexOf("/") + 1);
+		titulos = await BD_varios.ObtenerTitulos();
+		titulo = titulos.find((n) => n.nombre_seccion == seccion);
+		let aux = await BD_varios.ObtenerTodos(seccion);
+		//return res.send(aux)
+		res.render("3-editarTexto", {
+			titulo,
+			datos: await BD_varios.ObtenerTodos(seccion),
+		});
+	},
+
 	editarColoresProyectos: async (req, res) => {
 		res.send("editarColoresProyectos");
 	},
 
-	editarTexto: (req, res) => {
-		res.send("Editar texto");
-	},
-
 	editarImagenes: (req, res) => {
 		res.send("Editar imágenes");
+	},
+
+	editarImagenesProyectos: (req, res) => {
+		res.send("Editar imágenes proyectos");
 	},
 };

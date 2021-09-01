@@ -1,0 +1,13 @@
+<%- include('0-head') %>
+
+<body>
+	<% for (let i=1; i<=datos.length; i++) { %>
+		<% grupo = datos.filter(n => n.grupo == i) %>
+		<% if (grupo.length == 0) {break} %>
+		<h1>Grupo <%= i %> </h1>
+		<% for (texto of grupo) { %>
+			<%= texto.contenido %> 
+		<% } %> 
+	<% } %> 
+</body>
+</html>
