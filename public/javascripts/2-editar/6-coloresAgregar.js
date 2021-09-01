@@ -1,8 +1,24 @@
 window.addEventListener("load", () => {
-	nombreTF = false;
-	codigoTF = false;
+	// VARIABLES INICIALES
+	nombreOK = false;
+	nombreYaEnBD = true;
+	codigoOK = false;
+	codigoYaEnBD = true;
 
-	// Toggle formulario de agregar color
+	// FÓRMULA PARA CONFIRMAR EL AGREGADO DE UN COLOR
+	let confirmarSINO = () => {
+		if (nombreOK && !nombreYaEnBD && codigoOK && !codigoYaEnBD) {
+			confirmar.innerHTML = "Agregar color";
+			confirmar.classList.remove("rojo");
+			confirmar.classList.add("verde");
+		} else {
+			confirmar.innerHTML = "Completar";
+			confirmar.classList.remove("verde");
+			confirmar.classList.add("rojo");
+		}
+	};
+
+	// TOGGLE FORMULARIO DE AGREGAR COLOR ******************
 	agregar = document.querySelector("#editar_colores #agregar");
 	color_nuevo = document.querySelector("#editar_colores #color_nuevo");
 	agregar.addEventListener("click", () => {
@@ -10,51 +26,74 @@ window.addEventListener("load", () => {
 		nombre.focus();
 	});
 
-	// Validar nombre
+	// VALIDAR NOMBRE **************************************
+	// Variables
 	nombre = document.querySelector("#color_nuevo input[name='nombre']");
+	nombres = document.querySelectorAll(
+		"tr.color_existente input[name='nombre']"
+	);
 	verNombre = /^[A-Z][a-z \d+-]+$/;
 	nombre.addEventListener("input", () => {
-		nombre.classList.add("rojo");
-		if (verNombre.test(nombre.value) || nombre.value == "") {
-			nombre.classList.remove("rojo");
-			nombreTF = true;
-			nombreTF && codigoTF ? confirmarSI() : "";
-		} else {
-			nombre.classList.add("rojo");
-			nombreTF = false;
-			confirmarNO();
+		// Validar nombre vs sintaxis
+		verNombre.test(nombre.value) ? (nombreOK = true) : (nombreOK = false);
+		// Validar nombre repetido
+		nombreYaEnBD = false;
+		for (n of nombres) {
+			if (n.value == nombre.value) {
+				nombreYaEnBD = true;
+				n.classList.add("rojo");
+			} else {
+				n.classList.remove("rojo");
+			}
 		}
+		// Consecuencias
+		nombreYaEnBD || !nombreOK
+			? nombre.classList.add("rojo")
+			: nombre.classList.remove("rojo");
+		confirmarSINO();
 	});
 
-	// Validar código
+	// VALIDAR CÓDIGO **************************************
+	// Variables
 	codigo = document.querySelector("#color_nuevo input[name='codigo']");
-	muestra = document.querySelector("#color_nuevo #muestra");
+	codigos = document.querySelectorAll("tr.color_existente #codigo");
 	verColHexa = /#[\dA-F]{6}/g;
 	verColRGB = /RGB\(\d{3}\,\ \d{3}\,\ \d{3}\)/;
 	verColRGBA = /RGBA\(\d{3}\,\ \d{3}\,\ \d{3}\, \d.\d\)/;
+	muestra = document.querySelector("#color_nuevo #muestra");
 	codigo.addEventListener("input", () => {
-		if (
-			verColHexa.test(codigo.value) ||
-			verColRGB.test(codigo.value) ||
-			verColRGBA.test(codigo.value) ||
-			codigo.value == "transparent"
-		) {
-			codigo.classList.remove("rojo");
-			muestra.style.backgroundColor = codigo.value;
-			codigoTF = true;
-			nombreTF && codigoTF ? confirmarSI() : "";
-		} else {
+		// Validar código vs sintaxis
+		verColHexa.test(codigo.value) ||
+		verColRGB.test(codigo.value) ||
+		verColRGBA.test(codigo.value) ||
+		codigo.value == "transparent"
+			? (codigoOK = true)
+			: (codigoOK = false);
+		// Validar código repetido
+		codigoYaEnBD = false;
+		for (n of codigos) {
+			if (n.innerHTML == codigo.value) {
+				codigoYaEnBD = true;
+				n.classList.add("rojo");
+			} else {
+				n.classList.remove("rojo");
+			}
+		}
+		// Consecuencias
+		if (codigoYaEnBD || !codigoOK) {
 			codigo.classList.add("rojo");
 			muestra.style.backgroundColor = "transparent";
-			codigoTF = false;
-			confirmarNO();
+		} else {
+			codigo.classList.remove("rojo");
+			muestra.style.backgroundColor = codigo.value;
 		}
+		confirmarSINO();
 	});
 
-	// Agregar color
+	// AGREGAR COLOR ****************************************
 	confirmar = document.querySelector("#color_nuevo #confirmar");
 	confirmar.addEventListener("click", async () => {
-		if (nombreTF && codigoTF) {
+		if (nombreOK && codigoOK && !nombreYaEnBD && !codigoYaEnBD) {
 			valor1 = nombre.value;
 			valor2 = encodeURIComponent(codigo.value);
 			await agregarColor(valor1, valor2);
@@ -62,18 +101,7 @@ window.addEventListener("load", () => {
 	});
 });
 
-let confirmarSI = () => {
-	confirmar.innerHTML = "Agregar color";
-	confirmar.classList.remove("rojo");
-	confirmar.classList.add("verde");
-};
-
-let confirmarNO = () => {
-	confirmar.innerHTML = "Completar";
-	confirmar.classList.remove("verde");
-	confirmar.classList.add("rojo");
-};
-
+// FÓRMULAS *************************************************
 let agregarColor = async (nombre, codigo) => {
 	await fetch(
 		"/editar/agregar_color/?nombre=" + nombre + "&codigo=" + codigo
