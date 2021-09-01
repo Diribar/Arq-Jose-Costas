@@ -1,6 +1,3 @@
-PANEL DE COLORES JS
-- Eliminar un color
-
 LOGIN -> Hacer la vista
 
 EDITAR TEXTO

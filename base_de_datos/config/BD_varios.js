@@ -87,4 +87,10 @@ module.exports = {
 			codigo,
 		});
 	},
+
+	Eliminar_color: (id) => {
+		return db.colores.destroy({
+			where: { id: id },
+		});
+	},
 };
