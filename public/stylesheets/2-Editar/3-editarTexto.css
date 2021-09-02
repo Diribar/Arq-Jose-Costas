@@ -1,0 +1,12 @@
+#editar_texto #tabla tbody input {
+	width: 500px
+}
+
+#editar_texto #tabla tbody tr:nth-of-type(even) {
+	background-color: #f3f3f3;
+}
+
+#editar_texto #tabla tbody tr:last-of-type {
+	border-bottom: 2px solid #009879;
+}
+
