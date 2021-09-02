@@ -9,7 +9,7 @@ const logout = require("../middlewares/logout");
 const soloUsuarios = require("../middlewares/soloUsuarios");
 
 // Controladores Varios ************************************
-router.get("/", logout, controlador_varios.home);
+router.get("/", controlador_varios.home);
 router.post("/contactanos", controlador_varios.contactanosBackEnd);
 router.get("/login", logout, controlador_varios.loginForm);
 router.post("/login", controlador_varios.loginDatos);
