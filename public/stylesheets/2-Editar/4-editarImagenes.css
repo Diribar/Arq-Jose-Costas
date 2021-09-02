@@ -1,8 +1,29 @@
-main {
-	margin-top: 20px;
+#editar_imagenes #imagenes {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
 }
 
-#editar_texto #botones {
-	margin-top: 50px;
-	margin-bottom: 50px;
+#editar_imagenes #imagenes li {
+	margin: 20px 10px;
+	height: 200px;
+	width: 200px;
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+}
+
+#editar_imagenes #imagenes li img {
+	height: 90%;
+	width: 100%;
+	margin: 0;
+	object-fit: cover;
+}
+
+#editar_imagenes #imagenes li .fa-trash-alt {
+	color: #223063;
+	text-align: center;
+	margin-top: 10px;
+	font-weight: bold;
 }

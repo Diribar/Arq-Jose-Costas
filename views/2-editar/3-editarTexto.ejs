@@ -8,8 +8,8 @@
 		<% for (let grupo=1; grupo<=datos.length; grupo++) { %>
 			<% contenido = datos.filter(n => n.grupo == grupo) %>
 			<% if (contenido.length == 0) {break} %>
+			<h1>Grupo <%= grupo %></h1>
 			<table id="tabla">
-				<caption>Grupo <%= grupo %></caption>
 				<tbody>
 					<% for (texto of contenido) { %>
 						<tr>

@@ -6,7 +6,6 @@ const nodemailer = require("./nodemailer");
 module.exports = {
 	home: async (req, res) => {
 		let encabezado = await BD_varios.ObtenerColoresEncabezado();
-		//return res.send(encabezado[1]);
 		res.render("home", {
 			encabezado: encabezado[0],
 			titulos: await BD_varios.ObtenerTitulos(),
@@ -17,7 +16,7 @@ module.exports = {
 			servicios: await BD_varios.ObtenerTodos("servicios"),
 			quienes_somos: await BD_varios.ObtenerTodos("quienes_somos"),
 			clientes_imagenes: await BD_varios.ObtenerTodos(
-				"clientes_imagenes"
+				"quienes_somos_imagenes"
 			),
 			contactanos: await BD_varios.ObtenerTodos("contactanos"),
 			footer: encabezado[1],
@@ -57,7 +56,6 @@ module.exports = {
 
 	editarHome: async (req, res) => {
 		let encabezado = await BD_varios.ObtenerColoresEncabezado();
-		//return res.send(encabezado[1]);
 		res.render("1-editarHome", {
 			encabezado: encabezado[0],
 			titulos: await BD_varios.ObtenerTitulos(),
@@ -92,7 +90,7 @@ module.exports = {
 		res.render("4-editarImagenes", {
 			seccion,
 			titulo,
-			datos: await BD_varios.ObtenerTodos(seccion),
+			imagenes: await BD_varios.ObtenerTodos(seccion + "_imagenes"),
 		});
 	},
 
