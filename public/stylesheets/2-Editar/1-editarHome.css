@@ -5,6 +5,10 @@
 	background-color: transparent;
 }
 
+#tabla input[name="nombre_encabezado"] {
+	width:140px
+}
+
 #editar_home #tabla .td_imagen {
 	padding: 0;
 }
@@ -29,8 +33,4 @@
 
 #editar_home #tabla .fa-times-circle {
 	color: red;
-}
-
-#editar_home #botones {
-	margin-top: 25px;
 }

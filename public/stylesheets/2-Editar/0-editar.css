@@ -22,6 +22,11 @@
 	line-height: 0.9;
 }
 
+#tabla input, 
+#tabla select{
+	cursor: pointer;
+}
+
 #tabla thead tr {
 	background-color: #009879;
 	color: #ffffff;
@@ -45,6 +50,7 @@
 #tabla .flechas .fas {
 	color: gray;
 	margin: 2px;
+	cursor: pointer;
 }
 
 #editar_home .fas {
@@ -78,6 +84,7 @@
 
 #tabla .fa-check-circle {
 	color: green;
+	cursor: pointer;
 }
 
 #tabla .fa-times-circle {
@@ -87,20 +94,13 @@
 #botones {
 	display: flex;
 	justify-content: space-evenly;
+	width: 600px;
+	margin: auto;
+	margin-top: 30px;
 }
 
-#botones button {
-	background-color: #009879;
-	border-radius: 5px;
-	border-color: transparent;
-	padding: 5px 10px;
-	line-height: 1;
-}
-
-#botones button,
-#botones button a {
-	color: #ffffff;
-	font-weight: bold;
-	font-size: .9rem;
+#botones i {
+	color: RGB(118, 113, 113);
+	font-size: 1.5rem;
 }
 
