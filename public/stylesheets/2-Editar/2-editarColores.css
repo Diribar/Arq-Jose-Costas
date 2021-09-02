@@ -18,17 +18,17 @@
 	color: #3A4B8C;
 }
 
-#editar_colores #tabla #muestra {
+#tabla tr {
+	background-color: white;
+}
+
+#editar_colores #tabla tr td #muestra {
 	border: .5px lightgray solid;
 }
 
 #editar_colores #tabla .color_existente .fa-trash-alt {
 	padding-left: 5px;
 	color: red;
-}
-
-#editar_colores #tabla #color_nuevo td {
-	background-color: RGB(242, 242, 242);
 }
 
 #editar_colores #tabla #color_nuevo td input[name="nombre"] {

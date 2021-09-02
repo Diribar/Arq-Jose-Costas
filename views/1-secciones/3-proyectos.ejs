@@ -5,7 +5,7 @@
 	<div id="botones">
 		<% for (m of proyectos) { %>
 			<button style="background-color: <%= m.color_fondo.codigo %>; color: <%= m.color_letras.codigo %>; border-color: <%= m.color_borde.codigo %>">
-				<%= m.nombre_a_mostrar %> 
+				<%= m.contenido %> 
 			</button>
 		<% } %> 
 	</div>

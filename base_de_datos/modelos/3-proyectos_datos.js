@@ -18,7 +18,7 @@ module.exports = (sequelize, dt) => {
 		entidad.belongsTo(n.colores, {as: "color_fondo", foreignKey: "color_fondo_id"});
 		entidad.belongsTo(n.colores, {as: "color_letras", foreignKey: "color_letras_id"});
 		entidad.belongsTo(n.colores, {as: "color_borde", foreignKey: "color_borde_id"});
-		entidad.hasMany(n.proyectos_imagenes, {as: "imagenes",foreignKey: "proyecto_id"});
+		entidad.hasMany(n.proyectos_imagenes, {as: "imagenes",foreignKey: "grupo"});
 	};
 	return entidad;
 };
