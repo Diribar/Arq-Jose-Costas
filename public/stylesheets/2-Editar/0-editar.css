@@ -26,9 +26,6 @@
 #tabla select{
 	cursor: pointer;
 }
-#tabla input {
-	width:auto
-}
 
 #tabla thead tr {
 	background-color: #009879;
