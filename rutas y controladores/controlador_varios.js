@@ -97,8 +97,4 @@ module.exports = {
 	editarColoresProyectos: async (req, res) => {
 		res.send("editarColoresProyectos");
 	},
-
-	editarImagenesProyectos: (req, res) => {
-		res.send("Editar imágenes proyectos");
-	},
 };
