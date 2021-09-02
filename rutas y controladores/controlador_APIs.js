@@ -1,7 +1,7 @@
 // **** Requires ***********
 const BD_varios = require("../base_de_datos/config/BD_varios");
 const nodemailer = require("./nodemailer");
-const path = require("path")
+const path = require("path");
 const fs = require("fs");
 
 // **** Exportar ***********
@@ -10,9 +10,9 @@ module.exports = {
 		let { nombre, mail, telefono, comentario } = req.query;
 		asunto = "Mensaje de un contacto";
 		comentario = decodeURIComponent(comentario);
-		await nodemailer.enviarMail(asunto, nombre, mail, telefono, comentario).catch(
-			console.error
-		);
+		await nodemailer
+			.enviarMail(asunto, nombre, mail, telefono, comentario)
+			.catch(console.error);
 		return res.json();
 	},
 
@@ -53,9 +53,20 @@ module.exports = {
 	},
 
 	eliminar_imagen: (req, res) => {
-		const file = path.resolve(__dirname, "../public/imagenes/5-quienes_somos/Aptra.jpg");
-		fs.access(file, fs.constants.W_OK, (err) => {
-			console.log(`${file} ${err ? 'is not writable' : 'is writable'}`);
-		})
-	}
+		let { id } = req.query;
+		const archivo = path.resolve(
+			__dirname,
+			"../public/imagenes/5-quienes_somos/" + id
+		);
+		// Averiguar si el archivo es Read-Only (no puede ser que no exista)
+		try {
+			fs.accessSync(archivo, fs.constants.W_OK);
+			resultado = false;
+		} catch (err) {
+			resultado = true;
+		}
+		console.log(resultado);
+		// Fin
+		return res.json();
+	},
 };

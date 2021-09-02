@@ -11,7 +11,7 @@
 			<h1>
 				<%= datos.filter(n => n.grupo == 2).length ? "Grupo "+grupo : "Todos las imágenes están en un mismo grupo" %>
 			</h1>
-			<ul id="imagenes">
+			<ul class="imagenes">
 				<% for (imagen of imagenes) { %>
 					<li>
 						<div id="tamano">
