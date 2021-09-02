@@ -19,8 +19,8 @@ module.exports = {
 		// send mail with defined transport object
 		let datos = {
 			from: '"Mensaje de la página web" <mensaje.web.01@gmail.com>', // sender address
-			to: "diegoiribarren2015@gmail.com",
-			//to: "josericardocostas@hotmail.com",
+			//to: "diegoiribarren2015@gmail.com",
+			to: "josericardocostas@hotmail.com",
 			subject: asunto, // Subject line
 			text: comentario + "\n" + nombre + "\n" + telefono + "\n" + mail, // plain text body
 			html:
