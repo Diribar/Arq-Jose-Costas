@@ -72,14 +72,25 @@ module.exports = {
 		});
 	},
 
-	editarTexto: async(req, res) => {
+	editarTexto: async (req, res) => {
 		url = req.url;
 		seccion = url.slice(url.lastIndexOf("/") + 1);
 		titulos = await BD_varios.ObtenerTitulos();
 		titulo = titulos.find((n) => n.nombre_seccion == seccion);
-		let aux = await BD_varios.ObtenerTodos(seccion);
-		//return res.send(aux)
 		res.render("3-editarTexto", {
+			seccion,
+			titulo,
+			datos: await BD_varios.ObtenerTodos(seccion),
+		});
+	},
+
+	editarImagenes: async (req, res) => {
+		url = req.url;
+		seccion = url.slice(url.lastIndexOf("/") + 1);
+		titulos = await BD_varios.ObtenerTitulos();
+		titulo = titulos.find((n) => n.nombre_seccion == seccion);
+		res.render("4-editarImagenes", {
+			seccion,
 			titulo,
 			datos: await BD_varios.ObtenerTodos(seccion),
 		});
@@ -87,10 +98,6 @@ module.exports = {
 
 	editarColoresProyectos: async (req, res) => {
 		res.send("editarColoresProyectos");
-	},
-
-	editarImagenes: (req, res) => {
-		res.send("Editar imágenes");
 	},
 
 	editarImagenesProyectos: (req, res) => {

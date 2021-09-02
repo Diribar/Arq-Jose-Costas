@@ -1,5 +1,21 @@
+main {
+	margin-top: 20px;
+}
+
+#editar_texto #tabla caption {
+	margin-top: 30px;
+	margin-bottom: 10px;
+	font-weight: bold;
+	font-size: 1.5rem;
+	color: #009879;
+}
+
 #editar_texto #tabla tbody input {
 	width: 500px
+}
+
+#editar_texto #tabla tbody tr:nth-of-type(odd) {
+	background-color: white;
 }
 
 #editar_texto #tabla tbody tr:nth-of-type(even) {
@@ -10,3 +26,11 @@
 	border-bottom: 2px solid #009879;
 }
 
+#editar_texto .botones {
+	margin-top: 10px;
+}
+
+#editar_texto #botones {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}

@@ -1,3 +1,18 @@
+header {
+	background-color: #223063;
+	text-align: center;
+	color: wheat;
+	padding: 10px;
+	font-weight: bold;
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+
+body {
+	background-color: wheat;
+}
+
 #tabla caption {
 	margin-top: 20px;
 	margin-bottom: 20px;
@@ -32,6 +47,7 @@
 	color: #ffffff;
 	font-weight: bold;
 	line-height: 1.25;
+	border-bottom: white 2px solid;
 }
 
 #tabla thead tr th {
@@ -91,7 +107,7 @@
 	color: red;
 }
 
-#botones {
+#botones, .botones {
 	display: flex;
 	justify-content: space-evenly;
 	width: 600px;
@@ -99,7 +115,7 @@
 	margin-top: 30px;
 }
 
-#botones i {
+#botones i, .botones i {
 	color: RGB(118, 113, 113);
 	font-size: 1.5rem;
 }

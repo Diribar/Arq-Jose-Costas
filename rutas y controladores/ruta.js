@@ -17,8 +17,8 @@ router.get("/editar/home", soloUsuarios, controlador_varios.editarHome);
 router.get("/editar/colores", soloUsuarios, controlador_varios.editarColores);
 router.get("/editar/colores/proyectos", soloUsuarios, controlador_varios.editarColoresProyectos);
 router.get("/editar/texto/:id", soloUsuarios, controlador_varios.editarTexto);
-router.get("/editar/imagenes/inicio", soloUsuarios, controlador_varios.editarImagenes);
 router.get("/editar/imagenes/proyectos", soloUsuarios, controlador_varios.editarImagenesProyectos);
+router.get("/editar/imagenes/:id", soloUsuarios, controlador_varios.editarImagenes);
 
 // Controladores de APIs ***********************************
 router.get("/contactanos", controlador_APIs.contactanosFrontEnd);
