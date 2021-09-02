@@ -6,32 +6,25 @@
 	</header>
 	<main>
 		<% for (let grupo=1; grupo<=datos.length; grupo++) { %>
-			<% contenido = datos.filter(n => n.grupo == grupo) %>
-			<% if (contenido.length == 0) {break} %>
-			<table id="tabla">
-				<caption>Grupo <%= grupo %></caption>
-				<tbody>
-					<% for (texto of contenido) { %>
-						<tr>
-							<td class="id ocultar"><%= texto.id %></td>
-							<td class="center flechas">
-								<i class="fas fa-arrow-alt-circle-up <%- texto == contenido[0] ? 'ocultar' : '' %>"></i>
-								<i class="fas fa-arrow-alt-circle-down <%- texto == contenido[contenido.length-1] ? 'ocultar' : '' %>"></i>
-							</td>
-							<td>
-								<input type="text" name="contenido" value="<%= texto.contenido %>">
-							</td>
-						</tr>
-					<% } %>
-				</tbody>
-			</table>	
-			<% if (!(seccion =="servicios") && !(seccion == "habilitaciones" && grupo > 1) && !(seccion == "quienes_somos" && grupo == 2) && !(seccion == "contactanos" && grupo == 1)) { %>
-				<a title="Agregar un texto" id="agregarTexto" class="botones"><i class="fas fa-plus"></i></a>
-			<% } %> 
+			<% imagenes = datos.filter(n => n.grupo == grupo) %>
+			<% if (imagenes.length == 0) {break} %>
+			<h1>
+				<%= datos.filter(n => n.grupo == 2).length ? "Grupo "+grupo : "Todos las imágenes están en un mismo grupo" %>
+			</h1>
+			<ul id="imagenes">
+				<% for (imagen of imagenes) { %>
+					<li>
+						<img src="/imagenes/<%= titulo.id %>-<%= seccion %>/<%= imagen.archivo %> " alt="">
+						<i class="far fa-trash-alt"></i>
+						<i class="ocultar"><%= imagen.id %></i>
+					</li>
+				<% } %> 
+			</ul>
+			<a title="Agregar un texto" id="agregarTexto" class="botones"><i class="fas fa-plus"></i></a>
 		<% } %>
 		<div id="botones">
 			<a href="/editar/home" title='Volver al "Home" de Edición'><i class="fas fa-arrow-alt-circle-left"></i></a>
-			<% if (seccion == "habilitaciones" || seccion == "servicios") { %>
+			<% if (seccion == "proyectos") { %>
 				<a title="Agregar un grupo" id="agregarGrupo"><i class="fas fa-plus"></i></a>
 			<% } %> 
 		</div>

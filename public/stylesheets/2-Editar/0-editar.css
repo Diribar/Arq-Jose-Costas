@@ -1,24 +1,13 @@
-header {
-	background-color: #223063;
+h1 {
+	margin: 20px;
 	text-align: center;
-	color: wheat;
-	padding: 10px;
 	font-weight: bold;
-	position: fixed;
-	top: 0;
-	width: 100%;
+	font-size: 1.5rem;
+	color: #009879;
 }
 
 body {
 	background-color: wheat;
-}
-
-#tabla caption {
-	margin-top: 20px;
-	margin-bottom: 20px;
-	font-weight: bold;
-	font-size: 1.5rem;
-	color: #009879;
 }
 
 #tabla {
