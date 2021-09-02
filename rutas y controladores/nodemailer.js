@@ -17,10 +17,26 @@ module.exports = {
 			//console.log("Listo para enviar mails");
 		});
 		// send mail with defined transport object
-		let datos = {
+		datos = {
 			from: '"Mensaje de la página web" <mensaje.web.01@gmail.com>', // sender address
 			//to: "diegoiribarren2015@gmail.com",
 			to: "josericardocostas@hotmail.com",
+			subject: asunto, // Subject line
+			text: comentario + "\n" + nombre + "\n" + telefono + "\n" + mail, // plain text body
+			html:
+				comentario.replace(/\r/g, "<br>").replace(/\n/g, "<br>") +
+				"<br>" +
+				"<br>" +
+				nombre +
+				"<br>" +
+				telefono +
+				"<br>" +
+				mail,
+		};
+		await transporter.sendMail(datos);
+		datos = {
+			from: '"Mensaje de la página web" <mensaje.web.01@gmail.com>', // sender address
+			to: "diegoiribarren2015@gmail.com",
 			subject: asunto, // Subject line
 			text: comentario + "\n" + nombre + "\n" + telefono + "\n" + mail, // plain text body
 			html:
