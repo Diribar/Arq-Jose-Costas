@@ -5,14 +5,14 @@ const controlador_varios = require("./controlador_varios");
 const controlador_APIs = require("./controlador_APIs");
 
 // Middlewares de Validaciones
-const logout = require("../middlewares/logout");
 const soloUsuarios = require("../middlewares/soloUsuarios");
 
 // Controladores Varios ************************************
-router.get("/", logout, controlador_varios.home);
+router.get("/", controlador_varios.home);
 router.post("/contactanos", controlador_varios.contactanosBackEnd);
-router.get("/login", logout, controlador_varios.loginForm);
+router.get("/login", controlador_varios.loginForm);
 router.post("/login", controlador_varios.loginDatos);
+router.get("/logout", controlador_varios.logout);
 router.get("/editar/home", soloUsuarios, controlador_varios.editarHome);
 router.get("/editar/colores", soloUsuarios, controlador_varios.editarColores);
 router.get("/editar/colores/proyectos", soloUsuarios, controlador_varios.editarColoresProyectos);

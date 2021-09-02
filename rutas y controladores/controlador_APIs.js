@@ -65,7 +65,7 @@ module.exports = {
 		} catch (err) {
 			resultado = true;
 		}
-		console.log(resultado);
+		//console.log(resultado);
 		// Fin
 		return res.json();
 	},
