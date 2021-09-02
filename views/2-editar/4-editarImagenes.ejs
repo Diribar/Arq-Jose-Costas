@@ -5,14 +5,14 @@
 		Seccion: <%= titulo.nombre_a_mostrar %> 
 	</header>
 	<main>
-		<% for (let grupo=1; grupo<=imagenes.length; grupo++) { %>
-			<% contenido = imagenes.filter(n => n.grupo == grupo) %>
-			<% if (contenido.length == 0) {break} %>
+		<% for (let grupo=1; grupo<=datos.length; grupo++) { %>
+			<% imagenes = datos.filter(n => n.grupo == grupo) %>
+			<% if (imagenes.length == 0) {break} %>
 			<h1>
-				<%= imagenes.filter(n => n.grupo == 2).length ? "Grupo "+grupo : "Todos las imágenes están en un mismo grupo" %>
+				<%= datos.filter(n => n.grupo == 2).length ? "Grupo "+grupo : "Todos las imágenes están en un mismo grupo" %>
 			</h1>
 			<ul id="imagenes">
-				<% for (imagen of contenido) { %>
+				<% for (imagen of imagenes) { %>
 					<li>
 						<img src="/imagenes/<%= titulo.id %>-<%= seccion %>/<%= imagen.archivo %> " alt="">
 						<i class="far fa-trash-alt"></i>

@@ -90,7 +90,7 @@ module.exports = {
 		res.render("4-editarImagenes", {
 			seccion,
 			titulo,
-			imagenes: await BD_varios.ObtenerTodos(seccion + "_imagenes"),
+			datos: await BD_varios.ObtenerTodos(seccion + "_imagenes"),
 		});
 	},
 
