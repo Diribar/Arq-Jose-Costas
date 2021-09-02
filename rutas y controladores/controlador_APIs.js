@@ -1,6 +1,8 @@
 // **** Requires ***********
 const BD_varios = require("../base_de_datos/config/BD_varios");
 const nodemailer = require("./nodemailer");
+const path = require("path")
+const fs = require("fs");
 
 // **** Exportar ***********
 module.exports = {
@@ -49,4 +51,11 @@ module.exports = {
 		await BD_varios.Eliminar_color(id);
 		return res.json();
 	},
+
+	eliminar_imagen: (req, res) => {
+		const file = path.resolve(__dirname, "../public/imagenes/5-quienes_somos/Aptra.jpg");
+		fs.access(file, fs.constants.W_OK, (err) => {
+			console.log(`${file} ${err ? 'is not writable' : 'is writable'}`);
+		})
+	}
 };

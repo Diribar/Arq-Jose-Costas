@@ -1,29 +1,33 @@
-#editar_imagenes #imagenes {
+#editar_imagenes ul#imagenes {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
+	margin-top: 0px;
 }
 
 #editar_imagenes #imagenes li {
 	margin: 20px 10px;
-	height: 200px;
-	width: 200px;
 	list-style: none;
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 }
 
-#editar_imagenes #imagenes li img {
-	height: 90%;
+#editar_imagenes #imagenes li #tamano{
+	height: 160px;
+	width: 200px;
+}
+
+#editar_imagenes #imagenes li #tamano img {
+	height: 100%;
 	width: 100%;
 	margin: 0;
 	object-fit: cover;
 }
 
-#editar_imagenes #imagenes li .fa-trash-alt {
+#editar_imagenes #imagenes li a .fa-trash-alt {
 	color: #223063;
-	text-align: center;
 	margin-top: 10px;
 	font-weight: bold;
 }
