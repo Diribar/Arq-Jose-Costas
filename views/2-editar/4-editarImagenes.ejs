@@ -14,8 +14,10 @@
 			<ul id="imagenes">
 				<% for (imagen of imagenes) { %>
 					<li>
-						<img src="/imagenes/<%= titulo.id %>-<%= seccion %>/<%= imagen.archivo %> " alt="">
-						<i class="far fa-trash-alt"></i>
+						<div id="tamano">
+							<img src="/imagenes/<%= titulo.id %>-<%= seccion %>/<%= imagen.archivo %> " alt="">
+						</div>
+						<a title="Eliminar"><i class="far fa-trash-alt"></i></a>
 						<i class="ocultar"><%= imagen.id %></i>
 					</li>
 				<% } %> 
