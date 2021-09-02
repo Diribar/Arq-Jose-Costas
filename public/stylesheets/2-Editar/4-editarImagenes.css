@@ -1,4 +1,4 @@
-#editar_imagenes ul#imagenes {
+#editar_imagenes ul.imagenes {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
@@ -6,7 +6,7 @@
 	margin-top: 0px;
 }
 
-#editar_imagenes #imagenes li {
+#editar_imagenes .imagenes li {
 	margin: 20px 10px;
 	list-style: none;
 	display: flex;
@@ -14,19 +14,19 @@
 	align-items: center;
 }
 
-#editar_imagenes #imagenes li #tamano{
+#editar_imagenes .imagenes li #tamano{
 	height: 160px;
 	width: 200px;
 }
 
-#editar_imagenes #imagenes li #tamano img {
+#editar_imagenes .imagenes li #tamano img {
 	height: 100%;
 	width: 100%;
 	margin: 0;
 	object-fit: cover;
 }
 
-#editar_imagenes #imagenes li a .fa-trash-alt {
+#editar_imagenes .imagenes li a .fa-trash-alt {
 	color: #223063;
 	margin-top: 10px;
 	font-weight: bold;
