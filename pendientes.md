@@ -1,12 +1,6 @@
 ADAPTACIÓN AL CELULAR
 Header --> hamburguer
 Foto avatar = ancho de pantalla
-Clientes 2 de ancho
-
-- Contactanos
-	- Form
-	- Enviar
-	- Datos
 
 PROYECTOS: agregar leyenda
 OTROS SERVICIOS: rehacer imagen 3 x 1
