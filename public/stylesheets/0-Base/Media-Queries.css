@@ -1,4 +1,12 @@
 @media (max-width: 480px) {
+	header {
+		display: none;
+	}
+
+	main {
+		margin-top: 0;
+	}
+
 	#contactanos,
 	.seccion {
 		padding: 30px;
