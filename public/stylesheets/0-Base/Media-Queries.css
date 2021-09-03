@@ -1,0 +1,44 @@
+@media (max-width: 480px) {
+	#contactanos,
+	.seccion {
+		padding: 30px;
+	}
+
+	#proyectos {
+	flex-direction: column;
+	}
+
+	#proyectos #texto #botones {
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-around;
+		flex-grow: 1;
+		margin: 0px;
+	}
+
+	#quienes_somos #arquitecto h2 a img {
+		float: none;
+		margin-left: 50%;
+		transform: translateX(-50%);
+		max-width: 100%;
+	}
+
+	#quienes_somos #clientes ul li {
+		margin: 20px 10px;
+		width: 100px;
+		height: 80px;
+	}
+
+	#contactanos form {
+		flex-direction: column;
+	}
+
+	#contactanos form #inputs {
+    	width: 100%;
+	}
+
+	#contactanos form #texto {
+		flex-direction: column-reverse;
+		margin-left: 0;
+	}
+}

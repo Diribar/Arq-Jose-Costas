@@ -1,34 +1,34 @@
-main #quienes_somos {
+#quienes_somos {
 	display: flex;
 	flex-direction: column;
 }
 
-main #quienes_somos h2 {
+#quienes_somos h2 {
 	margin-bottom: 0;
 }
 
-main #quienes_somos #arquitecto h2 {
+#quienes_somos #arquitecto h2 {
 	margin-top: 0;
 }
 
-main #quienes_somos #arquitecto img {
+#quienes_somos #arquitecto img {
 	max-height: 230px;
 	float: right;
 	margin-left: 20px;
 }
 
-main #quienes_somos #arquitecto ul {
+#quienes_somos #arquitecto ul {
 	margin: 0;
 }
 
-main #quienes_somos #arquitecto li {
+#quienes_somos #arquitecto li {
 	line-height: 1.5rem;
 	margin-top: .5rem;
 	margin-left: -40px;
 	list-style: none;
 }
 
-main #quienes_somos #clientes ul {
+#quienes_somos #clientes ul {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
@@ -37,14 +37,14 @@ main #quienes_somos #clientes ul {
 	margin: 0;
 }
 
-main #quienes_somos #clientes ul li {
+#quienes_somos #clientes ul li {
 	margin: 20px 10px;
 	width: 200px;
 	height: 160px;
 	list-style: none;
 }
 
-main #quienes_somos #clientes ul li img {
+#quienes_somos #clientes ul li img {
 	width: 100%;
 	height: 100%;
 	margin: 0;
