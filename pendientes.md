@@ -1,6 +1,6 @@
 ADAPTACIÓN AL CELULAR
 Header --> hamburguer
-Foto avatar = ancho de pantalla
+Proyectos --> hamburguer
 
 PROYECTOS: agregar leyenda
 OTROS SERVICIOS: rehacer imagen 3 x 1
