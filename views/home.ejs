@@ -1,7 +1,7 @@
 <%- include('0-head') %>
 <%- include('0-headHome', {titulo: "Arq. José Costas"}) %>
 <body>
-	<header class="flex-row">
+	<header>
 		<% for (n of titulos) { %>
 			<nav style="background-color: <%= encabezado.color_fondo.codigo %>; border-color: <%= encabezado.color_letras.codigo %>">
 				<a style="color: <%= encabezado.color_letras.codigo %>" href="#<%= n.nombre_seccion %>"><%= n.nombre_a_mostrar %></a>
