@@ -181,3 +181,18 @@
 		object-fit: cover;
 	}
 }
+
+@media (max-width: 400px) {
+	#inicio #texto #encabezado {
+		justify-content: center;
+	}
+
+	#inicio #texto #encabezado #logos #logo1 {
+		font-size: 40px;
+	}
+	
+	#inicio #texto  #encabezado #logos #logo2 {
+		font-size: 16px;
+	}
+
+}

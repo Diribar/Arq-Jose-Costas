@@ -43,16 +43,13 @@
 		padding-right: 0;
 	}
 
-	#habilitaciones #imagen {
-		position: static;
-		display: inline;
-		width: 100%;
+	#habilitaciones #texto ul {
+		padding-left: 20px;
 	}
 
-	#habilitaciones #imagen img {
-		position: static;
-		height: 100%;
+	#habilitaciones #imagen {
 		width: 100%;
+		min-height: 200px;
 	}
 
 }

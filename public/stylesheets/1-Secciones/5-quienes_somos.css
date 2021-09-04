@@ -21,11 +21,15 @@
 	margin: 0;
 }
 
-#quienes_somos #arquitecto li {
+#quienes_somos #arquitecto ul li {
 	line-height: 1.5rem;
 	margin-top: .5rem;
 	margin-left: -40px;
 	list-style: none;
+}
+
+#quienes_somos #clientes h2 {
+	margin-bottom: 0;
 }
 
 #quienes_somos #clientes ul {
@@ -39,8 +43,10 @@
 
 #quienes_somos #clientes ul li {
 	margin: 20px 10px;
-	width: 200px;
-	height: 160px;
+	max-width: 200px;
+	max-height: 160px;
+	width: 37vw;
+	height: 30vw;
 	list-style: none;
 }
 
@@ -51,11 +57,9 @@
 	object-fit: cover;
 }
 
-@media (max-width: 540px) {
-	#quienes_somos #clientes ul li {
-		margin: 20px 10px;
-		width: 150px;
-		height: 120px;
+@media (min-width: 481px) {
+	#quienes_somos #arquitecto #angosto {
+		display: none;
 	}
 }
 
@@ -78,10 +82,5 @@
 
 	#quienes_somos #arquitecto #angosto a {
 		align-self: center;
-	}
-
-	#quienes_somos #clientes ul li {
-		width: 100px;
-		height: 80px;
 	}
 }
