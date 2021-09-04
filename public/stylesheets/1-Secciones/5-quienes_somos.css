@@ -45,8 +45,8 @@
 	margin: 20px 10px;
 	max-width: 200px;
 	max-height: 160px;
-	width: 37vw;
-	height: 30vw;
+	width: 24vw;
+	height: 19.2vw;
 	list-style: none;
 }
 
@@ -83,4 +83,10 @@
 	#quienes_somos #arquitecto #angosto a {
 		align-self: center;
 	}
+
+	#quienes_somos #clientes ul li {
+		width: 37vw;
+		height: 30vw;
+	}
+
 }

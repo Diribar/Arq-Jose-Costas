@@ -99,9 +99,9 @@
 	}
 
 	#proyectos #imagen {
-		width: 84vw;
+		width: 90vw;
 		height: 75vw;
-		max-height: 80vh;
+		max-height: 90vh;
 	}
 
 }
@@ -114,12 +114,6 @@
 
 	#proyectos #texto #botones button {
 		width: 25%;
-	}
-
-	#proyectos #imagen {
-		width: 84vw;
-		height: 75vw;
-		max-height: 80vh;
 	}
 
 }
