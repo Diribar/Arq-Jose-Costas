@@ -1,32 +1,59 @@
-main #habilitaciones {
+#habilitaciones {
 	display: flex;
 	flex-direction: row;
 }
 
-main #habilitaciones #texto {
+#habilitaciones #texto {
 	width: 45vw;
+	box-sizing: border-box;
+	padding-right: 15px;
 }
 
-main #habilitaciones #texto #comentarioH1 {
+#habilitaciones #texto #comentarioH1 {
 	margin-top: .5rem;
 	line-height: 1.5rem;
 }
 
-main #habilitaciones #texto h2 {
+#habilitaciones #texto h2 {
 	font-size: 1.2rem;
 	margin-bottom: 0;
 }
 
-main #habilitaciones #imagenes {
+#habilitaciones #imagen {
 	position: relative;
 	display: flex;
 	flex-grow: 1;
 	flex-direction: row;
 }
 
-main #habilitaciones #imagenes img {
+#habilitaciones #imagen img {
 	position: absolute;
 	height: 100%;
 	width: 100%;
 	object-fit: cover;
 }
+
+@media (max-width: 1000px) {
+	#habilitaciones {
+		flex-direction: column;
+	}
+
+	#habilitaciones #texto {
+		width: 100%;
+		padding-right: 0;
+	}
+
+	#habilitaciones #imagen {
+		position: static;
+		display: inline;
+		width: 100%;
+	}
+
+	#habilitaciones #imagen img {
+		position: static;
+		height: 100%;
+		width: 100%;
+	}
+
+}
+
