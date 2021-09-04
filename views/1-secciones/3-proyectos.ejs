@@ -12,7 +12,7 @@
 </section>
 <section id="imagen">
 	<% for (let i=0; i<proyectos.length; i++) { %>
-		<div class="grupo <%- i==0 ? 'flex-row' : 'ocultar' %> ">
+		<div class="grupo <%- i!=0 ? 'flex-row' : 'ocultar' %> ">
 			<% for (let j=0; j<proyectos[i].imagenes.length; j++) { %> 
 					<img style="animation: banner<%= j+1 %> 15s infinite normal" src="./imagenes/3-proyectos/<%= proyectos[i].imagenes[j].archivo %>">
 					<% if (proyectos[i].imagenes[j].texto) { %>

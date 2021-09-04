@@ -23,8 +23,9 @@ main {
 	margin-top: 50px;
 }
 
+#contactanos,
 .seccion {
-	padding: 50px;
+	padding: 5vw;
 }
 
 footer {
@@ -34,4 +35,16 @@ footer {
 
 footer p {
 	font-size: 0.9rem;
+}
+
+@media (max-width: 1200px) {
+	header {display: none;}
+	main {margin-top: 0;}
+	main #inicio {
+		padding: 5vw;
+	}
+	main #inicio #imagenes {
+		margin-top: 30px;
+		margin-bottom: 0;
+	}
 }
