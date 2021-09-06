@@ -138,6 +138,10 @@
 		border: 1px solid;
 	}
 
+	#proyectos #imagen {
+		margin-top: 15px;
+	}
+
 	/* Menú */
 	#proyectos #texto .dropdown-content {
 		position: absolute;
