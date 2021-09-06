@@ -37,6 +37,12 @@ footer p {
 	font-size: 0.9rem;
 }
 
+@media (min-width: 1201px) {
+	#inicio .fa-bars {
+		display: none;
+	}
+}
+
 @media (max-width: 1200px) {
 	header {display: none;}
 	main {margin-top: 0;}

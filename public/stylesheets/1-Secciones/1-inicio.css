@@ -10,6 +10,13 @@
 	margin: 50px 0;
 }
 
+#inicio #texto #encabezado {
+	display: flex;
+	flex-direction: row;
+	justify-content: left;
+	align-items: flex-start;
+}
+
 #inicio #texto #logos {
 	display: flex;
 	flex-direction: column;
@@ -18,6 +25,7 @@
 
 #inicio #texto #logo1 {
 	font-size: 60px;
+	line-height: 1;
 	color: ivory;
 	font-weight: bolder;
 	text-shadow: 2px 0 0 RGB(118, 113, 113), -2px 0 0 RGB(118, 113, 113),
@@ -155,15 +163,41 @@
 	transform: scale(1.5);
 }
 
+@media (max-width: 1200px) {
+	#inicio #texto #encabezado {
+		justify-content: space-around;
+	}
+
+	#inicio #texto #encabezado .fa-bars {
+		padding: 5px;
+		border-radius: 5px;
+		font-size: 0.9rem;
+		border: 1px solid;
+	}
+}
+
 @media (max-width: 900px) {
 	#inicio {
 		flex-direction: column;
 		align-items: center;
 	}
 
+	#inicio #texto #encabezado {
+		justify-content: space-between;
+	}
+
 	#inicio #texto {
 		width: auto;
 		margin: auto;
+	}
+
+	
+	#inicio #texto #encabezado #logos #logo1 {
+		font-size: 40px;
+	}
+	
+	#inicio #texto  #encabezado #logos #logo2 {
+		font-size: 16px;
 	}
 
 	#inicio #imagenes {
@@ -174,17 +208,6 @@
 }
 
 @media (max-width: 400px) {
-	#inicio #texto #encabezado {
-		justify-content: center;
-	}
-
-	#inicio #texto #encabezado #logos #logo1 {
-		font-size: 40px;
-	}
-	
-	#inicio #texto  #encabezado #logos #logo2 {
-		font-size: 16px;
-	}
 	#inicio #imagenes {
 		width: 90vw;
 		height: 70vw;
