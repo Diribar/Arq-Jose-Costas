@@ -38,7 +38,8 @@ footer p {
 }
 
 @media (min-width: 1201px) {
-	#inicio .fa-bars {
+	#inicio .fa-bars,
+	#inicio #texto #encabezado #menu-home {
 		display: none;
 	}
 }
