@@ -102,6 +102,8 @@
 		width: 90vw;
 		height: 75vw;
 		max-height: 90vh;
+		max-width: 108vh;
+		margin: auto;
 	}
 
 }

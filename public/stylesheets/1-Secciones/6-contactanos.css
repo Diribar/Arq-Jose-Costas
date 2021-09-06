@@ -130,7 +130,7 @@
 @media (max-width: 750px) {
 	#contactanos form {
 		flex-direction: column;
-		margin-right: 0;
+		margin-left: 20px;
 	}
 
 	#contactanos form #inputs {
