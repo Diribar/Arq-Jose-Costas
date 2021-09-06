@@ -182,7 +182,6 @@
 		top: 25px;
 		padding: 4px 0;
 		border: 2px solid;
-		background-color: var(--gris-claro); 
 		z-index: 2;
 	}
 	#inicio #texto #encabezado .dropdown-content a {
