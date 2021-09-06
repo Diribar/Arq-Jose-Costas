@@ -1,11 +1,4 @@
-ADAPTACIÓN AL CELULAR (JS)
-- JS dropdown toggle
-- Proyectos: reacción de imagen
-
-Proyectos --> hamburguer
-
-PROYECTOS: agregar leyenda
-OTROS SERVICIOS: rehacer imagen 3 x 1
+EDITAR PROYECTOS: agregar leyenda
 
 EDITAR IMAGENES
 - Borrar imagen

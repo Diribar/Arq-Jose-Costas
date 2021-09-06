@@ -107,6 +107,10 @@
 		margin: auto;
 	}
 
+	#proyectos #imagen .grupo figcaption {
+		padding: 5px 10px;
+	}
+
 }
 
 @media (min-width: 501px) {
@@ -142,9 +146,8 @@
 		border: 2px solid;
 		z-index: 2;
 	}
-	#proyectos #texto .dropdown-content a {
+	#proyectos #texto .dropdown-content nav {
 		padding: 4px 16px;
-		text-decoration: none; 
 		display: block;
 	}
 	#proyectos #texto #menu-proyectos {right: 0px;}

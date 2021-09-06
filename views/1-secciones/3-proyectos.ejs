@@ -9,12 +9,10 @@
 			</button>
 		<% } %> 
 	</div>
-	<i class="fas fa-bars" style="background-color: <%= encabezado.color_fondo.codigo %>; border-color: <%= encabezado.color_letras.codigo %>; color: <%= encabezado.color_letras.codigo %>"></i>
+	<i id="proyectos-button" class="fas fa-bars" style="background-color: <%= encabezado.color_fondo.codigo %>; border-color: <%= encabezado.color_letras.codigo %>; color: <%= encabezado.color_letras.codigo %>"></i>
 	<div id="menu-proyectos" class="dropdown-content ocultar" style="background-color: <%= encabezado.color_fondo.codigo %>; border-color: <%= encabezado.color_letras.codigo %>">
 		<% for (m of proyectos) { %>
-			<nav style="border-color: <%= encabezado.color_letras.codigo %>">
-				<a style="color: <%= encabezado.color_letras.codigo %>"><%= m.contenido %></a>
-			</nav>
+			<nav style="color: <%= encabezado.color_letras.codigo %>"><%= m.contenido %></nav>
 		<% } %> 
 	</div>
 </section>
