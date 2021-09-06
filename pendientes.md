@@ -1,5 +1,7 @@
-ADAPTACIÓN AL CELULAR
-Header --> hamburguer
+ADAPTACIÓN AL CELULAR (JS)
+- JS dropdown toggle
+- Proyectos: reacción de imagen
+
 Proyectos --> hamburguer
 
 PROYECTOS: agregar leyenda

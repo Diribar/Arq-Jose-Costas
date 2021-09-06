@@ -7,6 +7,7 @@
 	display: flex;
 	flex-direction: column;
 	width: 45vw;
+	align-items: flex-start;
 }
 
 #proyectos #texto h1 {
@@ -62,11 +63,6 @@
 }
 
 @media (max-width: 900px) {
-	#proyectos #imagen {
-		width: 400px;
-		height: 360px;
-	}
-
 	#proyectos #texto {
 		width: min-content;
 		flex-grow: 1;
@@ -78,6 +74,11 @@
 		max-width: 300px;
 		width: 80%;
 		font-size: 1rem;
+	}
+
+	#proyectos #imagen {
+		width: 400px;
+		height: 360px;
 	}
 }
 
@@ -109,19 +110,44 @@
 }
 
 @media (min-width: 501px) {
-	
+	#proyectos #texto .fa-bars,
+	#proyectos #texto #menu-proyectos {
+		display: none;
+	}	
 }
 
 @media (max-width: 500px) {
+	#proyectos #texto {
+		flex-direction: row;
+		justify-content: space-around;
+		position: relative;
+	}
 
 	#proyectos #texto #botones {
 		display: none;
 	}
 
-	#proyectos #texto #botones button {
-		width: 25%;
+	#proyectos #texto .fa-bars {
+		padding: 5px;
+		border-radius: 5px;
+		font-size: 0.9rem;
+		border: 1px solid;
 	}
 
+	/* Menú */
+	#proyectos #texto .dropdown-content {
+		position: absolute;
+		top: 25px;
+		padding: 4px 0;
+		border: 2px solid;
+		z-index: 2;
+	}
+	#proyectos #texto .dropdown-content a {
+		padding: 4px 16px;
+		text-decoration: none; 
+		display: block;
+	}
+	#proyectos #texto #menu-proyectos {right: 0px;}
 }
 
 @keyframes banner1 {0%, 23% {opacity: 1} 33%, 56% {opacity: 0} 66%, 90% {opacity: 0} 100% {opacity: 1;}}
