@@ -5,6 +5,13 @@
 			<p id="logo2">Arquitectura y Habilitaciones</p>
 		</div>
 		<i class="fas fa-bars" style="background-color: <%= encabezado.color_fondo.codigo %>; border-color: <%= encabezado.color_letras.codigo %>; color: <%= encabezado.color_letras.codigo %>"></i>
+		<div id="menu-home" class="dropdown-content" style="background-color: <%= encabezado.color_fondo.codigo %>; border-color: <%= encabezado.color_letras.codigo %>">
+			<% for (n of titulos) { %>
+				<nav style="border-color: <%= encabezado.color_letras.codigo %>">
+					<a style="color: <%= encabezado.color_letras.codigo %>" href="#<%= n.nombre_seccion %>"><%= n.nombre_a_mostrar %></a>
+				</nav>
+			<% } %> 
+		</div>
 	</div>
 	<h1><%= n.titulo_seccion %></h1>
 	<div id="tareas">
@@ -14,7 +21,7 @@
 	</div>
 	<div id="datos">
 		<% for (m of inicio.filter(m => m.grupo == 2)) { %>
-			<p style="color: <%= n.color_letras.codigo %> "><%= m.contenido %> </p>
+			<p style="color: <%= n.color_letras.codigo %>"><%= m.contenido %> </p>
 		<% } %> 
 	</div>
 </section>
