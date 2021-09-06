@@ -6,9 +6,9 @@
 		</div>
 		<i id="home-button" class="fas fa-bars" style="background-color: <%= encabezado.color_fondo.codigo %>; border-color: <%= encabezado.color_letras.codigo %>; color: <%= encabezado.color_letras.codigo %>"></i>
 		<div id="menu-home" class="dropdown-content ocultar" style="background-color: <%= encabezado.color_fondo.codigo %>; border-color: <%= encabezado.color_letras.codigo %>">
-			<% for (n of titulos) { %>
+			<% for (m of titulos) { %>
 				<nav style="border-color: <%= encabezado.color_letras.codigo %>">
-					<a style="color: <%= encabezado.color_letras.codigo %>" href="#<%= n.nombre_seccion %>"><%= n.nombre_a_mostrar %></a>
+					<a style="color: <%= encabezado.color_letras.codigo %>" href="#<%= m.nombre_seccion %>"><%= m.nombre_a_mostrar %></a>
 				</nav>
 			<% } %> 
 		</div>
