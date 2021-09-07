@@ -18,6 +18,9 @@
 								<i class="fas fa-arrow-alt-circle-up <%- texto == contenido[0] ? 'ocultar' : '' %>"></i>
 								<i class="fas fa-arrow-alt-circle-down <%- texto == contenido[contenido.length-1] ? 'ocultar' : '' %>"></i>
 							</td>
+							<td id="id" class="ocultar">
+								<%= texto.id %> 
+							</td>
 							<td>
 								<input type="text" name="contenido" value="<%= texto.contenido %>">
 							</td>

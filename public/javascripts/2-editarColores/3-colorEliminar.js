@@ -17,8 +17,6 @@ window.addEventListener("load", () => {
 });
 
 const eliminarColor = async (id) => {
-	await fetch(
-		"/editar/eliminar_color/?id=" + id
-	);
+	await fetch("/editar/coloreliminar/?id=" + id);
 	location.reload();
 };

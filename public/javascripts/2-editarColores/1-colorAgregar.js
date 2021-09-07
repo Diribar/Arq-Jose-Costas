@@ -104,7 +104,7 @@ window.addEventListener("load", () => {
 // FÓRMULAS *************************************************
 let agregarColor = async (nombre, codigo) => {
 	await fetch(
-		"/editar/agregar_color/?nombre=" + nombre + "&codigo=" + codigo
+		"/editar/coloragregar/?nombre=" + nombre + "&codigo=" + codigo
 	);
 	location.reload();
 };

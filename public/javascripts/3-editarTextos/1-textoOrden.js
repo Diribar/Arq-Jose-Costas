@@ -1,8 +1,8 @@
 window.addEventListener("load", () => {
 	// Variables generales
-	let flechasUp = document.querySelectorAll(".filas .fa-arrow-alt-circle-up");
-	let flechasDown = document.querySelectorAll(".filas .fa-arrow-alt-circle-down");
-	let IDs = document.querySelectorAll(".filas .id");
+	let flechasUp = document.querySelectorAll(".fa-arrow-alt-circle-up");
+	let flechasDown = document.querySelectorAll(".fa-arrow-alt-circle-down");
+	let IDs = document.querySelectorAll("#id");
 
 	// Acciones si se elige una flecha
 	for (let i = 0; i < IDs.length; i++) {
@@ -24,7 +24,7 @@ window.addEventListener("load", () => {
 });
 
 const cambiarOrden = async (id1, id2, v1, v2) => {
-	await fetch("/editar/homeorden/?id=" + id1 + "&orden=" + v1);
-	await fetch("/editar/homeorden/?id=" + id2 + "&orden=" + v2);
+	await fetch("/editar/textoorden/?id=" + id1 + "&orden=" + v1);
+	await fetch("/editar/textoorden/?id=" + id2 + "&orden=" + v2);
 	location.reload();
 };
