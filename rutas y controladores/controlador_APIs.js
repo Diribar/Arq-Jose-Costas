@@ -22,21 +22,9 @@ module.exports = {
 		return res.json();
 	},
 
-	editarHomeTexto: async (req, res) => {
-		let { id, dato, campo } = req.query;
-		await BD_varios.editarCambiarValores("titulos", id, dato, campo);
-		return res.json();
-	},
-
-	editarHomeColorEnc: async (req, res) => {
-		let { id, dato, campo } = req.query;
-		await BD_varios.editarCambiarValores("encabezado", id, dato, campo);
-		return res.json();
-	},
-
-	editarColorModificar: async (req, res) => {
-		let { id, dato, campo } = req.query;
-		await BD_varios.editarCambiarValores("colores", id, dato, campo);
+	editarCambiarValores: async (req, res) => {
+		let { entidad, id, dato, campo } = req.query;
+		await BD_varios.editarCambiarValores(entidad, id, dato, campo);
 		return res.json();
 	},
 

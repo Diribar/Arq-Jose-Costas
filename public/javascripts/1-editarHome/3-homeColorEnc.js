@@ -64,7 +64,8 @@ window.addEventListener("load", () => {
 
 const cambiarColor = async (id, dato, campo) => {
 	await fetch(
-		"/editar/homecolorenc/?id=" +
+		"/editar/cambiarvalores/?entidad=encabezado" +
+			"&id=" +
 			id +
 			"&dato=" +
 			dato +

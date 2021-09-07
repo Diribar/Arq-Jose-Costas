@@ -47,7 +47,8 @@ window.addEventListener("load", () => {
 
 const cambiarValor = async (id, dato, campo) => {
 	await fetch(
-		"/editar/hometexto/?id=" +
+		"/editar/cambiarvalores/?entidad=titulos" +
+			"&id=" +
 			id +
 			"&dato=" +
 			dato +
