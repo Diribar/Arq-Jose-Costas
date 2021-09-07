@@ -21,20 +21,19 @@ router.get("/editar/imagenes/:id", soloUsuarios, controlador_varios.editarImagen
 
 // Controladores de APIs ***********************************
 // Home
-router.get("/contactanos", controlador_APIs.contactanosFrontEnd);
+router.get("/contactanos", controlador_APIs.homeContactanosFrontEnd);
+// Editar - Varios
+router.get("/editar/ordenarregistros", controlador_APIs.editarOrdenarRegistros);
 // Editar - Home
-router.get("/editar/homeorden", controlador_APIs.id_fijar_orden);
-router.get("/editar/hometexto", controlador_APIs.cambiar_filas);
-router.get("/editar/homecolorenc", controlador_APIs.cambiar_encabezado);
+router.get("/editar/hometexto", controlador_APIs.hometexto);
+router.get("/editar/homecolorenc", controlador_APIs.homecolorenc);
 // Editar - Colores
-router.get("/editar/coloragregar", controlador_APIs.agregar_color);
-router.get("/editar/colormodificar", controlador_APIs.cambiar_color);
-router.get("/editar/coloreliminar", controlador_APIs.eliminar_color);
-// Editar - Textos
-router.get("/editar/textoorden", controlador_APIs.id_fijar_orden);
-router.get("/editar/textotexto", controlador_APIs.id_fijar_orden);
+router.get("/editar/coloragregar", controlador_APIs.coloragregar);
+router.get("/editar/colormodificar", controlador_APIs.colormodificar);
+router.get("/editar/coloreliminar", controlador_APIs.coloreliminar);
+// router.get("/editar/textotexto", controlador_APIs.id_fijar_orden);
 
-router.get("/editar/eliminar_imagen", controlador_APIs.eliminar_imagen);
+router.get("/editar/imageneliminar", controlador_APIs.imageneliminar);
 
 // Exportarlo **********************************************
 module.exports = router;
