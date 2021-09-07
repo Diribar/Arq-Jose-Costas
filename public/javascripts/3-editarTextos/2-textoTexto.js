@@ -47,7 +47,7 @@ window.addEventListener("load", () => {
 
 const cambiarValor = async (id, dato, campo) => {
 	await fetch(
-		"/editar/cambiar_filas/?id=" +
+		"/editar/textoTexto/?id=" +
 			id +
 			"&dato=" +
 			dato +
