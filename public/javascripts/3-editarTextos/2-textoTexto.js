@@ -9,7 +9,6 @@ window.addEventListener("load", () => {
 			id = IDs[i].innerHTML;
 			dato = contenido[i].value;
 			campo = "contenido";
-			console.log("si")
 			cambiarValor(id, dato, campo);
 		});
 	}
