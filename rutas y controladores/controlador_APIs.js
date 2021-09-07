@@ -17,7 +17,8 @@ module.exports = {
 	},
 
 	editarOrdenarRegistros: async (req, res) => {
-		let { id, orden, entidad } = req.query;
+		let { entidad, id, orden } = req.query;
+		console.log(req.query)
 		await BD_varios.editarOrdenarRegistros(entidad, id, orden);
 		return res.json();
 	},
