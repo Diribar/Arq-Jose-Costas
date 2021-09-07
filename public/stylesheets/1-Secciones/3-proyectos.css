@@ -7,7 +7,6 @@
 	display: flex;
 	flex-direction: column;
 	width: 45vw;
-	align-items: flex-start;
 }
 
 #proyectos #texto h1 {
@@ -129,6 +128,10 @@
 
 	#proyectos #texto #botones {
 		display: none;
+	}
+
+	#proyectos #texto i {
+		align-self: flex-start;
 	}
 
 	#proyectos #texto .fa-bars {
