@@ -9,28 +9,24 @@ window.addEventListener("load", () => {
 	// Acciones si se elige una flecha
 	for (let i = 0; i < IDs.length; i++) {
 		flechasUp[i].addEventListener("click", async () => {
-			if (i > 0) {
-				id1 = IDs[i].innerHTML;
-				orden1 = parseInt(orden[i].innerHTML) - 1;
-				id2 = IDs[i - 1].innerHTML;
-				orden2 = parseInt(orden[i - 1].innerHTML) + 1;
-				await cambiarOrden(id1, orden1, id2, orden2);
-			}
+			id1 = IDs[i].innerHTML;
+			orden1 = parseInt(orden[i - 1].innerHTML);
+			id2 = IDs[i - 1].innerHTML;
+			orden2 = parseInt(orden[i].innerHTML);
+			await cambiarOrden(id1, orden1, id2, orden2);
 		});
 		flechasDown[i].addEventListener("click", async () => {
-			if (i < IDs.length - 1) {
-				id1 = IDs[i].innerHTML;
-				orden1 = parseInt(orden[i].innerHTML) + 1;
-				id2 = IDs[i + 1].innerHTML;
-				orden2 = parseInt(orden[i + 1].innerHTML) - 1;
-				await cambiarOrden(id1, orden1, id2, orden2);
-			}
+			id1 = IDs[i].innerHTML;
+			orden1 = parseInt(orden[i + 1].innerHTML);
+			id2 = IDs[i + 1].innerHTML;
+			orden2 = parseInt(orden[i].innerHTML);
+			await cambiarOrden(id1, orden1, id2, orden2);
 		});
 	}
 });
 
 const cambiarOrden = async (id1, o1, id2, o2) => {
-	console.log("id1:"+id1, "o1:"+o1, "id2:"+id2, "o2:"+o2);
+	console.log("id1:" + id1, "o1:" + o1, "id2:" + id2, "o2:" + o2);
 	await fetch(
 		"/editar/ordenarregistros/?id=" +
 			id1 +

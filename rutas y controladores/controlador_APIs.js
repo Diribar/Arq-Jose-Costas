@@ -22,37 +22,37 @@ module.exports = {
 		return res.json();
 	},
 
-	homeTexto: async (req, res) => {
+	editarHomeTexto: async (req, res) => {
 		let { id, dato, campo } = req.query;
-		await BD_varios.CambiarValores("titulos", id, dato, campo);
+		await BD_varios.editarCambiarValores("titulos", id, dato, campo);
 		return res.json();
 	},
 
-	homeColorEnc: async (req, res) => {
+	editarHomeColorEnc: async (req, res) => {
 		let { id, dato, campo } = req.query;
-		await BD_varios.CambiarValores("encabezado", id, dato, campo);
+		await BD_varios.editarCambiarValores("encabezado", id, dato, campo);
 		return res.json();
 	},
 
-	colorModificar: async (req, res) => {
+	editarColorModificar: async (req, res) => {
 		let { id, dato, campo } = req.query;
-		await BD_varios.CambiarValores("colores", id, dato, campo);
+		await BD_varios.editarCambiarValores("colores", id, dato, campo);
 		return res.json();
 	},
 
-	colorAgregar: async (req, res) => {
+	editarColorAgregar: async (req, res) => {
 		let { nombre, codigo } = req.query;
-		await BD_varios.AgregarColor(nombre, codigo);
+		await BD_varios.editarAgregarColor(nombre, codigo);
 		return res.json();
 	},
 
-	colorEliminar: async (req, res) => {
+	editarColorEliminar: async (req, res) => {
 		let { id } = req.query;
-		await BD_varios.EliminarColor(id);
+		await BD_varios.editarEliminarColor(id);
 		return res.json();
 	},
 
-	imagenEliminar: (req, res) => {
+	editarImagenEliminar: (req, res) => {
 		let { id } = req.query;
 		const archivo = path.resolve(
 			__dirname,
