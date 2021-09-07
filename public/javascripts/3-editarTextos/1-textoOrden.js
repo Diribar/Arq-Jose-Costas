@@ -26,7 +26,6 @@ window.addEventListener("load", () => {
 });
 
 const cambiarOrden = async (id1, o1, id2, o2) => {
-	console.log("id1:" + id1, "o1:" + o1, "id2:" + id2, "o2:" + o2);
 	await fetch(
 		"/editar/ordenarregistros/?id=" +
 			id1 +
