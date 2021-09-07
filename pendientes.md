@@ -1,7 +1,8 @@
+ASIGNARLE LA DIRECCIÓN DE INTERNET
+arquitectojosecostas.com.ar
+
 EDITAR TEXTO
 	- Textos
-		- Cambiar el orden
-		- Modificar
 		- Eliminar
 		- Agregar
 	- Grupos
