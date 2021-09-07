@@ -73,7 +73,7 @@ module.exports = {
 		});
 	},
 
-	editarOrdenarRegistros: (id, orden, entidad) => {
+	editarOrdenarRegistros: (entidad, id, orden) => {
 		return db[entidad].update({ orden: orden }, { where: { id: id } });
 	},
 

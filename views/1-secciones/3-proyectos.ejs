@@ -22,7 +22,7 @@
 			<% for (let j=0; j<proyectos[i].imagenes.length; j++) { %> 
 					<img style="animation: banner<%= j+1 %> 15s infinite normal" src="./imagenes/3-proyectos/<%= proyectos[i].imagenes[j].archivo %>">
 					<% if (proyectos[i].imagenes[j].texto) { %>
-						<figcaption style="animation: banner<%= j+1 %> 15s infinite normal; background-color: <%= n.color_letras.codigo %> "><%= proyectos[i].imagenes[j].texto %> </figcaption>
+						<figcaption style="animation: banner<%= j+1 %> 15s infinite normal; background-color: <%= n.color_letras.codigo %> "><%= proyectos[i].imagenes[j].texto %></figcaption>
 					<% } %> 
 			<% } %> 
 		</div>
