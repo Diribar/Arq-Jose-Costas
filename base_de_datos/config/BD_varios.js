@@ -77,18 +77,18 @@ module.exports = {
 		return db[entidad].update({ orden: orden }, { where: { id: id } });
 	},
 
-	editarCambiar_valores: (entidad, id, dato, campo) => {
+	editarCambiarValores: (entidad, id, dato, campo) => {
 		return db[entidad].update({ [campo]: dato }, { where: { id: id } });
 	},
 
-	editarAgregar_color: (nombre, codigo) => {
+	editarAgregarColor: (nombre, codigo) => {
 		return db.colores.create({
 			nombre,
 			codigo,
 		});
 	},
 
-	editarEliminar_color: (id) => {
+	editarEliminarColor: (id) => {
 		return db.colores.destroy({
 			where: { id: id },
 		});

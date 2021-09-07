@@ -25,15 +25,15 @@ router.get("/contactanos", controlador_APIs.homeContactanosFrontEnd);
 // Editar - Varios
 router.get("/editar/ordenarregistros", controlador_APIs.editarOrdenarRegistros);
 // Editar - Home
-router.get("/editar/hometexto", controlador_APIs.hometexto);
-router.get("/editar/homecolorenc", controlador_APIs.homecolorenc);
+router.get("/editar/hometexto", controlador_APIs.homeTexto);
+router.get("/editar/homecolorenc", controlador_APIs.homeColorEnc);
 // Editar - Colores
-router.get("/editar/coloragregar", controlador_APIs.coloragregar);
-router.get("/editar/colormodificar", controlador_APIs.colormodificar);
-router.get("/editar/coloreliminar", controlador_APIs.coloreliminar);
+router.get("/editar/coloragregar", controlador_APIs.colorAgregar);
+router.get("/editar/colormodificar", controlador_APIs.colorModificar);
+router.get("/editar/coloreliminar", controlador_APIs.colorEliminar);
 // router.get("/editar/textotexto", controlador_APIs.id_fijar_orden);
 
-router.get("/editar/imageneliminar", controlador_APIs.imageneliminar);
+router.get("/editar/imageneliminar", controlador_APIs.imagenEliminar);
 
 // Exportarlo **********************************************
 module.exports = router;
