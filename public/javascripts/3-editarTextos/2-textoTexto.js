@@ -1,19 +1,8 @@
 window.addEventListener("load", () => {
 	// Variables generales
-	let nombre_encabezado = document.querySelectorAll(
-		"input[name='nombre_encabezado']"
-	);
-	let titulo_seccion = document.querySelectorAll(
-		"input[name='titulo_seccion']"
-	);
-	let color_fondo_fila = document.querySelectorAll(
-		"select[name='color_fondo_fila']"
-	);
-	let color_letras_fila = document.querySelectorAll(
-		"select[name='color_letras_fila']"
-	);
-	let IDs = document.querySelectorAll(".filas .id");
-
+	let contenido = document.querySelectorAll("input[name='contenido']");
+	let IDs = document.querySelectorAll("#id");
+	
 	// Acciones si se cambia un valor
 	for (let i = 0; i < titulo_seccion.length; i++) {
 		nombre_encabezado[i].addEventListener("change", () => {

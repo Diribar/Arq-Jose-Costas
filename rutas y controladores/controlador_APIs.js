@@ -25,6 +25,7 @@ module.exports = {
 
 	editarCambiarValores: async (req, res) => {
 		let { entidad, id, dato, campo } = req.query;
+		console.log(req.query);
 		await BD_varios.editarCambiarValores(entidad, id, dato, campo);
 		return res.json();
 	},

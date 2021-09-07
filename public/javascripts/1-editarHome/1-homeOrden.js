@@ -25,12 +25,12 @@ window.addEventListener("load", () => {
 	}
 });
 
-const cambiarOrden = async (id1, v1, id2, v2) => {
+const cambiarOrden = async (id1, o1, id2, o2) => {
 	await fetch(
-		"/editar/ordenarregistros/?entidad=titulos&id=" + id1 + "&orden=" + v1
+		"/editar/ordenarregistros/?entidad=titulos&id=" + id1 + "&orden=" + o1
 	);
 	await fetch(
-		"/editar/ordenarregistros/?entidad=titulos&id=" + id2 + "&orden=" + v2
+		"/editar/ordenarregistros/?entidad=titulos&id=" + id2 + "&orden=" + o2
 	);
 	location.reload();
 };

@@ -16,12 +16,12 @@
 	<h1><%= n.titulo_seccion %></h1>
 	<div id="tareas">
 		<% for (m of inicio.filter(m => m.grupo == 1)) { %>
-			<p><%= m.contenido %> </p>
+			<p><%= m.contenido %></p>
 		<% } %> 
 	</div>
 	<div id="datos">
 		<% for (m of inicio.filter(m => m.grupo == 2)) { %>
-			<p style="color: <%= n.color_letras.codigo %>"><%= m.contenido %> </p>
+			<p style="color: <%= n.color_letras.codigo %>"><%= m.contenido %></p>
 		<% } %> 
 	</div>
 </section>
