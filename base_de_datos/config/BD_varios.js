@@ -73,22 +73,22 @@ module.exports = {
 		});
 	},
 
-	ID_fijar_orden: (id, orden) => {
-		return db.titulos.update({ orden: orden }, { where: { id: id } });
+	editarOrdenarRegistros: (id, orden, entidad) => {
+		return db[entidad].update({ orden: orden }, { where: { id: id } });
 	},
 
-	Cambiar_valores: (entidad, id, dato, campo) => {
+	editarCambiarValores: (entidad, id, dato, campo) => {
 		return db[entidad].update({ [campo]: dato }, { where: { id: id } });
 	},
 
-	Agregar_color: (nombre, codigo) => {
+	editarAgregarColor: (nombre, codigo) => {
 		return db.colores.create({
 			nombre,
 			codigo,
 		});
 	},
 
-	Eliminar_color: (id) => {
+	editarEliminarColor: (id) => {
 		return db.colores.destroy({
 			where: { id: id },
 		});

@@ -24,7 +24,11 @@ window.addEventListener("load", () => {
 });
 
 const cambiarOrden = async (id1, id2, v1, v2) => {
-	await fetch("/editar/homeorden/?id=" + id1 + "&orden=" + v1);
-	await fetch("/editar/homeorden/?id=" + id2 + "&orden=" + v2);
+	await fetch(
+		"/editar/ordenarregistros/?id=" + id1 + "&orden=" + v1 + "&entidad=titulos"
+	);
+	await fetch(
+		"/editar/ordenarregistros/?id=" + id2 + "&orden=" + v2 + "&entidad=titulos"
+	);
 	location.reload();
 };

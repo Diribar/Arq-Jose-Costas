@@ -6,7 +6,7 @@ const fs = require("fs");
 
 // **** Exportar ***********
 module.exports = {
-	contactanosFrontEnd: async (req, res) => {
+	homeContactanosFrontEnd: async (req, res) => {
 		let { nombre, mail, telefono, comentario } = req.query;
 		asunto = "Mensaje de un contacto";
 		comentario = decodeURIComponent(comentario);
@@ -16,43 +16,43 @@ module.exports = {
 		return res.json();
 	},
 
-	id_fijar_orden: async (req, res) => {
-		let { id, orden } = req.query;
-		await BD_varios.ID_fijar_orden(id, orden);
+	editarOrdenarRegistros: async (req, res) => {
+		let { id, orden, entidad } = req.query;
+		await BD_varios.editarOrdenarRegistros(id, orden, entidad);
 		return res.json();
 	},
 
-	cambiar_filas: async (req, res) => {
+	editarHomeTexto: async (req, res) => {
 		let { id, dato, campo } = req.query;
-		await BD_varios.Cambiar_valores("titulos", id, dato, campo);
+		await BD_varios.editarCambiarValores("titulos", id, dato, campo);
 		return res.json();
 	},
 
-	cambiar_encabezado: async (req, res) => {
+	editarHomeColorEnc: async (req, res) => {
 		let { id, dato, campo } = req.query;
-		await BD_varios.Cambiar_valores("encabezado", id, dato, campo);
+		await BD_varios.editarCambiarValores("encabezado", id, dato, campo);
 		return res.json();
 	},
 
-	cambiar_color: async (req, res) => {
+	editarColorModificar: async (req, res) => {
 		let { id, dato, campo } = req.query;
-		await BD_varios.Cambiar_valores("colores", id, dato, campo);
+		await BD_varios.editarCambiarValores("colores", id, dato, campo);
 		return res.json();
 	},
 
-	agregar_color: async (req, res) => {
+	editarColorAgregar: async (req, res) => {
 		let { nombre, codigo } = req.query;
-		await BD_varios.Agregar_color(nombre, codigo);
+		await BD_varios.editarAgregarColor(nombre, codigo);
 		return res.json();
 	},
 
-	eliminar_color: async (req, res) => {
+	editarColorEliminar: async (req, res) => {
 		let { id } = req.query;
-		await BD_varios.Eliminar_color(id);
+		await BD_varios.editarEliminarColor(id);
 		return res.json();
 	},
 
-	eliminar_imagen: (req, res) => {
+	editarImagenEliminar: (req, res) => {
 		let { id } = req.query;
 		const archivo = path.resolve(
 			__dirname,
