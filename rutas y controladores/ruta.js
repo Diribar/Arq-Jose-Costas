@@ -31,6 +31,8 @@ router.get("/editar/homecolorenc", controlador_APIs.editarHomeColorEnc);
 router.get("/editar/coloragregar", controlador_APIs.editarColorAgregar);
 router.get("/editar/colormodificar", controlador_APIs.editarColorModificar);
 router.get("/editar/coloreliminar", controlador_APIs.editarColorEliminar);
+// Editar - Textos
+router.get("/editar/textotexto", controlador_APIs.editarHomeTexto);
 
 router.get("/editar/imageneliminar", controlador_APIs.editarImagenEliminar);
 
