@@ -25,10 +25,10 @@ window.addEventListener("load", () => {
 
 const cambiarOrden = async (id1, id2, v1, v2) => {
 	await fetch(
-		"/editar/ordenarregistros/?id=" + id1 + "&orden=" + v1 + "&entidad=titulos"
+		"/editar/ordenarregistros/?entidad=titulos&id=" + id1 + "&orden=" + v1
 	);
 	await fetch(
-		"/editar/ordenarregistros/?id=" + id2 + "&orden=" + v2 + "&entidad=titulos"
+		"/editar/ordenarregistros/?entidad=titulos&id=" + id2 + "&orden=" + v2
 	);
 	location.reload();
 };
