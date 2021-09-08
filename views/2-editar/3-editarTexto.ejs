@@ -15,21 +15,21 @@
 					<% for (texto of contenido) { %>
 						<tr>
 							<td class="id ocultar"><%= texto.id %></td>
+							<td id="grupo" class="ocultar"><%= texto.grupo %></td>
+							<td id="orden" class="ocultar"><%= texto.orden %></td>
 							<td class="center flechas">
 								<i class="fas fa-arrow-alt-circle-up <%- texto == contenido[0] ? 'ocultar' : '' %>"></i>
 								<i class="fas fa-arrow-alt-circle-down <%- texto == contenido[contenido.length-1] ? 'ocultar' : '' %>"></i>
 							</td>
-							<td id="id" class="ocultar">
-								<%= texto.id %> 
-							</td>
-							<td id="orden" class="ocultar">
-								<%= texto.orden %> 
-							</td>
-							<td>
-								<input type="text" name="contenido" value="<%= texto.contenido %>">
-							</td>
+							<td><input type="text" name="contenido" value="<%= texto.contenido %>"></td>
+							<td></td>
 						</tr>
 					<% } %>
+					<tr id="texto_nuevo" class="ocultar">
+						<td class="center flechas"></td>
+						<td><input type="text" name="contenido"></td>
+						<td id="confirmar" class="rojo">Completar</td>
+					</tr>
 				</tbody>
 			</table>	
 			<% if (!(seccion =="servicios") && !(seccion == "habilitaciones" && grupo > 1) && !(seccion == "quienes_somos" && grupo == 2) && !(seccion == "contactanos" && grupo == 1)) { %>

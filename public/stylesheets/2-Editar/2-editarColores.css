@@ -39,12 +39,6 @@
 	width: 200px;
 }
 
-#editar_colores #tabla #color_nuevo .verde {
-	background-color: green; 
-	color: white;
-	cursor: pointer;
-}
-
 #editar_colores #tabla #color_nuevo #confirmar {
 	padding-left: 15px;
 	font-weight: bold;
@@ -56,8 +50,3 @@
 	margin-top: 30px;
 }
 
-#editar_colores #tabla .color_existente .rojo,
-#editar_colores #tabla #color_nuevo .rojo {
-	background-color: red; 
-	color: white;
-}
