@@ -3,17 +3,17 @@ arquitectojosecostas.com.ar
 
 EDITAR TEXTO
 	- Textos
-		- Eliminar
 		- Agregar
+		- Eliminar
 	- Grupos
-		- Eliminar
 		- Agregar
+		- Eliminar
 
 EDITAR PROYECTOS: agregar leyenda
 
 EDITAR IMAGENES
-- Borrar imagen
 - Agregar imagen
+- Borrar imagen
 - Agregar grupo
 
 EDICIÓN HOME
