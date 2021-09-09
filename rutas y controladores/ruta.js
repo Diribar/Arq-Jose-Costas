@@ -28,6 +28,9 @@ router.get("/editar/cambiarvalores", controlador_APIs.editarCambiarValores);
 // Editar - Colores
 router.get("/editar/coloragregar", controlador_APIs.editarColorAgregar);
 router.get("/editar/coloreliminar", controlador_APIs.editarColorEliminar);
+// Editar - Texto
+router.get("/editar/textoagregar", controlador_APIs.editarTextoAgregar);
+router.get("/editar/textoeliminar", controlador_APIs.editarTextoEliminar);
 
 router.get("/editar/imageneliminar", controlador_APIs.editarImagenEliminar);
 

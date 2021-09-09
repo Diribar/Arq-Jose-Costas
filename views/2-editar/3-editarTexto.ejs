@@ -15,7 +15,6 @@
 					<% for (texto of contenido) { %>
 						<tr>
 							<td class="id ocultar"><%= texto.id %></td>
-							<td id="grupo" class="ocultar"><%= texto.grupo %></td>
 							<td id="orden" class="ocultar"><%= texto.orden %></td>
 							<td class="center flechas">
 								<i class="fas fa-arrow-alt-circle-up <%- texto == contenido[0] ? 'ocultar' : '' %>"></i>
@@ -26,12 +25,13 @@
 						</tr>
 					<% } %>
 					<tr id="texto_nuevo" class="ocultar">
+						<td id="grupo" class="ocultar"><%= texto.grupo %></td>
 						<td class="center flechas"></td>
 						<td><input type="text" name="contenido"></td>
-						<td id="confirmar" class="rojo">Completar</td>
+						<td id="confirmar" class="rojo"><i class="fas fa-times"></i></td>
 					</tr>
 				</tbody>
-			</table>	
+			</table>
 			<% if (!(seccion =="servicios") && !(seccion == "habilitaciones" && grupo > 1) && !(seccion == "quienes_somos" && grupo == 2) && !(seccion == "contactanos" && grupo == 1)) { %>
 				<a title="Agregar un texto" id="agregarTexto" class="botones"><i class="fas fa-plus"></i></a>
 			<% } %> 

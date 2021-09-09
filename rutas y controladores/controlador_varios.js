@@ -1,24 +1,24 @@
 // **** Requires ***********
-const BD_varios = require("../base_de_datos/config/BD_varios");
+const BD_obtener = require("../base_de_datos/config/BD_obtener");
 const nodemailer = require("./nodemailer");
 
 // **** Exportar ***********
 module.exports = {
 	home: async (req, res) => {
-		let encabezado = await BD_varios.ObtenerColoresEncabezado();
+		let encabezado = await BD_obtener.ObtenerColoresEncabezado();
 		res.render("home", {
 			encabezado: encabezado[0],
-			titulos: await BD_varios.ObtenerTitulos(),
-			inicio: await BD_varios.ObtenerTodos("inicio"),
-			inicio_imagenes: await BD_varios.ObtenerTodos("inicio_imagenes"),
-			habilitaciones: await BD_varios.ObtenerTodos("habilitaciones"),
-			proyectos: await BD_varios.ObtenerProyectos(),
-			servicios: await BD_varios.ObtenerTodos("servicios"),
-			quienes_somos: await BD_varios.ObtenerTodos("quienes_somos"),
-			clientes_imagenes: await BD_varios.ObtenerTodos(
+			titulos: await BD_obtener.ObtenerTitulos(),
+			inicio: await BD_obtener.ObtenerTodos("inicio"),
+			inicio_imagenes: await BD_obtener.ObtenerTodos("inicio_imagenes"),
+			habilitaciones: await BD_obtener.ObtenerTodos("habilitaciones"),
+			proyectos: await BD_obtener.ObtenerProyectos(),
+			servicios: await BD_obtener.ObtenerTodos("servicios"),
+			quienes_somos: await BD_obtener.ObtenerTodos("quienes_somos"),
+			clientes_imagenes: await BD_obtener.ObtenerTodos(
 				"quienes_somos_imagenes"
 			),
-			contactanos: await BD_varios.ObtenerTodos("contactanos"),
+			contactanos: await BD_obtener.ObtenerTodos("contactanos"),
 			footer: encabezado[1],
 			suma1: Math.round(Math.random() * 12),
 			suma2: Math.round(Math.random() * 12),
@@ -60,42 +60,42 @@ module.exports = {
 	},
 
 	editarHome: async (req, res) => {
-		let encabezado = await BD_varios.ObtenerColoresEncabezado();
+		let encabezado = await BD_obtener.ObtenerColoresEncabezado();
 		res.render("1-editarHome", {
 			encabezado: encabezado[0],
-			titulos: await BD_varios.ObtenerTitulos(),
+			titulos: await BD_obtener.ObtenerTitulos(),
 			footer: encabezado[1],
-			colores: await BD_varios.ObtenerColores(),
+			colores: await BD_obtener.ObtenerColores(),
 		});
 	},
 
 	editarColores: async (req, res) => {
 		res.render("2-editarColores", {
-			colores: await BD_varios.ObtenerColoresConRelaciones(),
+			colores: await BD_obtener.ObtenerColoresConRelaciones(),
 		});
 	},
 
 	editarTexto: async (req, res) => {
 		url = req.url;
 		seccion = url.slice(url.lastIndexOf("/") + 1);
-		titulos = await BD_varios.ObtenerTitulos();
+		titulos = await BD_obtener.ObtenerTitulos();
 		titulo = titulos.find((n) => n.nombre_seccion == seccion);
 		res.render("3-editarTexto", {
 			seccion,
 			titulo,
-			datos: await BD_varios.ObtenerTodos(seccion),
+			datos: await BD_obtener.ObtenerTodos(seccion),
 		});
 	},
 
 	editarImagenes: async (req, res) => {
 		url = req.url;
 		seccion = url.slice(url.lastIndexOf("/") + 1);
-		titulos = await BD_varios.ObtenerTitulos();
+		titulos = await BD_obtener.ObtenerTitulos();
 		titulo = titulos.find((n) => n.nombre_seccion == seccion);
 		res.render("4-editarImagenes", {
 			seccion,
 			titulo,
-			datos: await BD_varios.ObtenerTodos(seccion + "_imagenes"),
+			datos: await BD_obtener.ObtenerTodos(seccion + "_imagenes"),
 		});
 	},
 
