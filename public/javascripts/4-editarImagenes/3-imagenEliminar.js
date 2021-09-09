@@ -7,7 +7,6 @@ window.addEventListener("load", () => {
 	for (let i = 0; i < id.length; i++) {
 		eliminar[i].addEventListener("click", () => {
 			dato_id = id[i].innerHTML;
-			console.log(dato_id)
 			eliminarImagen(dato_id);
 		});
 	}

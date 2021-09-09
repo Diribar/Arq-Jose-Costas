@@ -52,7 +52,6 @@ module.exports = {
 			)
 			.then((n) => Math.max(...n))
 			.then((n) => n + 1);
-		console.log(orden)
 		await BD_ABM.editarAgregarTexto(entidad, contenido, grupo, orden);
 		return res.json();
 	},

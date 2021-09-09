@@ -14,7 +14,6 @@ window.addEventListener("load", () => {
 			confirmar.classList.remove("rojo");
 			confirmar.classList.add("verde");
 		} else {
-			console.log("linea 17")
 			confirmar.innerHTML = "Completar";
 			confirmar.classList.remove("verde");
 			confirmar.classList.add("rojo");
@@ -44,14 +43,11 @@ window.addEventListener("load", () => {
 			if (n.value == nombre.value) {
 				nombreYaEnBD = true;
 				n.classList.add("rojo");
-				console.log("ups")
 			} else {
 				n.classList.remove("rojo");
 			}
 		}
 		// Consecuencias
-		console.log("nombreYaEnBD: ", nombreYaEnBD);
-		console.log("!nombreOK: ", !nombreOK);
 		nombreYaEnBD || !nombreOK
 			? nombre.classList.add("rojo")
 			: nombre.classList.remove("rojo");
