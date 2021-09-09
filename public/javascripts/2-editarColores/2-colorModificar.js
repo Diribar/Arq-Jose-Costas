@@ -1,6 +1,6 @@
 window.addEventListener("load", () => {
 	// VARIABLES INICIALES
-	id = document.querySelectorAll("tbody tr.color_existente #id");
+	IDs = document.querySelectorAll("tbody tr.color_existente #id");
 	nombres = document.querySelectorAll(
 		"tr.color_existente input[name='nombre']"
 	);
@@ -34,7 +34,7 @@ window.addEventListener("load", () => {
 		// Acciones cuando se terminó de escribir
 		nombres[i].addEventListener("change", () => {
 			if (nombreOK && !nombreYaEnBD) {
-				dato_id = id[i].innerHTML;
+				dato_id = IDs[i].innerHTML;
 				dato = nombres[i].value;
 				cambiarValor(dato_id, dato);
 			}

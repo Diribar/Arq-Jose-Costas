@@ -75,12 +75,12 @@ module.exports = {
 		});
 	},
 
-	editarTexto: async (req, res) => {
+	editarTextos: async (req, res) => {
 		url = req.url;
 		seccion = url.slice(url.lastIndexOf("/") + 1);
 		titulos = await BD_obtener.ObtenerTitulos();
 		titulo = titulos.find((n) => n.nombre_seccion == seccion);
-		res.render("3-editarTexto", {
+		res.render("3-editarTextos", {
 			seccion,
 			titulo,
 			datos: await BD_obtener.ObtenerTodos(seccion),
