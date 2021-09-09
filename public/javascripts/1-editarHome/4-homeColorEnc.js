@@ -58,13 +58,13 @@ window.addEventListener("load", () => {
 	color_letras_footer.addEventListener("change", () => {
 		dato = color_letras_footer.value;
 		campo = "color_letras_id";
-		cambiarColor(2, dato, campo);
+		funcionColor(2, dato, campo);
 	});
 });
 
-const cambiarColor = async (id, dato, campo) => {
+const funcionColor = async (id, dato, campo) => {
 	await fetch(
-		"/editar/cambiarvalores/?entidad=encabezado" +
+		"/editar/cambiarvalor/?entidad=encabezado" +
 			"&id=" +
 			id +
 			"&dato=" +

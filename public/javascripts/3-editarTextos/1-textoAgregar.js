@@ -40,14 +40,14 @@ window.addEventListener("load", () => {
 			if (confirmar[i].innerHTML == '<i class="fas fa-check"></i>') {
 				valor1 = contenido[i].value;
 				valor2 = grupo[i].innerHTML;
-				await funcion(valor1, valor2);
+				await funcionAgregar(valor1, valor2);
 			}
 		});
 	}
 });
 
 // FÓRMULAS *************************************************
-let funcion = async (valor1, valor2) => {
+let funcionAgregar = async (valor1, valor2) => {
 	entidad = document.querySelector("header div.ocultar").innerHTML;
 	await fetch(
 		"/editar/textoagregar/?entidad=" +

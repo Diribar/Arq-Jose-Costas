@@ -23,21 +23,21 @@ module.exports = {
 		return res.json();
 	},
 
-	editarCambiarValores: async (req, res) => {
+	editarCambiarValor: async (req, res) => {
 		let { entidad, id, dato, campo } = req.query;
-		await BD_ABM.editarCambiarValores(entidad, id, dato, campo);
+		await BD_ABM.editarCambiarValor(entidad, id, dato, campo);
+		return res.json();
+	},
+
+	editarEliminarRegistro: async (req, res) => {
+		let { entidad, id } = req.query;
+		await BD_ABM.editarEliminarRegistro(entidad, id);
 		return res.json();
 	},
 
 	editarColorAgregar: async (req, res) => {
 		let { nombre, codigo } = req.query;
 		await BD_ABM.editarAgregarColor(nombre, codigo);
-		return res.json();
-	},
-
-	editarColorEliminar: async (req, res) => {
-		let { id } = req.query;
-		await BD_ABM.editarEliminarColor(id);
 		return res.json();
 	},
 
@@ -53,12 +53,6 @@ module.exports = {
 			.then((n) => Math.max(...n))
 			.then((n) => n + 1);
 		await BD_ABM.editarAgregarTexto(entidad, contenido, grupo, orden);
-		return res.json();
-	},
-
-	editarTextoEliminar: async (req, res) => {
-		let { id } = req.query;
-		await BD_ABM.editarEliminarTexto(id);
 		return res.json();
 	},
 

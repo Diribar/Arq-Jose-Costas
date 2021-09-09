@@ -7,12 +7,13 @@ window.addEventListener("load", () => {
 	for (let i = 0; i < IDs.length; i++) {
 		eliminar[i].addEventListener("click", () => {
 			id = IDs[i].innerHTML;
-			funcion(id);
+			funcionEliminar(id);
 		});
 	}
 });
 
-const funcion = async (id) => {
-	await fetch("/editar/eliminarregistro/?id=" + id);
+const funcionEliminar = async (id) => {
+	entidad = document.querySelector("header div.ocultar").innerHTML;
+	await fetch("/editar/eliminarregistro/?entidad=" + entidad + "&id=" + id);
 	location.reload();
 };

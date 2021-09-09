@@ -24,16 +24,16 @@ window.addEventListener("load", () => {
 				id = IDs[i].innerHTML;
 				dato = contenidos[i].value;
 				campo = "contenido";
-				cambiarValor(id, dato, campo);
+				funcionModificar(id, dato, campo);
 			}
 		});
 	}
 });
 
-const cambiarValor = async (id, dato, campo) => {
+const funcionModificar = async (id, dato, campo) => {
 	entidad = document.querySelector("header div.ocultar").innerHTML;
 	await fetch(
-		"/editar/cambiarvalores/?entidad=" +
+		"/editar/cambiarvalor/?entidad=" +
 			entidad +
 			"&id=" +
 			id +
