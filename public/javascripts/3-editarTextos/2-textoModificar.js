@@ -18,7 +18,7 @@ window.addEventListener("load", () => {
 				? contenidos[i].classList.add("rojo")
 				: contenidos[i].classList.remove("rojo");
 		});
-
+		// Acciones cuando se terminó de escribir
 		contenidos[i].addEventListener("change", () => {
 			if (contenidoOK) {
 				id = IDs[i].innerHTML;

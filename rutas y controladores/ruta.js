@@ -25,6 +25,7 @@ router.get("/contactanos", controlador_APIs.homeContactanosFrontEnd);
 // Editar - Varios
 router.get("/editar/ordenarregistros", controlador_APIs.editarOrdenarRegistros);
 router.get("/editar/cambiarvalores", controlador_APIs.editarCambiarValores);
+router.get("/editar/coloreliminar", controlador_APIs.editarColorEliminar);
 // Editar - Colores
 router.get("/editar/coloragregar", controlador_APIs.editarColorAgregar);
 router.get("/editar/coloreliminar", controlador_APIs.editarColorEliminar);

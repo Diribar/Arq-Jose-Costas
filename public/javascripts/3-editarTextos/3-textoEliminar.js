@@ -1,22 +1,18 @@
 window.addEventListener("load", () => {
 	// Variables generales
-	let eliminar = document.querySelectorAll(
-		"tbody tr.color_existente .eliminar i.fa-trash-alt"
-	);
-	IDs = document.querySelectorAll(
-		"tbody tr.color_existente .eliminar i.ocultar"
-	);
+	IDs = document.querySelectorAll("#id");
+	eliminar = document.querySelectorAll("i.fa-trash-alt");
 
 	// Acciones
 	for (let i = 0; i < IDs.length; i++) {
 		eliminar[i].addEventListener("click", () => {
 			id = IDs[i].innerHTML;
-			eliminarColor(id);
+			funcion(id);
 		});
 	}
 });
 
-const eliminarColor = async (id) => {
-	await fetch("/editar/coloreliminar/?id=" + id);
+const funcion = async (id) => {
+	await fetch("/editar/eliminarregistro/?id=" + id);
 	location.reload();
 };
