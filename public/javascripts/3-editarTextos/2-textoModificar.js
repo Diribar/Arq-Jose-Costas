@@ -1,8 +1,10 @@
 window.addEventListener("load", () => {
 	// Variables generales
-	IDs = document.querySelectorAll("#id");
-	contenidos = document.querySelectorAll("input[name='contenido']");
-	verContenido = /^[A-Z][a-z \d]+$/;
+	IDs = document.querySelectorAll("#texto_existente #id");
+	contenidos = document.querySelectorAll(
+		"#texto_existente input[name='contenido']"
+	);
+	verContenido = /^[A-Z][A-Za-z áéíóúü\d]+$/;
 
 	// Acciones si se cambia un valor
 	for (let i = 0; i < IDs.length; i++) {

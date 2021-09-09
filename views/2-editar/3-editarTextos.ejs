@@ -9,11 +9,17 @@
 		<% for (let grupo=1; grupo<=datos.length; grupo++) { %>
 			<% contenido = datos.filter(n => n.grupo == grupo) %>
 			<% if (contenido.length == 0) {break} %>
-			<h1>Grupo <%= grupo %></h1>
+			<div id="titulo">
+				<h1>Grupo <%= grupo %></h1>
+				<% if (seccion == "habilitaciones" || seccion == "servicios") { %>
+					<span id="grupo" class="ocultar"><%= grupo %></span>
+					<i class="far fa-trash-alt <%- grupo == 1 ? 'ocultar' : '' %>"></i>
+				<% } %>
+			</div>
 			<table id="tabla">
 				<tbody>
 					<% for (texto of contenido) { %>
-						<tr>
+						<tr id="texto_existente">
 							<td id="id" class="ocultar"><%= texto.id %></td>
 							<td id="orden" class="ocultar"><%= texto.orden %></td>
 							<td class="center flechas">
@@ -38,9 +44,9 @@
 		<% } %>
 		<div id="botones">
 			<a href="/editar/home" title='Volver al "Home" de Edición'><i class="fas fa-arrow-alt-circle-left"></i></a>
-			<% if (seccion == "habilitaciones" || seccion == "servicios") { %>
-				<a title="Agregar un grupo" id="agregarGrupo"><i class="fas fa-plus"></i></a>
-			<% } %> 
+			<a title="Agregar un grupo" id="agregarGrupo" class="<%- (seccion != 'habilitaciones' && seccion != 'servicios') ? 'ocultar' : '' %>">
+				<i class="fas fa-plus"></i>
+			</a>
 		</div>
 	</main>
 </body>

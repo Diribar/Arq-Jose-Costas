@@ -4,7 +4,7 @@ window.addEventListener("load", () => {
 	nombres = document.querySelectorAll(
 		"tr.color_existente input[name='nombre']"
 	);
-	verNombre = /^[A-Z][a-z \d+-]+$/;
+	verNombre = /^[A-Z][a-z áéíóúü\d+-]+$/;
 
 	// Acciones si se cambia un valor
 	for (let i = 0; i < nombres.length; i++) {

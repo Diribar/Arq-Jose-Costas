@@ -33,7 +33,7 @@ window.addEventListener("load", () => {
 	nombres = document.querySelectorAll(
 		"tr.color_existente input[name='nombre']"
 	);
-	verNombre = /^[A-Z][a-z \d+-]+$/;
+	verNombre = /^[A-Z][a-z áéíóúü\d+-]+$/;
 	nombre.addEventListener("input", () => {
 		// Validar nombre vs sintaxis
 		verNombre.test(nombre.value) ? (nombreOK = true) : (nombreOK = false);

@@ -13,9 +13,19 @@ main {
 	margin-top: 50px;
 }
 
-h1 {
+#titulo {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+#titulo h1, #titulo .fa-trash-alt {
 	margin-top: 30px;
 	margin-bottom: 10px;
+}
+
+#titulo h1 {
 	font-weight: bold;
 	font-size: 1.5rem;
 	color: #009879;
