@@ -1,8 +1,9 @@
 window.addEventListener("load", () => {
+	// Variables generales
+	let cff = document.querySelectorAll("#cff");
+	let clf = document.querySelectorAll("#clf");
 	let filas = document.querySelectorAll(".filas");
 	let IDs = document.querySelectorAll(".filas .id");
-	let cff = document.querySelectorAll(".filas .cff");
-	let clf = document.querySelectorAll(".filas .clf");
 	let ne = document.querySelectorAll(".filas input[name='ne']");
 	let ts = document.querySelectorAll(".filas input[name='ts']");
 	let scff = document.querySelectorAll(".filas select[name='cff']");
@@ -10,6 +11,7 @@ window.addEventListener("load", () => {
 	let ocff = document.querySelectorAll(".filas select[name='cff'] option");
 	let oclf = document.querySelectorAll(".filas select[name='clf'] option");
 
+	// Cambiar los colores de las filas
 	for (let i = 0; i < filas.length; i++) {
 		id = IDs[i].innerHTML;
 		filas[i].style.backgroundColor = cff[i].innerHTML;

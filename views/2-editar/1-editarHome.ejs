@@ -18,7 +18,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr id="encabezado">
+				<tr id="encab">
 					<td id="cfe" class="ocultar"><%= encabezado.color_fondo.codigo %></td>
 					<td id="cle" class="ocultar"><%= encabezado.color_letras.codigo %></td>
 					<td><strong>encabezado</strong></td>
@@ -26,7 +26,7 @@
 					<td>-</td>
 					<td>-</td>
 					<td>
-						<select name="color_fondo_encabezado">
+						<select name="cfe">
 							<% for (n of colores) { %>
 								<option 
 									value="<%= n.id %>" 
@@ -38,7 +38,7 @@
 						</select>
 					</td>
 					<td>
-						<select name="color_letras_encabezado">
+						<select name="cle">
 							<% for (n of colores) { %>
 								<option 
 									value="<%= n.id %>" 
@@ -55,8 +55,8 @@
 				</tr>
 				<% for (titulo of titulos) { %>
 					<tr class="filas">
-						<td class="cff ocultar"><%= titulo.color_fondo.codigo %></td>
-						<td class="clf ocultar"><%= titulo.color_letras.codigo %></td>
+						<td id="cff" class="ocultar"><%= titulo.color_fondo.codigo %></td>
+						<td id="clf" class="ocultar"><%= titulo.color_letras.codigo %></td>
 						<td class="id ocultar"><%= titulo.id %></td>
 						<td>
 							<strong><%= titulo.nombre_seccion %></strong>
@@ -113,14 +113,14 @@
 					</tr>
 				<% } %>
 				<tr id="footer">
-					<td id="cff" class="ocultar"><%= footer.color_fondo.codigo %></td>
-					<td id="clf" class="ocultar"><%= footer.color_letras.codigo %></td>
+					<td id="cfp" class="ocultar"><%= footer.color_fondo.codigo %></td>
+					<td id="clp" class="ocultar"><%= footer.color_letras.codigo %></td>
 					<td><strong>footer</strong></td>
 					<td class="center">-</td>
 					<td>-</td>
 					<td>-</td>
 					<td>
-						<select name="color_fondo_footer">
+						<select name="cfp">
 							<% for (n of colores) { %>
 								<option 
 									value="<%= n.id %>" 
@@ -132,7 +132,7 @@
 						</select>
 					</td>
 					<td>
-						<select name="color_letras_footer">
+						<select name="clp">
 							<% for (n of colores) { %>
 								<option 
 									value="<%= n.id %>" 

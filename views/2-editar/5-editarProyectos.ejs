@@ -14,7 +14,7 @@
 			</thead>
 			<tbody>
 				<% for (registo of proyectos) { %>
-					<tr class="filas idNum<%= registro.id %>">
+					<tr class="filas">
 						<td class="cff ocultar"><%= registro.color_fondo.codigo %></td>
 						<td class="clf ocultar"><%= registro.color_letras.codigo %></td>
 						<td class="id ocultar"><%= registro.id %></td>
@@ -36,7 +36,7 @@
 								<option class="ocultar">Elegir</option>
 								<% for (n of colores) { %>
 									<option 
-										value="<%= n.id %>" 
+										value="<%= n.color_fondo.codigo %>" 
 										<%- n.id == registro.color_fondo_id ? 'selected' : "" %> 
 									>
 										<%= n.nombre %>
@@ -49,7 +49,7 @@
 								<option class="ocultar">Elegir</option>
 								<% for (n of colores) { %>
 									<option 
-										value="<%= n.id %>" 
+										value="<%= n.color_letras.codigo %>" 
 										<%- n.id == registro.color_letras_id ? 'selected' : "" %> 
 									>
 										<%= n.nombre %>
