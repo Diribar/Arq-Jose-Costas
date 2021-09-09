@@ -4,6 +4,7 @@ window.addEventListener("load", () => {
 	eliminarTexto = document.querySelectorAll(
 		"#texto_existente i.fa-trash-alt"
 	);
+	console.log(eliminarTexto)
 	grupos = document.querySelectorAll("#titulo #grupo");
 	eliminarGrupo = document.querySelectorAll("#titulo i.fa-trash-alt");
 
@@ -12,6 +13,7 @@ window.addEventListener("load", () => {
 	for (let i = 0; i < IDs.length; i++) {
 		eliminarTexto[i].addEventListener("click", () => {
 			id = IDs[i].innerHTML;
+			console.log(id)
 			funcionEliminarTexto(id);
 		});
 	}

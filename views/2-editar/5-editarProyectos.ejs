@@ -1,0 +1,85 @@
+<%- include('0-head') %>
+<%- include('5-headEditarProyectos', {registro: "Edición - Proyectos y Obras"}) %>
+<body id="editar_home">
+	<main>
+		<h1>Editar - Proyectos y Obras</h1>
+		<table id="tabla">
+			<thead>
+				<tr>
+					<th>Título</th>
+					<th>Color de Fondo</th>
+					<th>Color de Letras</th>
+					<th>Color de Bordes</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% for (registo of proyectos) { %>
+					<tr class="filas idNum<%= registro.id %>">
+						<td class="cff ocultar"><%= registro.color_fondo.codigo %></td>
+						<td class="clf ocultar"><%= registro.color_letras.codigo %></td>
+						<td class="id ocultar"><%= registro.id %></td>
+						<td>
+							<strong><%= registro.nombre_seccion %></strong>
+						</td>
+						<td class="center flechas">
+							<i class="fas fa-arrow-alt-circle-up <%- registro == titulos[0] ? 'ocultar' : '' %>"></i>
+							<i class="fas fa-arrow-alt-circle-down <%- registro == titulos[titulos.length-1] ? 'ocultar' : '' %>"></i>
+						</td>
+						<td>
+							<input type="text" name="nombre_encabezado" value="<%= registro.nombre_a_mostrar %>">
+						</td>
+						<td>
+							<input type="text" name="titulo_seccion" value="<%= registro.titulo_seccion %>">
+						</td>
+						<td>
+							<select name="color_fondo_fila">
+								<option class="ocultar">Elegir</option>
+								<% for (n of colores) { %>
+									<option 
+										value="<%= n.id %>" 
+										<%- n.id == registro.color_fondo_id ? 'selected' : "" %> 
+									>
+										<%= n.nombre %>
+									</option>
+								<% } %> 
+							</select>
+						</td>
+						<td>
+							<select name="color_letras_fila">
+								<option class="ocultar">Elegir</option>
+								<% for (n of colores) { %>
+									<option 
+										value="<%= n.id %>" 
+										<%- n.id == registro.color_letras_id ? 'selected' : "" %> 
+									>
+										<%= n.nombre %>
+									</option>
+								<% } %> 
+							</select>
+						</td>
+						<% if (registro.imagen_id) { %>
+							<td class="td_imagen">
+								<div class="div_imagen">
+									<img src="/imagenes/varias/<%= registro.imagen.nombre %>">
+								</div>
+							</td>
+						<% } else { %>
+							<td class="center">-</td>
+						<% } %> 
+						<td class="center">
+							<%- registro.editar_texto ? '<a href="/editar/textos/' + registro.nombre_seccion + '"><i class="fas fa-check-circle"></i></a>' : '<i class="fas fa-times-circle"></i>' %>
+						</td>
+						<td class="center">
+							<%- registro.editar_imagenes ? '<a href="/editar/imagenes/' + registro.nombre_seccion + '"><i class="fas fa-check-circle"></i></a>' : '<i class="fas fa-times-circle"></i>' %>
+						</td>
+					</tr>
+				<% } %>
+			</tbody>
+		</table>
+		<div id="botones">
+			<a href="/logout" title="Volver a la página principal"><i class="fas fa-arrow-alt-circle-left"></i></a>
+			<a href="/editar/colores" title="Ir a la Base de Datos de colores"><i class="fas fa-arrow-alt-circle-right"></i></a>
+		</div>
+	</main>
+</body>
+</html>

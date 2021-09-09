@@ -54,7 +54,7 @@
 					<td class="center">-</td>
 				</tr>
 				<% for (titulo of titulos) { %>
-					<tr class="filas idNum<%= titulo.id %>">
+					<tr class="filas">
 						<td class="cff ocultar"><%= titulo.color_fondo.codigo %></td>
 						<td class="clf ocultar"><%= titulo.color_letras.codigo %></td>
 						<td class="id ocultar"><%= titulo.id %></td>
@@ -66,14 +66,13 @@
 							<i class="fas fa-arrow-alt-circle-down <%- titulo == titulos[titulos.length-1] ? 'ocultar' : '' %>"></i>
 						</td>
 						<td>
-							<input type="text" name="nombre_encabezado" value="<%= titulo.nombre_a_mostrar %>">
+							<input type="text" name="ne" value="<%= titulo.nombre_a_mostrar %>">
 						</td>
 						<td>
-							<input type="text" name="titulo_seccion" value="<%= titulo.titulo_seccion %>">
+							<input type="text" name="ts" value="<%= titulo.titulo_seccion %>">
 						</td>
 						<td>
-							<select name="color_fondo_fila">
-								<option class="ocultar">Elegir</option>
+							<select name="cff">
 								<% for (n of colores) { %>
 									<option 
 										value="<%= n.id %>" 
@@ -85,8 +84,7 @@
 							</select>
 						</td>
 						<td>
-							<select name="color_letras_fila">
-								<option class="ocultar">Elegir</option>
+							<select name="clf">
 								<% for (n of colores) { %>
 									<option 
 										value="<%= n.id %>" 
