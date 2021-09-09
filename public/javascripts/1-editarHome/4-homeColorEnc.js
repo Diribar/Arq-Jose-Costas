@@ -1,68 +1,67 @@
 window.addEventListener("load", () => {
-	// Variables generales
-	let color_fondo_encabezado = document.querySelector(
-		"select[name='color_fondo_encabezado']"
-	);
-	let color_letras_encabezado = document.querySelector(
-		"select[name='color_letras_encabezado']"
-	);
-	let color_fondo_footer = document.querySelector(
-		"select[name='color_fondo_footer']"
-	);
-	let color_letras_footer = document.querySelector(
-		"select[name='color_letras_footer']"
-	);
+	// Variables del encabezado
+	let cfe = document.querySelector("#cfe");
+	console.log(cfe)
+	let cle = document.querySelector("#cle");
+	let encab = document.querySelector("#encab");
+	let scfe = document.querySelector("select[name='cfe']");
+	let scle = document.querySelector("select[name='cle']");
+	let ocfe = document.querySelectorAll("select[name='cfe'] option");
+	let ocle = document.querySelectorAll("select[name='cle'] option");
+	// Variables del pie de página
+	let cfp = document.querySelector("#cfp");
+	let clp = document.querySelector("#clp");
+	let footer = document.querySelector("#footer");
+	let scfp = document.querySelector("select[name='cfp']");
+	let sclp = document.querySelector("select[name='clp']");
+	let ocfp = document.querySelectorAll("select[name='cfp'] option");
+	let oclp = document.querySelectorAll("select[name='clp'] option");
 
 	// Cambiar los colores del encabezado
-	let cfe = document.querySelector("#cfe").innerHTML;
-	let cle = document.querySelector("#cle").innerHTML;
-	document.querySelector("#encabezado").style.backgroundColor = cfe;
-	opciones = document.querySelectorAll("#encabezado option");
-	for (opcion of opciones) {
-		opcion.style.backgroundColor = cfe
+	encab.style.backgroundColor = cfe.innerHTML;
+	encab.style.color = cle.innerHTML;
+	scfe.style.color = cle.innerHTML;
+	scle.style.color = cle.innerHTML;
+	for (let i = 0; i < ocfe.length; i++) {
+		ocfe[i].style.backgroundColor = cfe.innerHTML;
+		ocle[i].style.backgroundColor = cfe.innerHTML;
 	}
-	document.querySelector("#encabezado").style.color = cle;
-	document.querySelector("#encabezado strong").style.color = cle;
-	document.querySelectorAll("#encabezado select")[0].style.color = cle;
-	document.querySelectorAll("#encabezado select")[1].style.color = cle;
 
 	// Cambiar los colores del footer
-	let cff = document.querySelector("#cff").innerHTML;
-	let clf = document.querySelector("#clf").innerHTML;
-	document.querySelector("#footer").style.backgroundColor = cff;
-	opciones = document.querySelectorAll("#footer option");
-	for (opcion of opciones) {
-		opcion.style.backgroundColor = cff;
+	footer.style.backgroundColor = cfp.innerHTML;
+	footer.style.color = clp.innerHTML;
+	scfp.style.color = clp.innerHTML;
+	sclp.style.color = clp.innerHTML;
+	for (let i = 0; i < ocfp.length; i++) {
+		ocfp[i].style.backgroundColor = cfp.innerHTML;
+		oclp[i].style.backgroundColor = cfp.innerHTML;
 	}
-	document.querySelector("#footer").style.color = clf;
-	document.querySelector("#footer strong").style.color = clf;
-	document.querySelectorAll("#footer select")[0].style.color = clf;
-	document.querySelectorAll("#footer select")[1].style.color = clf;
 
 	// Acciones si se cambia un valor
-	color_fondo_encabezado.addEventListener("change", () => {
-		dato = color_fondo_encabezado.value;
+	scfe.addEventListener("change", () => {
+		dato = scfe.value;
 		campo = "color_fondo_id";
-		cambiarColor(1, dato, campo);
+		funcionColor(1, dato, campo);
 	});
-	color_letras_encabezado.addEventListener("change", () => {
-		dato = color_letras_encabezado.value;
+	scle.addEventListener("change", () => {
+		dato = scle.value;
 		campo = "color_letras_id";
-		cambiarColor(1, dato, campo);
+		funcionColor(1, dato, campo);
 	});
-	color_fondo_footer.addEventListener("change", () => {
-		dato = color_fondo_footer.value;
+	scfp.addEventListener("change", () => {
+		dato = scfp.value;
 		campo = "color_fondo_id";
-		cambiarColor(2, dato, campo);
+		funcionColor(2, dato, campo);
 	});
-	color_letras_footer.addEventListener("change", () => {
-		dato = color_letras_footer.value;
+	sclp.addEventListener("change", () => {
+		dato = sclp.value;
 		campo = "color_letras_id";
 		funcionColor(2, dato, campo);
 	});
 });
 
 const funcionColor = async (id, dato, campo) => {
+	console.log(id, dato, campo);
 	await fetch(
 		"/editar/cambiarvalor/?entidad=encabezado" +
 			"&id=" +

@@ -99,7 +99,10 @@ module.exports = {
 		});
 	},
 
-	editarColoresProyectos: async (req, res) => {
-		res.send("editarColoresProyectos");
+	editarProyectos: async (req, res) => {
+		let proyectos = await BD_obtener.ObtenerProyectos();
+		res.render("5-editarProyectos", {
+			proyectos,
+		});
 	},
 };
