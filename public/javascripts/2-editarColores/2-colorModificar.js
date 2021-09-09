@@ -30,21 +30,20 @@ window.addEventListener("load", () => {
 				? nombres[i].classList.add("rojo")
 				: nombres[i].classList.remove("rojo");
 		});
-
 		// Acciones cuando se terminó de escribir
 		nombres[i].addEventListener("change", () => {
 			if (nombreOK && !nombreYaEnBD) {
 				dato_id = IDs[i].innerHTML;
 				dato = nombres[i].value;
-				cambiarValor(dato_id, dato);
+				funcionModificar(dato_id, dato);
 			}
 		});
 	}
 });
 
-const cambiarValor = async (id, dato) => {
+const funcionModificar = async (id, dato) => {
 	await fetch(
-		"/editar/cambiarvalores/?entidad=colores" +
+		"/editar/cambiarvalor/?entidad=colores" +
 			"&id=" +
 			id +
 			"&dato=" +

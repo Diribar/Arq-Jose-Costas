@@ -39,15 +39,15 @@ window.addEventListener("load", () => {
 			id = IDs[i].innerHTML;
 			dato = color_letras_fila[i].value;
 			campo = "color_letras_id";
-			await cambiarValor(id, dato, campo);
+			await funcionTexto(id, dato, campo);
 			location.reload();
 		});
 	}
 });
 
-const cambiarValor = async (id, dato, campo) => {
+const funcionTexto = async (id, dato, campo) => {
 	await fetch(
-		"/editar/cambiarvalores/?entidad=titulos" +
+		"/editar/cambiarvalor/?entidad=titulos" +
 			"&id=" +
 			id +
 			"&dato=" +

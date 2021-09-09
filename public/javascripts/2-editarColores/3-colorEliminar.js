@@ -3,6 +3,7 @@ window.addEventListener("load", () => {
 	let eliminar = document.querySelectorAll(
 		"tbody tr.color_existente .eliminar i.fa-trash-alt"
 	);
+	// Este id se obtiene así, porque no se puede eliminar cualquier registro
 	let id = document.querySelectorAll(
 		"tbody tr.color_existente .eliminar i.ocultar"
 	);
@@ -11,12 +12,12 @@ window.addEventListener("load", () => {
 	for (let i = 0; i < id.length; i++) {
 		eliminar[i].addEventListener("click", () => {
 			dato_id = id[i].innerHTML;
-			eliminarColor(dato_id);
+			funcionEliminar(dato_id);
 		});
 	}
 });
 
-const eliminarColor = async (id) => {
-	await fetch("/editar/coloreliminar/?id=" + id);
+const funcionEliminar = async (id) => {
+	await fetch("/editar/eliminarregistro/?entidad=colores&id=" + id);
 	location.reload();
 };

@@ -19,13 +19,13 @@ window.addEventListener("load", () => {
 			if (fila < IDs.length) {
 				id1 = IDs[i].innerHTML;
 				id2 = IDs[i + 1].innerHTML;
-				await cambiarOrden(id1, fila + 1, id2, fila);
+				await funcionOrden(id1, fila + 1, id2, fila);
 			}
 		});
 	}
 });
 
-const cambiarOrden = async (id1, o1, id2, o2) => {
+const funcionOrden = async (id1, o1, id2, o2) => {
 	await fetch(
 		"/editar/ordenarregistros/?entidad=titulos&id=" + id1 + "&orden=" + o1
 	);

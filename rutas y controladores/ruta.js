@@ -24,13 +24,12 @@ router.get("/editar/imagenes/:id", soloUsuarios, controlador_varios.editarImagen
 router.get("/contactanos", controlador_APIs.homeContactanosFrontEnd);
 // Editar - Varios
 router.get("/editar/ordenarregistros", controlador_APIs.editarOrdenarRegistros);
-router.get("/editar/cambiarvalores", controlador_APIs.editarCambiarValores);
+router.get("/editar/cambiarvalor", controlador_APIs.editarCambiarValor);
+router.get("/editar/eliminarregistro", controlador_APIs.editarEliminarRegistro);
 // Editar - Colores
 router.get("/editar/coloragregar", controlador_APIs.editarColorAgregar);
-router.get("/editar/coloreliminar", controlador_APIs.editarColorEliminar);
 // Editar - Texto
 router.get("/editar/textoagregar", controlador_APIs.editarTextoAgregar);
-router.get("/editar/textoeliminar", controlador_APIs.editarTextoEliminar);
 
 router.get("/editar/imageneliminar", controlador_APIs.editarImagenEliminar);
 

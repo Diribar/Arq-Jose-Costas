@@ -96,13 +96,13 @@ window.addEventListener("load", () => {
 		if (nombreOK && codigoOK && !nombreYaEnBD && !codigoYaEnBD) {
 			valor1 = nombre.value;
 			valor2 = encodeURIComponent(codigo.value);
-			await agregarColor(valor1, valor2);
+			await funcionAgregar(valor1, valor2);
 		}
 	});
 });
 
 // FÓRMULAS *************************************************
-let agregarColor = async (nombre, codigo) => {
+let funcionAgregar = async (nombre, codigo) => {
 	await fetch("/editar/coloragregar/?nombre=" + nombre + "&codigo=" + codigo);
 	location.reload();
 };
