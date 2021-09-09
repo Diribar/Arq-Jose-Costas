@@ -14,7 +14,7 @@
 				<tbody>
 					<% for (texto of contenido) { %>
 						<tr>
-							<td class="id ocultar"><%= texto.id %></td>
+							<td id="id" class="ocultar"><%= texto.id %></td>
 							<td id="orden" class="ocultar"><%= texto.orden %></td>
 							<td class="center flechas">
 								<i class="fas fa-arrow-alt-circle-up <%- texto == contenido[0] ? 'ocultar' : '' %>"></i>
