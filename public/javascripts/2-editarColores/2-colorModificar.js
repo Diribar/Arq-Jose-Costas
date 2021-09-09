@@ -1,6 +1,6 @@
 window.addEventListener("load", () => {
 	// VARIABLES INICIALES
-	let id = document.querySelectorAll("tbody tr.color_existente #id");
+	id = document.querySelectorAll("tbody tr.color_existente #id");
 	nombres = document.querySelectorAll(
 		"tr.color_existente input[name='nombre']"
 	);
@@ -8,7 +8,7 @@ window.addEventListener("load", () => {
 
 	// Acciones si se cambia un valor
 	for (let i = 0; i < nombres.length; i++) {
-		// Verificar el nombre que se escribe
+		// Acciones mientras se escribe
 		nombres[i].addEventListener("input", () => {
 			// Validar nombre vs sintaxis
 			nombreOK = false;
@@ -31,7 +31,7 @@ window.addEventListener("load", () => {
 				: nombres[i].classList.remove("rojo");
 		});
 
-		// Cambiar un nombre
+		// Acciones cuando se terminó de escribir
 		nombres[i].addEventListener("change", () => {
 			if (nombreOK && !nombreYaEnBD) {
 				dato_id = id[i].innerHTML;
