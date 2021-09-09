@@ -10,7 +10,8 @@
 		<% for (let i=0; i<casos; i++) { %>
 			<li>
 				<h2><%= habilitaciones.find(n => n.grupo == i+2 && n.orden == 1).contenido %></h2>
-				<p><%= habilitaciones.find(n => n.grupo == i+2 && n.orden == 2).contenido %></p>
+				<% aux = habilitaciones.find(n => n.grupo == i+2 && n.orden == 2) %> 
+				<p><%- aux ? habilitaciones.find(n => n.grupo == i+2 && n.orden == 2).contenido : "" %></p>
 			</li>
 		<% } %> 
 	</ul>

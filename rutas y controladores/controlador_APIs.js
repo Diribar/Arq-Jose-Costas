@@ -19,40 +19,48 @@ module.exports = {
 
 	editarOrdenarRegistros: async (req, res) => {
 		let { entidad, id, orden } = req.query;
-		await BD_ABM.editarOrdenarRegistros(entidad, id, orden);
+		await BD_ABM.OrdenarRegistros(entidad, id, orden);
 		return res.json();
 	},
 
 	editarCambiarValor: async (req, res) => {
 		let { entidad, id, dato, campo } = req.query;
-		await BD_ABM.editarCambiarValor(entidad, id, dato, campo);
+		await BD_ABM.CambiarValor(entidad, id, dato, campo);
 		return res.json();
 	},
 
 	editarEliminarRegistro: async (req, res) => {
 		let { entidad, id } = req.query;
-		await BD_ABM.editarEliminarRegistro(entidad, id);
+		await BD_ABM.EliminarRegistro(entidad, id);
 		return res.json();
 	},
 
 	editarColorAgregar: async (req, res) => {
 		let { nombre, codigo } = req.query;
-		await BD_ABM.editarAgregarColor(nombre, codigo);
+		await BD_ABM.AgregarColor(nombre, codigo);
 		return res.json();
 	},
 
 	editarTextoAgregar: async (req, res) => {
 		let { entidad, contenido, grupo } = req.query;
-		orden = await BD_obtener.ObtenerTodos(entidad)
-			.then((n) => n.filter((m) => m.grupo == grupo))
-			.then((n) =>
-				n.map((m) => {
-					return m.orden;
-				})
-			)
-			.then((n) => Math.max(...n))
-			.then((n) => n + 1);
-		await BD_ABM.editarAgregarTexto(entidad, contenido, grupo, orden);
+		orden = await BD_obtener.ObtenerTodos(entidad).then((n) =>
+			n.filter((m) => m.grupo == grupo)
+		);
+		if ((orden = [])) {
+			orden = 1;
+		} else {
+			orden = orden.map((m) => {
+				return m.orden;
+			});
+			orden = Math.max(...orden) + 1;
+		}
+		await BD_ABM.AgregarTexto(entidad, contenido, grupo, orden);
+		return res.json();
+	},
+
+	editarGrupoEliminar: async (req, res) => {
+		let { entidad, grupo } = req.query;
+		await BD_ABM.EliminarGrupo(entidad, grupo);
 		return res.json();
 	},
 

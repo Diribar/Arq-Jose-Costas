@@ -30,7 +30,8 @@ router.get("/editar/eliminarregistro", controlador_APIs.editarEliminarRegistro);
 router.get("/editar/coloragregar", controlador_APIs.editarColorAgregar);
 // Editar - Texto
 router.get("/editar/textoagregar", controlador_APIs.editarTextoAgregar);
-
+router.get("/editar/eliminargrupo", controlador_APIs.editarGrupoEliminar);
+// Editar - Imagen
 router.get("/editar/imageneliminar", controlador_APIs.editarImagenEliminar);
 
 // Exportarlo **********************************************
