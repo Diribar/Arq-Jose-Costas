@@ -46,7 +46,6 @@ module.exports = {
 		orden = await BD_obtener.ObtenerTodos(entidad).then((n) =>
 			n.filter((m) => m.grupo == grupo)
 		);
-		console.log((orden == []));
 		if ((orden == [])) {
 			orden = 1;
 		} else {
