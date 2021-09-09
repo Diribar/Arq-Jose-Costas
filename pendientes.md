@@ -2,14 +2,11 @@ ASIGNARLE LA DIRECCIÓN DE INTERNET
 arquitectojosecostas.com.ar
 
 EDITAR TEXTO
-	- Textos
-		- Agregar
-		- Eliminar
-	- Grupos
-		- Agregar
-		- Eliminar
+	- Grupos: Agregar
+	- Textos: Eliminar
+	- Grupos: Eliminar
 
-EDITAR PROYECTOS: agregar leyenda
+EDITAR PROYECTOS: tabla simil editar-home
 
 EDITAR IMAGENES
 - Agregar imagen
