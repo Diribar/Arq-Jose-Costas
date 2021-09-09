@@ -9,7 +9,6 @@ window.addEventListener("load", () => {
 	// Acciones si se elige una flecha
 	for (let i = 0; i < IDs.length; i++) {
 		flechasUp[i].addEventListener("click", async () => {
-	console.log("si");
 			id1 = IDs[i].innerHTML;
 			orden1 = parseInt(orden[i - 1].innerHTML);
 			id2 = IDs[i - 1].innerHTML;
