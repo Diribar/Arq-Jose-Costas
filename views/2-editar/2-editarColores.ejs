@@ -16,9 +16,7 @@
 				<% for (color of colores) { %> 
 					<tr class="color_existente">
 						<td id="id" class="ocultar"><%= color.id %></td>
-						<td>
-							<input type="text" name="nombre" value="<%= color.nombre %>" style="font-weight: bold">
-						</td>
+						<td><input type="text" name="nombre" value="<%= color.nombre %>" style="font-weight: bold"></td>
 						<td id="codigo"><%= color.codigo %></td>
 						<td style="background-color: <%= color.codigo %>" id="muestra"></td>
 						<td>

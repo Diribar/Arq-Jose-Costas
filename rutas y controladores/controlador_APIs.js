@@ -1,5 +1,6 @@
 // **** Requires ***********
-const BD_varios = require("../base_de_datos/config/BD_varios");
+const BD_ABM = require("../base_de_datos/config/BD_ABM");
+const BD_obtener = require("../base_de_datos/config/BD_obtener");
 const nodemailer = require("./nodemailer");
 const path = require("path");
 const fs = require("fs");
@@ -18,25 +19,46 @@ module.exports = {
 
 	editarOrdenarRegistros: async (req, res) => {
 		let { entidad, id, orden } = req.query;
-		await BD_varios.editarOrdenarRegistros(entidad, id, orden);
+		await BD_ABM.editarOrdenarRegistros(entidad, id, orden);
 		return res.json();
 	},
 
 	editarCambiarValores: async (req, res) => {
 		let { entidad, id, dato, campo } = req.query;
-		await BD_varios.editarCambiarValores(entidad, id, dato, campo);
+		await BD_ABM.editarCambiarValores(entidad, id, dato, campo);
 		return res.json();
 	},
 
 	editarColorAgregar: async (req, res) => {
 		let { nombre, codigo } = req.query;
-		await BD_varios.editarAgregarColor(nombre, codigo);
+		await BD_ABM.editarAgregarColor(nombre, codigo);
 		return res.json();
 	},
 
 	editarColorEliminar: async (req, res) => {
 		let { id } = req.query;
-		await BD_varios.editarEliminarColor(id);
+		await BD_ABM.editarEliminarColor(id);
+		return res.json();
+	},
+
+	editarTextoAgregar: async (req, res) => {
+		let { entidad, contenido, grupo } = req.query;
+		orden = await BD_obtener.ObtenerTodos(entidad)
+			.then((n) => n.filter((m) => m.grupo == grupo))
+			.then((n) =>
+				n.map((m) => {
+					return m.orden;
+				})
+			)
+			.then((n) => Math.max(...n))
+			.then((n) => n + 1);
+		await BD_ABM.editarAgregarTexto(entidad, contenido, grupo, orden);
+		return res.json();
+	},
+
+	editarTextoEliminar: async (req, res) => {
+		let { id } = req.query;
+		await BD_ABM.editarEliminarTexto(id);
 		return res.json();
 	},
 

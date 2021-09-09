@@ -4,6 +4,8 @@ window.addEventListener("load", () => {
 	nombreYaEnBD = true;
 	codigoOK = false;
 	codigoYaEnBD = true;
+	nombre = document.querySelector("#color_nuevo input[name='nombre']");
+	confirmar = document.querySelector("#color_nuevo #confirmar");
 
 	// FÓRMULA PARA CONFIRMAR EL AGREGADO DE UN COLOR
 	let confirmarSINO = () => {
@@ -28,7 +30,6 @@ window.addEventListener("load", () => {
 
 	// VALIDAR NOMBRE **************************************
 	// Variables
-	nombre = document.querySelector("#color_nuevo input[name='nombre']");
 	nombres = document.querySelectorAll(
 		"tr.color_existente input[name='nombre']"
 	);
@@ -91,7 +92,6 @@ window.addEventListener("load", () => {
 	});
 
 	// AGREGAR COLOR ****************************************
-	confirmar = document.querySelector("#color_nuevo #confirmar");
 	confirmar.addEventListener("click", async () => {
 		if (nombreOK && codigoOK && !nombreYaEnBD && !codigoYaEnBD) {
 			valor1 = nombre.value;
@@ -103,8 +103,6 @@ window.addEventListener("load", () => {
 
 // FÓRMULAS *************************************************
 let agregarColor = async (nombre, codigo) => {
-	await fetch(
-		"/editar/coloragregar/?nombre=" + nombre + "&codigo=" + codigo
-	);
+	await fetch("/editar/coloragregar/?nombre=" + nombre + "&codigo=" + codigo);
 	location.reload();
 };
