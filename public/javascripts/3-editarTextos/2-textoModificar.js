@@ -1,7 +1,7 @@
 window.addEventListener("load", () => {
 	// Variables generales
-	let contenido = document.querySelectorAll("input[name='contenido']");
 	let IDs = document.querySelectorAll("#id");
+	let contenido = document.querySelectorAll("input[name='contenido']");
 	
 	// Acciones si se cambia un valor
 	for (let i = 0; i < IDs.length; i++) {

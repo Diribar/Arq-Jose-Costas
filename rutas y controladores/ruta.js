@@ -16,7 +16,7 @@ router.get("/logout", controlador_varios.logout);
 router.get("/editar/home", soloUsuarios, controlador_varios.editarHome);
 router.get("/editar/colores", soloUsuarios, controlador_varios.editarColores);
 router.get("/editar/colores/proyectos", soloUsuarios, controlador_varios.editarColoresProyectos);
-router.get("/editar/texto/:id", soloUsuarios, controlador_varios.editarTexto);
+router.get("/editar/textos/:id", soloUsuarios, controlador_varios.editarTextos);
 router.get("/editar/imagenes/:id", soloUsuarios, controlador_varios.editarImagenes);
 
 // Controladores de APIs ***********************************
