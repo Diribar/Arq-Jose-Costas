@@ -100,9 +100,12 @@ module.exports = {
 	},
 
 	editarProyectos: async (req, res) => {
-		let proyectos = await BD_obtener.ObtenerProyectos();
+		tituloProyecto = await BD_obtener.ObtenerTitulos();
+		datos = tituloProyecto.find((n) => (n.nombre_seccion = "proyectos"));
 		res.render("5-editarProyectos", {
-			proyectos,
+			proyectos: await BD_obtener.ObtenerProyectos(),
+			colores: await BD_obtener.ObtenerColoresConRelaciones(),
+			datos,
 		});
 	},
 };

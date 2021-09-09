@@ -3,7 +3,7 @@ window.addEventListener("load", () => {
 	let cff = document.querySelectorAll("#cff");
 	let clf = document.querySelectorAll("#clf");
 	let filas = document.querySelectorAll(".filas");
-	let IDs = document.querySelectorAll(".filas .id");
+	let IDs = document.querySelectorAll(".filas #id");
 	let ne = document.querySelectorAll(".filas input[name='ne']");
 	let ts = document.querySelectorAll(".filas input[name='ts']");
 	let scff = document.querySelectorAll(".filas select[name='cff']");

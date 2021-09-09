@@ -2,7 +2,7 @@ window.addEventListener("load", () => {
 	// Variables generales
 	let flechasUp = document.querySelectorAll(".filas .fa-arrow-alt-circle-up");
 	let flechasDown = document.querySelectorAll(".filas .fa-arrow-alt-circle-down");
-	let IDs = document.querySelectorAll(".filas .id");
+	let IDs = document.querySelectorAll(".filas #id");
 
 	// Acciones si se elige una flecha
 	for (let i = 0; i < IDs.length; i++) {

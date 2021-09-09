@@ -1,7 +1,6 @@
 window.addEventListener("load", () => {
 	// Variables del encabezado
 	let cfe = document.querySelector("#cfe");
-	console.log(cfe)
 	let cle = document.querySelector("#cle");
 	let encab = document.querySelector("#encab");
 	let scfe = document.querySelector("select[name='cfe']");
@@ -61,7 +60,6 @@ window.addEventListener("load", () => {
 });
 
 const funcionColor = async (id, dato, campo) => {
-	console.log(id, dato, campo);
 	await fetch(
 		"/editar/cambiarvalor/?entidad=encabezado" +
 			"&id=" +
