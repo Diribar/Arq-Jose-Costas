@@ -38,9 +38,12 @@
 					</tr>
 				</tbody>
 			</table>
-			<% if (!(seccion =="servicios") && !(seccion == "habilitaciones" && grupo > 1) && !(seccion == "quienes_somos" && grupo == 2) && !(seccion == "contactanos" && grupo == 1)) { %>
-				<a title="Agregar un texto" id="agregarTexto" class="botones"><i class="fas fa-plus"></i></a>
-			<% } %> 
+			<% condicion = ((seccion =="servicios") || (seccion == "habilitaciones" && grupo > 1 && texto.orden == 2) || (seccion == "quienes_somos" && grupo == 2) || (seccion == "contactanos" && grupo == 1)) %>
+			<div class="<%- condicion ? 'ocultar' : '' %> ">
+				<a id="agregarTexto" class="botones" title="Agregar un texto">
+					<i class="fas fa-plus"></i>
+				</a>
+			</div>
 		<% } %>
 		<div id="botones">
 			<a href="/editar/home" title='Volver al "Home" de Edición'><i class="fas fa-arrow-alt-circle-left"></i></a>

@@ -24,7 +24,7 @@ window.addEventListener("load", () => {
 	}
 });
 
-const funcionEliminar = async (id) => {
+const funcionEliminarTexto = async (id) => {
 	entidad = document.querySelector("header div.ocultar").innerHTML;
 	await fetch("/editar/eliminarregistro/?entidad=" + entidad + "&id=" + id);
 	location.reload();
