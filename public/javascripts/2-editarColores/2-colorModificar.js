@@ -30,7 +30,6 @@ window.addEventListener("load", () => {
 				? nombres[i].classList.add("rojo")
 				: nombres[i].classList.remove("rojo");
 		});
-
 		// Acciones cuando se terminó de escribir
 		nombres[i].addEventListener("change", () => {
 			if (nombreOK && !nombreYaEnBD) {

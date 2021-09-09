@@ -1,15 +1,31 @@
 window.addEventListener("load", () => {
 	// Variables generales
-	let IDs = document.querySelectorAll("#id");
-	let contenido = document.querySelectorAll("input[name='contenido']");
-	
+	IDs = document.querySelectorAll("#id");
+	contenidos = document.querySelectorAll("input[name='contenido']");
+	verContenido = /^[A-Z][a-z \d]+$/;
+
 	// Acciones si se cambia un valor
 	for (let i = 0; i < IDs.length; i++) {
-		contenido[i].addEventListener("change", () => {
-			id = IDs[i].innerHTML;
-			dato = contenido[i].value;
-			campo = "contenido";
-			cambiarValor(id, dato, campo);
+		// Acciones mientras se escribe
+		contenidos[i].addEventListener("input", () => {
+			// Validar nombre vs sintaxis
+			contenidoOK = false;
+			verContenido.test(contenidos[i].value)
+				? (contenidoOK = true)
+				: (contenidoOK = false);
+			// Consecuencias
+			!contenidoOK
+				? contenidos[i].classList.add("rojo")
+				: contenidos[i].classList.remove("rojo");
+		});
+
+		contenidos[i].addEventListener("change", () => {
+			if (contenidoOK) {
+				id = IDs[i].innerHTML;
+				dato = contenidos[i].value;
+				campo = "contenido";
+				cambiarValor(id, dato, campo);
+			}
 		});
 	}
 });

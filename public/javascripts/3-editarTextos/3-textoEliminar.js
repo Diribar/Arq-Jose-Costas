@@ -3,16 +3,15 @@ window.addEventListener("load", () => {
 	let eliminar = document.querySelectorAll(
 		"tbody tr.color_existente .eliminar i.fa-trash-alt"
 	);
-	// Este id se obtiene así, porque no se puede eliminar cualquier registro
-	let id = document.querySelectorAll(
+	IDs = document.querySelectorAll(
 		"tbody tr.color_existente .eliminar i.ocultar"
 	);
 
 	// Acciones
-	for (let i = 0; i < id.length; i++) {
+	for (let i = 0; i < IDs.length; i++) {
 		eliminar[i].addEventListener("click", () => {
-			dato_id = id[i].innerHTML;
-			eliminarColor(dato_id);
+			id = IDs[i].innerHTML;
+			eliminarColor(id);
 		});
 	}
 });
