@@ -4,7 +4,7 @@ window.addEventListener("load", () => {
 	contenidos = document.querySelectorAll(
 		"#texto_existente input[name='contenido']"
 	);
-	verContenido = /^[A-Z][A-Za-z áéíóúü\d]+$/;
+	verContenido = /^[A-Z][A-Za-z áéíóúü,.\d]+$/;
 
 	// Acciones si se cambia un valor
 	for (let i = 0; i < IDs.length; i++) {
