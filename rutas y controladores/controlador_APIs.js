@@ -46,7 +46,6 @@ module.exports = {
 		orden = await BD_obtener.ObtenerTodos(entidad).then((n) =>
 			n.filter((m) => m.grupo == grupo)
 		);
-		console.log("orden1: " + orden);
 		if (orden == [] || orden == "") {
 			orden = 1;
 		} else {
@@ -55,7 +54,6 @@ module.exports = {
 			});
 			orden = Math.max(...orden) + 1;
 		}
-		console.log("orden2: " + orden);
 		await BD_ABM.AgregarTexto(entidad, contenido, grupo, orden);
 		return res.json();
 	},
