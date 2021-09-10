@@ -98,11 +98,8 @@
 						<% if (titulo.imagen_id) { %>
 							<td class="td_imagen">
 								<div class="div_imagen" id="divImagen">
-									<label for="inputImagen" id="preview"></label>
-									<label for="inputImagen" class="formInput" id="labelImagen">Subí una imagen</label>
+									<label for="inputImagen" id="preview"><img src="/imagenes/varias/<%= titulo.imagen.nombre %>"></label>
 									<input name="imagen" type="file" id="inputImagen" class="ocultar" accept="image/*">
-									<img src="/imagenes/varias/<%= titulo.imagen.nombre %>" class="ocultar">
-									<span id="src" class="ocultar">/imagenes/varias/<%= titulo.imagen.nombre %></span>
 								</div>
 							</td>
 						<% } else { %>
