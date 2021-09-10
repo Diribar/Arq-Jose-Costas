@@ -34,3 +34,9 @@
 #editar_home #tabla .fa-times-circle {
 	color: red;
 }
+
+#editar_home .fas {
+	border: 1px white solid;
+	border-radius: 50%;
+	background-color: white;
+}

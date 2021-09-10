@@ -1,6 +1,6 @@
 window.addEventListener("load", () => {
 	// VARIABLES INICIALES
-	let verContenido = /^[A-Z][A-Za-z áéíóúü\d]+$/;
+	let verContenido = /^[A-Z][A-Za-z áéíóúü,.\d]+$/;
 	let textoNuevo = document.querySelectorAll("#texto_nuevo");
 	let contenidos = document.querySelectorAll(
 		"#texto_nuevo input[name='contenido']"
