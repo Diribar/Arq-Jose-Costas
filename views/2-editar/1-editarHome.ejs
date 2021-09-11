@@ -53,6 +53,7 @@
 					<td class="center">-</td>
 					<td class="center">-</td>
 				</tr>
+				<% i=0 %> 
 				<% for (titulo of titulos) { %>
 					<tr class="filas">
 						<td id="cff" class="ocultar"><%= titulo.color_fondo.codigo %></td>
@@ -97,8 +98,9 @@
 						</td>
 						<% if (titulo.imagen_id) { %>
 							<td class="td_imagen">
-								<label for="inputImagen" id="preview"><img src="/imagenes/varias/<%= titulo.imagen.nombre %>"></label>
-								<input name="imagen" type="file" id="inputImagen" class="ocultar" accept="image/*">
+								<label for="inputImagen<%= i %>" id="preview"><img src="/imagenes/varias/<%= titulo.imagen.nombre %>"></label>
+								<input name="imagen" type="file" id="inputImagen<%= i %>" class="ocultar" accept="image/*">
+								<% i=i+1 %> 
 							</td>
 						<% } else { %>
 							<td class="center">-</td>
