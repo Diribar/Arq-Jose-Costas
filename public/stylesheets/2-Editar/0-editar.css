@@ -65,9 +65,6 @@ body {
 
 #tabla .td_imagen {
 	padding: 0;
-}
-
-#tabla .td_imagen .div_imagen {
 	max-height: 60px;
 	width: 120px;
 	display: flex;
@@ -76,7 +73,7 @@ body {
 	border: 1px gray solid;
 }
 
-#tabla .td_imagen .div_imagen img {
+#tabla .td_imagen img {
 	height: 100%;
 	width: 100%;
 }
