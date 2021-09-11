@@ -1,10 +1,10 @@
 window.addEventListener("load", () => {
-	let inputImagen0 = document.getElementById("inputImagen0");
-	let inputImagen1 = document.querySelector("#inputImagen1");
-	let inputImagen2 = document.querySelector("#inputImagen2");
-	inputImagen0.addEventListener("change", (e) => {mostrarImagen(e, 0)});
-	inputImagen1.addEventListener("change", (e) => {mostrarImagen(e, 1)});
-	inputImagen2.addEventListener("change", (e) => {mostrarImagen(e, 2)});
+	let inputImagen = document.querySelectorAll(".td_imagen input");
+	for (let i=0; i<inputImagen.length; i++) {
+		inputImagen[i].addEventListener("change", (e) => {
+			mostrarImagen(e, i);
+		});
+	}
 });
 
 let mostrarImagen = (e, i) => {
