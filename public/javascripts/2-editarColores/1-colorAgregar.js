@@ -58,7 +58,7 @@ window.addEventListener("load", () => {
 	// Variables
 	codigo = document.querySelector("#color_nuevo input[name='codigo']");
 	codigos = document.querySelectorAll("tr.color_existente #codigo");
-	verColHexa = /^#[\dA-F]{6}$/g;
+	verColHexa = /^#[\dA-Fa-f]{6}$/g;
 	verColRGB = /^RGB\(\d{3}\,\ \d{3}\,\ \d{3}\)$/;
 	verColRGBA = /^RGBA\(\d{3}\,\ \d{3}\,\ \d{3}\, \d.\d\)$/;
 	muestra = document.querySelector("#color_nuevo #muestra");
@@ -94,7 +94,7 @@ window.addEventListener("load", () => {
 	// AGREGAR COLOR ****************************************
 	confirmar.addEventListener("click", async () => {
 		if (nombreOK && codigoOK && !nombreYaEnBD && !codigoYaEnBD) {
-			valor1 = nombre.value;
+			valor1 = nombre.value.toUpperCase();
 			valor2 = encodeURIComponent(codigo.value);
 			await funcionAgregar(valor1, valor2);
 		}
