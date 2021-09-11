@@ -1,5 +1,5 @@
 <h1><%= n.titulo_seccion %></h1>
-<img src="/imagenes/varias/<%= n.imagen.nombre %>" alt="<%= n.imagen.lugar %>"">
+<img src="./imagenes/varias/<%= n.imagen.archivo %>" alt="<%= n.imagen.nombre %>">
 <% casos = servicios.filter(m => m.orden == 1).length %>
 <% for (let i=0; i<casos; i++) { %>
 		<h2><%= servicios.find(n => n.grupo == i+1 && n.orden == 1).contenido %></h2>
