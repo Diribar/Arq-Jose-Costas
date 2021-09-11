@@ -1,5 +1,7 @@
 // **** Requires ***********
 const nodemailer = require("nodemailer");
+const path = require("path");
+const multer = require("multer");
 
 module.exports = {
 	enviarMail: async (asunto, nombre, mail, telefono, comentario) => {
@@ -57,5 +59,17 @@ module.exports = {
 		// 		console.log("Email sent: " + info.response);
 		// 	}
 		// });
+	},
+
+	subirImagen: (ruta, nombreArchivo) => {
+		const storage = multer.diskStorage({
+			destination: (req, file, cb) => {
+				cb(null, "./public/imagenes/" + ruta);
+			},
+			filename: (req, file, cb) => {
+				cb(null, Date.now() + path.extname(nombreArchivo));
+			},
+		});
+		return multer({ storage });
 	},
 };

@@ -2,8 +2,8 @@ module.exports = (sequelize, dt) => {
 	const alias = "imagenes_varias";
 	const columns = {
 		id: { type: dt.INTEGER, primaryKey: true },
-		lugar: { type: dt.STRING(50) },
 		nombre: { type: dt.STRING(50) },
+		archivo: { type: dt.STRING(50) },
 	};
 	const config = {
 		tableName: "imagenes_varias",

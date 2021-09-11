@@ -32,7 +32,7 @@ router.get("/editar/coloragregar", controlador_APIs.editarColorAgregar);
 router.get("/editar/textoagregar", controlador_APIs.editarTextoAgregar);
 router.get("/editar/eliminargrupo", controlador_APIs.editarGrupoEliminar);
 // Editar - Imagen
-router.get("/editar/imageneliminar", controlador_APIs.editarImagenEliminar);
+router.get("/editar/imagenHome", controlador_APIs.editarImagenHome);
 
 // Exportarlo **********************************************
 module.exports = router;
