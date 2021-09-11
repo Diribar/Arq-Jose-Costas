@@ -1,7 +1,7 @@
 // **** Requires ***********
 const BD_ABM = require("../base_de_datos/config/BD_ABM");
 const BD_obtener = require("../base_de_datos/config/BD_obtener");
-const nodemailer = require("./nodemailer");
+const funciones = require("./funciones");
 const path = require("path");
 const fs = require("fs");
 
@@ -11,7 +11,7 @@ module.exports = {
 		let { nombre, mail, telefono, comentario } = req.query;
 		asunto = "Mensaje de un contacto";
 		comentario = decodeURIComponent(comentario);
-		await nodemailer
+		await funciones
 			.enviarMail(asunto, nombre, mail, telefono, comentario)
 			.catch(console.error);
 		return res.json();
