@@ -1,9 +1,5 @@
 window.addEventListener("load", () => {
-	let src = document.querySelectorAll("#src");
-	
 	document.getElementById("inputImagen").onchange = (e) => {
-		// Ocultar y mostrar elementos
-		document.getElementById("labelImagen").classList.add("ocultar");
 		mostrarImagen(e);
 	};
 });
