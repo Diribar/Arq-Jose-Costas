@@ -4,7 +4,7 @@ window.addEventListener("load", () => {
 	for (let i=0; i<inputImagen.length; i++) {
 		inputImagen[i].addEventListener("change", (e) => {
 			texto=inputImagen[i].value
-			ext=texto.slice(texto.length-3)
+			ext=texto.slice(texto.length-4)
 			if (extensionesOK.includes(ext)) {
 				// Creamos el objeto de la clase FileReader
 				reader = new FileReader();
