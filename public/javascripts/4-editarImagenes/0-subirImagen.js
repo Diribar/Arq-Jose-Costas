@@ -1,7 +1,8 @@
 window.addEventListener("load", () => {
-	document.getElementById("inputImagen").onchange = (e) => {
+	let inputImagen = document.getElementById("inputImagen");
+	inputImagen.addEventListener("change", (e) => {
 		mostrarImagen(e);
-	};
+	});
 });
 
 let mostrarImagen = (e) => {
