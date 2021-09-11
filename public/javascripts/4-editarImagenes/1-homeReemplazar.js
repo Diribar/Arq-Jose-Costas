@@ -16,7 +16,6 @@ window.addEventListener("load", () => {
 				return;
 			}
 			mostrarImagen(e, i)
-			form[i].currentTarget.submit();
 		});
 	}
 });
