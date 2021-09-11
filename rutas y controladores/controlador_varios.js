@@ -1,6 +1,6 @@
 // **** Requires ***********
 const BD_obtener = require("../base_de_datos/config/BD_obtener");
-const nodemailer = require("./nodemailer");
+const funciones = require("./funciones");
 
 // **** Exportar ***********
 module.exports = {
@@ -45,7 +45,7 @@ module.exports = {
 		codigo = Math.round(Math.random() * Math.pow(10, 10)) + "";
 		comentario = "El código a ingresar para el Login es: " + codigo;
 		req.session.codigo = codigo;
-		nodemailer
+		funciones
 			.enviarMail(asunto, nombre, mail, telefono, comentario)
 			.catch(console.error);
 		return res.render("login");
