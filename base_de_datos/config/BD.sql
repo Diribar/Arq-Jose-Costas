@@ -11,20 +11,20 @@ CREATE TABLE colores (
 INSERT INTO colores (nombre, codigo)
 VALUES 
 	('Amarillo oscuro', '#F1C757'), 
-	('Gris claro', 'RGB(242, 242, 242)'), 
+	('Gris claro', '#F2F2F2'), 
 	('Gris oscuro', '#828383'), 
-	('Gris oscuro +', 'RGB(118, 113, 113)'),  
-	('Blanco', 'RGB(255, 255, 255)'), 
-	('Transparente', 'transparent') 
+	('Gris oscuro +', '#767171'),  
+	('Blanco', '#FFFFFF'), 
+	('Transparente', 'transparent')
 	;
 
 CREATE TABLE imagenes_varias (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-	lugar VARCHAR(50) NOT NULL,
-	nombre VARCHAR(50) NOT NULL,	
+	nombre VARCHAR(50) NOT null UNIQUE,
+	archivo VARCHAR(50) NOT NULL,	
 	PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-INSERT INTO imagenes_varias (lugar, nombre)
+INSERT INTO imagenes_varias (nombre, archivo)
 VALUES 
 	('Calle Florida', 'Calle Florida.jpg'),
 	('Arquitectura', 'Arquitectura.jpg'), 
