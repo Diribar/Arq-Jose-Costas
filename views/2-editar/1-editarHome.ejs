@@ -101,6 +101,7 @@
 								<form action="/google" method = "POST" enctype = "multipart/form-data">
 									<label for="inputImagen<%= i %>" id="preview"><img src="/imagenes/varias/<%= titulo.imagen.archivo %>"></label>
 									<input name="imagen" type="file" id="inputImagen<%= i %>" class="ocultar" accept="image/*">
+									<button type="submit"><i class="fas fa-save"></i></button>
 									<% i=i+1 %> 
 								</form>
 							</td>

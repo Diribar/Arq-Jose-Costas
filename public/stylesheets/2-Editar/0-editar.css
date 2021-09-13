@@ -63,21 +63,6 @@ body {
 	padding: 5px;
 }
 
-#tabla .td_imagen {
-	padding: 0;
-	max-height: 60px;
-	width: 120px;
-	display: flex;
-	align-items: center;
-	overflow: hidden;
-	border: 1px gray solid;
-}
-
-#tabla .td_imagen img {
-	height: 100%;
-	width: 100%;
-}
-
 #tabla .fa-check-circle {
 	color: green;
 	cursor: pointer;
