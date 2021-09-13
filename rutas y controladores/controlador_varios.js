@@ -1,6 +1,4 @@
 // **** Requires ***********
-const path = require("path");
-const fs = require("fs");
 const BD_obtener = require("../base_de_datos/config/BD_obtener");
 const funciones = require("./funciones");
 
@@ -112,32 +110,25 @@ module.exports = {
 	},
 
 	reemplazarImagenHome: async (req, res) => {
+		// Variables
+		ruta = "/public/imagenes/varias/";
+		home = "/editar/home";
 		// Verificaciones
 		if (req.file.filename.length > 50) {
-			eliminarImagen("/public/imagenes/varias/", req.file.filename);
-			return res.redirect("/editar/home");
+			eliminarImagen(ruta, req.file.filename);
+			return res.redirect(home);
 		}
 		// Borrar el archivo obsoleto
 		var registroImagen = await BD_obtener.ObtenerImagenPorId(
 			req.body.id
 		);
-		eliminarImagen("/public/imagenes/varias/", registroImagen.archivo);
+		funciones.eliminarImagen(
+			ruta,
+			registroImagen.archivo
+		);
 		// Reemplazar el nombre del archivo en la BD
 		await BD_obtener.CambiarImagenEnBD(req.body.id, req.file.filename);
 		// Terminar
-		res.redirect("/editar/home");
+		res.redirect(home);
 	},
-};
-
-let eliminarImagen = (ruta, nombre) => {
-	archivo = path.resolve(__dirname, ".." + ruta + nombre);
-	// Averiguar si el archivo es Read-Only o no existe
-	try {
-		fs.accessSync(archivo, fs.constants.W_OK);
-		//resultado = "El archivo se encuentra y se puede borrar";
-		fs.unlinkSync(archivo);
-	} catch (err) {
-		//resultado = "No se encuentra el archivo o es Read-Only";
-	}
-	//console.log(resultado);
 };
