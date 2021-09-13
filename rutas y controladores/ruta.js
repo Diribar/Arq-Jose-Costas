@@ -18,6 +18,7 @@ router.get("/editar/colores", soloUsuarios, controlador_varios.editarColores);
 router.get("/editar/textos/proyectos", soloUsuarios, controlador_varios.editarProyectos);
 router.get("/editar/textos/:id", soloUsuarios, controlador_varios.editarTextos);
 router.get("/editar/imagenes/:id", soloUsuarios, controlador_varios.editarImagenes);
+router.post("/editar/reemplazarImagenHome", controlador_varios.reemplazarImagenHome);
 
 // Controladores de APIs ***********************************
 // Home
@@ -31,8 +32,6 @@ router.get("/editar/coloragregar", controlador_APIs.editarColorAgregar);
 // Editar - Texto
 router.get("/editar/textoagregar", controlador_APIs.editarTextoAgregar);
 router.get("/editar/eliminargrupo", controlador_APIs.editarGrupoEliminar);
-// Editar - Imagen
-router.get("/editar/imagenHome", controlador_APIs.editarImagenHome);
 
 // Exportarlo **********************************************
 module.exports = router;

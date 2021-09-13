@@ -25,7 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({ secret: "keyboard cat", resave: false, saveUninitialized: false }));
 
 // *********** Para conectarse con el servidor ********************
-app.listen(3001, () => console.log("Servidor funcionando en puerto 3001..."));
+app.listen(80, () => console.log("Servidor funcionando en puerto 80..."));
 
 // ************************** Router ******************************
 var router = require("./rutas y controladores/ruta");
