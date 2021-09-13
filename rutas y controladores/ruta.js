@@ -1,11 +1,13 @@
 // Requires ************************************************
 var express = require("express");
 var router = express.Router();
+const path = require("path");
 const controlador_varios = require("./controlador_varios");
 const controlador_APIs = require("./controlador_APIs");
 
 // Middlewares de Validaciones
 const soloUsuarios = require("../middlewares/soloUsuarios");
+const uploadFile = require(path.join(__dirname,"../middlewares/multer"));
 
 // Controladores Varios ************************************
 router.get("/", controlador_varios.home);
@@ -18,7 +20,7 @@ router.get("/editar/colores", soloUsuarios, controlador_varios.editarColores);
 router.get("/editar/textos/proyectos", soloUsuarios, controlador_varios.editarProyectos);
 router.get("/editar/textos/:id", soloUsuarios, controlador_varios.editarTextos);
 router.get("/editar/imagenes/:id", soloUsuarios, controlador_varios.editarImagenes);
-router.post("/editar/reemplazarImagenHome", controlador_varios.reemplazarImagenHome);
+router.post("/editar/reemplazarImagenHome", uploadFile.single("imagen"), controlador_varios.reemplazarImagenHome);
 
 // Controladores de APIs ***********************************
 // Home

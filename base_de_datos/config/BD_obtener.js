@@ -67,9 +67,14 @@ module.exports = {
 		});
 	},
 
-	ObtenerImagen: (seccion_id) => {
-		return db.imagenes_varias.findOne({
-			where: { seccion_id: seccion_id },
-		});
+	ObtenerImagenPorId: (id) => {
+		return db.imagenes_varias.findByPk(id);
 	},
+
+	CambiarImagenEnBD: (id, archivo) => {
+		return db.imagenes_varias.update(
+			{ archivo: archivo },
+			{ where: { id: id } }
+		);
+	}
 };
