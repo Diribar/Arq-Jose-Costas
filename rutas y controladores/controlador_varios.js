@@ -119,13 +119,8 @@ module.exports = {
 			return res.redirect(home);
 		}
 		// Borrar el archivo obsoleto
-		var registroImagen = await BD_obtener.ObtenerImagenPorId(
-			req.body.id
-		);
-		funciones.eliminarImagen(
-			ruta,
-			registroImagen.archivo
-		);
+		var registroImagen = await BD_obtener.ObtenerImagenPorId(req.body.id);
+		funciones.eliminarImagen(ruta, registroImagen.archivo);
 		// Reemplazar el nombre del archivo en la BD
 		await BD_obtener.CambiarImagenEnBD(req.body.id, req.file.filename);
 		// Terminar
