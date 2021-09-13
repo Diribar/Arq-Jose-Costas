@@ -64,10 +64,6 @@ module.exports = {
 		return res.json();
 	},
 
-	editarImagenHome: (req, res) => {
-
-	},
-
 	editarImagenEliminar: (req, res) => {
 		let { id } = req.query;
 		const archivo = path.resolve(

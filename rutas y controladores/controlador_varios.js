@@ -108,4 +108,8 @@ module.exports = {
 			datos,
 		});
 	},
+
+	reemplazarImagenHome: (req, res) => {
+		res.send("Reemplazar")
+	},
 };
