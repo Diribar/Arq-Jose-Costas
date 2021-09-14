@@ -20,11 +20,11 @@
 	<% for (let i=0; i<proyectos.length; i++) { %>
 		<div class="grupo <%- i==0 ? 'flex-row' : 'ocultar' %>">
 			<% for (let j=0; j<proyectos[i].imagenes.length; j++) { %>
-					<% let texto = "imagen" + i + j + " " + (proyectos[i].imagenes.length * 5) + "s" %> 
-					<img style="animation: <%= texto %> infinite normal" src="./imagenes/3-proyectos/<%= proyectos[i].imagenes[j].archivo %>">
-					<% if (proyectos[i].imagenes[j].texto) { %>
-						<figcaption style="animation: <%= texto %> infinite normal; background-color: <%= n.color_letras.codigo %> "><%= proyectos[i].imagenes[j].texto %></figcaption>
-					<% } %>
+				<% let texto = "imagen" + i + j + " " + (proyectos[i].imagenes.length * 5) + "s" %> 
+				<img style="animation: <%= texto %> infinite normal" src="./imagenes/3-proyectos/<%= proyectos[i].imagenes[j].archivo %>">
+				<% if (proyectos[i].imagenes[j].texto) { %>
+					<figcaption style="animation: <%= texto %> infinite normal; background-color: <%= n.color_letras.codigo %> "><%= proyectos[i].imagenes[j].texto %></figcaption>
+				<% } %>
 			<% } %>
 		</div>
 	<% } %>
