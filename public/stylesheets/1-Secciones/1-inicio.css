@@ -73,7 +73,6 @@
 	position: absolute;
 	display: flex;
 	padding: 0;
-	width: 500%;
 	height: 100%;
 	margin: 0;
 	transition-property: transform;

@@ -97,6 +97,7 @@ module.exports = {
 			seccion,
 			titulo,
 			datos: await BD_obtener.ObtenerTodos(seccion + "_imagenes"),
+			url,
 		});
 	},
 
@@ -124,19 +125,25 @@ module.exports = {
 	},
 
 	agregarImagen: async (req, res) => {
-		return res.send("agregar imagen")
-		// Verificaciones
-		if (req.file.filename.length > 50) {
-			eliminarImagen(ruta, req.file.filename);
-			return res.redirect(home);
+		//return res.send("agregar imagen")
+		if (verificaciones(req.body, req.file)) {
+			return res.redirect(req.body.home);
 		}
-		// Borrar el archivo obsoleto
-		var registroImagen = await BD_obtener.ObtenerImagenPorId(req.body.id);
-		funciones.eliminarImagen(ruta, registroImagen.archivo);
-		// Reemplazar el nombre del archivo en la BD
-		await BD_obtener.CambiarImagenEnBD(req.body.id, req.file.filename);
+		// Averiguar el orden
+		orden = await BD_obtener.ObtenerTodos(req.body.entidad)
+			.then((n) => n.filter((m) => m.grupo == req.body.grupo))
+			.then((n) => n.map((m) => {return m.orden;}))
+			.then((n) => Math.max(...n) + 1);
+		console.log(req.body.entidad, req.body.grupo, orden, req.file.filename);
+		// Agregar el nombre del archivo en la BD
+		await BD_obtener.AgregarImagenEnBD(
+			req.body.entidad,
+			req.body.grupo,
+			orden,
+			req.file.filename,
+		);
 		// Terminar
-		res.redirect(home);
+		res.redirect(req.body.home);
 	},
 };
 
@@ -150,6 +157,6 @@ let verificaciones = (body, file) => {
 	// Frenar el proceso si no se cumple alguna condición
 	if (condicion1 || condicion2) {
 		funciones.eliminarImagen(body.ruta, file.filename);
-		return true
+		return true;
 	}
 };

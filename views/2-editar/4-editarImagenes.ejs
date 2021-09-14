@@ -22,8 +22,11 @@
 					</li>
 				<% } %> 
 			</ul>
+			<!-- Agregarle una imagen al grupo -->
 			<form action="/editar/agregarImagen" method = "POST" enctype = "multipart/form-data" class="agregarImagen">
 				<input name="ruta" value="./public/imagenes/<%= titulo.id %>-<%= titulo.nombre_seccion %>" class="ocultar">
+				<input name="home" value="<%= url %>" class="ocultar">
+				<input name="entidad" value="<%= titulo.nombre_seccion %>_imagenes" class="ocultar">
 				<input name="grupo" value="<%= grupo %>" class="ocultar">
 				<label for="inputImagen<%= grupo %>" id="preview">
 					<a title="Agregar una imagen" id="agregarImagen" class="botones">

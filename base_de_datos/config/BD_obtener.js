@@ -76,5 +76,13 @@ module.exports = {
 			{ archivo: archivo },
 			{ where: { id: id } }
 		);
+	},
+
+	AgregarImagenEnBD: (entidad, grupo, orden, archivo) => {
+		return db[entidad].create({ 
+			grupo: grupo,
+			orden: orden,
+			archivo: archivo 
+		});
 	}
 };
