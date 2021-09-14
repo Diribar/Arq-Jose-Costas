@@ -1,7 +1,7 @@
 window.addEventListener("load", () => {
 	// Variables generales
-	let id = document.querySelectorAll(".imagenes i.ocultar");
 	let eliminar = document.querySelectorAll(".imagenes i.fa-trash-alt");
+	let id = document.querySelectorAll(".imagenes i.ocultar");
 
 	// Acciones
 	for (let i = 0; i < id.length; i++) {
