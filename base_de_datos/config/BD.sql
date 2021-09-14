@@ -20,11 +20,11 @@ VALUES
 
 CREATE TABLE imagenes_varias (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-	nombre VARCHAR(50) NOT null UNIQUE,
+	texto VARCHAR(50) NOT null UNIQUE,
 	archivo VARCHAR(50) NOT NULL,	
 	PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-INSERT INTO imagenes_varias (nombre, archivo)
+INSERT INTO imagenes_varias (texto, archivo)
 VALUES 
 	('Calle Florida', 'Calle Florida.jpg'),
 	('Arquitectura', 'Arquitectura.jpg'), 
@@ -199,11 +199,11 @@ CREATE TABLE 5_quienes_somos_clientes (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
 	grupo INT UNSIGNED NOT NULL,
 	orden INT UNSIGNED NOT NULL,
-	nombre VARCHAR(50) NOT NULL,
+	texto VARCHAR(50) NOT NULL,
 	archivo VARCHAR(50) NOT NULL,
 	PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-INSERT INTO 5_quienes_somos_clientes (grupo, orden, nombre, archivo)
+INSERT INTO 5_quienes_somos_clientes (grupo, orden, texto, archivo)
 VALUES 
 	(1, 1, 'Aptra', 'Aptra.jpg'), 
 	(1, 2, 'Furman', 'Furman.jpg'), 
