@@ -134,7 +134,6 @@ module.exports = {
 			.then((n) => n.filter((m) => m.grupo == req.body.grupo))
 			.then((n) => n.map((m) => {return m.orden;}))
 			.then((n) => Math.max(...n) + 1);
-		console.log(req.body.entidad, req.body.grupo, orden, req.file.filename);
 		// Agregar el nombre del archivo en la BD
 		await BD_obtener.AgregarImagenEnBD(
 			req.body.entidad,
