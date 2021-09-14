@@ -30,10 +30,9 @@
 						<i class="fas fa-plus"></i>
 					</a>
 				</label>
-				<input name="imagen" type="file" id="inputImagen<%= grupo %>" class="ocultar" accept="image/*">
+				<input name="imagen" type="file" id="inputImagen<%= grupo %>" class="ocultar" accept="image/*" onchange="this.form.submit()">
 				<button type="submit" class="ocultar"><i class="fas fa-save"></i></button>
 			</form>
-
 		<% } %>
 		<div id="botones">
 			<a href="/editar/home" title='Volver al "Home" de Edición'><i class="fas fa-home"></i></a>

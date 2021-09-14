@@ -1,4 +1,5 @@
 // **** Requires ***********
+const path = require("path");
 const BD_obtener = require("../base_de_datos/config/BD_obtener");
 const funciones = require("./funciones");
 
@@ -109,29 +110,21 @@ module.exports = {
 		});
 	},
 
-	reemplazarImagenHome: async (req, res) => {
-		// Variables
-		ruta = "/public/imagenes/varias/";
-		home = "/editar/home";
-		// Verificaciones
-		if (req.file.filename.length > 50) {
-			eliminarImagen(ruta, req.file.filename);
-			return res.redirect(home);
+	reemplazarImagen: async (req, res) => {
+		if (verificaciones(req.body, req.file)) {
+			return res.redirect(req.body.home);
 		}
-		// Borrar el archivo obsoleto
-		var registroImagen = await BD_obtener.ObtenerImagenPorId(req.body.id);
-		funciones.eliminarImagen(ruta, registroImagen.archivo);
+		// Borrar el archivo anterior
+		archivoAnterior = await BD_obtener.ObtenerImagenPorId(req.body.id);
+		funciones.eliminarImagen(req.body.ruta, archivoAnterior.archivo);
 		// Reemplazar el nombre del archivo en la BD
 		await BD_obtener.CambiarImagenEnBD(req.body.id, req.file.filename);
 		// Terminar
-		res.redirect(home);
+		res.redirect(req.body.home);
 	},
 
 	agregarImagen: async (req, res) => {
 		return res.send("agregar imagen")
-		// Variables
-		ruta = "/public/imagenes/varias/";
-		home = "/editar/home";
 		// Verificaciones
 		if (req.file.filename.length > 50) {
 			eliminarImagen(ruta, req.file.filename);
@@ -145,4 +138,18 @@ module.exports = {
 		// Terminar
 		res.redirect(home);
 	},
+};
+
+let verificaciones = (body, file) => {
+	// Verificar si el nombre es demasiado largo
+	condicion1 = file.filename.length > 50;
+	// Verificar si la extensión del nombre corresponde a una imagen
+	let extensionesOK = [".jpg", ".png", ".gif", ".bmp"];
+	ext = path.extname(file.originalname);
+	condicion2 = !extensionesOK.includes(ext);
+	// Frenar el proceso si no se cumple alguna condición
+	if (condicion1 || condicion2) {
+		funciones.eliminarImagen(body.ruta, file.filename);
+		return true
+	}
 };

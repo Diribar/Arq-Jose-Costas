@@ -1,6 +1,6 @@
 window.addEventListener("load", () => {
 	// Seleccionar partes del formulario
-	let form = document.querySelectorAll(".agregarImagen")
+	let form = document.querySelectorAll(".agregarImagen");
 	let inputImagen = document.querySelectorAll(
 		".agregarImagen input[name='imagen']"
 	);
@@ -12,16 +12,19 @@ window.addEventListener("load", () => {
 	// Rutina para los inputs
 	for (let i = 0; i < inputImagen.length; i++) {
 		// Acciones si cambió alguna imagen
-		inputImagen[i].addEventListener("change", (e) => {
+		form[i].addEventListener("change", (e) => {
 			texto = inputImagen[i].value;
 			ext = texto.slice(texto.length - 4);
 			if (!extensionesOK.includes(ext)) {
 				return;
 			}
-			mostrarImagen(e, i)
-			boton[i].classList.remove("ocultar")
-			//form[i].
+			mostrarImagen(e, i);
+			boton[i].classList.remove("ocultar");
 		});
+		form[i].addEventListener("submit",
+			(e) => {
+				e.preventDefault;
+			});
 	}
 });
 
@@ -38,4 +41,4 @@ let mostrarImagen = (e, i) => {
 		preview[i].innerHTML = "";
 		preview[i].append(image);
 	};
-}
+};
