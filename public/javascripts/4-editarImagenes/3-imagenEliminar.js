@@ -1,7 +1,6 @@
 window.addEventListener("load", () => {
 	// Variables generales
 	let entidad = document.querySelector("input[name='entidad']").value;
-	let ruta = document.querySelector("input[name='ruta']").value;
 	let id = document.querySelectorAll(".imagenes i.ocultar");
 	let eliminar = document.querySelectorAll(".imagenes i.fa-trash-alt");
 
