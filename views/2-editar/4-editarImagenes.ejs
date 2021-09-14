@@ -2,7 +2,7 @@
 <%- include('4-headEditarImagenes', {titulo: "Edición - " + titulo.nombre_a_mostrar}) %>
 <body id="editar_imagenes">
 	<header>
-		Seccion: <%= titulo.nombre_a_mostrar %> 
+		Seccion: <%= titulo.nombre_a_mostrar %>
 	</header>
 	<main>
 		<% for (let grupo=1; grupo<=datos.length; grupo++) { %>
@@ -16,11 +16,11 @@
 					<li>
 						<i class="ocultar"><%= imagen.id %></i>
 						<div id="tamano">
-							<img src="/imagenes/<%= titulo.id %>-<%= seccion %>/<%= imagen.archivo %> " alt="">
+							<img src="/imagenes/<%= titulo.id %>-<%= seccion %>/<%= imagen.archivo %>" alt="">
 						</div>
 						<a title="Eliminar"><i class="far fa-trash-alt"></i></a>
 					</li>
-				<% } %> 
+				<% } %>
 			</ul>
 			<!-- Agregarle una imagen al grupo -->
 			<form action="/editar/agregarImagen" method = "POST" enctype = "multipart/form-data" class="agregarImagen">
@@ -41,7 +41,7 @@
 			<a href="/editar/home" title='Volver al "Home" de Edición'><i class="fas fa-home"></i></a>
 			<% if (seccion == "proyectos") { %>
 				<a title="Agregar un grupo" id="agregarGrupo"><i class="fas fa-plus"></i></a>
-			<% } %> 
+			<% } %>
 		</div>
 	</main>
 </body>

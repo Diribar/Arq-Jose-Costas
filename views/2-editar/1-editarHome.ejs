@@ -30,11 +30,11 @@
 							<% for (n of colores) { %>
 								<option 
 									value="<%= n.id %>" 
-									<%- n.id == encabezado.color_fondo_id ? 'selected' : "" %> 
+									<%- n.id == encabezado.color_fondo_id ? 'selected' : "" %>
 								>
 									<%= n.nombre %>
 								</option>
-							<% } %> 
+							<% } %>
 						</select>
 					</td>
 					<td>
@@ -42,18 +42,18 @@
 							<% for (n of colores) { %>
 								<option 
 									value="<%= n.id %>" 
-									<%- n.id == encabezado.color_letras_id ? 'selected' : "" %> 
+									<%- n.id == encabezado.color_letras_id ? 'selected' : "" %>
 								>
 									<%= n.nombre %>
 								</option>
-							<% } %> 
+							<% } %>
 						</select>
 					</td>
 					<td class="center">-</td>
 					<td class="center">-</td>
 					<td class="center">-</td>
 				</tr>
-				<% i=0 %> 
+				<% i=0 %>
 				<% for (titulo of titulos) { %>
 					<tr class="filas">
 						<td id="cff" class="ocultar"><%= titulo.color_fondo.codigo %></td>
@@ -77,11 +77,11 @@
 								<% for (n of colores) { %>
 									<option 
 										value="<%= n.id %>" 
-										<%- n.id == titulo.color_fondo_id ? 'selected' : "" %> 
+										<%- n.id == titulo.color_fondo_id ? 'selected' : "" %>
 									>
 										<%= n.nombre %>
 									</option>
-								<% } %> 
+								<% } %>
 							</select>
 						</td>
 						<td>
@@ -89,11 +89,11 @@
 								<% for (n of colores) { %>
 									<option 
 										value="<%= n.id %>" 
-										<%- n.id == titulo.color_letras_id ? 'selected' : "" %> 
+										<%- n.id == titulo.color_letras_id ? 'selected' : "" %>
 									>
 										<%= n.nombre %>
 									</option>
-								<% } %> 
+								<% } %>
 							</select>
 						</td>
 						<% if (titulo.imagen_id) { %>
@@ -105,12 +105,12 @@
 									<input name="id" value="<%= titulo.imagen_id %>" class="ocultar">
 									<label for="inputImagen<%= i %>" id="preview"><img src="/imagenes/varias/<%= titulo.imagen.archivo %>"></label>
 									<input name="imagen" type="file" id="inputImagen<%= i %>" class="ocultar" accept="image/*" onchange="this.form.submit()">
-									<% i=i+1 %> 
+									<% i=i+1 %>
 								</form>
 							</td>
 						<% } else { %>
 							<td class="center">-</td>
-						<% } %> 
+						<% } %>
 						<td class="center">
 							<%- titulo.editar_texto ? '<a href="/editar/textos/' + titulo.nombre_seccion + '"><i class="fas fa-check-circle"></i></a>' : '<i class="fas fa-times-circle"></i>' %>
 						</td>
@@ -131,11 +131,11 @@
 							<% for (n of colores) { %>
 								<option 
 									value="<%= n.id %>" 
-									<%- n.id == footer.color_fondo_id ? 'selected' : "" %> 
+									<%- n.id == footer.color_fondo_id ? 'selected' : "" %>
 								>
 									<%= n.nombre %>
 								</option>
-							<% } %> 
+							<% } %>
 						</select>
 					</td>
 					<td>
@@ -143,11 +143,11 @@
 							<% for (n of colores) { %>
 								<option 
 									value="<%= n.id %>" 
-									<%- n.id == footer.color_letras_id ? 'selected' : "" %> 
+									<%- n.id == footer.color_letras_id ? 'selected' : "" %>
 								>
 									<%= n.nombre %>
 								</option>
-							<% } %> 
+							<% } %>
 						</select>
 					</td>
 					<td class="center">-</td>

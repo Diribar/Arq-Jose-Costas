@@ -5,25 +5,25 @@
 	<div id="botones">
 		<% for (m of proyectos) { %>
 			<button style="background-color: <%= m.color_fondo.codigo %>; color: <%= m.color_letras.codigo %>; border-color: <%= m.color_borde.codigo %>">
-				<%= m.contenido %> 
+				<%= m.contenido %>
 			</button>
-		<% } %> 
+		<% } %>
 	</div>
 	<i id="proyectos-button" class="fas fa-bars" style="background-color: <%= encabezado.color_fondo.codigo %>; border-color: <%= encabezado.color_letras.codigo %>; color: <%= encabezado.color_letras.codigo %>"></i>
 	<div id="menu-proyectos" class="dropdown-content ocultar" style="background-color: <%= encabezado.color_fondo.codigo %>; border-color: <%= encabezado.color_letras.codigo %>">
 		<% for (m of proyectos) { %>
 			<nav style="color: <%= encabezado.color_letras.codigo %>"><%= m.contenido %></nav>
-		<% } %> 
+		<% } %>
 	</div>
 </section>
 <section id="imagen">
 	<% for (let i=0; i<proyectos.length; i++) { %>
 		<div class="grupo <%- i==0 ? 'flex-row' : 'ocultar' %>">
 			<% for (let j=0; j<proyectos[i].imagenes.length; j++) { %>
-				<% let texto = "imagen" + i + j + " " + (proyectos[i].imagenes.length * 5) + "s infinite normal" %> 
+				<% let texto = "imagen" + i + j + " " + (proyectos[i].imagenes.length * 5) + "s infinite normal" %>
 				<img style="animation: <%= texto %>" src="./imagenes/3-proyectos/<%= proyectos[i].imagenes[j].archivo %>">
 				<% if (proyectos[i].imagenes[j].texto) { %>
-					<figcaption style="animation: <%= texto %>; background-color: <%= n.color_letras.codigo %> "><%= proyectos[i].imagenes[j].texto %></figcaption>
+					<figcaption style="animation: <%= texto %>; background-color: <%= n.color_letras.codigo %>"><%= proyectos[i].imagenes[j].texto %></figcaption>
 				<% } %>
 			<% } %>
 		</div>

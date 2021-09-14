@@ -13,7 +13,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<% for (color of colores) { %> 
+				<% for (color of colores) { %>
 					<tr class="color_existente">
 						<td id="id" class="ocultar"><%= color.id %></td>
 						<td><input type="text" name="nombre" value="<%= color.nombre %>" style="font-weight: bold"></td>
@@ -27,27 +27,27 @@
 									<!-- Color de Fondo -->
 									<% for (sector of color.encabezado_cf) { %>
 										<option value="/editar/home">Fondo - <%= sector.nombre_seccion %></option>
-									<% } %> 
+									<% } %>
 									<% for (sector of color.titulos_cf) { %>
 										<option value="/editar/home">Fondo - <%= sector.nombre_seccion %></option>
-									<% } %> 
+									<% } %>
 									<% if (color.proyectos_cf.length) { %>
 										<option value="/editar/colores/proyectos">Fondo - etiq. proyectos</option>
-									<% } %> 
+									<% } %>
 									<!-- Color de Letras -->
 									<% for (sector of color.encabezado_cl) { %>
 										<option value="/editar/home">Letras - <%= sector.nombre_seccion %></option>
-									<% } %> 
+									<% } %>
 									<% for (sector of color.titulos_cl) { %>
 										<option value="/editar/home">Letras - <%= sector.nombre_seccion %></option>
-									<% } %> 
+									<% } %>
 									<% if (color.proyectos_cl.length) { %>
 										<option value="/editar/colores/proyectos">Letras - etiq. proyectos</option>
-									<% } %> 
+									<% } %>
 									<!-- Color de Bordes -->
 									<% if (color.proyectos_cb.length) { %>
 										<option value="/editar/colores/proyectos">Borde - etiq. proyectos</option>
-									<% } %> 
+									<% } %>
 								</select>
 							<% } else { %>
 								<div class="eliminar">
