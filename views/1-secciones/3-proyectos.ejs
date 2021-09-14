@@ -18,13 +18,33 @@
 </section>
 <section id="imagen">
 	<% for (let i=0; i<proyectos.length; i++) { %>
-		<div class="grupo <%- i==0 ? 'flex-row' : 'ocultar' %> ">
-			<% for (let j=0; j<proyectos[i].imagenes.length; j++) { %> 
-					<img style="animation: banner<%= j+1 %> 15s infinite normal" src="./imagenes/3-proyectos/<%= proyectos[i].imagenes[j].archivo %>">
+		<div class="grupo <%- i==0 ? 'flex-row' : 'ocultar' %>">
+			<% for (let j=0; j<proyectos[i].imagenes.length; j++) { %>
+					<% let texto = "imagen" + i + j + " " + (proyectos[i].imagenes.length * 5) + "s" %> 
+					<img style="animation: <%= texto %> infinite normal" src="./imagenes/3-proyectos/<%= proyectos[i].imagenes[j].archivo %>">
 					<% if (proyectos[i].imagenes[j].texto) { %>
-						<figcaption style="animation: banner<%= j+1 %> 15s infinite normal; background-color: <%= n.color_letras.codigo %> "><%= proyectos[i].imagenes[j].texto %></figcaption>
-					<% } %> 
-			<% } %> 
+						<figcaption style="animation: <%= texto %> infinite normal; background-color: <%= n.color_letras.codigo %> "><%= proyectos[i].imagenes[j].texto %></figcaption>
+					<% } %>
+			<% } %>
 		</div>
 	<% } %>
 </section>
+<style>
+	/* Cada "i" es un tipo de proyecto */
+	<% for (let i=0; i<proyectos.length; i++) { %>
+		<% let cantFotos = proyectos[i].imagenes.length %>
+		/* Cada "j" es una foto de un proyecto */
+		<% for (let j=0; j<cantFotos; j++) { %>
+			@keyframes imagen<%=i%><%=j%> {
+				/* Cada "k" es un instante de la secuencia de una foto */
+				<% for (let k=0; k<cantFotos; k++) { %>
+					<%= parseInt(k/cantFotos*100) %>%, <%= parseInt((k+1)/cantFotos*100-30/cantFotos) %>% {opacity: <%- j==k ? 1 : 0 %>} 
+				<% } %>
+				100% {opacity: <%- j==0 ? 1 : 0 %>;}
+			}
+		<% } %>
+	<% } %>
+	/* @keyframes imagen1 {0%, 23% {opacity: 1} 33%, 56% {opacity: 0} 66%, 90% {opacity: 0} 100% {opacity: 1;}} */
+	/* @keyframes imagen2 {0%, 23% {opacity: 0} 33%, 56% {opacity: 1} 66%, 90% {opacity: 0} 100% {opacity: 0;}} */
+	/* @keyframes imagen3 {0%, 23% {opacity: 0} 33%, 56% {opacity: 0} 66%, 90% {opacity: 1} 100% {opacity: 0;}} */
+</style>
