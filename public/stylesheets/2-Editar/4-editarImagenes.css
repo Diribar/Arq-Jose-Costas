@@ -33,8 +33,9 @@
 	object-fit: cover;
 }
 
-#editar_imagenes .imagenes li a .fa-trash-alt {
+.imagenes li .fas,
+.imagenes li .far {
 	color: #223063;
-	margin-top: 10px;
+	margin: 10px;
 	font-weight: bold;
 }

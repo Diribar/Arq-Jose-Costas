@@ -31,6 +31,7 @@ window.addEventListener("load", () => {
 });
 
 const funcionModificar = async (id, dato, campo) => {
+	console.log("acá")
 	entidad = document.querySelector("input[name='entidad']").value;
 	await fetch(
 		"/editar/cambiarvalor/?entidad=" +

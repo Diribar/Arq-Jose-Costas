@@ -11,7 +11,7 @@ window.addEventListener("load", () => {
 			if (fila > 1) {
 				id1 = IDs[i].innerHTML;
 				id2 = IDs[i - 1].innerHTML;
-				await cambiarOrden(id1, fila - 1, id2, fila);
+				await funcionOrden(id1, fila - 1, id2, fila);
 			}
 		});
 		flechasDown[i].addEventListener("click", async () => {
