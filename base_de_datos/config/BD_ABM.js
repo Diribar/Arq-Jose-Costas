@@ -6,6 +6,7 @@ module.exports = {
 	},
 
 	CambiarValor: (entidad, id, dato, campo) => {
+		console.log(entidad, id, dato, campo);
 		return db[entidad].update({ [campo]: dato }, { where: { id: id } });
 	},
 

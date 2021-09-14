@@ -14,10 +14,11 @@
 			<ul class="imagenes">
 				<% for (imagen of imagenes) { %>
 					<li>
-						<i class="ocultar"><%= imagen.id %></i>
+						<i id="id" class="ocultar"><%= imagen.id %></i>
 						<div id="tamano">
 							<img src="/imagenes/<%= titulo.id %>-<%= seccion %>/<%= imagen.archivo %>" alt="">
 						</div>
+						<input name="texto" type="text" value="<%= imagen.texto %>">
 						<a title="Eliminar"><i class="far fa-trash-alt"></i></a>
 					</li>
 				<% } %>

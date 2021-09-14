@@ -14,9 +14,16 @@
 	align-items: center;
 }
 
-#editar_imagenes .imagenes li #tamano{
+#editar_imagenes .imagenes li #tamano {
 	height: 160px;
 	width: 200px;
+}
+
+#editar_imagenes .imagenes li input {
+	width: 200px;
+	box-sizing: border-box;
+	text-align: center;
+	font-size: 0.9rem;
 }
 
 #editar_imagenes .imagenes li #tamano img {

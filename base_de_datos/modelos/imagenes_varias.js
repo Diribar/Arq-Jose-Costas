@@ -2,7 +2,7 @@ module.exports = (sequelize, dt) => {
 	const alias = "imagenes_varias";
 	const columns = {
 		id: { type: dt.INTEGER, primaryKey: true },
-		nombre: { type: dt.STRING(50) },
+		texto: { type: dt.STRING(50) },
 		archivo: { type: dt.STRING(50) },
 	};
 	const config = {

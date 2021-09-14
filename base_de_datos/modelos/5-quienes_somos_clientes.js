@@ -4,7 +4,7 @@ module.exports = (sequelize, dt) => {
 		id: { type: dt.INTEGER, primaryKey: true },
 		grupo: { type: dt.INTEGER },
 		orden: { type: dt.INTEGER },
-		nombre: { type: dt.STRING(50) },
+		texto: { type: dt.STRING(50) },
 		archivo: { type: dt.STRING(50) },
 	};
 	const config = {
