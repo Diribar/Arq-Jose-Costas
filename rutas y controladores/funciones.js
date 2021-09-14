@@ -62,16 +62,17 @@ module.exports = {
 	},
 
 	eliminarImagen: (ruta, nombre) => {
-		archivo = path.resolve(__dirname, ".." + ruta + nombre);
+		console.log(ruta, nombre);
+		archivo = path.resolve(__dirname, "." + ruta + nombre);
+		console.log(archivo);
 		// Averiguar si el archivo es Read-Only o no existe
 		try {
 			fs.accessSync(archivo, fs.constants.W_OK);
-			//resultado = "El archivo se encuentra y se puede borrar";
+			console.log("El archivo se encuentra y se puede borrar");
 			fs.unlinkSync(archivo);
 		} catch (err) {
-			//resultado = "No se encuentra el archivo o es Read-Only";
+			console.log("No se encuentra el archivo o es Read-Only");
 		}
-		//console.log(resultado);
 	},
 
 };

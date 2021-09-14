@@ -5,14 +5,17 @@ window.addEventListener("load", () => {
 
 	// Acciones
 	for (let i = 0; i < id.length; i++) {
-		eliminar[i].addEventListener("click", () => {
+		eliminar[i].addEventListener("click", async () => {
 			dato_id = id[i].innerHTML;
-			eliminarImagen(dato_id);
+			await eliminarImagen(dato_id);
 		});
 	}
 });
 
 const eliminarImagen = async (id) => {
-	await fetch("/editar/eliminar_imagen/?id=" + id);
-	//location.reload();
+	let entidad = document.querySelector("input[name='entidad']").value;
+	let ruta = document.querySelector("input[name='ruta']").value;
+	ruta = encodeURIComponent(ruta);
+	await fetch("/editar/eliminarregistro/?entidad=" + entidad + "&id=" + id + "&ruta=" + ruta);
+	location.reload();
 };

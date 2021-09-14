@@ -30,7 +30,14 @@ module.exports = {
 	},
 
 	editarEliminarRegistro: async (req, res) => {
-		let { entidad, id } = req.query;
+		let { entidad, id, ruta } = req.query;
+		// Borrar el archivo de imagen
+		if (entidad.includes("imagenes")) {
+			// Obtener los datos
+			datos = await BD_obtener.ObtenerPorId(entidad, id)
+			funciones.eliminarImagen(ruta, datos.archivo);
+		}
+		// Borrar el registro
 		await BD_ABM.EliminarRegistro(entidad, id);
 		return res.json();
 	},
@@ -64,21 +71,4 @@ module.exports = {
 		return res.json();
 	},
 
-	editarImagenEliminar: (req, res) => {
-		let { id } = req.query;
-		const archivo = path.resolve(
-			__dirname,
-			"../public/imagenes/5-quienes_somos/" + id
-		);
-		// Averiguar si el archivo es Read-Only (no puede ser que no exista)
-		try {
-			fs.accessSync(archivo, fs.constants.W_OK);
-			resultado = false;
-		} catch (err) {
-			resultado = true;
-		}
-		//console.log(resultado);
-		// Fin
-		return res.json();
-	},
 };

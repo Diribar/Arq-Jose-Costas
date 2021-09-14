@@ -67,8 +67,8 @@ module.exports = {
 		});
 	},
 
-	ObtenerImagenPorId: (id) => {
-		return db.imagenes_varias.findByPk(id);
+	ObtenerPorId: (entidad, id) => {
+		return db[entidad].findByPk(id);
 	},
 
 	CambiarImagenEnBD: (id, archivo) => {
