@@ -21,6 +21,7 @@ router.get("/editar/textos/proyectos", soloUsuarios, controlador_varios.editarPr
 router.get("/editar/textos/:id", soloUsuarios, controlador_varios.editarTextos);
 router.get("/editar/imagenes/:id", soloUsuarios, controlador_varios.editarImagenes);
 router.post("/editar/reemplazarImagenHome", uploadFile.single("imagen"), controlador_varios.reemplazarImagenHome);
+router.post("/editar/agregarImagen", uploadFile.single("imagen"), controlador_varios.agregarImagen);
 
 // Controladores de APIs ***********************************
 // Home
