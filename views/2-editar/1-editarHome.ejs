@@ -5,6 +5,7 @@
 		<h1>Editar - Home</h1>
 		<table id="tabla">
 			<thead>
+				<!-- Encabezado de la tabla -->
 				<tr>
 					<th>Sección</th>
 					<th class="center">Orden</th>
@@ -18,6 +19,7 @@
 				</tr>
 			</thead>
 			<tbody>
+				<!-- Fila de encabezado de home -->
 				<tr id="encab">
 					<td id="cfe" class="ocultar"><%= encabezado.color_fondo.codigo %></td>
 					<td id="cle" class="ocultar"><%= encabezado.color_letras.codigo %></td>
@@ -54,24 +56,22 @@
 					<td class="center">-</td>
 				</tr>
 				<% i=0 %>
+				<!-- Filas de secciones -->
 				<% for (titulo of titulos) { %>
 					<tr class="filas">
+						<!-- Celdas de datos -->
 						<td id="cff" class="ocultar"><%= titulo.color_fondo.codigo %></td>
 						<td id="clf" class="ocultar"><%= titulo.color_letras.codigo %></td>
 						<td id="id" class="ocultar"><%= titulo.id %></td>
-						<td>
-							<strong><%= titulo.nombre_seccion %></strong>
-						</td>
+						<!-- Comienzo de celdas visibles -->
+						<td><strong><%= titulo.nombre_seccion %></strong></td>
 						<td class="center flechas">
-							<i class="fas fa-arrow-alt-circle-up <%- titulo == titulos[0] ? 'ocultar' : '' %>"></i>
-							<i class="fas fa-arrow-alt-circle-down <%- titulo == titulos[titulos.length-1] ? 'ocultar' : '' %>"></i>
+							<i class="fas fa-arrow-alt-circle-up<%- titulo == titulos[0] ? ' ocultar' : '' %>"></i>
+							<i class="fas fa-arrow-alt-circle-down<%- titulo == titulos[titulos.length-1] ? ' ocultar' : '' %>"></i>
 						</td>
-						<td>
-							<input type="text" name="ne" value="<%= titulo.nombre_a_mostrar %>">
-						</td>
-						<td>
-							<input type="text" name="ts" value="<%= titulo.titulo_seccion %>">
-						</td>
+						<td><input type="text" name="ne" value="<%= titulo.nombre_a_mostrar %>"></td>
+						<td><input type="text" name="ts" value="<%= titulo.titulo_seccion %>"></td>
+						<!-- Celda de colores (fondo) -->
 						<td>
 							<select name="cff">
 								<% for (n of colores) { %>
@@ -84,6 +84,7 @@
 								<% } %>
 							</select>
 						</td>
+						<!-- Celda de colores (letras) -->
 						<td>
 							<select name="clf">
 								<% for (n of colores) { %>
@@ -97,13 +98,14 @@
 							</select>
 						</td>
 						<% if (titulo.imagen_id) { %>
+							<!-- Celda de imagen particular -->
 							<td class="td_imagen">
 								<form action="/editar/reemplazarImagen" method = "POST" enctype = "multipart/form-data">
+									<input name="entidad" value="imagenes_varias" class="ocultar">
 									<input name="ruta" value="./public/imagenes/varias" class="ocultar">
 									<input name="home" value="/editar/home" class="ocultar">
-									<input name="entidad" value="imagenes_varias" class="ocultar">
 									<input name="id" value="<%= titulo.imagen_id %>" class="ocultar">
-									<label for="inputImagen<%= i %>" id="preview"><img src="/imagenes/varias/<%= titulo.imagen.archivo %>"></label>
+									<label for="inputImagen<%= i %>"><img src="/imagenes/varias/<%= titulo.imagen.archivo %>"></label>
 									<input name="imagen" type="file" id="inputImagen<%= i %>" class="ocultar" accept="image/*" onchange="this.form.submit()">
 									<% i=i+1 %>
 								</form>
@@ -111,14 +113,17 @@
 						<% } else { %>
 							<td class="center">-</td>
 						<% } %>
+						<!-- Celda de ícono para editar texto -->
 						<td class="center">
 							<%- titulo.editar_texto ? '<a href="/editar/textos/' + titulo.nombre_seccion + '"><i class="fas fa-check-circle"></i></a>' : '<i class="fas fa-times-circle"></i>' %>
 						</td>
+						<!-- Celda de ícono para editar imágenes -->
 						<td class="center">
 							<%- titulo.editar_imagenes ? '<a href="/editar/imagenes/' + titulo.nombre_seccion + '"><i class="fas fa-check-circle"></i></a>' : '<i class="fas fa-times-circle"></i>' %>
 						</td>
 					</tr>
 				<% } %>
+				<!-- Fila de footer de home -->
 				<tr id="footer">
 					<td id="cfp" class="ocultar"><%= footer.color_fondo.codigo %></td>
 					<td id="clp" class="ocultar"><%= footer.color_letras.codigo %></td>

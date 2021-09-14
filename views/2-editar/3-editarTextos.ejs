@@ -2,7 +2,7 @@
 <%- include('3-headEditarTextos', {titulo: "Edición - " + titulo.nombre_a_mostrar}) %>
 <body id="editar_texto">
 	<header>
-		Seccion: <%= titulo.nombre_a_mostrar %>
+		Seccion:<%= titulo.nombre_a_mostrar %>
 		<div class="ocultar"><%= titulo.nombre_seccion %></div>
 	</header>
 	<main>
@@ -13,7 +13,7 @@
 				<h1>Grupo <%= grupo %></h1>
 				<% if (seccion == "habilitaciones" || seccion == "servicios") { %>
 					<span id="grupo" class="ocultar"><%= grupo %></span>
-					<i class="far fa-trash-alt <%- grupo == 1 ? 'ocultar' : '' %>"></i>
+					<i class="far fa-trash-alt<%- grupo == 1 ? ' ocultar' : '' %>"></i>
 				<% } %>
 			</div>
 			<table id="tabla">
@@ -23,11 +23,11 @@
 							<td id="id" class="ocultar"><%= texto.id %></td>
 							<td id="orden" class="ocultar"><%= texto.orden %></td>
 							<td class="center flechas">
-								<i class="fas fa-arrow-alt-circle-up <%- texto == contenido[0] ? 'ocultar' : '' %>"></i>
-								<i class="fas fa-arrow-alt-circle-down <%- texto == contenido[contenido.length-1] ? 'ocultar' : '' %>"></i>
+								<i class="fas fa-arrow-alt-circle-up<%- texto == contenido[0] ? ' ocultar' : '' %>"></i>
+								<i class="fas fa-arrow-alt-circle-down<%- texto == contenido[contenido.length-1] ? ' ocultar' : '' %>"></i>
 							</td>
 							<td><input type="text" name="contenido" value="<%= texto.contenido %>"></td>
-							<td><i class="far fa-trash-alt <%- texto.orden == 1 ? 'ocultar' : '' %>"></i></td>
+							<td><i class="far fa-trash-alt<%- texto.orden == 1 ? ' ocultar' : '' %>"></i></td>
 						</tr>
 					<% } %>
 					<tr id="texto_nuevo" class="ocultar">

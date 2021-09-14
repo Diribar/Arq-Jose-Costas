@@ -1,12 +1,12 @@
 window.addEventListener("load", () => {
 	// Variables generales
 	let eliminar = document.querySelectorAll(".imagenes i.fa-trash-alt");
-	let id = document.querySelectorAll(".imagenes i.ocultar");
+	let IDs = document.querySelectorAll(".imagenes input[name='id']");
 
 	// Acciones
-	for (let i = 0; i < id.length; i++) {
+	for (let i = 0; i < IDs.length; i++) {
 		eliminar[i].addEventListener("click", async () => {
-			dato_id = id[i].innerHTML;
+			dato_id = IDs[i].value;
 			await eliminarImagen(dato_id);
 		});
 	}

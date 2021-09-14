@@ -2,9 +2,10 @@
 <%- include('4-headEditarImagenes', {titulo: "Edición - " + titulo.nombre_a_mostrar}) %>
 <body id="editar_imagenes">
 	<header>
-		Seccion: <%= titulo.nombre_a_mostrar %>
+		Seccion:<%= titulo.nombre_a_mostrar %>
 	</header>
 	<main>
+		<% i=0 %>
 		<% for (let grupo=1; grupo<=datos.length; grupo++) { %>
 			<% imagenes = datos.filter(n => n.grupo == grupo) %>
 			<% if (imagenes.length == 0) {break} %>
@@ -14,10 +15,17 @@
 			<ul class="imagenes">
 				<% for (imagen of imagenes) { %>
 					<li>
-						<i id="id" class="ocultar"><%= imagen.id %></i>
-						<div id="tamano">
-							<img src="/imagenes/<%= titulo.id %>-<%= seccion %>/<%= imagen.archivo %>" alt="">
-						</div>
+						<!-- Imagen existente -->
+						<form action="/editar/reemplazarImagen/" method = "POST" enctype = "multipart/form-data" id="tamano">
+							<input name="entidad" value="<%= titulo.nombre_seccion %>_imagenes" class="ocultar">
+							<input name="ruta" value="./public/imagenes/<%= titulo.id %>-<%= titulo.nombre_seccion %>/" class="ocultar">
+							<input name="home" value="<%= url %>" class="ocultar">
+							<input name="id" value="<%= imagen.id %>" class="ocultar">
+							<label for="inputImagen<%= i %>"><img src="/imagenes/<%= titulo.id %>-<%= seccion %>/<%= imagen.archivo %>"></label>
+							<input name="imagen" type="file" id="inputImagen<%= i %>" class="ocultar" accept="image/*" onchange="this.form.submit()">
+							<% i=i+1 %>
+						</form>
+						<!-- Texto existente -->
 						<input name="texto" type="text" value="<%= imagen.texto %>">
 						<a title="Eliminar"><i class="far fa-trash-alt"></i></a>
 					</li>
@@ -26,16 +34,13 @@
 			<!-- Agregarle una imagen al grupo -->
 			<form action="/editar/agregarImagen" method = "POST" enctype = "multipart/form-data" class="agregarImagen">
 				<input name="entidad" value="<%= titulo.nombre_seccion %>_imagenes" class="ocultar">
-				<input name="grupo" value="<%= grupo %>" class="ocultar">
 				<input name="ruta" value="./public/imagenes/<%= titulo.id %>-<%= titulo.nombre_seccion %>/" class="ocultar">
 				<input name="home" value="<%= url %>" class="ocultar">
-				<label for="inputImagen<%= grupo %>" id="preview">
-					<a title="Agregar una imagen" id="agregarImagen" class="botones">
-						<i class="fas fa-plus"></i>
-					</a>
+				<input name="grupo" value="<%= grupo %>" class="ocultar">
+				<label for="nuevaImagen<%= grupo %>">
+					<a title="Agregar una imagen" class="botones"><i class="fas fa-plus"></i></a>
 				</label>
-				<input name="imagen" type="file" id="inputImagen<%= grupo %>" class="ocultar" accept="image/*" onchange="this.form.submit()">
-				<button type="submit" class="ocultar"><i class="fas fa-save"></i></button>
+				<input name="imagen" type="file" id="nuevaImagen<%= grupo %>" class="ocultar" accept="image/*" onchange="this.form.submit()">
 			</form>
 		<% } %>
 		<div id="botones">
