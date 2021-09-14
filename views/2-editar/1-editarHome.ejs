@@ -98,12 +98,12 @@
 						</td>
 						<% if (titulo.imagen_id) { %>
 							<td class="td_imagen">
-								<form action="/editar/reemplazarImagenHome" method = "POST" enctype = "multipart/form-data">
+								<form action="/editar/reemplazarImagen" method = "POST" enctype = "multipart/form-data">
 									<input name="ruta" value="./public/imagenes/varias" class="ocultar">
+									<input name="home" value="/editar/home" class="ocultar">
 									<input name="id" value="<%= titulo.imagen_id %>" class="ocultar">
 									<label for="inputImagen<%= i %>" id="preview"><img src="/imagenes/varias/<%= titulo.imagen.archivo %>"></label>
-									<input name="imagen" type="file" id="inputImagen<%= i %>" class="ocultar" accept="image/*">
-									<button type="submit" class="ocultar"><i class="fas fa-save"></i></button>
+									<input name="imagen" type="file" id="inputImagen<%= i %>" class="ocultar" accept="image/*" onchange="this.form.submit()">
 									<% i=i+1 %> 
 								</form>
 							</td>
