@@ -126,4 +126,23 @@ module.exports = {
 		// Terminar
 		res.redirect(home);
 	},
+
+	agregarImagen: async (req, res) => {
+		return res.send("agregar imagen")
+		// Variables
+		ruta = "/public/imagenes/varias/";
+		home = "/editar/home";
+		// Verificaciones
+		if (req.file.filename.length > 50) {
+			eliminarImagen(ruta, req.file.filename);
+			return res.redirect(home);
+		}
+		// Borrar el archivo obsoleto
+		var registroImagen = await BD_obtener.ObtenerImagenPorId(req.body.id);
+		funciones.eliminarImagen(ruta, registroImagen.archivo);
+		// Reemplazar el nombre del archivo en la BD
+		await BD_obtener.CambiarImagenEnBD(req.body.id, req.file.filename);
+		// Terminar
+		res.redirect(home);
+	},
 };

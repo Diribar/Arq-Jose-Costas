@@ -9,7 +9,6 @@ window.addEventListener("load", () => {
 		// Acciones si cambió alguna imagen
 		inputImagen[i].addEventListener("change", (e) => {
 			texto = inputImagen[i].value;
-			nombre = texto.slice(texto.lastIndexOf("\\") + 1);
 			ext = texto.slice(texto.length - 4);
 			if (!extensionesOK.includes(ext)) {
 				return;
