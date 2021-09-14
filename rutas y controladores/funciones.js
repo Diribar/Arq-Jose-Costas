@@ -67,9 +67,11 @@ module.exports = {
 		try {
 			fs.accessSync(archivo, fs.constants.W_OK);
 			fs.unlinkSync(archivo);
-			console.log("El archivo se eliminó");
+			console.log("El archivo " + nombre + " se eliminó");
 		} catch (err) {
-			console.log("No se encuentra el archivo o es Read-Only");
+			console.log(
+				"No se encuentra el archivo " + nombre + " o es Read-Only"
+			);
 		}
 	},
 

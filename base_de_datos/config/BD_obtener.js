@@ -71,8 +71,8 @@ module.exports = {
 		return db[entidad].findByPk(id);
 	},
 
-	CambiarImagenEnBD: (id, archivo) => {
-		return db.imagenes_varias.update(
+	CambiarImagenEnBD: (entidad, id, archivo) => {
+		return db[entidad].update(
 			{ archivo: archivo },
 			{ where: { id: id } }
 		);

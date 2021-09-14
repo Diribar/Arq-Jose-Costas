@@ -37,9 +37,12 @@
 				<input name="ruta" value="./public/imagenes/<%= titulo.id %>-<%= titulo.nombre_seccion %>/" class="ocultar">
 				<input name="home" value="<%= url %>" class="ocultar">
 				<input name="grupo" value="<%= grupo %>" class="ocultar">
-				<label for="nuevaImagen<%= grupo %>">
-					<a title="Agregar una imagen" class="botones"><i class="fas fa-plus"></i></a>
-				</label>
+				<a title="Agregar una imagen" class="botones">
+					<label for="nuevaImagen<%= grupo %>">
+						<i class="fas fa-plus"></i>
+					</label>
+				</a>
+
 				<input name="imagen" type="file" id="nuevaImagen<%= grupo %>" class="ocultar" accept="image/*" onchange="this.form.submit()">
 			</form>
 		<% } %>
