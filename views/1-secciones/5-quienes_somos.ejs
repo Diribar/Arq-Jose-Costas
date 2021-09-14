@@ -13,16 +13,16 @@
 		<% textos = quienes_somos.filter(m => (m.grupo == 1 && m.orden > 1)) %>
 		<% for (texto of textos) { %>
 			<li><%= texto.contenido %></li>
-		<% } %> 
+		<% } %>
 	</ul>
 </section>
 <section id="clientes">
 	<h2><%= quienes_somos.find(m => m.grupo == 2 && m.orden == 1).contenido %></h2>
 	<ul>
-		<% for (j of clientes_imagenes) { %> 
+		<% for (j of clientes_imagenes) { %>
 			<li>
-				<img src="/imagenes/5-quienes_somos/<%= j.archivo %> " alt="<%= j.nombre %>">
+				<img src="/imagenes/5-quienes_somos/<%= j.archivo %>" alt="<%= j.nombre %>">
 			</li>
-		<% } %> 
+		<% } %>
 	</ul>
 </section>

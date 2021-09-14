@@ -30,8 +30,8 @@
 			<% casos = contactanos.filter(m => (m.grupo == 2)).length %>
 			<% for (let i=0; i<casos; i++) { %>
 				<p><%= contactanos.find(n => n.grupo == 2 && n.orden == i+1).contenido %></p>
-				<%- i == 0 ? '<br>' : '' %> 
-			<% } %> 
+				<%- i == 0 ? '<br>' : '' %>
+			<% } %>
 		</div>
 		<div id="submit">
 			<p id="suma1" class="noSeleccionable"><%= suma1 %></p>
@@ -45,14 +45,14 @@
 				>
 				<i class="fas fa-times-circle ocultar" id="errorSuma"></i>
 			</div>
-			<button style="background-color: <%= n.color_letras.codigo %> " type="submit">Enviar</button>
+			<button style="background-color: <%= n.color_letras.codigo %>" type="submit">Enviar</button>
 		</div>
 	</section>
 </form>
 <section id="background" class="ocultar">
 </section>
 <section id="envioExitoso" class="ocultar" style="background-color: <%= n.color_letras.codigo %>">
-	<p style="color: <%= n.color_fondo.codigo %> ">¡Su mensaje fue enviado correctamente!</p>
+	<p style="color: <%= n.color_fondo.codigo %>">¡Su mensaje fue enviado correctamente!</p>
 	<img src="/imagenes/6-contactanos/ok.png">
 	<button style="background-color: <%= n.color_fondo.codigo %>; color: <%= n.color_letras.codigo %>">Entendido</button>
 </section>

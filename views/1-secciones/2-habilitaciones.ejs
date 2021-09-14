@@ -3,17 +3,17 @@
 	<div id="comentarioH1">
 		<% for (m of habilitaciones.filter(m => m.grupo == 1)) { %>
 			<p><%= m.contenido %></p>
-		<% } %> 
+		<% } %>
 	</div>
 	<ul>
 		<% casos = habilitaciones.filter(m => (m.grupo > 1 && m.orden == 1)).length %>
 		<% for (let i=0; i<casos; i++) { %>
 			<li>
 				<h2><%= habilitaciones.find(n => n.grupo == i+2 && n.orden == 1).contenido %></h2>
-				<% aux = habilitaciones.find(n => n.grupo == i+2 && n.orden == 2) %> 
+				<% aux = habilitaciones.find(n => n.grupo == i+2 && n.orden == 2) %>
 				<p><%- aux ? habilitaciones.find(n => n.grupo == i+2 && n.orden == 2).contenido : "" %></p>
 			</li>
-		<% } %> 
+		<% } %>
 	</ul>
 </section>
 <section id="imagen">

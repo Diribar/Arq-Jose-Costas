@@ -10,19 +10,19 @@
 				<nav style="border-color: <%= encabezado.color_letras.codigo %>">
 					<a style="color: <%= encabezado.color_letras.codigo %>" href="#<%= m.nombre_seccion %>"><%= m.nombre_a_mostrar %></a>
 				</nav>
-			<% } %> 
+			<% } %>
 		</div>
 	</div>
 	<h1><%= n.titulo_seccion %></h1>
 	<div id="tareas">
 		<% for (m of inicio.filter(m => m.grupo == 1)) { %>
 			<p><%= m.contenido %></p>
-		<% } %> 
+		<% } %>
 	</div>
 	<div id="datos">
 		<% for (m of inicio.filter(m => m.grupo == 2)) { %>
 			<p style="color: <%= n.color_letras.codigo %>"><%= m.contenido %></p>
-		<% } %> 
+		<% } %>
 	</div>
 </section>
 <section id="imagenes">
@@ -30,7 +30,7 @@
 	<ul>
 		<% for (m of inicio_imagenes) { %>
 			<li><img src="./imagenes/1-inicio/<%= m.archivo %>"></li>
-		<% } %> 
+		<% } %>
 		<li>
 			<img src="./imagenes/1-inicio/<%= inicio_imagenes[0].archivo %>">
 		</li>
