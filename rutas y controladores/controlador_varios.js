@@ -111,19 +111,6 @@ module.exports = {
 		});
 	},
 
-	reemplazarImagen: async (req, res) => {
-		if (verificarImagenNueva(req.body, req.file)) {
-			return res.redirect(req.body.home);
-		}
-		// Borrar el archivo anterior
-		archivoAnterior = await BD_obtener.ObtenerPorId(req.body.entidad, req.body.id);
-		funciones.eliminarImagen(req.body.ruta, archivoAnterior.archivo);
-		// Reemplazar el nombre del archivo en la BD
-		await BD_obtener.CambiarImagenEnBD(req.body.id, req.file.filename);
-		// Terminar
-		res.redirect(req.body.home);
-	},
-
 	agregarImagen: async (req, res) => {
 		//return res.send("agregar imagen")
 		if (verificarImagenNueva(req.body, req.file)) {
@@ -132,15 +119,33 @@ module.exports = {
 		// Averiguar el orden
 		orden = await BD_obtener.ObtenerTodos(req.body.entidad)
 			.then((n) => n.filter((m) => m.grupo == req.body.grupo))
-			.then((n) => n.map((m) => {return m.orden;}))
+			.then((n) =>
+				n.map((m) => {
+					return m.orden;
+				})
+			)
 			.then((n) => Math.max(...n) + 1);
 		// Agregar el nombre del archivo en la BD
 		await BD_obtener.AgregarImagenEnBD(
 			req.body.entidad,
 			req.body.grupo,
 			orden,
-			req.file.filename,
+			req.file.filename
 		);
+		// Terminar
+		res.redirect(req.body.home);
+	},
+
+	reemplazarImagen: async (req, res) => {
+		let { home, id, entidad, ruta } = req.body;
+		if (verificarImagenNueva(req.body, req.file)) {
+			return res.redirect(home);
+		}
+		// Borrar el archivo anterior
+		archivoAnterior = await BD_obtener.ObtenerPorId(entidad, id);
+		funciones.eliminarImagen(ruta, archivoAnterior.archivo);
+		// Reemplazar el nombre del archivo en la BD
+		await BD_obtener.CambiarImagenEnBD(entidad, id, req.file.filename);
 		// Terminar
 		res.redirect(req.body.home);
 	},

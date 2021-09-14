@@ -1,6 +1,6 @@
 window.addEventListener("load", () => {
 	// Variables generales
-	let IDs = document.querySelectorAll(".imagenes #id");
+	let IDs = document.querySelectorAll(".imagenes input[name='id']");
 	let texto = document.querySelectorAll(".imagenes input[name='texto']");
 	let verTexto = /^[A-Z][A-Za-z áéíóúü,.\d]+$/;
 
@@ -21,7 +21,7 @@ window.addEventListener("load", () => {
 		// Acciones cuando se terminó de escribir
 		texto[i].addEventListener("change", () => {
 			if (contenidoOK) {
-				id = IDs[i].innerHTML;
+				id = IDs[i].value;
 				dato = texto[i].value;
 				campo = "texto";
 				funcionModificar(id, dato, campo);
@@ -32,7 +32,6 @@ window.addEventListener("load", () => {
 
 const funcionModificar = async (id, dato, campo) => {
 	entidad = document.querySelector("input[name='entidad']").value;
-	console.log(entidad)
 	await fetch(
 		"/editar/cambiarvalor/?entidad=" +
 			entidad +
