@@ -2,6 +2,5 @@ ASIGNARLE LA DIRECCIÓN DE INTERNET
 arquitectojosecostas.com.ar
 
 EDITAR IMAGENES
-- Agregar imagen
-- Borrar imagen
+- Modificar imagen
 - Agregar grupo

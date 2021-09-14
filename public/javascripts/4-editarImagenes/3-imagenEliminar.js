@@ -1,18 +1,19 @@
 window.addEventListener("load", () => {
 	// Variables generales
-	let eliminar = document.querySelectorAll(".imagenes i.fa-trash-alt");
+	let entidad = document.querySelector("input[name='entidad']").value;
 	let id = document.querySelectorAll(".imagenes i.ocultar");
+	let eliminar = document.querySelectorAll(".imagenes i.fa-trash-alt");
 
 	// Acciones
 	for (let i = 0; i < id.length; i++) {
-		eliminar[i].addEventListener("click", () => {
+		eliminar[i].addEventListener("click", async () => {
 			dato_id = id[i].innerHTML;
-			eliminarImagen(dato_id);
+			await eliminarImagen(entidad, dato_id);
 		});
 	}
 });
 
-const eliminarImagen = async (id) => {
-	await fetch("/editar/eliminar_imagen/?id=" + id);
-	//location.reload();
+const eliminarImagen = async (entidad, id) => {
+	await fetch("/editar/eliminarregistro/?entidad=" + entidad + "&id=" + id);
+	location.reload();
 };
