@@ -3,5 +3,5 @@ arquitectojosecostas.com.ar
 
 EDITAR IMAGENES
 - Modificar imagen
-- Mostrar y modificar texto de imagen (proyectos y clientes)
+- Modificar texto de imagen on-line (proyectos y clientes)
 - Agregar grupo

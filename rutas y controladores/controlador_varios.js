@@ -112,11 +112,11 @@ module.exports = {
 	},
 
 	reemplazarImagen: async (req, res) => {
-		if (verificaciones(req.body, req.file)) {
+		if (verificarImagenNueva(req.body, req.file)) {
 			return res.redirect(req.body.home);
 		}
 		// Borrar el archivo anterior
-		archivoAnterior = await BD_obtener.ObtenerImagenPorId(req.body.id);
+		archivoAnterior = await BD_obtener.ObtenerPorId(req.body.entidad, req.body.id);
 		funciones.eliminarImagen(req.body.ruta, archivoAnterior.archivo);
 		// Reemplazar el nombre del archivo en la BD
 		await BD_obtener.CambiarImagenEnBD(req.body.id, req.file.filename);
@@ -126,7 +126,7 @@ module.exports = {
 
 	agregarImagen: async (req, res) => {
 		//return res.send("agregar imagen")
-		if (verificaciones(req.body, req.file)) {
+		if (verificarImagenNueva(req.body, req.file)) {
 			return res.redirect(req.body.home);
 		}
 		// Averiguar el orden
@@ -146,7 +146,7 @@ module.exports = {
 	},
 };
 
-let verificaciones = (body, file) => {
+let verificarImagenNueva = (body, file) => {
 	// Verificar si el nombre es demasiado largo
 	condicion1 = file.filename.length > 50;
 	// Verificar si la extensión del nombre corresponde a una imagen
