@@ -138,7 +138,6 @@ module.exports = {
 
 	reemplazarImagen: async (req, res) => {
 		let { home, id, entidad, ruta } = req.body;
-		console.log(home, id, entidad, ruta);
 		if (verificarImagenNueva(req.body, req.file)) {
 			return res.redirect(home);
 		}
