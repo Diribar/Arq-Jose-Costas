@@ -22,17 +22,17 @@
 					</li>
 				<% } %> 
 			</ul>
-				<form action="/editar/agregarImagen" method = "POST" enctype = "multipart/form-data" class="agregarImagen">
-					<input name="ruta" value="./public/imagenes/<%= titulo.id %>-<%= titulo.nombre_seccion %>" class="ocultar">
-					<input name="grupo" value="<%= grupo %>" class="ocultar">
-					<label for="inputImagen<%= grupo %>" id="preview">
-						<a title="Agregar una imagen" id="agregarImagen" class="botones">
-							<i class="fas fa-plus"></i>
-						</a>
-					</label>
-					<input name="imagen" type="file" id="inputImagen<%= grupo %>" class="ocultar" accept="image/*">
-					<button type="submit" class="ocultar"><i class="fas fa-save"></i></button>
-				</form>
+			<form action="/editar/agregarImagen" method = "POST" enctype = "multipart/form-data" class="agregarImagen">
+				<input name="ruta" value="./public/imagenes/<%= titulo.id %>-<%= titulo.nombre_seccion %>" class="ocultar">
+				<input name="grupo" value="<%= grupo %>" class="ocultar">
+				<label for="inputImagen<%= grupo %>" id="preview">
+					<a title="Agregar una imagen" id="agregarImagen" class="botones">
+						<i class="fas fa-plus"></i>
+					</a>
+				</label>
+				<input name="imagen" type="file" id="inputImagen<%= grupo %>" class="ocultar" accept="image/*">
+				<button type="submit" class="ocultar"><i class="fas fa-save"></i></button>
+			</form>
 
 		<% } %>
 		<div id="botones">
