@@ -1,8 +1,7 @@
 window.addEventListener("load", () => {
-	// Seleccionar los formularios
-	let form = document.querySelectorAll(".td_imagen form");
-	// Seleccionar los inputs de imagenes
-	let inputImagen = document.querySelectorAll(".td_imagen input");
+	// Seleccionar partes del formulario
+	let inputImagen = document.querySelectorAll(".td_imagen input[name='imagen']");
+	let boton = document.querySelectorAll(".td_imagen button[type='submit']");
 	// Definir los tipos de archivo válidos
 	let extensionesOK = [".jpg", ".png", ".gif", ".bmp"];
 	// Rutina para los inputs
@@ -16,6 +15,7 @@ window.addEventListener("load", () => {
 				return;
 			}
 			mostrarImagen(e, i)
+			boton[i].classList.remove("ocultar")
 		});
 	}
 });
