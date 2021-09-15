@@ -20,7 +20,12 @@
 		"sequelize": "^6.6.5",
 		"sequelize-cli": "^6.2.0"
 	},
+	"main": "app.js",
 	"devDependencies": {
 		"nodemon": "^2.0.12"
-	}
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"description": ""
 }

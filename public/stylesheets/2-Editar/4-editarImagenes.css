@@ -36,6 +36,15 @@
 .imagenes li .fas,
 .imagenes li .far {
 	color: #223063;
-	margin: 10px;
+	margin: 10px 10px 0 10px;
 	font-weight: bold;
+}
+
+#liAgregar {
+	padding-top: 70px;
+	width: auto;
+}
+
+#agregar i.fa-plus {
+	font-size: 2rem;
 }
