@@ -26,8 +26,14 @@
 							<% i=i+1 %>
 						</form>
 						<!-- Texto existente -->
-						<input name="texto" type="text" value="<%= imagen.texto %>">
-						<a title="Eliminar"><i class="far fa-trash-alt"></i></a>
+						<% if (imagen.texto) { %>
+							<input name="texto" type="text" value="<%= imagen.texto %>">
+						<% } %>
+						<div>
+							<i class="fas fa-arrow-alt-circle-left<%- imagen==imagenes[0] ? ' ocultar' : '' %>"></i>
+							<a title="Eliminar"><i class="far fa-trash-alt"></i></a>
+							<i class="fas fa-arrow-alt-circle-right<%- imagen==imagenes[imagenes.length-1] ? ' ocultar' : '' %>"></i>
+						</div>
 					</li>
 				<% } %>
 			</ul>

@@ -17,15 +17,12 @@ app.set("views", [
 ]);
 app.set('view engine', 'ejs');
 
-//app.use(logger('dev'));
+//app.use(logger('dev')); Muestra en la terminal los archivos usados
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({ secret: "keyboard cat", resave: false, saveUninitialized: false }));
-
-// *********** Para conectarse con el servidor ********************
-app.listen(3001, () => console.log("Servidor funcionando..."));
 
 // ************************** Router ******************************
 var router = require("./rutas y controladores/ruta");

@@ -1,9 +1,7 @@
 // **** Requires ***********
-const BD_ABM = require("../base_de_datos/config/BD_ABM");
+const BD_API = require("../base_de_datos/config/BD_API");
 const BD_obtener = require("../base_de_datos/config/BD_obtener");
 const funciones = require("./funciones");
-const path = require("path");
-const fs = require("fs");
 
 // **** Exportar ***********
 module.exports = {
@@ -19,13 +17,13 @@ module.exports = {
 
 	editarOrdenarRegistros: async (req, res) => {
 		let { entidad, id, orden } = req.query;
-		await BD_ABM.OrdenarRegistros(entidad, id, orden);
+		await BD_API.OrdenarRegistros(entidad, id, orden);
 		return res.json();
 	},
 
 	editarCambiarValor: async (req, res) => {
 		let { entidad, id, dato, campo } = req.query;
-		await BD_ABM.CambiarValor(entidad, id, dato, campo);
+		await BD_API.CambiarValor(entidad, id, dato, campo);
 		return res.json();
 	},
 
@@ -38,13 +36,13 @@ module.exports = {
 			funciones.eliminarImagen(ruta, datos.archivo);
 		}
 		// Borrar el registro
-		await BD_ABM.EliminarRegistro(entidad, id);
+		await BD_API.EliminarRegistro(entidad, id);
 		return res.json();
 	},
 
 	editarColorAgregar: async (req, res) => {
 		let { nombre, codigo } = req.query;
-		await BD_ABM.AgregarColor(nombre, codigo);
+		await BD_API.AgregarColor(nombre, codigo);
 		return res.json();
 	},
 
@@ -61,13 +59,13 @@ module.exports = {
 			});
 			orden = Math.max(...orden) + 1;
 		}
-		await BD_ABM.AgregarTexto(entidad, contenido, grupo, orden);
+		await BD_API.AgregarTexto(entidad, contenido, grupo, orden);
 		return res.json();
 	},
 
 	editarGrupoEliminar: async (req, res) => {
 		let { entidad, grupo } = req.query;
-		await BD_ABM.EliminarGrupo(entidad, grupo);
+		await BD_API.EliminarGrupo(entidad, grupo);
 		return res.json();
 	},
 
