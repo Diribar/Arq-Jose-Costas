@@ -8,24 +8,33 @@ window.addEventListener("load", async () => {
 
 	// Acciones si se cambia un valor
 	for (let i = 0; i < ts.length; i++) {
-		// Validar longitudes de los textos
-		verificarLargo(ne[i], 20);
-		verificarLargo(ts[i], 50);
+		// Validar nombre vs sintaxis y largo
+		OKne = verificarLargo(ne[i], 20);
+		OKts = verificarLargo(ts[i], 50);
 		// Hacer cambios en la BD
-		await funcionTexto(ne[i], IDs[i], "nombre_encabezado");
-		await funcionTexto(ts[i], IDs[i], "titulo_seccion");
+		OKne ? await funcionTexto(ne[i], IDs[i], "nombre_encabezado") : ""
+		OKts ? await funcionTexto(ts[i], IDs[i], "titulo_seccion"): "";
 		await funcionTexto(scff[i], IDs[i], "color_fondo_id");
 		await funcionTexto(sclf[i], IDs[i], "color_letras_id");
 	}
 });
 
+// FÓRMULAS *************************************************
 let verificarLargo = (campo, largoMax) => {
-	campo.addEventListener("keydown", (e) => {
-		campo.value.length > largoMax ? e.preventDefault() : ""
-	});
 	campo.addEventListener("keypress", (e) => {
 		campo.value.length >= largoMax ? e.preventDefault() : ""
 	});
+	verNombre = /^[A-Z][a-z áéíóúüñ\d+-]+$/;
+	let contenido = campo.addEventListener("input", () => {
+		verNombre.test(campo.value) && campo.value.length <= largoMax
+			? (contenidoOK = true)
+			: (contenidoOK = false);
+		!contenidoOK
+			? campo.classList.add("rojo")
+			: campo.classList.remove("rojo");
+		return contenidoOK
+	})
+	return contenido
 };
 
 let funcionTexto = (celda, ID, campo) => {

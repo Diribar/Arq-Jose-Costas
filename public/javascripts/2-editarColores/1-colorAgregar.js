@@ -6,6 +6,7 @@ window.addEventListener("load", () => {
 	codigoYaEnBD = true;
 	nombre = document.querySelector("#color_nuevo input[name='nombre']");
 	confirmar = document.querySelector("#color_nuevo #confirmar");
+	let largoMax = 50;
 
 	// FÓRMULA PARA CONFIRMAR EL AGREGADO DE UN COLOR
 	let confirmarSINO = () => {
@@ -29,16 +30,18 @@ window.addEventListener("load", () => {
 	});
 
 	// VALIDAR NOMBRE **************************************
-	// Validar longitudes del texto
-	verificarLargo(nombre, 20);
 	// Variables
 	nombres = document.querySelectorAll(
 		"tr.color_existente input[name='nombre']"
 	);
-	verNombre = /^[A-Z][a-z áéíóúü\d+-]+$/;
+	verNombre = /^[A-Z][a-z áéíóúüñ\d+-]+$/;
 	nombre.addEventListener("input", () => {
-		// Validar nombre vs sintaxis
-		verNombre.test(nombre.value) ? (nombreOK = true) : (nombreOK = false);
+		// Validar longitud del texto
+		verificarLargo(nombre, 20);
+		// Validar nombre vs sintaxis y largo
+		verNombre.test(nombre.value) && nombre.value.length <= largoMax
+			? (nombreOK = true)
+			: (nombreOK = false);
 		// Validar nombre repetido
 		nombreYaEnBD = false;
 		for (n of nombres) {
@@ -106,9 +109,6 @@ window.addEventListener("load", () => {
 
 // FÓRMULAS *************************************************
 let verificarLargo = (campo, largoMax) => {
-	campo.addEventListener("keydown", (e) => {
-		campo.value.length > largoMax ? e.preventDefault() : "";
-	});
 	campo.addEventListener("keypress", (e) => {
 		campo.value.length >= largoMax ? e.preventDefault() : "";
 	});

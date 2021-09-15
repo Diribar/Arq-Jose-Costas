@@ -4,15 +4,17 @@ window.addEventListener("load", () => {
 	nombres = document.querySelectorAll(
 		"tr.color_existente input[name='nombre']"
 	);
-	verNombre = /^[A-Z][a-z áéíóúü\d+-]+$/;
+	verNombre = /^[A-Z][a-z áéíóúüñ\d+-]+$/;
+	let largoMax = 50;
 
 	// Acciones si se cambia un valor
 	for (let i = 0; i < nombres.length; i++) {
-		// Acciones mientras se escribe
 		nombres[i].addEventListener("input", () => {
-			// Validar nombre vs sintaxis
-			nombreOK = false;
-			verNombre.test(nombres[i].value)
+			// Validar longitud del texto
+			verificarLargo(nombres[i], 20);
+			// Validar nombre vs sintaxis y largo
+			verNombre.test(nombres[i].value) &&
+			nombres[i].value.length <= largoMax
 				? (nombreOK = true)
 				: (nombreOK = false);
 			// Validar nombre repetido
@@ -41,7 +43,8 @@ window.addEventListener("load", () => {
 	}
 });
 
-const funcionModificar = async (id, dato) => {
+// FÓRMULAS *************************************************
+let funcionModificar = async (id, dato) => {
 	await fetch(
 		"/editar/cambiarvalor/?entidad=colores" +
 			"&id=" +
