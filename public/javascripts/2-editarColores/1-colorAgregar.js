@@ -2,17 +2,16 @@ window.addEventListener("load", () => {
 	// VARIABLES INICIALES
 	let OKnombre = false;
 	let OKcodigo = false;
-	let largoMax = 20;
 	confirmar = document.querySelector("#color_nuevo #confirmar");
 
 	// Validar nombre: largo, sintaxis y repetido
 	nombre = document.querySelector("#color_nuevo input[name='nombre']");
 	nombre.addEventListener("input", () => {
-		OKnombre = validarNombre(nombre, largoMax);
+		OKnombre = validarNombre(nombre,-1);
 		confirmarSINO(OKnombre, OKcodigo);
 	});
 
-	// Validar código repetido
+	// Validar código: repetido
 	codigo = document.querySelector("#color_nuevo input[name='codigo']");
 	codigo.addEventListener("input", () => {
 		OKcodigo = validarCodigo(codigo);
@@ -23,7 +22,7 @@ window.addEventListener("load", () => {
 	confirmar.addEventListener("click", async () => {
 		if (OKnombre && OKcodigo) {
 			valor1 = nombre.value;
-			valor2 = encodeURIComponent(codigo.value);
+			valor2 = encodeURIComponent(codigo.value.toUpperCase());
 			await funcionAgregar(valor1, valor2);
 		}
 	});
@@ -38,7 +37,8 @@ window.addEventListener("load", () => {
 });
 
 // FÓRMULAS *************************************************
-let validarNombre = (campo, largoMax) => {
+let validarNombre = (campo, i) => {
+	let largoMax = 20;
 	// Validar largo
 	campo.addEventListener("keypress", (e) => {
 		campo.value.length >= largoMax ? e.preventDefault() : "";
@@ -51,28 +51,27 @@ let validarNombre = (campo, largoMax) => {
 	// Validar repetido
 	contenidoYaEnBD = false;
 	contenidos = document.querySelectorAll(
-		"tr.color_existente input[name='nombre']"
+		"tr.color_exist input[name='nombre']"
 	);
-	for (n of contenidos) {
-		if (n.value == campo.value) {
+	for (let j = 0; j < contenidos.length; j++) {
+		if (contenidos[j].value == campo.value && j != i) {
 			contenidoYaEnBD = true;
-			n.classList.add("rojo");
+			contenidos[j].classList.add("rojo");
 		} else {
-			n.classList.remove("rojo");
+			contenidos[j].classList.remove("rojo");
 		}
 	}
 	// Consecuencias
 	contenidoYaEnBD || !contenidoOK
 		? campo.classList.add("rojo")
 		: campo.classList.remove("rojo");
-	confirmarSINO();
 	return !contenidoYaEnBD && contenidoOK;
 };
 
 let validarCodigo = (campo) => {
 	// Validar repetido
 	contenidoYaEnBD = false;
-	contenidos = document.querySelectorAll("tr.color_existente #codigo");
+	contenidos = document.querySelectorAll("tr.color_exist #codigo");
 	for (n of contenidos) {
 		if (n.innerHTML == campo.value) {
 			contenidoYaEnBD = true;

@@ -1,11 +1,11 @@
 window.addEventListener("load", () => {
 	// Variables generales
 	let eliminar = document.querySelectorAll(
-		"tbody tr.color_existente .eliminar i.fa-trash-alt"
+		"tbody tr.color_exist .eliminar i.fa-trash-alt"
 	);
 	// Este id se obtiene así, porque no se puede eliminar cualquier registro
 	let id = document.querySelectorAll(
-		"tbody tr.color_existente .eliminar i.ocultar"
+		"tbody tr.color_exist .eliminar i.ocultar"
 	);
 
 	// Acciones
