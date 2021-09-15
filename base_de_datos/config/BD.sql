@@ -222,7 +222,7 @@ CREATE TABLE 6_contactanos_datos (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
 	grupo INT UNSIGNED NOT NULL,
 	orden INT UNSIGNED NOT NULL,
-	contenido VARCHAR(200) NOT NULL,
+	contenido VARCHAR(50) NOT NULL,
 	PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 INSERT INTO 6_contactanos_datos (grupo, orden, contenido)

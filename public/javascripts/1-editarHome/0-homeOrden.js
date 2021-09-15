@@ -25,7 +25,7 @@ window.addEventListener("load", () => {
 	}
 });
 
-const funcionOrden = async (id1, o1, id2, o2) => {
+let funcionOrden = async (id1, o1, id2, o2) => {
 	await fetch(
 		"/editar/ordenarregistros/?entidad=titulos&id=" + id1 + "&orden=" + o1
 	);

@@ -59,7 +59,7 @@ window.addEventListener("load", () => {
 	});
 });
 
-const funcionColor = async (id, dato, campo) => {
+let funcionColor = async (id, dato, campo) => {
 	await fetch(
 		"/editar/cambiarvalor/?entidad=encabezado" +
 			"&id=" +
