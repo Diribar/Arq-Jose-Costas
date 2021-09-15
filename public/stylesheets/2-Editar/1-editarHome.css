@@ -1,10 +1,3 @@
-/* Accesorios */
-#editar_home #tabla input,
-#editar_home #tabla select {
-	border: none;
-	background-color: transparent;
-}
-
 #tabla input[name="nombre_encabezado"] {
 	width:140px
 }

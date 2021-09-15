@@ -13,7 +13,7 @@ window.addEventListener("load", () => {
 			// Validar longitud del texto
 			verificarLargo(texto[i], 50);
 			(verTexto.test(texto[i].value) &&
-				contenidos[i].value.length <= largoMax) ||
+				texto[i].value.length <= largoMax) ||
 			texto[i].value == ""
 				? (contenidoOK = true)
 				: (contenidoOK = false);
@@ -34,8 +34,8 @@ let verificarLargo = (campo, largoMax) => {
 	});
 };
 
-let funcionModificar = async (celda, ID, entidad) => {
-	celda.addEventListener("change", () => {
+let funcionModificar = (celda, ID, entidad) => {
+	celda.addEventListener("change", async () => {
 		id = ID.value;
 		dato = celda.value;
 		campo = "texto";
