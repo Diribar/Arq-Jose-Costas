@@ -29,6 +29,8 @@ window.addEventListener("load", () => {
 	});
 
 	// VALIDAR NOMBRE **************************************
+	// Validar longitudes del texto
+	verificarLargo(nombre, 20);
 	// Variables
 	nombres = document.querySelectorAll(
 		"tr.color_existente input[name='nombre']"
@@ -56,6 +58,7 @@ window.addEventListener("load", () => {
 
 	// VALIDAR CÓDIGO **************************************
 	// Variables
+	codigo = document.querySelector("#color_nuevo input[name='codigo']");
 	codigo.addEventListener("input", () => {
 		// Validar código vs sintaxis
 		// verColHexa = /^#[\dA-Fa-f]{6}$/g;
@@ -69,7 +72,6 @@ window.addEventListener("load", () => {
 		// 	: (codigoOK = false);
 		codigoOK = true;
 		// Validar código repetido
-		codigo = document.querySelector("#color_nuevo input[name='codigo']");
 		codigos = document.querySelectorAll("tr.color_existente #codigo");
 		codigoYaEnBD = false;
 		for (n of codigos) {
