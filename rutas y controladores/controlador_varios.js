@@ -112,13 +112,17 @@ module.exports = {
 	},
 
 	agregarImagen: async (req, res) => {
-		//return res.send("agregar imagen")
-		if (verificarImagenNueva(req.body, req.file)) {
-			return res.redirect(req.body.home);
+		let { home, entidad, ruta, grupo } = req.body;
+		//return res.send(req.file)
+		if (verificarImagenNueva(ruta, req.file)) {
+			return res.render("errorImagen", {
+				condicion,
+				home,
+			});
 		}
 		// Averiguar el orden
-		orden = await BD_obtener.ObtenerTodos(req.body.entidad)
-			.then((n) => n.filter((m) => m.grupo == req.body.grupo))
+		orden = await BD_obtener.ObtenerTodos(entidad)
+			.then((n) => n.filter((m) => m.grupo == grupo))
 			.then((n) =>
 				n.map((m) => {
 					return m.orden;
@@ -127,8 +131,8 @@ module.exports = {
 			.then((n) => Math.max(...n) + 1);
 		// Agregar el nombre del archivo en la BD
 		await BD_obtener.AgregarImagenEnBD(
-			req.body.entidad,
-			req.body.grupo,
+			entidad,
+			grupo,
 			orden,
 			req.file.filename
 		);
@@ -138,8 +142,11 @@ module.exports = {
 
 	reemplazarImagen: async (req, res) => {
 		let { home, id, entidad, ruta } = req.body;
-		if (verificarImagenNueva(req.body, req.file)) {
-			return res.redirect(home);
+		if (verificarImagenNueva(ruta, req.file)) {
+			return res.render("/editar/archivoconproblemas", {
+				condicion,
+				home,
+			});
 		}
 		// Borrar el archivo anterior
 		archivoAnterior = await BD_obtener.ObtenerPorId(entidad, id);
@@ -147,20 +154,40 @@ module.exports = {
 		// Reemplazar el nombre del archivo en la BD
 		await BD_obtener.CambiarImagenEnBD(entidad, id, req.file.filename);
 		// Terminar
-		res.redirect(req.body.home);
+		res.redirect(home);
 	},
 };
 
-let verificarImagenNueva = (body, file) => {
+let verificarImagenNueva = (ruta, file) => {
 	// Verificar si el nombre es demasiado largo
 	condicion1 = file.filename.length > 50;
+	condicion1
+		? (condicion1 =
+				"El nombre del archivo es demasiado largo. Debe ser de hasta 50 caracteres")
+		: "";
 	// Verificar si la extensión del nombre corresponde a una imagen
 	let extensionesOK = [".jpg", ".png", ".gif", ".bmp"];
 	ext = path.extname(file.originalname);
 	condicion2 = !extensionesOK.includes(ext);
+	condicion2
+		? (condicion2 =
+				"La extensiones válidas de archivo son " +
+				extensionesOK.join(", "))
+		: "";
+	// Verificar el tamaño
+	condicion3 = file.size > 100000;
+	condicion3
+		? (condicion3 =
+				"El tamaño del archivo es demasiado grande. Debe ser de hasta 1MB")
+		: "";
 	// Frenar el proceso si no se cumple alguna condición
-	if (condicion1 || condicion2) {
-		funciones.eliminarImagen(body.ruta, file.filename);
-		return true;
+	if (condicion1 || condicion2 || condicion3) {
+		funciones.eliminarImagen(ruta, file.filename);
+		condicion = condicion1
+			? condicion1
+			: condicion2
+			? condicion2
+			: condicion3;
+		return condicion;
 	}
 };
