@@ -8,19 +8,19 @@ window.addEventListener("load", async () => {
 
 	// Acciones si se cambia un valor
 	for (let i = 0; i < ts.length; i++) {
-		// Validar nombre vs sintaxis y largo
-		OKne = verificarLargo(ne[i], 20);
-		OKts = verificarLargo(ts[i], 50);
+		// Validar sintaxis y largo del nombre
+		OKne = verificar(ne[i], 20);
+		OKts = verificar(ts[i], 50);
 		// Hacer cambios en la BD
-		OKne ? await funcionTexto(ne[i], IDs[i], "nombre_encabezado") : ""
-		OKts ? await funcionTexto(ts[i], IDs[i], "titulo_seccion"): "";
+		OKne ? await funcionTexto(ne[i], IDs[i], "nombre_encabezado") : "";
+		OKts ? await funcionTexto(ts[i], IDs[i], "titulo_seccion") : "";
 		await funcionTexto(scff[i], IDs[i], "color_fondo_id");
 		await funcionTexto(sclf[i], IDs[i], "color_letras_id");
 	}
 });
 
 // FÓRMULAS *************************************************
-let verificarLargo = (campo, largoMax) => {
+let verificar = (campo, largoMax) => {
 	campo.addEventListener("keypress", (e) => {
 		campo.value.length >= largoMax ? e.preventDefault() : ""
 	});
