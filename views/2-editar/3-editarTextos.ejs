@@ -1,8 +1,8 @@
 <%- include('0-head') %>
-<%- include('3-headEditarTextos', {titulo: "Edición - " + titulo.nombre_a_mostrar}) %>
+<%- include('3-headEditarTextos', {titulo: "Edición - " + titulo.nombre_encabezado}) %>
 <body id="editar_texto">
 	<header>
-		Seccion:<%= titulo.nombre_a_mostrar %>
+		Seccion:<%= titulo.nombre_encabezado %>
 		<div class="ocultar"><%= titulo.nombre_seccion %></div>
 	</header>
 	<main>

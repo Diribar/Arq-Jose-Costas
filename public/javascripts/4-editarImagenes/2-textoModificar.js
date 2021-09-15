@@ -6,14 +6,16 @@ window.addEventListener("load", () => {
 
 	// Acciones si se cambia un valor
 	for (let i = 0; i < texto.length; i++) {
-		// Acciones mientras se escribe
+		// Validar longitud del texto
+		texto[i].addEventListener("keydown", (e) => {
+			texto[i].value.length > 50 ? e.preventDefault() : "";
+		});
+		// Validar nombre vs sintaxis
 		texto[i].addEventListener("input", () => {
-			// Validar nombre vs sintaxis
 			contenidoOK = false;
-			verTexto.test(texto[i].value)
+			verTexto.test(texto[i].value) || texto[i].value == ""
 				? (contenidoOK = true)
 				: (contenidoOK = false);
-			// Consecuencias
 			!contenidoOK
 				? texto[i].classList.add("rojo")
 				: texto[i].classList.remove("rojo");

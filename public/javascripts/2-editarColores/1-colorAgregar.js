@@ -56,21 +56,21 @@ window.addEventListener("load", () => {
 
 	// VALIDAR CÓDIGO **************************************
 	// Variables
-	codigo = document.querySelector("#color_nuevo input[name='codigo']");
-	codigos = document.querySelectorAll("tr.color_existente #codigo");
-	verColHexa = /^#[\dA-Fa-f]{6}$/g;
-	verColRGB = /^RGB\(\d{3}\,\ \d{3}\,\ \d{3}\)$/;
-	verColRGBA = /^RGBA\(\d{3}\,\ \d{3}\,\ \d{3}\, \d.\d\)$/;
-	muestra = document.querySelector("#color_nuevo #muestra");
 	codigo.addEventListener("input", () => {
 		// Validar código vs sintaxis
-		verColHexa.test(codigo.value) ||
-		verColRGB.test(codigo.value) ||
-		verColRGBA.test(codigo.value) ||
-		codigo.value == "transparent"
-			? (codigoOK = true)
-			: (codigoOK = false);
+		// verColHexa = /^#[\dA-Fa-f]{6}$/g;
+		// verColRGB = /^RGB\(\d{3}\,\ \d{3}\,\ \d{3}\)$/;
+		// verColRGBA = /^RGBA\(\d{3}\,\ \d{3}\,\ \d{3}\, \d.\d\)$/;
+		// verColHexa.test(codigo.value) ||
+		// verColRGB.test(codigo.value) ||
+		// verColRGBA.test(codigo.value) ||
+		// codigo.value == "transparent"
+		// 	? (codigoOK = true)
+		// 	: (codigoOK = false);
+		codigoOK = true;
 		// Validar código repetido
+		codigo = document.querySelector("#color_nuevo input[name='codigo']");
+		codigos = document.querySelectorAll("tr.color_existente #codigo");
 		codigoYaEnBD = false;
 		for (n of codigos) {
 			if (n.innerHTML == codigo.value) {
@@ -81,6 +81,7 @@ window.addEventListener("load", () => {
 			}
 		}
 		// Consecuencias
+		muestra = document.querySelector("#color_nuevo #muestra");
 		if (codigoYaEnBD || !codigoOK) {
 			codigo.classList.add("rojo");
 			muestra.style.backgroundColor = "transparent";
@@ -102,6 +103,15 @@ window.addEventListener("load", () => {
 });
 
 // FÓRMULAS *************************************************
+let verificarLargo = (campo, largoMax) => {
+	campo.addEventListener("keydown", (e) => {
+		campo.value.length > largoMax ? e.preventDefault() : "";
+	});
+	campo.addEventListener("keypress", (e) => {
+		campo.value.length >= largoMax ? e.preventDefault() : "";
+	});
+};
+
 let funcionAgregar = async (nombre, codigo) => {
 	await fetch("/editar/coloragregar/?nombre=" + nombre + "&codigo=" + codigo);
 	location.reload();

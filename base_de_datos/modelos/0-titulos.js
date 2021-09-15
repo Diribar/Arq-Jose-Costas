@@ -4,7 +4,7 @@ module.exports = (sequelize, dt) => {
 		id: { type: dt.INTEGER, primaryKey: true },
 		orden: { type: dt.INTEGER },
 		nombre_seccion: { type: dt.STRING(20) },
-		nombre_a_mostrar: { type: dt.STRING(20) },
+		nombre_encabezado: { type: dt.STRING(20) },
 		titulo_seccion: { type: dt.STRING(50) },
 		color_fondo_id: { type: dt.INTEGER },
 		color_letras_id: { type: dt.INTEGER },

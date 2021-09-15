@@ -48,7 +48,7 @@ CREATE TABLE 0_titulos (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
 	orden INT UNSIGNED NOT NULL,
 	nombre_seccion VARCHAR(20) NOT NULL,
-	nombre_a_mostrar VARCHAR(20) NOT NULL,
+	nombre_encabezado VARCHAR(20) NOT NULL,
 	titulo_seccion VARCHAR(50) NOT NULL,
 	color_fondo_id INT UNSIGNED NOT NULL,
 	color_letras_id INT UNSIGNED NOT NULL,
@@ -60,7 +60,7 @@ CREATE TABLE 0_titulos (
 	FOREIGN KEY (color_letras_id) REFERENCES colores(id),
 	FOREIGN KEY (imagen_id) REFERENCES imagenes_varias(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-INSERT INTO 0_titulos (nombre_seccion, orden, nombre_a_mostrar, titulo_seccion, color_fondo_id, color_letras_id, imagen_id, editar_texto, editar_imagenes)
+INSERT INTO 0_titulos (nombre_seccion, orden, nombre_encabezado, titulo_seccion, color_fondo_id, color_letras_id, imagen_id, editar_texto, editar_imagenes)
 VALUES 
 	('inicio', 1, 'Inicio', 'Estudio de Arquitectura - CABA', 1, 4, null, 1, 1), 
 	('habilitaciones', 2, 'Habilitaciones', 'Habilitaciones Comerciales', 3, 5, 1, 1, 0), 
