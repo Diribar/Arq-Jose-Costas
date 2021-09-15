@@ -7,9 +7,7 @@ window.addEventListener("load", () => {
 	// Acciones si se cambia un valor
 	for (let i = 0; i < texto.length; i++) {
 		// Validar longitud del texto
-		texto[i].addEventListener("keydown", (e) => {
-			texto[i].value.length > 50 ? e.preventDefault() : "";
-		});
+		verificarLargo(texto[i], 50);
 		// Validar nombre vs sintaxis
 		texto[i].addEventListener("input", () => {
 			contenidoOK = false;
@@ -32,7 +30,16 @@ window.addEventListener("load", () => {
 	}
 });
 
-const funcionModificar = async (id, dato, campo) => {
+let verificarLargo = (campo, largoMax) => {
+	campo.addEventListener("keydown", (e) => {
+		campo.value.length > largoMax ? e.preventDefault() : "";
+	});
+	campo.addEventListener("keypress", (e) => {
+		campo.value.length >= largoMax ? e.preventDefault() : "";
+	});
+};
+
+let funcionModificar = async (id, dato, campo) => {
 	entidad = document.querySelector("input[name='entidad']").value;
 	await fetch(
 		"/editar/cambiarvalor/?entidad=" +
