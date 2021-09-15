@@ -20,7 +20,7 @@ VALUES
 
 CREATE TABLE imagenes_varias (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-	texto VARCHAR(50) NOT null UNIQUE,
+	texto VARCHAR(50) NOT NULL UNIQUE,
 	archivo VARCHAR(50) NOT NULL,	
 	PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -93,6 +93,7 @@ CREATE TABLE 1_inicio_imagenes (
 	grupo INT UNSIGNED NOT NULL,
 	orden INT UNSIGNED NOT NULL,
 	archivo VARCHAR(50) NOT NULL,
+	texto VARCHAR(50) NULL UNIQUE,
 	PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 INSERT INTO 1_inicio_imagenes (grupo, orden, archivo)
