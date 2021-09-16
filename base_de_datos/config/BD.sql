@@ -79,7 +79,7 @@ CREATE TABLE 1_inicio_datos (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 INSERT INTO 1_inicio_datos (grupo, orden, contenido)
 VALUES 
-	(1, 1, 'Proyectos y Obras nuevas'),
+	(1, 1, 'Proyectos y Obras Nuevas'),
 	(1, 2, 'Remodelaciones'),
 	(1, 3, 'Habilitaciones Comerciales'),
 	(2, 1, 'Arq. José Ricardo Costas'),
