@@ -8,37 +8,52 @@ window.addEventListener("load", () => {
 
 	// Acciones si se cambia un valor
 	for (let i = 0; i < cont.length; i++) {
+		// Validar TEXTO: largo y sintaxis
+		cont[i].addEventListener("input", () => {
+			OKtexto = validarTexto(cont[i]);
+		})
 		cont[i].addEventListener("change", async () => {
-			id = IDs[i].innerHTML;
-			dato = cont[i].value;
-			campo = "contenido";
-			await funcionTexto(id, dato, campo);
+			await funcionTexto(IDs[i], cont[i], "contenido");
 		});
 		scff[i].addEventListener("change", async () => {
-			id = IDs[i].innerHTML;
-			dato = scff[i].value;
-			campo = "color_fondo_id";
-			await funcionTexto(id, dato, campo);
+			await funcionTexto(IDs[i], cont[i], "color_fondo_id");
 			location.reload();
 		});
 		sclf[i].addEventListener("change", async () => {
-			id = IDs[i].innerHTML;
-			dato = sclf[i].value;
-			campo = "color_letras_id";
-			await funcionTexto(id, dato, campo);
+			await funcionTexto(IDs[i], cont[i], "color_letras_id");
 			location.reload();
 		});
 		scbf[i].addEventListener("change", async () => {
-			id = IDs[i].innerHTML;
-			dato = scbf[i].value;
-			campo = "color_borde_id";
-			await funcionTexto(id, dato, campo);
+			await funcionTexto(IDs[i], cont[i], "color_borde_id");
 			location.reload();
 		});
 	}
 });
 
-const funcionTexto = async (id, dato, campo) => {
+// FÓRMULAS *************************************************
+let validarTexto = (dataEntry) => {
+	let largoMax = 50;
+	// Validar largo
+	dataEntry.addEventListener("keypress", (e) => {
+		dataEntry.value.length >= largoMax ? e.preventDefault() : "";
+	});
+	// Validar sintaxis
+	let valDataEntry = /^[A-Z][A-Za-z áéíóúüñ,.\d]+$/;
+	(valDataEntry.test(dataEntry.value) &&
+		dataEntry.value.length <= largoMax) ||
+	dataEntry.value == ""
+		? (dataEntryOK = true)
+		: (dataEntryOK = false);
+	// Consecuencias
+	!dataEntryOK
+		? dataEntry.classList.add("rojo")
+		: dataEntry.classList.remove("rojo");
+	return dataEntryOK;
+};
+
+let funcionTexto = async (IDs, cont, campo) => {
+	id = IDs.innerHTML;
+	dato = cont.value;
 	await fetch(
 		"/editar/cambiarvalor/?entidad=proyectos" +
 			"&id=" +
