@@ -6,7 +6,7 @@ window.addEventListener("load", () => {
 	nombre = document.querySelector("#color_nuevo input[name='nombre']");
 	OKcodigo = false;
 	nombre.addEventListener("input", () => {
-		OKnombre = validarNombre(nombre,-1);
+		OKnombre = validarNombre(nombre, -1);
 		funcionConfirmar(OKnombre, OKcodigo);
 	});
 

@@ -10,7 +10,7 @@ window.addEventListener("load", () => {
 
 	// Acciones si se cambia un valor
 	for (let i = 0; i < textosNuevos.length; i++) {
-		// Validar CONTENIDO: largo y sintaxis
+		// Validar TEXTOS: largo y sintaxis
 		textosNuevos[i].addEventListener("input", () => {
 			OKtexto = validarTexto(textosNuevos[i]);
 			funcionConfirmar(OKtexto, i);
