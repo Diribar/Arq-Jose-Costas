@@ -1,6 +1,6 @@
 window.addEventListener("load", () => {
 	// VARIABLES INICIALES
-	confirmar = document.querySelector("#color_nuevo #confirmar");
+	let confirmar = document.querySelector("#color_nuevo #confirmar");
 
 	// Validar NOMBRE: largo, sintaxis y repetido
 	nombre = document.querySelector("#color_nuevo input[name='nombre']");
