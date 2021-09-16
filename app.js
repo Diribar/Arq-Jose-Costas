@@ -25,7 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({ secret: "keyboard cat", resave: false, saveUninitialized: false }));
 
 // ************************** Router ******************************
-var router = require("./rutas y controladores/ruta");
+var router = require("./rutas-y-controladores/ruta");
 app.use('/', router);
 
 // catch 404 and forward to error handler
