@@ -26,11 +26,6 @@ module.exports = {
 		});
 	},
 
-	logout: (req, res) => {
-		req.session.codigo = null;
-		res.redirect("/");
-	},
-
 	contactanosBackEnd: (req, res) => {
 		return res.send(
 			"Tiene inactivado javascript en el front-end. Actívelo para poder enviar el mail correctamente. Gracias."
@@ -58,6 +53,11 @@ module.exports = {
 		} else {
 			return res.render("login");
 		}
+	},
+
+	logout: (req, res) => {
+		req.session.codigo = null;
+		res.redirect("/");
 	},
 
 	editarHome: async (req, res) => {

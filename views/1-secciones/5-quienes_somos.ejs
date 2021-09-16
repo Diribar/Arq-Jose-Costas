@@ -2,13 +2,9 @@
 <section id="arquitecto">
 	<h2>
 		<%= quienes_somos.find(m => (m.grupo == 1 && m.orden == 1)).contenido %>
-		<a id="ancho" class="sinPointer" href="/login" target="_blank">
-			<img src="./imagenes/varias/<%= n.imagen.archivo %>" alt="<%= n.imagen.nombre %>">
-		</a>
+		<%- include("avatar", {ancho: "ancho"}) %>
 	</h2>
-	<a id="angosto" class="sinPointer" href="/login" target="_blank">
-		<img src="./imagenes/varias/<%= n.imagen.archivo %>" alt="<%= n.imagen.nombre %>">
-	</a>
+	<%- include("avatar", {ancho: "angosto"}) %>
 	<ul>
 		<% textos = quienes_somos.filter(m => (m.grupo == 1 && m.orden > 1)) %>
 		<% for (texto of textos) { %>
