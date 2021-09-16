@@ -7,7 +7,7 @@ const controlador_APIs = require("./controlador_APIs");
 
 // Middlewares de Validaciones
 const soloUsuarios = require("../middlewares/soloUsuarios");
-const uploadFile = require(path.join(__dirname,"../middlewares/multer"));
+const uploadFile = require("../middlewares/multer");
 
 // Controladores Varios ************************************
 router.get("/", controlador_varios.home);
