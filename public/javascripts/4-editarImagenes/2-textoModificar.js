@@ -8,14 +8,13 @@ window.addEventListener("load", () => {
 		// Validar TEXTO: largo y sintaxis
 		textos[i].addEventListener("input", () => {
 			OKtexto = validarTexto(textos[i]);
-			funcionConfirmar(OKtexto, confirmar[i]);
 		});
 		// Acciones cuando se terminó de escribir
 		textos[i].addEventListener("change", () => {
 			if (OKtexto) {
-				id = IDs[i].innerHTML;
+				id = IDs[i].value;
 				dato = textos[i].value;
-				campo = "contenido";
+				campo = "texto";
 				funcionModificar(id, dato, campo);
 			}
 		});
@@ -44,7 +43,7 @@ let validarTexto = (dataEntry) => {
 };
 
 let funcionModificar = async (id, dato, campo) => {
-	let entidad = document.querySelector("header div.ocultar").innerHTML;
+	let entidad = document.querySelector(".imagenes input[name='entidad']").value;
 	await fetch(
 		"/editar/cambiarvalor/?entidad=" +
 			entidad +

@@ -1,8 +1,8 @@
 window.addEventListener("load", () => {
 	// Variables generales
-	IDs = document.querySelectorAll("#texto_existente #id");
+	IDs = document.querySelectorAll("#txt_exist #id");
 	eliminarTexto = document.querySelectorAll(
-		"#texto_existente i.fa-trash-alt"
+		"#txt_exist i.fa-trash-alt"
 	);
 	grupos = document.querySelectorAll("#titulo #grupo");
 	eliminarGrupo = document.querySelectorAll("#titulo i.fa-trash-alt");
@@ -24,6 +24,7 @@ window.addEventListener("load", () => {
 	}
 });
 
+// FÓRMULAS *************************************************
 const funcionEliminarTexto = async (id) => {
 	entidad = document.querySelector("header div.ocultar").innerHTML;
 	await fetch("/editar/eliminarregistro/?entidad=" + entidad + "&id=" + id);
