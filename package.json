@@ -24,8 +24,8 @@
 	"devDependencies": {
 		"nodemon": "^2.0.12"
 	},
-	"keywords": [],
-	"author": "",
+	"keywords": ["José", "Costas"],
+	"author": "Diego Iribarren",
 	"license": "ISC",
-	"description": ""
+	"description": "Presentación profesional de José Costas"
 }
