@@ -51,7 +51,7 @@
 	cursor: pointer;
 }
 
-#editar_colores #tabla .color_existente .rojo,
+#editar_colores #tabla .color_exist .rojo,
 #editar_colores #tabla #color_nuevo .rojo {
 	background-color: red; 
 	color: white;

@@ -19,21 +19,21 @@
 			<table id="tabla">
 				<tbody>
 					<% for (texto of contenido) { %>
-						<tr id="texto_existente">
+						<tr id="txt_exist">
 							<td id="id" class="ocultar"><%= texto.id %></td>
 							<td id="orden" class="ocultar"><%= texto.orden %></td>
 							<td class="center flechas">
 								<i class="fas fa-arrow-alt-circle-up<%- texto == contenido[0] ? ' ocultar' : '' %>"></i>
 								<i class="fas fa-arrow-alt-circle-down<%- texto == contenido[contenido.length-1] ? ' ocultar' : '' %>"></i>
 							</td>
-							<td><input type="text" name="contenido" value="<%= texto.contenido %>"></td>
+							<td><input type="text" name="cont" value="<%= texto.contenido %>"></td>
 							<td><i class="far fa-trash-alt<%- texto.orden == 1 ? ' ocultar' : '' %>"></i></td>
 						</tr>
 					<% } %>
-					<tr id="texto_nuevo" class="ocultar">
+					<tr id="texto_nvo" class="ocultar">
 						<td id="grupo" class="ocultar"><%= texto.grupo %></td>
 						<td class="center flechas"></td>
-						<td><input type="text" name="contenido"></td>
+						<td><input type="text" name="cont"></td>
 						<td id="confirmar" class="rojo"><i class="fas fa-times"></i></td>
 					</tr>
 				</tbody>
