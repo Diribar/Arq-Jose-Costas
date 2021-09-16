@@ -1,7 +1,6 @@
 window.addEventListener("load", () => {
 	// VARIABLES INICIALES
 	let IDs = document.querySelectorAll("#txt_exist #id");
-	console.log(IDs)
 	let textoExist = document.querySelectorAll("#txt_exist input[name='cont']");
 
 	// Acciones si se cambia un valor
