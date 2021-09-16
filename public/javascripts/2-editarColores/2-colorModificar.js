@@ -1,14 +1,14 @@
 window.addEventListener("load", () => {
 	// VARIABLES INICIALES
-	let OKnombre = false;
 	IDs = document.querySelectorAll("tbody tr.color_exist #id");
 
-	// Validar nombre: largo, sintaxis y repetido
+	// Acciones si se cambia un valor
 	nombres = document.querySelectorAll(".color_exist input[name='nombre']");
 	for (let i = 0; i < nombres.length; i++) {
+		// Validar nombre: largo, sintaxis y repetido
 		nombres[i].addEventListener("input", () => {
 			OKnombre = validarNombre(nombres[i], i);
-			confirmarSINO(OKnombre, true);
+			funcionConfirmar(OKnombre, true);
 		});
 		// Acciones cuando se terminó de escribir
 		nombres[i].addEventListener("change", () => {

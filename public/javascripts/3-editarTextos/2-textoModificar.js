@@ -1,39 +1,21 @@
 window.addEventListener("load", () => {
-	// Variables generales
-	let IDs = document.querySelectorAll("#texto_existente #id");
-	let contenidos = document.querySelectorAll(
-		"#texto_existente input[name='contenido']"
-	);
-	let verContenido = /^[A-Z][A-Za-z áéíóúüñ,.\d]+$/;
-	let entidad = document.querySelector("header div.ocultar").innerHTML;
-	let largoMax =
-		entidad == "inicio" ||
-		entidad == "proyectos" ||
-		entidad == "contactanos"
-			? 50
-			: 200;
+	// VARIABLES INICIALES
+	let IDs = document.querySelectorAll("#txt_exist #id");
+	console.log(IDs)
+	let textoExist = document.querySelectorAll("#txt_exist input[name='cont']");
 
 	// Acciones si se cambia un valor
-	for (let i = 0; i < IDs.length; i++) {
-		// Acciones mientras se escribe
-		contenidos[i].addEventListener("input", () => {
-			// Validar longitudes del texto
-			verificarLargo(contenidos[i], largoMax);
-			// Validar contenido vs sintaxis y largo
-			verContenido.test(contenidos[i].value) &&
-			contenidos[i].value.length <= largoMax
-				? (contenidoOK = true)
-				: (contenidoOK = false);
-			// Consecuencias
-			!contenidoOK
-				? contenidos[i].classList.add("rojo")
-				: contenidos[i].classList.remove("rojo");
+	for (let i = 0; i < textoExist.length; i++) {
+		// Validar nombre: largo y sintaxis
+		textoExist[i].addEventListener("input", () => {
+			OKnombre = validarTexto(textoExist[i], i);
+			funcionConfirmar(OKnombre, i);
 		});
 		// Acciones cuando se terminó de escribir
-		contenidos[i].addEventListener("change", () => {
-			if (contenidoOK) {
+		textoExist[i].addEventListener("change", () => {
+			if (OKnombre) {
 				id = IDs[i].innerHTML;
-				dato = contenidos[i].value;
+				dato = textoExist[i].value;
 				campo = "contenido";
 				funcionModificar(id, dato, campo);
 			}
@@ -43,7 +25,7 @@ window.addEventListener("load", () => {
 
 // FÓRMULAS *************************************************
 let funcionModificar = async (id, dato, campo) => {
-	entidad = document.querySelector("header div.ocultar").innerHTML;
+	let entidad = document.querySelector("header div.ocultar").innerHTML;
 	await fetch(
 		"/editar/cambiarvalor/?entidad=" +
 			entidad +

@@ -1,29 +1,29 @@
 window.addEventListener("load", () => {
 	// VARIABLES INICIALES
-	let OKnombre = false;
-	let OKcodigo = false;
 	confirmar = document.querySelector("#color_nuevo #confirmar");
-
-	// Validar nombre: largo, sintaxis y repetido
+	
+	// Validar NOMBRE: largo, sintaxis y repetido
 	nombre = document.querySelector("#color_nuevo input[name='nombre']");
+	OKcodigo = false;
 	nombre.addEventListener("input", () => {
 		OKnombre = validarNombre(nombre,-1);
-		confirmarSINO(OKnombre, OKcodigo);
+		funcionConfirmar(OKnombre, OKcodigo);
 	});
 
-	// Validar código: repetido
+	// Validar CÓDIGO: repetido
 	codigo = document.querySelector("#color_nuevo input[name='codigo']");
+	OKnombre = false;
 	codigo.addEventListener("input", () => {
 		OKcodigo = validarCodigo(codigo);
-		confirmarSINO(OKnombre, OKcodigo);
+		funcionConfirmar(OKnombre, OKcodigo);
 	});
 
 	// AGREGAR COLOR ****************************************
 	confirmar.addEventListener("click", async () => {
 		if (OKnombre && OKcodigo) {
-			valor1 = nombre.value;
-			valor2 = encodeURIComponent(codigo.value.toUpperCase());
-			await funcionAgregar(valor1, valor2);
+			datoNombre = nombre.value;
+			datoCodigo = encodeURIComponent(codigo.value.toUpperCase());
+			await funcionAgregar(datoNombre, datoCodigo);
 		}
 	});
 
@@ -37,44 +37,44 @@ window.addEventListener("load", () => {
 });
 
 // FÓRMULAS *************************************************
-let validarNombre = (campo, i) => {
+let validarNombre = (dataEntry, i) => {
 	let largoMax = 20;
 	// Validar largo
-	campo.addEventListener("keypress", (e) => {
-		campo.value.length >= largoMax ? e.preventDefault() : "";
+	dataEntry.addEventListener("keypress", (e) => {
+		dataEntry.value.length >= largoMax ? e.preventDefault() : "";
 	});
 	// Validar sintaxis
-	valNombre = /^[A-Z][a-z áéíóúüñ\d+-]+$/;
-	valNombre.test(campo.value) && campo.value.length <= largoMax
-		? (contenidoOK = true)
-		: (contenidoOK = false);
+	valDataEntry = /^[A-Z][a-z áéíóúüñ\d+-]+$/;
+	valDataEntry.test(dataEntry.value) && dataEntry.value.length <= largoMax
+		? (dataEntryOK = true)
+		: (dataEntryOK = false);
 	// Validar repetido
-	contenidoYaEnBD = false;
-	contenidos = document.querySelectorAll(
+	dataEntryYaEnBD = false;
+	dataEntrys = document.querySelectorAll(
 		"tr.color_exist input[name='nombre']"
 	);
-	for (let j = 0; j < contenidos.length; j++) {
-		if (contenidos[j].value == campo.value && j != i) {
-			contenidoYaEnBD = true;
-			contenidos[j].classList.add("rojo");
+	for (let j = 0; j < dataEntrys.length; j++) {
+		if (dataEntrys[j].value == dataEntry.value && j != i) {
+			dataEntryYaEnBD = true;
+			dataEntrys[j].classList.add("rojo");
 		} else {
-			contenidos[j].classList.remove("rojo");
+			dataEntrys[j].classList.remove("rojo");
 		}
 	}
 	// Consecuencias
-	contenidoYaEnBD || !contenidoOK
-		? campo.classList.add("rojo")
-		: campo.classList.remove("rojo");
-	return !contenidoYaEnBD && contenidoOK;
+	dataEntryYaEnBD || !dataEntryOK
+		? dataEntry.classList.add("rojo")
+		: dataEntry.classList.remove("rojo");
+	return !dataEntryYaEnBD && dataEntryOK;
 };
 
-let validarCodigo = (campo) => {
+let validarCodigo = (dataEntry) => {
 	// Validar repetido
-	contenidoYaEnBD = false;
-	contenidos = document.querySelectorAll("tr.color_exist #codigo");
-	for (n of contenidos) {
-		if (n.innerHTML == campo.value) {
-			contenidoYaEnBD = true;
+	dataEntryYaEnBD = false;
+	dataEntrys = document.querySelectorAll("tr.color_exist #codigo");
+	for (n of dataEntrys) {
+		if (n.innerHTML == dataEntry.value) {
+			dataEntryYaEnBD = true;
 			n.classList.add("rojo");
 		} else {
 			n.classList.remove("rojo");
@@ -82,14 +82,14 @@ let validarCodigo = (campo) => {
 	}
 	// Consecuencias
 	muestra = document.querySelector("#color_nuevo #muestra");
-	if (contenidoYaEnBD) {
-		campo.classList.add("rojo");
+	if (dataEntryYaEnBD) {
+		dataEntry.classList.add("rojo");
 		muestra.style.backgroundColor = "transparent";
 	} else {
-		campo.classList.remove("rojo");
-		muestra.style.backgroundColor = campo.value;
+		dataEntry.classList.remove("rojo");
+		muestra.style.backgroundColor = dataEntry.value;
 	}
-	return !contenidoYaEnBD;
+	return !dataEntryYaEnBD;
 };
 
 let funcionAgregar = async (nombre, codigo) => {
@@ -98,9 +98,9 @@ let funcionAgregar = async (nombre, codigo) => {
 };
 
 // Fórmula para botón confirmar
-let confirmarSINO = (OKnombre, OKcodigo) => {
+let funcionConfirmar = (OKnombre, OKcodigo) => {
 	confirmar = document.querySelector("#color_nuevo #confirmar");
-	if (!!OKnombre && OKcodigo) {
+	if (OKnombre && OKcodigo) {
 		confirmar.innerHTML = "Agregar color";
 		confirmar.classList.remove("rojo");
 		confirmar.classList.add("verde");
