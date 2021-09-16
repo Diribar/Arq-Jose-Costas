@@ -92,8 +92,8 @@ CREATE TABLE 1_inicio_imagenes (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
 	grupo INT UNSIGNED NOT NULL,
 	orden INT UNSIGNED NOT NULL,
-	archivo VARCHAR(50) NOT NULL,
-	texto VARCHAR(50) NULL UNIQUE,
+	archivo VARCHAR(50) NOT NULL UNIQUE,
+	texto VARCHAR(50) NULL,
 	PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 INSERT INTO 1_inicio_imagenes (grupo, orden, archivo)
