@@ -5,7 +5,7 @@ window.addEventListener("load", () => {
 
 	// Acciones si se cambia un valor
 	for (let i = 0; i < textoExist.length; i++) {
-		// Validar nombre: largo y sintaxis
+		// Validar TEXTO: largo y sintaxis
 		textoExist[i].addEventListener("input", () => {
 			OKtexto = validarTexto(textoExist[i], i);
 			funcionConfirmar(OKtexto, confirmar[i]);

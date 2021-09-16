@@ -12,6 +12,7 @@ window.addEventListener("load", () => {
 	}
 });
 
+// FÓRMULAS *************************************************
 const eliminarImagen = async (id) => {
 	let entidad = document.querySelector("input[name='entidad']").value;
 	let ruta = document.querySelector("input[name='ruta']").value;

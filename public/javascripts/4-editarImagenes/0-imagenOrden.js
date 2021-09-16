@@ -25,6 +25,7 @@ window.addEventListener("load", () => {
 	}
 });
 
+// FÓRMULAS *************************************************
 const funcionOrden = async (id1, o1, id2, o2) => {
 	entidad = document.querySelector("input[name='entidad']").value;
 	await fetch(

@@ -1,53 +1,57 @@
 window.addEventListener("load", () => {
 	// Variables generales
 	let IDs = document.querySelectorAll(".imagenes input[name='id']");
-	let texto = document.querySelectorAll(".imagenes input[name='texto']");
-	let verTexto = /^[A-Z][A-Za-z áéíóúüñ,.\d]+$/;
-	let largoMax = 50;
-	let entidad = document.querySelector("input[name='entidad']").value;
+	let textos = document.querySelectorAll(".imagenes input[name='texto']");
 
 	// Acciones si se cambia un valor
-	for (let i = 0; i < texto.length; i++) {
-		// Validar nombre vs sintaxis y largo
-		let contenido = texto[i].addEventListener("input", () => {
-			// Validar longitud del texto
-			verificarLargo(texto[i], 50);
-			(verTexto.test(texto[i].value) &&
-				texto[i].value.length <= largoMax) ||
-			texto[i].value == ""
-				? (contenidoOK = true)
-				: (contenidoOK = false);
-			!contenidoOK
-				? texto[i].classList.add("rojo")
-				: texto[i].classList.remove("rojo");
-			return contenidoOK
+	for (let i = 0; i < textos.length; i++) {
+		// Validar TEXTO: largo y sintaxis
+		textos[i].addEventListener("input", () => {
+			OKtexto = validarTexto(textos[i]);
 		});
 		// Acciones cuando se terminó de escribir
-		contenido ? funcionModificar(texto[i], IDs, entidad) : "";
+		textos[i].addEventListener("change", () => {
+			if (OKtexto) {
+				id = IDs[i].value;
+				dato = textos[i].value;
+				campo = "texto";
+				funcionModificar(id, dato, campo);
+			}
+		});
 	}
 });
 
 // FÓRMULAS *************************************************
-let verificarLargo = (campo, largoMax) => {
-	campo.addEventListener("keypress", (e) => {
-		campo.value.length >= largoMax ? e.preventDefault() : "";
+let validarTexto = (dataEntry) => {
+	let largoMax = 50;
+	// Validar largo
+	dataEntry.addEventListener("keypress", (e) => {
+		dataEntry.value.length >= largoMax ? e.preventDefault() : "";
 	});
+	// Validar sintaxis
+	let valDataEntry = /^[A-Z][A-Za-z áéíóúüñ,.\d]+$/;
+	(valDataEntry.test(dataEntry.value) &&
+		dataEntry.value.length <= largoMax) ||
+	dataEntry.value == ""
+		? (dataEntryOK = true)
+		: (dataEntryOK = false);
+	// Consecuencias
+	!dataEntryOK
+		? dataEntry.classList.add("rojo")
+		: dataEntry.classList.remove("rojo");
+	return dataEntryOK;
 };
 
-let funcionModificar = (celda, ID, entidad) => {
-	celda.addEventListener("change", async () => {
-		id = ID.value;
-		dato = celda.value;
-		campo = "texto";
-		await fetch(
-			"/editar/cambiarvalor/?entidad=" +
-				entidad +
-				"&id=" +
-				id +
-				"&dato=" +
-				dato +
-				"&campo=" +
-				campo
-		);
-	});
+let funcionModificar = async (id, dato, campo) => {
+	let entidad = document.querySelector(".imagenes input[name='entidad']").value;
+	await fetch(
+		"/editar/cambiarvalor/?entidad=" +
+			entidad +
+			"&id=" +
+			id +
+			"&dato=" +
+			dato +
+			"&campo=" +
+			campo
+	);
 };

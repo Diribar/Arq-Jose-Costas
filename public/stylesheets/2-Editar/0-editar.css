@@ -87,6 +87,7 @@ body {
 	font-size: 1.5rem;
 }
 
+.rojo,
 #tabla .rojo {
 	background-color: red; 
 	color: white;

@@ -175,7 +175,7 @@ let verificarImagenNueva = (ruta, file) => {
 				extensionesOK.join(", "))
 		: "";
 	// Verificar el tamaño
-	condicion3 = file.size > 100000;
+	condicion3 = file.size > 1000000;
 	condicion3
 		? (condicion3 =
 				"El tamaño del archivo es demasiado grande. Debe ser de hasta 1MB")
