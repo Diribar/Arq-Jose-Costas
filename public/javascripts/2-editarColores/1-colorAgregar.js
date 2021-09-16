@@ -7,7 +7,7 @@ window.addEventListener("load", () => {
 	OKcodigo = false;
 	nombre.addEventListener("input", () => {
 		OKnombre = validarNombre(nombre, -1);
-		funcionConfirmar(OKnombre, OKcodigo);
+		funcionConfirmar(OKnombre, OKcodigo, confirmar);
 	});
 
 	// Validar CÓDIGO: repetido
@@ -15,7 +15,7 @@ window.addEventListener("load", () => {
 	OKnombre = false;
 	codigo.addEventListener("input", () => {
 		OKcodigo = validarCodigo(codigo);
-		funcionConfirmar(OKnombre, OKcodigo);
+		funcionConfirmar(OKnombre, OKcodigo, confirmar);
 	});
 
 	// AGREGAR COLOR ****************************************
@@ -98,8 +98,7 @@ let funcionAgregar = async (nombre, codigo) => {
 };
 
 // Fórmula para botón confirmar
-let funcionConfirmar = (OKnombre, OKcodigo) => {
-	confirmar = document.querySelector("#color_nuevo #confirmar");
+let funcionConfirmar = (OKnombre, OKcodigo, confirmar) => {
 	if (OKnombre && OKcodigo) {
 		confirmar.innerHTML = "Agregar color";
 		confirmar.classList.remove("rojo");

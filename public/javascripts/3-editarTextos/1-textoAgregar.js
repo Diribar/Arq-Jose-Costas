@@ -7,13 +7,14 @@ window.addEventListener("load", () => {
 	let textosNuevos = document.querySelectorAll(
 		"#texto_nvo input[name='cont']"
 	);
+	let confirmar = document.querySelectorAll("#texto_nvo #confirmar");
 
 	// Acciones si se cambia un valor
 	for (let i = 0; i < textosNuevos.length; i++) {
 		// Validar TEXTOS: largo y sintaxis
 		textosNuevos[i].addEventListener("input", () => {
 			OKtexto = validarTexto(textosNuevos[i]);
-			funcionConfirmar(OKtexto, i);
+			funcionConfirmar(OKtexto, confirmar[i]);
 		});
 		// Agregar texto
 		confirmar[i].addEventListener("click", async () => {
@@ -79,15 +80,14 @@ let funcionAgregar = async (contenido, grupo) => {
 };
 
 // Fórmula para botón confirmar
-let funcionConfirmar = (OKnombre, i) => {
-	let confirmar = document.querySelectorAll("#texto_nvo #confirmar");
+let funcionConfirmar = (OKnombre, confirmar) => {
 	if (OKnombre) {
-		confirmar[i].innerHTML = "<i class='fas fa-check'></i>";
-		confirmar[i].classList.remove("rojo");
-		confirmar[i].classList.add("verde");
+		confirmar.innerHTML = "<i class='fas fa-check'></i>";
+		confirmar.classList.remove("rojo");
+		confirmar.classList.add("verde");
 	} else {
-		confirmar[i].innerHTML = "<i class='fas fa-times'></i>";
-		confirmar[i].classList.remove("verde");
-		confirmar[i].classList.add("rojo");
+		confirmar.innerHTML = "<i class='fas fa-times'></i>";
+		confirmar.classList.remove("verde");
+		confirmar.classList.add("rojo");
 	}
 };
