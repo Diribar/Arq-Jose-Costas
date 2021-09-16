@@ -29,6 +29,8 @@ body {
 #tabla input, 
 #tabla select{
 	cursor: pointer;
+	border: none;
+	background-color: transparent;
 }
 
 #tabla thead tr {
@@ -85,7 +87,7 @@ body {
 	font-size: 1.5rem;
 }
 
-.rojo {
+#tabla .rojo {
 	background-color: red; 
 	color: white;
 }

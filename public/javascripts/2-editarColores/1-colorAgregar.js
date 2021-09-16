@@ -1,120 +1,113 @@
 window.addEventListener("load", () => {
 	// VARIABLES INICIALES
-	nombreOK = false;
-	nombreYaEnBD = true;
-	codigoOK = false;
-	codigoYaEnBD = true;
-	nombre = document.querySelector("#color_nuevo input[name='nombre']");
+	let OKnombre = false;
+	let OKcodigo = false;
+	let largoMax = 20;
 	confirmar = document.querySelector("#color_nuevo #confirmar");
 
-	// FÓRMULA PARA CONFIRMAR EL AGREGADO DE UN COLOR
-	let confirmarSINO = () => {
-		if (nombreOK && !nombreYaEnBD && codigoOK && !codigoYaEnBD) {
-			confirmar.innerHTML = "Agregar color";
-			confirmar.classList.remove("rojo");
-			confirmar.classList.add("verde");
-		} else {
-			confirmar.innerHTML = "Completar";
-			confirmar.classList.remove("verde");
-			confirmar.classList.add("rojo");
-		}
-	};
-
-	// TOGGLE FORMULARIO DE AGREGAR COLOR ******************
-	agregar = document.querySelector("#editar_colores #agregar");
-	color_nuevo = document.querySelector("#editar_colores #color_nuevo");
-	agregar.addEventListener("click", () => {
-		color_nuevo.classList.toggle("ocultar");
-		nombre.focus();
-	});
-
-	// VALIDAR NOMBRE **************************************
-	// Validar longitudes del texto
-	verificarLargo(nombre, 20);
-	// Variables
-	nombres = document.querySelectorAll(
-		"tr.color_existente input[name='nombre']"
-	);
-	verNombre = /^[A-Z][a-z áéíóúü\d+-]+$/;
+	// Validar nombre: largo, sintaxis y repetido
+	nombre = document.querySelector("#color_nuevo input[name='nombre']");
 	nombre.addEventListener("input", () => {
-		// Validar nombre vs sintaxis
-		verNombre.test(nombre.value) ? (nombreOK = true) : (nombreOK = false);
-		// Validar nombre repetido
-		nombreYaEnBD = false;
-		for (n of nombres) {
-			if (n.value == nombre.value) {
-				nombreYaEnBD = true;
-				n.classList.add("rojo");
-			} else {
-				n.classList.remove("rojo");
-			}
-		}
-		// Consecuencias
-		nombreYaEnBD || !nombreOK
-			? nombre.classList.add("rojo")
-			: nombre.classList.remove("rojo");
-		confirmarSINO();
+		OKnombre = validarNombre(nombre, largoMax);
+		confirmarSINO(OKnombre, OKcodigo);
 	});
 
-	// VALIDAR CÓDIGO **************************************
-	// Variables
+	// Validar código repetido
 	codigo = document.querySelector("#color_nuevo input[name='codigo']");
 	codigo.addEventListener("input", () => {
-		// Validar código vs sintaxis
-		// verColHexa = /^#[\dA-Fa-f]{6}$/g;
-		// verColRGB = /^RGB\(\d{3}\,\ \d{3}\,\ \d{3}\)$/;
-		// verColRGBA = /^RGBA\(\d{3}\,\ \d{3}\,\ \d{3}\, \d.\d\)$/;
-		// verColHexa.test(codigo.value) ||
-		// verColRGB.test(codigo.value) ||
-		// verColRGBA.test(codigo.value) ||
-		// codigo.value == "transparent"
-		// 	? (codigoOK = true)
-		// 	: (codigoOK = false);
-		codigoOK = true;
-		// Validar código repetido
-		codigos = document.querySelectorAll("tr.color_existente #codigo");
-		codigoYaEnBD = false;
-		for (n of codigos) {
-			if (n.innerHTML == codigo.value) {
-				codigoYaEnBD = true;
-				n.classList.add("rojo");
-			} else {
-				n.classList.remove("rojo");
-			}
-		}
-		// Consecuencias
-		muestra = document.querySelector("#color_nuevo #muestra");
-		if (codigoYaEnBD || !codigoOK) {
-			codigo.classList.add("rojo");
-			muestra.style.backgroundColor = "transparent";
-		} else {
-			codigo.classList.remove("rojo");
-			muestra.style.backgroundColor = codigo.value;
-		}
-		confirmarSINO();
+		OKcodigo = validarCodigo(codigo);
+		confirmarSINO(OKnombre, OKcodigo);
 	});
 
 	// AGREGAR COLOR ****************************************
 	confirmar.addEventListener("click", async () => {
-		if (nombreOK && codigoOK && !nombreYaEnBD && !codigoYaEnBD) {
-			valor1 = nombre.value.toUpperCase();
+		if (OKnombre && OKcodigo) {
+			valor1 = nombre.value;
 			valor2 = encodeURIComponent(codigo.value);
 			await funcionAgregar(valor1, valor2);
 		}
 	});
+
+	// Toggle input para "agregar color" *******************
+	agregar = document.querySelector("#editar_colores #agregar");
+	agregar.addEventListener("click", () => {
+		color_nuevo = document.querySelector("#editar_colores #color_nuevo");
+		color_nuevo.classList.toggle("ocultar");
+		nombre.focus();
+	});
 });
 
 // FÓRMULAS *************************************************
-let verificarLargo = (campo, largoMax) => {
-	campo.addEventListener("keydown", (e) => {
-		campo.value.length > largoMax ? e.preventDefault() : "";
-	});
+let validarNombre = (campo, largoMax) => {
+	// Validar largo
 	campo.addEventListener("keypress", (e) => {
 		campo.value.length >= largoMax ? e.preventDefault() : "";
 	});
+	// Validar sintaxis
+	valNombre = /^[A-Z][a-z áéíóúüñ\d+-]+$/;
+	valNombre.test(campo.value) && campo.value.length <= largoMax
+		? (contenidoOK = true)
+		: (contenidoOK = false);
+	// Validar repetido
+	contenidoYaEnBD = false;
+	contenidos = document.querySelectorAll(
+		"tr.color_existente input[name='nombre']"
+	);
+	for (n of contenidos) {
+		if (n.value == campo.value) {
+			contenidoYaEnBD = true;
+			n.classList.add("rojo");
+		} else {
+			n.classList.remove("rojo");
+		}
+	}
+	// Consecuencias
+	contenidoYaEnBD || !contenidoOK
+		? campo.classList.add("rojo")
+		: campo.classList.remove("rojo");
+	confirmarSINO();
+	return !contenidoYaEnBD && contenidoOK;
+};
+
+let validarCodigo = (campo) => {
+	// Validar repetido
+	contenidoYaEnBD = false;
+	contenidos = document.querySelectorAll("tr.color_existente #codigo");
+	for (n of contenidos) {
+		if (n.innerHTML == campo.value) {
+			contenidoYaEnBD = true;
+			n.classList.add("rojo");
+		} else {
+			n.classList.remove("rojo");
+		}
+	}
+	// Consecuencias
+	muestra = document.querySelector("#color_nuevo #muestra");
+	if (contenidoYaEnBD) {
+		campo.classList.add("rojo");
+		muestra.style.backgroundColor = "transparent";
+	} else {
+		campo.classList.remove("rojo");
+		muestra.style.backgroundColor = campo.value;
+	}
+	return !contenidoYaEnBD;
 };
 
 let funcionAgregar = async (nombre, codigo) => {
 	await fetch("/editar/coloragregar/?nombre=" + nombre + "&codigo=" + codigo);
 	location.reload();
+};
+
+// Fórmula para botón confirmar
+let confirmarSINO = (OKnombre, OKcodigo) => {
+	confirmar = document.querySelector("#color_nuevo #confirmar");
+	if (!!OKnombre && OKcodigo) {
+		confirmar.innerHTML = "Agregar color";
+		confirmar.classList.remove("rojo");
+		confirmar.classList.add("verde");
+	} else {
+		confirmar.innerHTML = "Completar";
+		confirmar.classList.remove("verde");
+		confirmar.classList.add("rojo");
+	}
 };
