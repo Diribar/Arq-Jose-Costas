@@ -201,7 +201,7 @@ CREATE TABLE 5_quienes_somos_clientes (
 	grupo INT UNSIGNED NOT NULL,
 	orden INT UNSIGNED NOT NULL,
 	texto VARCHAR(50) NOT NULL,
-	archivo VARCHAR(50) NOT NULL,
+	archivo VARCHAR(50) NOT NULL UNIQUE,
 	PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 INSERT INTO 5_quienes_somos_clientes (grupo, orden, texto, archivo)
