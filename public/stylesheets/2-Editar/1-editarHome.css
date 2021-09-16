@@ -34,10 +34,3 @@
 	border-radius: 50%;
 	background-color: white;
 }
-
-#editar_home #tabla button,
-#editar_home #tabla button .fa-save {
-	background-color: transparent;
-	color: white;
-	border: none;
-}
