@@ -7,12 +7,12 @@ window.addEventListener("load", () => {
 	for (let i = 0; i < textoExist.length; i++) {
 		// Validar nombre: largo y sintaxis
 		textoExist[i].addEventListener("input", () => {
-			OKnombre = validarTexto(textoExist[i], i);
-			funcionConfirmar(OKnombre, i);
+			OKtexto = validarTexto(textoExist[i], i);
+			funcionConfirmar(OKtexto, confirmar[i]);
 		});
 		// Acciones cuando se terminó de escribir
 		textoExist[i].addEventListener("change", () => {
-			if (OKnombre) {
+			if (OKtexto) {
 				id = IDs[i].innerHTML;
 				dato = textoExist[i].value;
 				campo = "contenido";
