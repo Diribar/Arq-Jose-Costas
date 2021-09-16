@@ -1,10 +1,10 @@
 window.addEventListener("load", () => {
 	// Declarar las variables
+	let imagenes = document.querySelectorAll("#inicio #imagenes ul li")
+	let cantImagenes = imagenes.length;
 	let contenedor = document.querySelector("#inicio #imagenes ul")
 	contenedor.style.transform = 'translateX(0px)'
-	let cantImagenes = document.querySelector("#inicio #cantImagenes").innerHTML;
 	contenedor.style.width = cantImagenes + "00%";
-	let imagenes = document.querySelectorAll("#inicio #imagenes ul li")
 	let dots = document.querySelectorAll("#inicio #imagenes .dot");
 	let iconos = document.querySelectorAll("#inicio #imagenes #iconos .fas");
 	var transicion = '1000ms'
