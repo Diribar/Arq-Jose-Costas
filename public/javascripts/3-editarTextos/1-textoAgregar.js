@@ -55,7 +55,7 @@ let validarTexto = (dataEntry) => {
 		dataEntry.value.length >= largoMax ? e.preventDefault() : "";
 	});
 	// Validar sintaxis
-	valDataEntry = /^[A-Z][A-Za-z ,.áéíóúüñ\d+-]+$/;
+	valDataEntry = /^[A-Z][A-Za-z ,.áéíóúüñ/()\d+-]+$/;
 	valDataEntry.test(dataEntry.value) && dataEntry.value.length <= largoMax
 		? (dataEntryOK = true)
 		: (dataEntryOK = false);
