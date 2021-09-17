@@ -143,7 +143,7 @@ module.exports = {
 	reemplazarImagen: async (req, res) => {
 		let { home, id, entidad, ruta } = req.body;
 		if (verificarImagenNueva(ruta, req.file)) {
-			return res.render("/editar/archivoconproblemas", {
+			return res.render("/editar/errorImagen", {
 				condicion,
 				home,
 			});
