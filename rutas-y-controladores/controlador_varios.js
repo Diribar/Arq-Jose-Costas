@@ -114,10 +114,13 @@ module.exports = {
 	agregarImagen: async (req, res) => {
 		let { home, entidad, ruta, grupo } = req.body;
 		//return res.send(req.file)
-		if (verificarImagenNueva(ruta, req.file)) {
+		let condiciones = verificarImagenNueva(ruta, req.file);
+		if (condiciones[0]) {
 			return res.render("errorImagen", {
 				condicion,
 				home,
+				archivo: req.file,
+				condiciones,
 			});
 		}
 		// Averiguar el orden
