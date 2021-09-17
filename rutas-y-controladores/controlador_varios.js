@@ -175,7 +175,7 @@ let verificarImagenNueva = (ruta, file) => {
 				extensionesOK.join('", "') + '"')
 		: "";
 	// Verificar si el nombre es demasiado largo
-	condicion2 = file.filename.length > 50;
+	condicion2 = file.originalname.length > 30;
 	condicion2
 		? (condicion2 =
 				"El nombre del archivo es demasiado largo. Debe ser de hasta 30 caracteres")
