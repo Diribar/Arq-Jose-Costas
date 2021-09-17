@@ -34,7 +34,7 @@ module.exports = {
 				"<br>" +
 				mail,
 		};
-		// await transporter.sendMail(datos);
+		await transporter.sendMail(datos);
 		datos = {
 			from: '"Mensaje de la página web" <mensaje.web.01@gmail.com>', // sender address
 			to: "diegoiribarren2015@gmail.com",
