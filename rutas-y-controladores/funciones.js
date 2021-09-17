@@ -50,7 +50,7 @@ module.exports = {
 				"<br>" +
 				mail,
 		};
-		// await transporter.sendMail(datos);
+		await transporter.sendMail(datos);
 		// await transporter.sendMail(info, (error, info) => {
 		// 	if (error) {
 		// 		console.log(error);
