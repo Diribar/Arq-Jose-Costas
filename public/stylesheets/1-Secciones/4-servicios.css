@@ -1,6 +1,6 @@
 main #servicios img {
-	width: 100%;
-	aspect-ratio: 4 / 1;
+	width: 90vw;
+	max-height: 23vw;
 }
 
 main #servicios h2 {
@@ -10,6 +10,6 @@ main #servicios h2 {
 
 @media (max-width: 480px) {
 	main #servicios img {
-		aspect-ratio: 2.5 / 1;
+		max-height: 36vw;
 	}
 }
