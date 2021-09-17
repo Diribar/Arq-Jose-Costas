@@ -114,10 +114,13 @@ module.exports = {
 	agregarImagen: async (req, res) => {
 		let { home, entidad, ruta, grupo } = req.body;
 		//return res.send(req.file)
-		if (verificarImagenNueva(ruta, req.file)) {
+		let condiciones = verificarImagenNueva(ruta, req.file);
+		if (condiciones[0]) {
 			return res.render("errorImagen", {
 				condicion,
 				home,
+				archivo: req.file,
+				condiciones,
 			});
 		}
 		// Averiguar el orden
@@ -142,10 +145,13 @@ module.exports = {
 
 	reemplazarImagen: async (req, res) => {
 		let { home, id, entidad, ruta } = req.body;
-		if (verificarImagenNueva(ruta, req.file)) {
-			return res.render("/editar/archivoconproblemas", {
+		let condiciones = verificarImagenNueva(ruta, req.file)
+		if (condiciones[0]) {
+			return res.render("errorImagen", {
 				condicion,
 				home,
+				archivo: req.file,
+				condiciones,
 			});
 		}
 		// Borrar el archivo anterior
@@ -159,35 +165,29 @@ module.exports = {
 };
 
 let verificarImagenNueva = (ruta, file) => {
-	// Verificar si el nombre es demasiado largo
-	condicion1 = file.filename.length > 50;
-	condicion1
-		? (condicion1 =
-				"El nombre del archivo es demasiado largo. Debe ser de hasta 50 caracteres")
-		: "";
 	// Verificar si la extensión del nombre corresponde a una imagen
 	let extensionesOK = [".jpg", ".png", ".gif", ".bmp"];
 	ext = path.extname(file.originalname);
-	condicion2 = !extensionesOK.includes(ext);
+	condicion1 = !extensionesOK.includes(ext);
+	condicion1
+		? (condicion1 =
+				'La extensiones de archivo aceptadas son: "' +
+				extensionesOK.join('", "') + '"')
+		: "";
+	// Verificar si el nombre es demasiado largo
+	condicion2 = file.originalname.length > 30;
 	condicion2
 		? (condicion2 =
-				"La extensiones válidas de archivo son " +
-				extensionesOK.join(", "))
+				"El nombre del archivo es demasiado largo. Debe ser de hasta 30 caracteres")
 		: "";
 	// Verificar el tamaño
-	condicion3 = file.size > 1000000;
+	condicion3 = file.size > 5000000;
 	condicion3
 		? (condicion3 =
-				"El tamaño del archivo es demasiado grande. Debe ser de hasta 1MB")
+				"El tamaño del archivo es demasiado grande. Debe ser de hasta 5 MB")
 		: "";
 	// Frenar el proceso si no se cumple alguna condición
-	if (condicion1 || condicion2 || condicion3) {
-		funciones.eliminarImagen(ruta, file.filename);
-		condicion = condicion1
-			? condicion1
-			: condicion2
-			? condicion2
-			: condicion3;
-		return condicion;
-	}
+	condicion = condicion1 || condicion2 || condicion3;
+	condicion ? funciones.eliminarImagen(ruta, file.filename) : "";
+	return [condicion, condicion1, condicion2, condicion3];
 };

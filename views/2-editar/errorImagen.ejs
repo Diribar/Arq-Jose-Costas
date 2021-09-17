@@ -7,7 +7,12 @@
 	<title>Archivo de imagen con problemas</title>
 </head>
 <body>
-	<p><%= condicion %></p>
+	<p class="dato">Archivo: <strong><%= archivo.originalname %></strong></p>
+	<% if (condiciones[1]) { %><p class="condicion"><%= condiciones[1] %></p><% } %> 
+	<p class="dato">Longitud del nombre: <strong><%= archivo.originalname.length %> caracteres</strong></p>
+	<% if (condiciones[2]) { %><p class="condicion"><%= condiciones[2] %></p><% } %> 
+	<p class="dato">Tamaño: <strong><%= parseInt(archivo.size/10000)/100 %> MB</strong></p>
+	<% if (condiciones[3]) { %><p class="condicion"><%= condiciones[3] %></p><% } %> 
 	<a href="<%= home %> ">
 		<button>Regresar</button>
 	</a>
@@ -16,12 +21,15 @@
 
 <style>
 	body {
+		font-family: 'Open Sans', Roboto,'Helvetica Neue', sans-serif;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
 		height: 100vh;
 	}
+	.dato {margin-bottom: 0;}
+	.condicion {margin: 0; color: red;}
 	button {
 		margin-top: 10px;
 	}

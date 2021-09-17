@@ -69,9 +69,11 @@ module.exports = {
 			console.log("El archivo " + nombre + " se eliminó");
 		} catch (err) {
 			console.log(
-				"No se encuentra el archivo " + nombre + " o es Read-Only"
+				"No se encuentra el archivo " +
+					ruta +
+					nombre +
+					" o es Read-Only"
 			);
 		}
 	},
-
 };

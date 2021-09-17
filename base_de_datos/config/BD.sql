@@ -117,8 +117,7 @@ VALUES
 	(3, 2, 'Oficinas, peluquerías, agencias, salones de fiestas, centros culturales.'),
 	(4, 1, 'Especiales'),
 	(4, 2, 'Institutos de enseñanza, consultorios.'),
-	(5, 1, 'Industrias y Depósitos'),
-	(5, 2, '')
+	(5, 1, 'Industrias y Depósitos')
 	;
 
 CREATE TABLE 3_proyectos_datos (
