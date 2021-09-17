@@ -184,7 +184,7 @@ let verificarImagenNueva = (ruta, file) => {
 	condicion3 = file.size > 5000000;
 	condicion3
 		? (condicion3 =
-				"El tamaño del archivo es demasiado grande. Debe ser de hasta 5MB")
+				"El tamaño del archivo es demasiado grande. Debe ser de hasta 5 MB")
 		: "";
 	// Frenar el proceso si no se cumple alguna condición
 	condicion = condicion1 || condicion2 || condicion3;
