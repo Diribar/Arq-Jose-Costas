@@ -4,7 +4,6 @@ window.addEventListener("load", () => {
 	let cantImagenes = imagenes.length;
 	let contenedor = document.querySelector("#inicio #imagenes ul")
 	contenedor.style.transform = 'translateX(0px)'
-	contenedor.style.width = cantImagenes + "00%";
 	let dots = document.querySelectorAll("#inicio #imagenes .dot");
 	let iconos = document.querySelectorAll("#inicio #imagenes #iconos .fas");
 	var transicion = '1000ms'
