@@ -20,11 +20,11 @@ main {
 	justify-content: center;
 }
 
-#titulo h1, #titulo .fa-trash-alt {
+#titulo h2, #titulo .fa-trash-alt {
 	margin: 30px 10px 10px;
 }
 
-#titulo h1 {
+#titulo h2 {
 	font-weight: bold;
 	font-size: 1.5rem;
 	color: #009879;

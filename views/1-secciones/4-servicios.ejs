@@ -1,7 +1,7 @@
-<h1><%= n.titulo_seccion %></h1>
+<h2><%= n.titulo_seccion %></h2>
 <img src="./imagenes/varias/<%= n.imagen.archivo %>" alt="<%= n.imagen.nombre %>">
 <% casos = servicios.filter(m => m.orden == 1).length %>
 <% for (let i=0; i<casos; i++) { %>
-		<h2><%= servicios.find(n => n.grupo == i+1 && n.orden == 1).contenido %></h2>
+		<h3><%= servicios.find(n => n.grupo == i+1 && n.orden == 1).contenido %></h3>
 		<p><%= servicios.find(n => n.grupo == i+1 && n.orden == 2).contenido %></p>
 <% } %>

@@ -1,5 +1,5 @@
-<%- include('0-head') %>
-<%- include('3-headEditarTextos', {titulo: "Edición - " + titulo.nombre_encabezado}) %>
+<%- include('0-head', {titulo: "Edición - " + titulo.nombre_encabezado}) %>
+<%- include('3-headEditarTextos') %>
 <body id="editar_texto">
 	<header>
 		Seccion: <%= titulo.nombre_encabezado %>
@@ -10,7 +10,7 @@
 			<% contenido = datos.filter(n => n.grupo == grupo) %>
 			<% if (contenido.length == 0) {break} %>
 			<div id="titulo">
-				<h1>Grupo <%= grupo %></h1>
+				<h2>Grupo <%= grupo %></h2>
 				<% if (seccion == "habilitaciones" || seccion == "servicios") { %>
 					<span id="grupo" class="ocultar"><%= grupo %></span>
 					<i class="far fa-trash-alt<%- grupo == 1 ? ' ocultar' : '' %>"></i>

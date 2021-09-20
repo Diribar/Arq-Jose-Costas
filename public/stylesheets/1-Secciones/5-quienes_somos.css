@@ -3,7 +3,7 @@
 	flex-direction: column;
 }
 
-#quienes_somos #arquitecto h2 {
+#quienes_somos #arquitecto h3 {
 	margin: 0;
 }
 
@@ -28,7 +28,7 @@
 	list-style: none;
 }
 
-#quienes_somos #clientes h2 {
+#quienes_somos #clientes h3 {
 	margin-bottom: 0;
 }
 
@@ -71,7 +71,7 @@
 		align-items: center;
 	}
 
-	#quienes_somos #arquitecto h2 {
+	#quienes_somos #arquitecto h3 {
 		align-self: flex-start;
 		margin-bottom: 15px;
 	}
