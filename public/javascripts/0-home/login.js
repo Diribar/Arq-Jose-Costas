@@ -7,13 +7,13 @@ window.addEventListener("load", () => {
 
 	for (anchor of anchors) {
 		anchor.addEventListener("click", (e) => {
-			let limpiar = false;
-			for (let i = 0; i < inputs.length-1; i++) {
-				inputs[i].value != "" ? (limpiar = true) : "";
+			let limpio = true;
+			for (let i = 0; i < inputs.length - 1; i++) {
+				inputs[i].value != "" ? (limpio = false) : "";
 			}
-			parseInt(suma1.innerHTML) + parseInt(suma2.innerHTML) !=
-				suma.value || limpiar
-				? e.preventDefault()
+			parseInt(suma1.innerHTML) + parseInt(suma2.innerHTML) ==
+				suma.value && limpio
+				? (window.location.href = "/loginnuevo")
 				: "";
 		});
 	}

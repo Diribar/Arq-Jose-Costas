@@ -1,7 +1,6 @@
 // Requires ************************************************
 var express = require("express");
 var router = express.Router();
-const path = require("path");
 const controlador_varios = require("./controlador_varios");
 const controlador_APIs = require("./controlador_APIs");
 
@@ -12,8 +11,8 @@ const uploadFile = require("../middlewares/multer");
 // Controladores Varios ************************************
 router.get("/", controlador_varios.home);
 router.post("/contactanos", controlador_varios.contactanosBackEnd);
-router.get("/login", controlador_varios.loginForm);
-router.post("/login", controlador_varios.loginDatos);
+router.get("/loginnuevo", controlador_varios.loginForm);
+router.post("/loginnuevo", controlador_varios.loginDatos);
 router.get("/logout", controlador_varios.logout);
 router.get("/editar/home", soloUsuarios, controlador_varios.editarHome);
 router.get("/editar/colores", soloUsuarios, controlador_varios.editarColores);
