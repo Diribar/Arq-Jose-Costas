@@ -1,5 +1,5 @@
 <section id="texto">
-	<h1><%= n.titulo_seccion %></h1>
+	<h2><%= n.titulo_seccion %></h2>
 	<div id="comentarioH1">
 		<% for (m of habilitaciones.filter(m => m.grupo == 1)) { %>
 			<p><%= m.contenido %></p>
@@ -9,7 +9,7 @@
 		<% casos = habilitaciones.filter(m => (m.grupo > 1 && m.orden == 1)).length %>
 		<% for (let i=0; i<casos; i++) { %>
 			<li>
-				<h2><%= habilitaciones.find(n => n.grupo == i+2 && n.orden == 1).contenido %></h2>
+				<h3><%= habilitaciones.find(n => n.grupo == i+2 && n.orden == 1).contenido %></h3>
 				<% aux = habilitaciones.find(n => n.grupo == i+2 && n.orden == 2) %>
 				<p><%- aux ? habilitaciones.find(n => n.grupo == i+2 && n.orden == 2).contenido : "" %></p>
 			</li>

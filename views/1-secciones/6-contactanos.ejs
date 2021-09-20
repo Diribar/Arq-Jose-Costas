@@ -1,6 +1,6 @@
 <form action="/contactanos" method="POST">
 	<section id="inputs" class="flex-col">
-		<h1><%= n.titulo_seccion %></h1>
+		<h2><%= n.titulo_seccion %></h2>
 		<div class="relative flex-col">
 			<input class="input" type="text" name="nombre" placeholder="Nombre" 
 				value="<%= locals.datos ? datos.nombre : null %>"
@@ -26,7 +26,7 @@
 	</section>
 	<section id="texto" class="flex-col">
 		<div class="flex-col">
-			<h2><%= contactanos.find(n => n.grupo == 1).contenido %></h2>
+			<h3><%= contactanos.find(n => n.grupo == 1).contenido %></h3>
 			<% casos = contactanos.filter(m => (m.grupo == 2)).length %>
 			<% for (let i=0; i<casos; i++) { %>
 				<p><%= contactanos.find(n => n.grupo == 2 && n.orden == i+1).contenido %></p>

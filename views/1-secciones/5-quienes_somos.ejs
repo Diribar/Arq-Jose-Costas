@@ -1,9 +1,9 @@
-<h1><%= n.titulo_seccion %></h1>
+<h2><%= n.titulo_seccion %></h2>
 <section id="arquitecto">
-	<h2>
+	<h3>
 		<%= quienes_somos.find(m => (m.grupo == 1 && m.orden == 1)).contenido %>
 		<%- include("avatar", {ancho: "ancho"}) %>
-	</h2>
+	</h3>
 	<%- include("avatar", {ancho: "angosto"}) %>
 	<ul>
 		<% textos = quienes_somos.filter(m => (m.grupo == 1 && m.orden > 1)) %>
@@ -13,7 +13,7 @@
 	</ul>
 </section>
 <section id="clientes">
-	<h2><%= quienes_somos.find(m => m.grupo == 2 && m.orden == 1).contenido %></h2>
+	<h3><%= quienes_somos.find(m => m.grupo == 2 && m.orden == 1).contenido %></h3>
 	<ul>
 		<% for (j of clientes_imagenes) { %>
 			<li>

@@ -36,12 +36,13 @@
 }
 
 #inicio #texto #encabezado #logos #logo2 {
+	margin-top: 0;
 	font-size: 24px;
 	color: RGB(118, 113, 113);
 	font-weight: bolder;
 }
 
-#inicio #texto h1 {
+#inicio #texto h2 {
 	font-size: 24px;
 	margin-top: 20px;
 	margin-bottom: 0px;

@@ -1,5 +1,5 @@
-<%- include('0-head') %>
-<%- include('4-headEditarImagenes', {titulo: "Edición - " + titulo.nombre_encabezado}) %>
+<%- include('0-head', {titulo: "Edición - " + titulo.nombre_encabezado}) %>
+<%- include('4-headEditarImagenes') %>
 <body id="editar_imagenes">
 	<header>
 		Seccion: <%= titulo.nombre_encabezado %>
@@ -9,9 +9,9 @@
 		<% for (let grupo=1; grupo<=datos.length; grupo++) { %>
 			<% imagenes = datos.filter(n => n.grupo == grupo) %>
 			<% if (imagenes.length == 0) {break} %>
-			<h1>
+			<h2>
 				<%= datos.filter(n => n.grupo == 2).length ? "Grupo "+grupo : "Todos las imágenes están en un mismo grupo" %>
-			</h1>
+			</h2>
 			<ul class="imagenes">
 				<% for (imagen of imagenes) { %>
 					<li>

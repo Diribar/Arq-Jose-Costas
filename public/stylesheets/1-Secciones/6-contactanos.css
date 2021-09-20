@@ -8,7 +8,7 @@
 	justify-content: space-evenly;
 }
 
-#contactanos form h1 {
+#contactanos form h2 {
 	margin: 0;
 }
 
@@ -49,7 +49,7 @@
 	margin-left: 20px;
 }
 
-#contactanos form #texto h2 {
+#contactanos form #texto h3 {
 	margin-bottom: 0;
 }
 
