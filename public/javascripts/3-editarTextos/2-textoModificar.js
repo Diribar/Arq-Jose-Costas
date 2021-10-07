@@ -8,7 +8,6 @@ window.addEventListener("load", () => {
 		// Validar TEXTO: largo y sintaxis
 		textoExist[i].addEventListener("input", () => {
 			OKtexto = validarTexto(textoExist[i], i);
-			funcionConfirmar(OKtexto, confirmar[i]);
 		});
 		// Acciones cuando se terminó de escribir
 		textoExist[i].addEventListener("change", () => {
