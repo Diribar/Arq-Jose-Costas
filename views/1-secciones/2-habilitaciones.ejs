@@ -12,7 +12,7 @@
 				<h3><%= habilitaciones.find(n => n.grupo == grupo && n.orden == 1).contenido %></h3>
 				<% aux = habilitaciones.find(n => n.grupo == grupo && n.orden == 2) %>
 				<p><%- aux ? habilitaciones.find(n => n.grupo == grupo && n.orden == 2).contenido : "" %></p>
-			</li>			
+			</li>
 		<% } %>
 	</ul>
 </section>
