@@ -3,9 +3,76 @@
 <body id="editar_botones">
 	<header>
 		Seccion: <%= titulo.nombre_encabezado %> - Editar Botones
+		<p id="id" class="ocultar"><%= titulo.id %></p>
 	</header>
 	<main style="background-color: <%= titulo.color_fondo.codigo %>">
-
+		<section>
+			<table id="tabla">
+				<thead>
+					<tr>
+						<th>Botón</th>
+						<th>Color</th>
+						<th>Muestra</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- Color de fondo -->
+					<tr>
+						<td style="font-weight: bold">Fondo</td>
+						<td>
+							<select id="cfb">
+								<% for (color of colores) { %>
+									<option 
+										value="<%= color.id +' - '+ color.codigo %>" 
+										<%- color.id == titulo.color_fondo_boton_id ? 'selected' : "" %>
+									>
+										<%= color.nombre %>
+									</option>
+								<% } %>
+							</select>
+						</td>
+						<td style="background-color:<%= titulo.color_fondo_boton.codigo %>" id="muestra"></td>
+					</tr>
+					<!-- Color de letras -->
+					<tr>
+						<td style="font-weight: bold">Letra</td>
+						<td>
+							<select id="clb">
+								<% for (color of colores) { %>
+									<option 
+										value="<%= color.id +' - '+ color.codigo %>" 
+										<%- color.id == titulo.color_letras_boton_id ? 'selected' : "" %>
+									>
+										<%= color.nombre %>
+									</option>
+								<% } %>
+							</select>
+						</td>
+						<td style="background-color:<%= titulo.color_letras_boton.codigo %>" id="muestra"></td>
+					</tr>
+					<!-- Color de borde -->
+					<tr>
+						<td style="font-weight: bold">Borde</td>
+						<td>
+							<select id="cbb">
+								<% for (color of colores) { %>
+									<option 
+										value="<%= color.id +' - '+ color.codigo  %>" 
+										<%- color.id == titulo.color_borde_boton_id ? 'selected' : "" %>
+									>
+										<%= color.nombre %>
+									</option>
+								<% } %>
+							</select>
+						</td>
+						<td style="background-color:<%= titulo.color_borde_boton.codigo %>" id="muestra"></td>
+					</tr>
+				</tbody>
+			</table>
+			<button  style="background-color: <%= titulo.color_fondo_boton.codigo %>; color: <%= titulo.color_letras_boton.codigo %>; border-color: <%= titulo.color_borde_boton.codigo %>">
+				Ejemplo
+			</button>
+		</section>
 		<div id="botones">
 			<a href="/editar/home" title='Volver al "Home" de Edición'><i class="fas fa-home"></i></i></a>
 			<a href="/editar/colores" title="Ir a la Base de Datos de colores"><i class="fas fa-paint-roller"></i></a>

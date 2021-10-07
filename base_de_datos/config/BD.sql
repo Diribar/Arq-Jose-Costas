@@ -35,14 +35,15 @@ CREATE TABLE 0_encabezado_y_footer (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
 	orden INT UNSIGNED NOT NULL,
 	nombre_seccion VARCHAR(20) NOT NULL UNIQUE,
+	nombre_encabezado VARCHAR(20) NOT NULL,
 	color_fondo_id INT UNSIGNED NOT NULL,
 	color_letras_id INT UNSIGNED NOT NULL,
 	PRIMARY KEY (id),
 	FOREIGN KEY (color_fondo_id) REFERENCES colores(id),
 	FOREIGN KEY (color_letras_id) REFERENCES colores(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-INSERT INTO 0_encabezado_y_footer (orden, nombre_seccion, color_fondo_id, color_letras_id)
-VALUES (1, 'encabezado', 4, 2), (2, 'footer', 4, 2);
+INSERT INTO 0_encabezado_y_footer (orden, nombre_seccion, nombre_encabezado, color_fondo_id, color_letras_id)
+VALUES (1, 'encabezado', 'Encabezado', 4, 2), (2, 'footer', 'Pie de página', 4, 2);
 
 CREATE TABLE 0_titulos (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -52,12 +53,18 @@ CREATE TABLE 0_titulos (
 	titulo_seccion VARCHAR(50) NOT NULL,
 	color_fondo_id INT UNSIGNED NOT NULL,
 	color_letras_id INT UNSIGNED NOT NULL,
+	color_fondo_boton_id INT UNSIGNED NULL,
+	color_letras_boton_id INT UNSIGNED NULL,
+	color_borde_boton_id INT UNSIGNED NULL,
 	imagen_id INT UNSIGNED NULL,
 	editar_texto BOOLEAN NOT NULL,
 	editar_imagenes BOOLEAN NOT NULL,
 	PRIMARY KEY (id),
 	FOREIGN KEY (color_fondo_id) REFERENCES colores(id),
 	FOREIGN KEY (color_letras_id) REFERENCES colores(id),
+	FOREIGN KEY (color_fondo_boton_id) REFERENCES colores(id),
+	FOREIGN KEY (color_letras_boton_id) REFERENCES colores(id),
+	FOREIGN KEY (color_borde_boton_id) REFERENCES colores(id),
 	FOREIGN KEY (imagen_id) REFERENCES imagenes_varias(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 INSERT INTO 0_titulos (nombre_seccion, orden, nombre_encabezado, titulo_seccion, color_fondo_id, color_letras_id, imagen_id, editar_texto, editar_imagenes)
@@ -69,6 +76,12 @@ VALUES
 	('quienes_somos', 5, 'Quiénes Somos', 'Quiénes Somos', 1, 4, 3, 1, 1),
 	('contactanos', 6, 'Contactanos', 'Contactanos', 3, 5, null, 1, 0)
 	;
+UPDATE 0_titulos
+SET color_fondo_boton_id=6, color_letras_boton_id=4, color_borde_boton_id=4
+WHERE id = 3;
+UPDATE 0_titulos
+SET color_fondo_boton_id=6, color_letras_boton_id=4, color_borde_boton_id=4
+WHERE id = 5;
 
 CREATE TABLE 1_inicio_datos (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -125,18 +138,13 @@ CREATE TABLE 3_proyectos_datos (
 	grupo INT UNSIGNED NOT NULL,
 	orden INT UNSIGNED NOT NULL,
 	contenido VARCHAR(50) NOT NULL,
-	color_fondo_id INT UNSIGNED NOT NULL,
-	color_letras_id INT UNSIGNED NOT NULL,
-	color_borde_id INT UNSIGNED NOT NULL,
-	PRIMARY KEY (id),
-	FOREIGN KEY (color_fondo_id) REFERENCES colores(id),
-	FOREIGN KEY (color_letras_id) REFERENCES colores(id)
+	PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-INSERT INTO 3_proyectos_datos (grupo, orden, contenido, color_fondo_id, color_letras_id, color_borde_id)
+INSERT INTO 3_proyectos_datos (grupo, orden, contenido)
 VALUES 
-	(1, 1, 'Integral de Edificios', 6, 4, 4), 
-	(1, 2, 'Mediana Escala', 6, 4, 4), 
-	(1, 3, 'Menor Escala', 6, 4, 4)
+	(1, 1, 'Integral de Edificios'), 
+	(1, 2, 'Mediana Escala'), 
+	(1, 3, 'Menor Escala')
 	;
 
 CREATE TABLE 3_proyectos_imagenes (
@@ -171,11 +179,9 @@ CREATE TABLE 4_servicios_datos (
 INSERT INTO 4_servicios_datos (grupo, orden, contenido)
 VALUES 
 	(1, 1, 'Habilitación de carteles comerciales'),
-	(1, 2, ''),
 	(2, 1, 'Obtención de certificado de conservación de fachadas'),
 	(2, 2, 'según ley 6116 (ex 257)'),
-	(3, 1, 'Asesoramiento en Seguridad e Higiene en la construcción'),
-	(3, 2, '')
+	(3, 1, 'Asesoramiento en Seguridad e Higiene en la construcción')
 	;
 
 CREATE TABLE 5_quienes_somos_datos (
@@ -192,7 +198,8 @@ VALUES
 	(1, 3, 'Cuento con una importante experiencia en ampliaciones y remodelaciones, como así también en habilitaciones comerciales de locales, empresas e industrias.'),
 	(1, 4, 'Lidero un equipo de trabajo conformado por especialistas de diferentes rubros de obra.'),
 	(1, 5, 'Nuestro objetivo es brindar un servicio profesional a nuestros clientes, con seriedad, honestidad y eficiencia.'),
-	(2, 1, 'Nuestros Clientes')
+	(2, 1, 'Ficha personal en el CPAU'),
+	(3, 1, 'Nuestros Clientes')
 	;
 
 CREATE TABLE 5_quienes_somos_clientes (
