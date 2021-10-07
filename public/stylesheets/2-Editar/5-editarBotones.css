@@ -2,11 +2,7 @@ main section {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-evenly;
-}
-
-main section {
-	margin-top: 40px;
-	
+	margin-top: 40px;	
 }
 
 main section #tabla {
