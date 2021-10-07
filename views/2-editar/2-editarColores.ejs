@@ -1,8 +1,10 @@
 <%- include('0-head', {titulo: "Edición - Colores"}) %>
 <%- include('2-headEditarColores') %>
 <body id="editar_colores">
+	<header>
+		Editar Colores
+	</header>
 	<main>
-		<h2>Editar Colores</h2>
 		<table id="tabla">
 			<thead>
 				<tr>
@@ -20,33 +22,33 @@
 						<td id="codigo"><%= color.codigo %></td>
 						<td style="background-color:<%= color.codigo %>" id="muestra"></td>
 						<td>
-							<% let en_uso = color.encabezado_cf.length + color.encabezado_cl.length + color.titulos_cf.length + color.titulos_cl.length + color.proyectos_cf.length + color.proyectos_cl.length + color.proyectos_cb.length %>
+							<% let en_uso = color.encabezado_cf.length + color.encabezado_cl.length + color.titulos_cf.length + color.titulos_cl.length + color.titulos_cfb.length + color.titulos_clb.length + color.titulos_cbb.length %>
 							<% if (en_uso) { %>
 								<select onchange="location = this.value;">
 									<option class="ocultar" selected>En uso por</option>
 									<!-- Color de Fondo -->
 									<% for (sector of color.encabezado_cf) { %>
-										<option value="/editar/home">Fondo - <%= sector.nombre_seccion %></option>
+										<option value="/editar/home">Fondo - <%= sector.nombre_encabezado %></option>
 									<% } %>
 									<% for (sector of color.titulos_cf) { %>
-										<option value="/editar/home">Fondo - <%= sector.nombre_seccion %></option>
-									<% } %>
-									<% if (color.proyectos_cf.length) { %>
-										<option value="/editar/colores/proyectos">Fondo - etiq. proyectos</option>
+										<option value="/editar/home">Fondo - <%= sector.nombre_encabezado %></option>
 									<% } %>
 									<!-- Color de Letras -->
 									<% for (sector of color.encabezado_cl) { %>
-										<option value="/editar/home">Letras - <%= sector.nombre_seccion %></option>
+										<option value="/editar/home">Letras - <%= sector.nombre_encabezado %></option>
 									<% } %>
 									<% for (sector of color.titulos_cl) { %>
-										<option value="/editar/home">Letras - <%= sector.nombre_seccion %></option>
+										<option value="/editar/home">Letras - <%= sector.nombre_encabezado %></option>
 									<% } %>
-									<% if (color.proyectos_cl.length) { %>
-										<option value="/editar/colores/proyectos">Letras - etiq. proyectos</option>
+									<!-- Color de Botones -->
+									<% for (sector of color.titulos_cfb) { %>
+										<option value="/editar/colores/proyectos">Botón (Fondo) - <%= sector.nombre_encabezado %></option>
 									<% } %>
-									<!-- Color de Bordes -->
-									<% if (color.proyectos_cb.length) { %>
-										<option value="/editar/colores/proyectos">Borde - etiq. proyectos</option>
+									<% for (sector of color.titulos_clb) { %>
+										<option value="/editar/colores/proyectos">Botón (Letras) - <%= sector.nombre_encabezado %></option>
+									<% } %>
+									<% for (sector of color.titulos_cbb) { %>
+										<option value="/editar/colores/proyectos">Botón (Borde) - <%= sector.nombre_encabezado %></option>
 									<% } %>
 								</select>
 							<% } else { %>

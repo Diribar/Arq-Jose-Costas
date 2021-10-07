@@ -1,4 +1,4 @@
-#tabla input[name="nombre_encabezado"] {
+#editar_home #tabla input {
 	width:140px
 }
 
@@ -15,7 +15,7 @@
 	overflow: hidden;
 }
 
-#tabla .td_imagen img {
+#editar_home #tabla .td_imagen img {
 	height: 100%;
 	width: 100%;
 	object-fit: cover;

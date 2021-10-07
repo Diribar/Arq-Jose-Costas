@@ -1,0 +1,15 @@
+<%- include('0-head', {titulo: "Edición - " + titulo.nombre_encabezado}) %>
+<%- include('5-headEditarBotones') %>
+<body id="editar_botones">
+	<header>
+		Seccion: <%= titulo.nombre_encabezado %> - Editar Botones
+	</header>
+	<main style="background-color: <%= titulo.color_fondo.codigo %>">
+
+		<div id="botones">
+			<a href="/editar/home" title='Volver al "Home" de Edición'><i class="fas fa-home"></i></i></a>
+			<a href="/editar/colores" title="Ir a la Base de Datos de colores"><i class="fas fa-paint-roller"></i></a>
+		</div>
+	</main>
+</body>
+</html>

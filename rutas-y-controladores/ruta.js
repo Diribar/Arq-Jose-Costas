@@ -1,7 +1,7 @@
 // Requires ************************************************
 var express = require("express");
 var router = express.Router();
-const controlador_varios = require("./controlador_varios");
+const controlador_varios = require("./controlador_EJS");
 const controlador_APIs = require("./controlador_APIs");
 
 // Middlewares de Validaciones
@@ -16,9 +16,9 @@ router.post("/loginnuevo", controlador_varios.loginDatos);
 router.get("/logout", controlador_varios.logout);
 router.get("/editar/home", soloUsuarios, controlador_varios.editarHome);
 router.get("/editar/colores", soloUsuarios, controlador_varios.editarColores);
-router.get("/editar/textos/proyectos", soloUsuarios, controlador_varios.editarProyectos);
 router.get("/editar/textos/:id", soloUsuarios, controlador_varios.editarTextos);
 router.get("/editar/imagenes/:id", soloUsuarios, controlador_varios.editarImagenes);
+router.get("/editar/botones/:id", soloUsuarios, controlador_varios.editarBotones);
 router.post("/editar/reemplazarImagen", uploadFile.single("imagen"), controlador_varios.reemplazarImagen);
 router.post("/editar/agregarImagen", uploadFile.single("imagen"), controlador_varios.agregarImagen);
 

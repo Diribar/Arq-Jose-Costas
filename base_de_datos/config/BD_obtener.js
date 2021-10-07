@@ -11,12 +11,12 @@ module.exports = {
 		return db.colores.findAll({
 			include: [
 				"encabezado_cf",
-				"titulos_cf",
-				"proyectos_cf",
 				"encabezado_cl",
+				"titulos_cf",
 				"titulos_cl",
-				"proyectos_cl",
-				"proyectos_cb",
+				"titulos_cfb",
+				"titulos_clb",
+				"titulos_cbb",
 			],
 			order: [["nombre", "ASC"]],
 		});
@@ -31,7 +31,14 @@ module.exports = {
 
 	ObtenerTitulos: () => {
 		return db.titulos.findAll({
-			include: ["color_fondo", "color_letras", "imagen"],
+			include: [
+				"color_fondo",
+				"color_letras",
+				"color_fondo_boton",
+				"color_letras_boton",
+				"color_borde_boton",
+				"imagen",
+			],
 			order: [["orden", "ASC"]],
 		});
 	},
@@ -39,12 +46,7 @@ module.exports = {
 	ObtenerProyectos: () => {
 		return db.proyectos
 			.findAll({
-				include: [
-					"color_fondo",
-					"color_letras",
-					"color_borde",
-					"imagenes",
-				],
+				include: ["imagenes"],
 				order: [["orden", "ASC"]],
 			})
 			.then((n) =>
@@ -72,17 +74,14 @@ module.exports = {
 	},
 
 	CambiarImagenEnBD: (entidad, id, archivo) => {
-		return db[entidad].update(
-			{ archivo: archivo },
-			{ where: { id: id } }
-		);
+		return db[entidad].update({ archivo: archivo }, { where: { id: id } });
 	},
 
 	AgregarImagenEnBD: (entidad, grupo, orden, archivo) => {
-		return db[entidad].create({ 
+		return db[entidad].create({
 			grupo: grupo,
 			orden: orden,
-			archivo: archivo 
+			archivo: archivo,
 		});
-	}
+	},
 };

@@ -7,7 +7,6 @@
 		<table id="tabla">
 			<thead>
 				<tr>
-					<th>Contenido</th>
 					<th>Color de Fondo</th>
 					<th>Color de Letras</th>
 					<th>Color de Bordes</th>
@@ -17,10 +16,9 @@
 				<% for (registro of proyectos) { %>
 					<tr class="filas">
 						<td id="id" class="ocultar"><%= registro.id %></td>
-						<td id="clf" class="ocultar"><%= registro.color_letras.codigo %></td>
 						<td id="cff" class="ocultar"><%= registro.color_fondo.codigo %></td>
+						<td id="clf" class="ocultar"><%= registro.color_letras.codigo %></td>
 						<td id="cbf" class="ocultar"><%= registro.color_borde.codigo %></td>
-						<td><input type="text" name="cont" value="<%= registro.contenido %>"></td>
 						<td>
 							<select name="cff">
 								<% for (n of colores) { %>
