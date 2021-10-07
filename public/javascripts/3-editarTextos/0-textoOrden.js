@@ -13,7 +13,7 @@ window.addEventListener("load", () => {
 			orden1 = parseInt(orden[i - 1].innerHTML);
 			id2 = IDs[i - 1].innerHTML;
 			orden2 = parseInt(orden[i].innerHTML);
-			await cambiarOrden(id1, orden1, id2, orden2);
+			await funcionOrden(id1, orden1, id2, orden2);
 		});
 		flechasDown[i].addEventListener("click", async () => {
 			id1 = IDs[i].innerHTML;

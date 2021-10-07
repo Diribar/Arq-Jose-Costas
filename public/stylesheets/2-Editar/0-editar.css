@@ -1,13 +1,29 @@
+header {
+	background-color: #223063;
+	text-align: left;
+	color: wheat;
+	padding: 10px;
+	font-weight: bold;
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+
+body {
+	background-color: wheat;
+}
+
+main {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
 h2 {
 	margin: 20px auto 10px;
 	text-align: center;
 	font-weight: bold;
 	font-size: 1.5rem;
 	color: #009879;
-}
-
-body {
-	background-color: wheat;
 }
 
 #tabla {
@@ -83,7 +99,7 @@ body {
 }
 
 #botones i, .botones i {
-	color: RGB(118, 113, 113);
+	color: #223063;
 	font-size: 1.5rem;
 }
 

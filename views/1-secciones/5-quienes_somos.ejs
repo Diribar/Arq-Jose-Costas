@@ -11,9 +11,14 @@
 			<li><%= texto.contenido %></li>
 		<% } %>
 	</ul>
+	<a href="https://www.cpau.org/Content/institucional/ficha/6ecf7056-ce07-4b9c-8267-b2c899ff1799" target="_blank">
+		<button style="background-color:<%= n.color_fondo_boton.codigo %>; color:<%= n.color_letras_boton.codigo %>; border-color:<%= n.color_borde_boton.codigo %>">
+			<%= quienes_somos.find(m => m.grupo == 2 && m.orden == 1).contenido %>
+		</button>
+	</a>
 </section>
 <section id="clientes">
-	<h3><%= quienes_somos.find(m => m.grupo == 2 && m.orden == 1).contenido %></h3>
+	<h3><%= quienes_somos.find(m => m.grupo == 3 && m.orden == 1).contenido %></h3>
 	<ul>
 		<% for (j of clientes_imagenes) { %>
 			<li>

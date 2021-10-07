@@ -18,7 +18,7 @@ window.addEventListener("load", () => {
 		});
 		// Agregar texto
 		confirmar[i].addEventListener("click", async () => {
-			if (OKtexto) {
+			if (textosNuevos[i].value && OKtexto) {
 				contenido = textosNuevos[i].value;
 				grupo = grupos[i].innerHTML;
 				await funcionAgregar(contenido, grupo);

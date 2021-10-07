@@ -16,6 +16,7 @@
 					<th class="center">Imagen<br>Individual</th>
 					<th class="center">Editar<br>Texto</th>
 					<th class="center">Editar<br>Imágenes</th>
+					<th class="center">Editar<br>Botones</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -51,6 +52,7 @@
 							<% } %>
 						</select>
 					</td>
+					<td class="center">-</td>
 					<td class="center">-</td>
 					<td class="center">-</td>
 					<td class="center">-</td>
@@ -121,6 +123,10 @@
 						<td class="center">
 							<%- titulo.editar_imagenes ? '<a href="/editar/imagenes/' + titulo.nombre_seccion + '"><i class="fas fa-check-circle"></i></a>' : '<i class="fas fa-times-circle"></i>' %>
 						</td>
+						<!-- Celda de ícono para editar botones -->
+						<td class="center">
+							<%- titulo.color_fondo_boton_id ? '<a href="/editar/botones/' + titulo.nombre_seccion + '"><i class="fas fa-check-circle"></i></a>' : '<i class="fas fa-times-circle"></i>' %>
+						</td>
 					</tr>
 				<% } %>
 				<!-- Fila de footer de home -->
@@ -155,6 +161,7 @@
 							<% } %>
 						</select>
 					</td>
+					<td class="center">-</td>
 					<td class="center">-</td>
 					<td class="center">-</td>
 					<td class="center">-</td>

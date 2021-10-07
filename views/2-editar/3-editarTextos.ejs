@@ -2,11 +2,11 @@
 <%- include('3-headEditarTextos') %>
 <body id="editar_texto">
 	<header>
-		Seccion: <%= titulo.nombre_encabezado %>
+		Seccion: <%= titulo.nombre_encabezado %> - Editar texto
 		<div class="ocultar"><%= titulo.nombre_seccion %></div>
 	</header>
 	<main>
-		<% for (let grupo=1; grupo<=datos.length; grupo++) { %>
+		<% for (let grupo=1; grupo <= datos.length; grupo++) { %>
 			<% contenido = datos.filter(n => n.grupo == grupo) %>
 			<% if (contenido.length == 0) {break} %>
 			<div id="titulo">

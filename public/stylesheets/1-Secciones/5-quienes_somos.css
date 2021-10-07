@@ -14,7 +14,6 @@
 
 #quienes_somos #arquitecto img {
 	max-height: 230px;
-	max-width: 100%;
 }
 
 #quienes_somos #arquitecto ul {
@@ -26,6 +25,14 @@
 	margin-top: .5rem;
 	margin-left: -40px;
 	list-style: none;
+}
+
+#quienes_somos #arquitecto button {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	padding: 10px;
+	font-weight: bold;
+	border: 2px solid;
 }
 
 #quienes_somos #clientes h3 {

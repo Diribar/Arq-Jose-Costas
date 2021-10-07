@@ -4,6 +4,9 @@
 	flex-wrap: wrap;
 	justify-content: space-evenly;
 	margin-top: 0px;
+	padding: 0;
+	max-width: 90%;
+	margin: auto;
 }
 
 #editar_imagenes .imagenes li {

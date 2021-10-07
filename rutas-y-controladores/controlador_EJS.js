@@ -101,13 +101,15 @@ module.exports = {
 		});
 	},
 
-	editarProyectos: async (req, res) => {
-		tituloProyecto = await BD_obtener.ObtenerTitulos();
-		datos = tituloProyecto.find((n) => (n.nombre_seccion = "proyectos"));
-		res.render("5-editarProyectos", {
-			proyectos: await BD_obtener.ObtenerProyectos(),
+	editarBotones: async (req, res) => {
+		url = req.url;
+		seccion = url.slice(url.lastIndexOf("/") + 1);
+		titulos = await BD_obtener.ObtenerTitulos();
+		titulo = titulos.find((n) => n.nombre_seccion == seccion);
+		res.render("5-editarBotones", {
+			seccion,
+			titulo,
 			colores: await BD_obtener.ObtenerColoresConRelaciones(),
-			datos,
 		});
 	},
 
@@ -145,7 +147,7 @@ module.exports = {
 
 	reemplazarImagen: async (req, res) => {
 		let { home, id, entidad, ruta } = req.body;
-		let condiciones = verificarImagenNueva(ruta, req.file)
+		let condiciones = verificarImagenNueva(ruta, req.file);
 		if (condiciones[0]) {
 			return res.render("errorImagen", {
 				condicion,
@@ -174,20 +176,14 @@ let verificarImagenNueva = (ruta, file) => {
 				'La extensiones de archivo aceptadas son: "' +
 				extensionesOK.join('", "') + '"')
 		: "";
-	// Verificar si el nombre es demasiado largo
-	condicion2 = file.originalname.length > 30;
+	// Verificar el tamaño
+	condicion2 = file.size > 5000000;
 	condicion2
 		? (condicion2 =
-				"El nombre del archivo es demasiado largo. Debe ser de hasta 30 caracteres")
-		: "";
-	// Verificar el tamaño
-	condicion3 = file.size > 5000000;
-	condicion3
-		? (condicion3 =
 				"El tamaño del archivo es demasiado grande. Debe ser de hasta 5 MB")
 		: "";
 	// Frenar el proceso si no se cumple alguna condición
-	condicion = condicion1 || condicion2 || condicion3;
+	condicion = condicion1 || condicion2;
 	condicion ? funciones.eliminarImagen(ruta, file.filename) : "";
-	return [condicion, condicion1, condicion2, condicion3];
+	return [condicion, condicion1, condicion2];
 };

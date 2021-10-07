@@ -9,10 +9,8 @@
 <body>
 	<p class="dato">Archivo: <strong><%= archivo.originalname %></strong></p>
 	<% if (condiciones[1]) { %><p class="condicion"><%= condiciones[1] %></p><% } %> 
-	<p class="dato">Longitud del nombre: <strong><%= archivo.originalname.length %> caracteres</strong></p>
-	<% if (condiciones[2]) { %><p class="condicion"><%= condiciones[2] %></p><% } %> 
 	<p class="dato">Tamaño: <strong><%= parseInt(archivo.size/10000)/100 %> MB</strong></p>
-	<% if (condiciones[3]) { %><p class="condicion"><%= condiciones[3] %></p><% } %> 
+	<% if (condiciones[2]) { %><p class="condicion"><%= condiciones[2] %></p><% } %> 
 	<a href="<%= home %> ">
 		<button>Regresar</button>
 	</a>
