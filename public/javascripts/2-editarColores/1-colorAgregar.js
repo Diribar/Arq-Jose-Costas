@@ -7,7 +7,6 @@ window.addEventListener("load", () => {
 	OKcodigo = false;
 	nombre.addEventListener("input", () => {
 		OKnombre = validarNombre(nombre, -1);
-		console.log("colorA1");
 		funcionConfirmar(OKnombre, OKcodigo, confirmar);
 	});
 
@@ -16,7 +15,6 @@ window.addEventListener("load", () => {
 	OKnombre = false;
 	codigo.addEventListener("input", () => {
 		OKcodigo = validarCodigo(codigo);
-		console.log("colorA")
 		funcionConfirmar(OKnombre, OKcodigo, confirmar);
 	});
 
