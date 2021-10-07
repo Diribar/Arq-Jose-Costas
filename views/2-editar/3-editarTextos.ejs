@@ -6,9 +6,9 @@
 		<div class="ocultar"><%= titulo.nombre_seccion %></div>
 	</header>
 	<main>
-		<% for (let grupo=1; grupo <= datos.length; grupo++) { %>
+		<% grupos = datos.filter((m) => m.orden == 1).map(m => m.grupo) %>
+		<% for (grupo of grupos) { %>
 			<% contenido = datos.filter(n => n.grupo == grupo) %>
-			<% if (contenido.length == 0) {break} %>
 			<div id="titulo">
 				<h2>Grupo <%= grupo %></h2>
 				<% if (seccion == "habilitaciones" || seccion == "servicios") { %>

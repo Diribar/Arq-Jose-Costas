@@ -2,20 +2,23 @@
 	<h2><%= n.titulo_seccion %></h2>
 	<div id="comentarioH1">
 		<% for (m of habilitaciones.filter(m => m.grupo == 1)) { %>
-			<p><%= m.contenido %></p>
+		<p><%= m.contenido %></p>
 		<% } %>
 	</div>
 	<ul>
-		<% casos = habilitaciones.filter(m => (m.grupo > 1 && m.orden == 1)).length %>
-		<% for (let i=0; i<casos; i++) { %>
+		<% grupos = habilitaciones.filter((m) => m.grupo > 1 && m.orden == 1).map(m => m.grupo) %>
+		<% for (grupo of grupos) { %>
 			<li>
-				<h3><%= habilitaciones.find(n => n.grupo == i+2 && n.orden == 1).contenido %></h3>
-				<% aux = habilitaciones.find(n => n.grupo == i+2 && n.orden == 2) %>
-				<p><%- aux ? habilitaciones.find(n => n.grupo == i+2 && n.orden == 2).contenido : "" %></p>
-			</li>
+				<h3><%= habilitaciones.find(n => n.grupo == grupo && n.orden == 1).contenido %></h3>
+				<% aux = habilitaciones.find(n => n.grupo == grupo && n.orden == 2) %>
+				<p><%- aux ? habilitaciones.find(n => n.grupo == grupo && n.orden == 2).contenido : "" %></p>
+			</li>			
 		<% } %>
 	</ul>
 </section>
 <section id="imagen">
-	<img src="./imagenes/varias/<%= n.imagen.archivo %>" alt="<%= n.imagen.nombre %>">
+	<img
+		src="./imagenes/varias/<%= n.imagen.archivo %>"
+		alt="<%= n.imagen.nombre %>"
+	/>
 </section>
