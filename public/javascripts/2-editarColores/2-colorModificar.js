@@ -8,7 +8,6 @@ window.addEventListener("load", () => {
 		// Validar nombre: largo, sintaxis y repetido
 		nombres[i].addEventListener("input", () => {
 			OKnombre = validarNombre(nombres[i], i);
-			funcionConfirmar(OKnombre, true);
 		});
 		// Acciones cuando se terminó de escribir
 		nombres[i].addEventListener("change", () => {

@@ -65,7 +65,10 @@ module.exports = {
 
 	ObtenerTodos: (entidad) => {
 		return db[entidad].findAll({
-			order: [["orden", "ASC"]],
+			order: [
+				["grupo", "ASC"],
+				["orden", "ASC"],
+			],
 		});
 	},
 
