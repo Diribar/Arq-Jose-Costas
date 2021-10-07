@@ -7,7 +7,7 @@ window.addEventListener("load", () => {
 	let muestra = document.querySelectorAll("#muestra");
 	let ejemplo = document.querySelector("main section button");
 
-	// Ver los colores en el boton
+	// Ver los colores en el boton y en la muestra
 	window.addEventListener("change", () => {
 		// Color de fondo
 		cfbColor = cfb.value.slice(cfb.value.indexOf(" - ") + 3);
