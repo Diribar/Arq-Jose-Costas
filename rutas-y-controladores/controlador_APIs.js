@@ -23,7 +23,6 @@ module.exports = {
 
 	editarCambiarValor: async (req, res) => {
 		let { entidad, id, dato, campo } = req.query;
-		console.log(req.query)
 		await BD_API.CambiarValor(entidad, id, dato, campo);
 		return res.json();
 	},
