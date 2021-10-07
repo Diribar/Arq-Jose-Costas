@@ -1,21 +1,53 @@
 window.addEventListener("load", () => {
 	// Variables generales
-	let cff = document.querySelectorAll("#cff");
-	let clf = document.querySelectorAll("#clf");
-	let cbf = document.querySelectorAll("#cbf");
-	let filas = document.querySelectorAll(".filas");
-	let colorFondo = document.querySelector("#colorFondo").innerHTML
-	// Datos de cada fila
-	let IDs = document.querySelectorAll(".filas #id");
-	let cont = document.querySelectorAll(".filas input[name='cont']");
+	let id = document.querySelector("#id").innerHTML;
+	let cfb = document.querySelector("#cfb");
+	let clb = document.querySelector("#clb");
+	let cbb = document.querySelector("#cbb");
+	let muestra = document.querySelectorAll("#muestra");
+	let ejemplo = document.querySelector("main section button");
 
-	// Cambiar los colores de las filas
-	for (let i = 0; i < cont.length; i++) {
-		id = IDs[i].innerHTML;
-		// Colores en las filas
-		filas[i].style.backgroundColor = colorFondo;
-		cont[i].style.backgroundColor = cff[i].innerHTML;
-		cont[i].style.color = clf[i].innerHTML;
-		cont[i].style.borderColor = cbf[i].innerHTML;
-	}
+	// Ver los colores en el boton
+	window.addEventListener("change", () => {
+		// Color de fondo
+		cfbColor = cfb.value.slice(cfb.value.indexOf(" - ") + 3);
+		ejemplo.style.backgroundColor = cfbColor;
+		muestra[0].style.backgroundColor = cfbColor;
+		// Color de letras
+		clbColor = clb.value.slice(clb.value.indexOf(" - ") + 3);
+		ejemplo.style.color = clbColor;
+		muestra[1].style.backgroundColor = clbColor;
+		// Color de borde
+		cbbColor = cbb.value.slice(cbb.value.indexOf(" - ") + 3);
+		ejemplo.style.borderColor = cbbColor;
+		muestra[2].style.backgroundColor = cbbColor;
+	});
+
+	ejemplo.addEventListener("click", async () => {
+		// Color de fondo
+		campo = "color_fondo_boton_id";
+		valor = cfb.value.slice(0, cfb.value.indexOf(" - "));
+		await funcionModificar(id, campo, valor);
+		// Color de letras
+		campo = "color_letras_boton_id";
+		valor = clb.value.slice(0, clb.value.indexOf(" - "));
+		await funcionModificar(id, campo, valor);
+		// Color de borde
+		campo = "color_borde_boton_id";
+		valor = cbb.value.slice(0, cbb.value.indexOf(" - "));
+		await funcionModificar(id, campo, valor);
+	});
 });
+
+// FÓRMULAS *************************************************
+let funcionModificar = async (id, campo, valor) => {
+	await fetch(
+		"/editar/cambiarvalor/?entidad=titulos" +
+			"&id=" +
+			id +
+			"&dato=" +
+			valor +
+			"&campo=" +
+			campo
+	);
+};
