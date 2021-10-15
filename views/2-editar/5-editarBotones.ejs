@@ -69,9 +69,12 @@
 					</tr>
 				</tbody>
 			</table>
-			<button  style="background-color: <%= titulo.color_fondo_boton.codigo %>; color: <%= titulo.color_letras_boton.codigo %>; border-color: <%= titulo.color_borde_boton.codigo %>">
-				Ejemplo
-			</button>
+			<div class="flex-col" style="align-items: center; justify-content: space-evenly;">
+				<button style="background-color: <%= titulo.color_fondo_boton.codigo %>; color: <%= titulo.color_letras_boton.codigo %>; border-color: <%= titulo.color_borde_boton.codigo %>">
+					Ejemplo
+				</button>
+				<p>Hacé 'click' en el ejemplo para confirmar los cambios</p>
+			</div>
 		</section>
 		<div id="botones">
 			<a href="/editar/home" title='Volver al "Home" de Edición'><i class="fas fa-home"></i></i></a>
