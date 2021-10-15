@@ -51,8 +51,8 @@ module.exports = {
 		// Averiguar si el archivo es Read-Only o no existe
 		try {
 			fs.accessSync(archivo, fs.constants.W_OK);
-			fs.unlinkSync(archivo);
-			console.log("El archivo " + nombre + " se eliminó");
+			// fs.unlinkSync(archivo);
+			// console.log("El archivo " + nombre + " se eliminó");
 		} catch (err) {
 			console.log(
 				"No se encuentra el archivo " +
