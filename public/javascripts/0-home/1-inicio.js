@@ -9,10 +9,10 @@ window.addEventListener("load", () => {
 	var transicion = '1000ms'
 	let duracionLoop = 3000
 	let secuencia = 1
+	let ancho = document.querySelector("#inicio #imagenes").offsetWidth;
 
 	// Función slider
 	let slider = () => {
-		ancho = document.querySelector("#inicio #imagenes").offsetWidth;
 		contenedor.style.transitionDuration = transicion
 		secuencia = -parseInt(contenedor.style.transform.slice(11,-3))/ancho
 		dots[secuencia].classList.remove("current");
@@ -83,8 +83,8 @@ window.addEventListener("load", () => {
 				: iconos[3].classList.remove("ocultar");
 		})
 	}
-})
-
-window.addEventListener("resize", () => {
-	location.reload()
+	window.addEventListener("resize", () => {
+		nuevoAncho = document.querySelector("#inicio #imagenes").offsetWidth;
+		if (nuevoAncho!= ancho) location.reload()
+	})
 })
