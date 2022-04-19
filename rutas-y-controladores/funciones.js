@@ -5,14 +5,18 @@ const fs = require("fs");
 
 module.exports = {
 	enviarMail: async (asunto, nombre, mail, telefono, comentario) => {
+		// Remitente
+		let remitente = "mensaje.web.02@gmail.com"; // dirección de gmail
+		let contrasena = process.env.contrasena; // contraseña de gmail
 		// create reusable transporter object using the default SMTP transport
 		let transporter = nodemailer.createTransport({
+			service: "gmail",
 			host: "smtp.gmail.com",
 			port: 465,
 			secure: true, // true for 465, false for other ports
 			auth: {
-				user: "mensaje.web.01@gmail.com", // generated mail address
-				pass: "rudhfurovpjsjjzp", // generated  password
+				user: remitente,
+				pass: "yphlpfkfwtbaqvqp", // contraseña de aplicación de gmail
 			},
 		});
 		// transporter.verify().then(() => {
@@ -20,12 +24,11 @@ module.exports = {
 		// });
 		// send mail with defined transport object
 		datos = {
-			from: '"Mensaje de la página web" <mensaje.web.01@gmail.com>', // sender address
+			from: '"arquitectojosecostas.com.ar" <' + remitente + ">",
 			to: "josericardocostas@hotmail.com",
-			subject: asunto, // Subject line
-			text: comentario + "\n" + nombre + "\n" + telefono + "\n" + mail, // plain text body
+			subject: asunto,
 			html:
-				comentario.replace(/\r/g, "<br>").replace(/\n/g, "<br>") +
+				comentario.replace(/[\r\n]/g, "<br>") +
 				"<br>" +
 				"<br>" +
 				nombre +
