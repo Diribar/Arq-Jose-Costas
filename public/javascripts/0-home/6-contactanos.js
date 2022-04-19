@@ -35,7 +35,7 @@ window.addEventListener("load", () => {
 	let cambiarSumandos = () => {
 		suma1.innerHTML = Math.round(Math.random() * 12);
 		suma2.innerHTML = Math.round(Math.random() * 12);
-	}
+	};
 
 	// Validar campos
 	for (let i = 0; i < inputs.length; i++) {
@@ -65,25 +65,23 @@ window.addEventListener("load", () => {
 	// Acciones si se elije "submit"
 	form.addEventListener("submit", async (e) => {
 		e.preventDefault();
-		var error = false;
+		let error = false;
 		for (let i = 0; i < inputs.length; i++) {
 			// Avisar si hay campos vacíos
-			if (inputs[i].value == "" && i != 2) {
+			if (!inputs[i].value && i != 2) {
 				avisoError[i].classList.remove("ocultar");
+				error = true;
 			}
-			// Detectar si hay errores
-			!avisoError[i].classList.value.includes("ocultar")
-				? (error = true)
-				: "";
 		}
 		if (!error) {
-			datos = "";
+			let datos = "";
 			for (n of inputs) {
-				datos = datos + n.name + "=" + encodeURIComponent(n.value) + "&";
+				datos += n.name + "=" + encodeURIComponent(n.value) + "&";
 			}
-			mailEnviado = await fetch("/contactanos/?" + datos).then(n => n.json);
-			envioExitoso.style.display = "flex"
+			fetch("/contactanos/?" + datos).then((n) => n.json);
+			envioExitoso.style.display = "flex";
 			background.classList.remove("ocultar");
+			entendido.focus();
 		}
 	});
 
@@ -91,9 +89,8 @@ window.addEventListener("load", () => {
 		envioExitoso.style.display = "none";
 		background.classList.add("ocultar");
 		for (n of inputs) {
-			n.value = ""
+			n.value = "";
 		}
 		cambiarSumandos();
-	})
-
+	});
 });
