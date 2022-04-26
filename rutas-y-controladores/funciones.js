@@ -7,7 +7,7 @@ module.exports = {
 	enviarMail: async (asunto, nombre, mail, telefono, comentario) => {
 		// Remitente
 		let remitente = "mensaje.web.02@gmail.com"; // dirección de gmail
-		let contrasena = process.env.contrasena; // contraseña de gmail
+		let contrasena = process.env.contrMail; // contraseña de gmail
 		// create reusable transporter object using the default SMTP transport
 		let transporter = nodemailer.createTransport({
 			//service: "gmail",
@@ -16,7 +16,7 @@ module.exports = {
 			secure: true, // true for 465, false for other ports
 			auth: {
 				user: remitente,
-				pass: "yphlpfkfwtbaqvqp", // contraseña de aplicación de gmail
+				pass: process.env.contrAplicacion, // contraseña de aplicación de gmail
 			},
 		});
 		// transporter.verify().then(() => {
