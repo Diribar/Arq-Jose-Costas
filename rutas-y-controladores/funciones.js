@@ -10,7 +10,7 @@ module.exports = {
 		let contrasena = process.env.contrasena; // contraseña de gmail
 		// create reusable transporter object using the default SMTP transport
 		let transporter = nodemailer.createTransport({
-			service: "gmail",
+			//service: "gmail",
 			host: "smtp.gmail.com",
 			port: 465,
 			secure: true, // true for 465, false for other ports
@@ -37,7 +37,7 @@ module.exports = {
 				"<br>" +
 				mail,
 		};
-		await transporter.sendMail(datos);
+		//await transporter.sendMail(datos);
 		datos.to = "diegoiribarren2015@gmail.com";
 		await transporter.sendMail(datos);
 		// await transporter.sendMail(info, (error, info) => {
