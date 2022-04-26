@@ -11,12 +11,12 @@ module.exports = {
 			port: 465,
 			secure: true, // true for 465, false for other ports
 			auth: {
-				user: process.env.direccMail, // dirección de gmail
-				pass: process.env.contrAplicacion, // contraseña de aplicación de gmail
+				user: "mensaje.web.02@gmail.com", // dirección de gmail
+				pass: "yphlpfkfwtbaqvqp", // contraseña de aplicación de gmail
 			},
 		});
 		let datos = {
-			from: '"arquitectojosecostas.com.ar" <' + process.env.direccMail + ">",
+			from: '"arquitectojosecostas.com.ar" <mensaje.web.02@gmail.com>',
 			to: "josericardocostas@hotmail.com",
 			subject: asunto,
 			html:
