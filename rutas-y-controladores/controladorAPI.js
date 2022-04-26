@@ -5,7 +5,7 @@ const funciones = require("./funciones");
 
 // **** Exportar ***********
 module.exports = {
-	homeContactanosFrontEnd: async (req, res) => {
+	contactanosFrontEnd: async (req, res) => {
 		let { nombre, mail, telefono, comentario } = req.query;
 		asunto = "Mensaje de un contacto";
 		comentario = decodeURIComponent(comentario);
