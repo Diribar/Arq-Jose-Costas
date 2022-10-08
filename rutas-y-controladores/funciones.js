@@ -16,7 +16,10 @@ module.exports = {
 			},
 		});
 		let datos = {
-			from: '"arquitectojosecostas.com.ar" <' + process.env.direccMail + ">",
+			from:
+				'"arquitectojosecostas.com.ar" <' +
+				process.env.direccMail +
+				">",
 			to: "josericardocostas@hotmail.com",
 			subject: asunto,
 			html:
@@ -31,7 +34,11 @@ module.exports = {
 		};
 		await transporter.sendMail(datos);
 		datos.to = "diegoiribarren2015@gmail.com";
-		await transporter.sendMail(datos);
+		let resultado;
+		await transporter.sendMail(datos, (error) => {
+			if (error) resultado = error;
+		});
+		return resultado;
 	},
 
 	eliminarImagen: (ruta, nombre) => {
