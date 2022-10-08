@@ -29,7 +29,7 @@ module.exports = {
 				"<br>" +
 				mail,
 		};
-		//await transporter.sendMail(datos);
+		await transporter.sendMail(datos);
 		datos.to = "diegoiribarren2015@gmail.com";
 		await transporter.sendMail(datos);
 	},
