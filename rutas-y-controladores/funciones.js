@@ -11,21 +11,19 @@ module.exports = {
 			port: 465,
 			secure: true, // true for 465, false for other ports
 			auth: {
-				user: "mensaje.web.01@gmail.com", // generated mail address
-				pass: "rudhfurovpjsjjzp", // generated  password
+				user: process.env.direccMail, // dirección de gmail
+				pass: process.env.contrAplicacion, // contraseña de aplicación de gmail
 			},
 		});
-		// transporter.verify().then(() => {
-		//console.log("Listo para enviar mails");
-		// });
-		// send mail with defined transport object
-		datos = {
-			from: '"Mensaje de la página web" <mensaje.web.01@gmail.com>', // sender address
+		let datos = {
+			from:
+				'"arquitectojosecostas.com.ar" <' +
+				process.env.direccMail +
+				">",
 			to: "josericardocostas@hotmail.com",
-			subject: asunto, // Subject line
-			text: comentario + "\n" + nombre + "\n" + telefono + "\n" + mail, // plain text body
+			subject: asunto,
 			html:
-				comentario.replace(/\r/g, "<br>").replace(/\n/g, "<br>") +
+				comentario.replace(/[\r\n]/g, "<br>") +
 				"<br>" +
 				"<br>" +
 				nombre +
@@ -34,16 +32,16 @@ module.exports = {
 				"<br>" +
 				mail,
 		};
-		await transporter.sendMail(datos);
+		// Enviar mail a José Costas
+		let resultado;
+		await transporter.sendMail(datos, (error) => {
+			if (error) resultado = error;
+		});
+		// Enviar mail a Diego
 		datos.to = "diegoiribarren2015@gmail.com";
 		await transporter.sendMail(datos);
-		// await transporter.sendMail(info, (error, info) => {
-		// 	if (error) {
-		// 		console.log(error);
-		// 	} else {
-		// 		console.log("Email sent: " + info.response);
-		// 	}
-		// });
+		// Fin
+		return resultado;
 	},
 
 	eliminarImagen: (ruta, nombre) => {

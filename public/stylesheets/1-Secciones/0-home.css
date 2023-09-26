@@ -1,57 +1,19 @@
-header {
-	position: fixed;
-	display: flex;
-	flex-direction: row;
-	width: 100vw;
-	top: 0;
-	z-index: 9;
-}
+header {position: fixed; display: flex; flex-direction: row; width: 100vw; top: 0; z-index: 9;}
+header nav {padding: 10px 15px; font-weight: bold; flex-grow: 1; text-align: center; border: 2px solid;}
+header nav a {font-size: 1.3rem;}
 
-header nav {
-	padding: 10px 15px;
-	font-weight: bold;
-	flex-grow: 1;
-	text-align: center;
-	border: 2px solid;
-}
+main {margin-top: 50px;}
+#contactanos, .seccion {padding: 5vw;}
 
-header nav a {
-	font-size: 1.3rem;
-}
-
-main {
-	margin-top: 50px;
-}
-
-#contactanos,
-.seccion {
-	padding: 5vw;
-}
-
-footer {
-	padding: 5px 15px;
-	border-top: solid 1px RGB(255,242,204);
-}
-
-footer p {
-	font-size: 0.9rem;
-}
+footer {padding: 5px 15px; border-top: solid 1px RGB(255,242,204);}
+footer p {font-size: 0.9rem;}
 
 @media (min-width: 1201px) {
-	#inicio .fa-bars,
-	#inicio #texto #encabezado #menu-home {
-		display: none;
-	}
+	#inicio .fa-bars, #inicio #texto #encabezado #menu-home {display: none;}
 }
-
 @media (max-width: 1200px) {
 	header {display: none;}
 	main {margin-top: 0;}
-	main #inicio {
-		padding: 5vw;
-	}
-	main #inicio #imagenes {
-		margin-top: 30px;
-		margin-bottom: 0;
-	}
+	main #inicio {padding: 5vw;}
+	main #inicio #imagenes {margin-top: 30px; margin-bottom: 0;}
 }
