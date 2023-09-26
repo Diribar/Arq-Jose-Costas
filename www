@@ -6,7 +6,9 @@ var debug = require("debug")("sitio-web:server");
 var http = require("http");
 
 // Get port from environment and store in Express
-var port = normalizePort(process.env.PORT);
+const env = process.env.NODE_ENV;
+const puerto = {development: 3000, production: process.env.PORT};
+var port = normalizePort(puerto[env]);
 app.set("port", port);
 
 //  Create HTTP server

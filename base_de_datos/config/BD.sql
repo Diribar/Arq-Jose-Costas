@@ -1,4 +1,3 @@
-DROP DATABASE IF EXISTS jose_costas;
 CREATE DATABASE jose_costas;
 USE jose_costas;
 
