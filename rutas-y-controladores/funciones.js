@@ -15,31 +15,34 @@ module.exports = {
 				pass: process.env.contrAplicacion, // contraseña de aplicación de gmail
 			},
 		});
+
+		// Contenido del mail
 		let datos = {
 			from:
-				'"arquitectojosecostas.com.ar" <' +
+				'"www.arquitectojosecostas.com.ar" <' +
 				process.env.direccMail +
 				">",
 			to: "josericardocostas@hotmail.com",
 			subject: asunto,
 			html:
 				comentario.replace(/[\r\n]/g, "<br>") +
-				"<br>" +
-				"<br>" +
+				"<br><br><br>" +
 				nombre +
 				"<br>" +
-				telefono +
-				"<br>" +
+				(telefono ? telefono + "<br>" : "") +
 				mail,
 		};
-		// Enviar mail a José Costas
+
+		// Envía mail a José Costas
 		let resultado;
 		await transporter.sendMail(datos, (error) => {
 			if (error) resultado = error;
 		});
-		// Enviar mail a Diego
+
+		// Envía mail a Diego
 		datos.to = "diegoiribarren2015@gmail.com";
 		await transporter.sendMail(datos);
+
 		// Fin
 		return resultado;
 	},
