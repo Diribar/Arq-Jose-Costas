@@ -12,7 +12,7 @@ module.exports = {
 			secure: true, // true for 465, false for other ports
 			auth: {
 				user: process.env.direccMail, // dirección de gmail
-				pass: process.env.contrAplicacion, // contraseña de aplicación de gmail
+				pass: process.env.contrMail, // contraseña de aplicación de gmail
 			},
 		});
 
