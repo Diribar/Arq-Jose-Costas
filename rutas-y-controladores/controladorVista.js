@@ -48,16 +48,15 @@ module.exports = {
 			// Va a la vista
 			return res.render("login");
 		},
-
 		guardar: (req, res) => {
 			if (req.body.codigo == req.session.codigo) {
 				res.cookie("aceptado", true, {maxAge: 60 * 60 * 1000});
 				return res.redirect("/edicion/home");
 			} else return res.redirect("/login");
 		},
-
 		logout: (req, res) => {
 			req.session.codigo = null;
+			res.cookie("aceptado", false, {maxAge: 10});
 			res.redirect("/");
 		},
 	},
