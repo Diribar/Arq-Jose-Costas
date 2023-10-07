@@ -27,7 +27,7 @@ module.exports = {
 				["orden", "ASC"],
 			],
 		}),
-	obtenerPorId: (entidad, id) => db[entidad].findByPk(id),
+	obtienePorId: (entidad, id) => db[entidad].findByPk(id),
 	cambiaImagenEnBD: (entidad, id, archivo) => db[entidad].update({archivo: archivo}, {where: {id: id}}),
 	agregaImagenEnBD: (entidad, grupo, orden, archivo) => db[entidad].create({grupo: grupo, orden: orden, archivo: archivo}),
 };
