@@ -61,7 +61,7 @@ window.addEventListener("load", () => {
 
 let funcionColor = async (id, dato, campo) => {
 	await fetch(
-		"/editar/cambiarvalor/?entidad=encabezado" +
+		"/edicion/cambia-el-valor/?entidad=encabezado" +
 			"&id=" +
 			id +
 			"&dato=" +

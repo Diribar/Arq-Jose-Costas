@@ -25,7 +25,7 @@ window.addEventListener("load", () => {
 let funcionModificar = async (id, dato, campo) => {
 	let entidad = document.querySelector("header div.ocultar").innerHTML;
 	await fetch(
-		"/editar/cambiarvalor/?entidad=" +
+		"/edicion/cambia-el-valor/?entidad=" +
 			entidad +
 			"&id=" +
 			id +

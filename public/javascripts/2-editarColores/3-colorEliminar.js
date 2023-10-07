@@ -18,6 +18,6 @@ window.addEventListener("load", () => {
 });
 
 const funcionEliminar = async (id) => {
-	await fetch("/editar/eliminarregistro/?entidad=colores&id=" + id);
+	await fetch("/edicion/eliminarregistro/?entidad=colores&id=" + id);
 	location.reload();
 };

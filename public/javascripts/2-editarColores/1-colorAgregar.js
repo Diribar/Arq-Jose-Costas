@@ -93,7 +93,7 @@ let validarCodigo = (dataEntry) => {
 };
 
 let funcionAgregar = async (nombre, codigo) => {
-	await fetch("/editar/coloragregar/?nombre=" + nombre + "&codigo=" + codigo);
+	await fetch("/edicion/coloragregar/?nombre=" + nombre + "&codigo=" + codigo);
 	location.reload();
 };
 

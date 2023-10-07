@@ -23,7 +23,7 @@ window.addEventListener("load", () => {
 // FÓRMULAS *************************************************
 let funcionModificar = async (id, dato) => {
 	await fetch(
-		"/editar/cambiarvalor/?entidad=colores" +
+		"/edicion/cambia-el-valor/?entidad=colores" +
 			"&id=" +
 			id +
 			"&dato=" +

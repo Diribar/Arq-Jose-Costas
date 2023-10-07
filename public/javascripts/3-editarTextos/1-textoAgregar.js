@@ -69,7 +69,7 @@ let validarTexto = (dataEntry) => {
 let funcionAgregar = async (contenido, grupo) => {
 	let entidad = document.querySelector("header div.ocultar").innerHTML;
 	await fetch(
-		"/editar/textoagregar/?entidad=" +
+		"/edicion/textoagregar/?entidad=" +
 			entidad +
 			"&contenido=" +
 			contenido +
