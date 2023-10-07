@@ -27,7 +27,7 @@ window.addEventListener("load", () => {
 
 let funcionOrden = async (id1, o1, id2, o2) => {
 	await fetch(
-		"/edicion/ordenar-registros/?entidad=" +
+		"/edicion/ordena-registros/?entidad=" +
 			entidad +
 			"&id=" +
 			id1 +
@@ -35,7 +35,7 @@ let funcionOrden = async (id1, o1, id2, o2) => {
 			o1
 	);
 	await fetch(
-		"/edicion/ordenar-registros/?entidad=" +
+		"/edicion/ordena-registros/?entidad=" +
 			entidad +
 			"&id=" +
 			id2 +

@@ -7,16 +7,16 @@ window.addEventListener("load", () => {
 	for (let i = 0; i < IDs.length; i++) {
 		eliminar[i].addEventListener("click", async () => {
 			dato_id = IDs[i].value;
-			await eliminarImagen(dato_id);
+			await eliminaImagen(dato_id);
 		});
 	}
 });
 
 // FÓRMULAS *************************************************
-const eliminarImagen = async (id) => {
+const eliminaImagen = async (id) => {
 	let entidad = document.querySelector("input[name='entidad']").value;
 	let ruta = document.querySelector("input[name='ruta']").value;
 	ruta = encodeURIComponent(ruta);
-	await fetch("/editar/eliminarregistro/?entidad=" + entidad + "&id=" + id + "&ruta=" + ruta);
+	await fetch("/edicion/elimina-registro/?entidad=" + entidad + "&id=" + id + "&ruta=" + ruta);
 	location.reload();
 };
