@@ -75,6 +75,7 @@ module.exports = {
 		},
 		textos: async (req, res) => {
 			const datos = await variables(req);
+			const {seccion} = datos;
 			res.render("3-editarTextos", {...datos, datos: await BD_obtiene.obtieneTodos(seccion)});
 		},
 		imagenes: async (req, res) => {
