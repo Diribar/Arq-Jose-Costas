@@ -4,7 +4,7 @@ const path = require("path");
 const fs = require("fs");
 
 module.exports = {
-	enviarMail: async (asunto, nombre, mail, telefono, comentario) => {
+	enviaMail: async ({asunto, nombre, mail, telefono, comentario}) => {
 		// create reusable transporter object using the default SMTP transport
 		let transporter = nodemailer.createTransport({
 			host: "smtp.gmail.com",
@@ -18,10 +18,7 @@ module.exports = {
 
 		// Contenido del mail
 		let datos = {
-			from:
-				'"www.arquitectojosecostas.com.ar" <' +
-				process.env.direccMail +
-				">",
+			from: '"www.arquitectojosecostas.com.ar" <' + process.env.direccMail + ">",
 			to: "josericardocostas@hotmail.com",
 			subject: asunto,
 			html:
@@ -36,7 +33,10 @@ module.exports = {
 		// Envía mail a José Costas
 		let resultado;
 		await transporter.sendMail(datos, (error) => {
-			if (error) resultado = error;
+			if (error) {
+				console.log({errorEnvioDeMail: error});
+				resultado = error;
+			}
 		});
 
 		// Envía mail a Diego
@@ -47,20 +47,20 @@ module.exports = {
 		return resultado;
 	},
 
-	eliminarImagen: (ruta, nombre) => {
-		archivo = path.resolve(__dirname, "." + ruta + nombre);
-		// Averiguar si el archivo es Read-Only o no existe
-		try {
-			fs.accessSync(archivo, fs.constants.W_OK);
-			// fs.unlinkSync(archivo);
-			// console.log("El archivo " + nombre + " se eliminó");
-		} catch (err) {
-			console.log(
-				"No se encuentra el archivo " +
-					ruta +
-					nombre +
-					" o es Read-Only"
-			);
+	eliminaImagen: (ruta, nombre) => {
+		// Variables
+		const rutaNombre = path.resolve(__dirname, "." + ruta + nombre);
+
+		// Si el rutaNombre existe, lo elimina
+		if (fs.existsSync(rutaNombre)) {
+			fs.unlinkSync(rutaNombre);
+			console.log("El archivo " + nombre + " se eliminó");
 		}
+
+		// De lo contrario, avisa
+		else console.log("No se encuentra el archivo " + ruta + nombre);
+
+		// Fin
+		return
 	},
 };
