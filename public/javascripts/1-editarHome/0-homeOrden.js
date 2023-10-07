@@ -27,10 +27,10 @@ window.addEventListener("load", () => {
 
 let funcionOrden = async (id1, o1, id2, o2) => {
 	await fetch(
-		"/editar/ordenarregistros/?entidad=titulos&id=" + id1 + "&orden=" + o1
+		"/edicion/ordenar-registros/?entidad=titulos&id=" + id1 + "&orden=" + o1
 	);
 	await fetch(
-		"/editar/ordenarregistros/?entidad=titulos&id=" + id2 + "&orden=" + o2
+		"/edicion/ordenar-registros/?entidad=titulos&id=" + id2 + "&orden=" + o2
 	);
 	location.reload();
 };
