@@ -13,7 +13,7 @@ app.set("views", [
 	path.resolve(__dirname, "./views"),
 	path.resolve(__dirname, "./views/0-partials"),
 	path.resolve(__dirname, "./views/1-secciones"),
-	path.resolve(__dirname, "./views/2-editar"),
+	path.resolve(__dirname, "./views/2-edicion"),
 ]);
 app.set('view engine', 'ejs');
 
