@@ -102,12 +102,12 @@
 						<% if (titulo.imagen_id) { %>
 							<!-- Celda de imagen particular -->
 							<td class="td_imagen">
-								<form action="/editar/reemplazarImagen" method = "POST" enctype = "multipart/form-data">
+								<form action="/edicion/reemplazarImagen" method = "POST" enctype = "multipart/form-data">
 									<input name="entidad" value="imagenes_varias" class="ocultar">
 									<input name="ruta" value="./public/imagenes/varias/" class="ocultar">
-									<input name="home" value="/editar/home" class="ocultar">
+									<input name="home" value="/edicion/home" class="ocultar">
 									<input name="id" value="<%= titulo.imagen_id %>" class="ocultar">
-									<label for="inputImagen<%= i %>"><img src="/imagenes/varias/<%= titulo.imagen.archivo %>"></label>
+									<label for="inputImagen<%= i %>" class="pointer"><img src="/imagenes/varias/<%= titulo.imagen.archivo %>"></label>
 									<input name="imagen" type="file" id="inputImagen<%= i %>" class="ocultar" accept="image/*" onchange="this.form.submit()">
 									<% i=i+1 %>
 								</form>
@@ -117,15 +117,15 @@
 						<% } %>
 						<!-- Celda de ícono para editar texto -->
 						<td class="center">
-							<%- titulo.editar_texto ? '<a href="/editar/textos/' + titulo.nombre_seccion + '"><i class="fas fa-check-circle"></i></a>' : '<i class="fas fa-times-circle"></i>' %>
+							<%- titulo.editar_texto ? '<a href="/edicion/textos/' + titulo.nombre_seccion + '"><i class="fas fa-check-circle"></i></a>' : '<i class="fas fa-times-circle"></i>' %>
 						</td>
 						<!-- Celda de ícono para editar imágenes -->
 						<td class="center">
-							<%- titulo.editar_imagenes ? '<a href="/editar/imagenes/' + titulo.nombre_seccion + '"><i class="fas fa-check-circle"></i></a>' : '<i class="fas fa-times-circle"></i>' %>
+							<%- titulo.editar_imagenes ? '<a href="/edicion/imagenes/' + titulo.nombre_seccion + '"><i class="fas fa-check-circle"></i></a>' : '<i class="fas fa-times-circle"></i>' %>
 						</td>
 						<!-- Celda de ícono para editar botones -->
 						<td class="center">
-							<%- titulo.color_fondo_boton_id ? '<a href="/editar/botones/' + titulo.nombre_seccion + '"><i class="fas fa-check-circle"></i></a>' : '<i class="fas fa-times-circle"></i>' %>
+							<%- titulo.color_fondo_boton_id ? '<a href="/edicion/botones/' + titulo.nombre_seccion + '"><i class="fas fa-check-circle"></i></a>' : '<i class="fas fa-times-circle"></i>' %>
 						</td>
 					</tr>
 				<% } %>
@@ -170,7 +170,7 @@
 		</table>
 		<div id="botones">
 			<a href="/logout" title="Volver a la página principal"><i class="fab fa-internet-explorer"></i></a>
-			<a href="/editar/colores" title="Ir a la Base de Datos de colores"><i class="fas fa-paint-roller"></i></a>
+			<a href="/edicion/colores" title="Ir a la Base de Datos de colores"><i class="fas fa-paint-roller"></i></a>
 		</div>
 	</main>
 </body>
