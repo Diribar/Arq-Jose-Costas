@@ -1,6 +1,7 @@
 module.exports = (req, res, next) => {
-	if (!req.session.codigo) {
-		return res.redirect("/");
-	}
+	// Redirecciona
+	if (!req.cookies.aceptado) return res.redirect("/");
+
+	// Fin
 	next();
 };
