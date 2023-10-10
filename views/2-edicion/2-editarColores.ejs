@@ -28,27 +28,27 @@
 									<option class="ocultar" selected>En uso por</option>
 									<!-- Color de Fondo -->
 									<% for (sector of color.encabezado_cf) { %>
-										<option value="/editar/home">Fondo - <%= sector.nombre_encabezado %></option>
+										<option value="/edicion/home">Fondo - <%= sector.nombre_encabezado %></option>
 									<% } %>
 									<% for (sector of color.titulos_cf) { %>
-										<option value="/editar/home">Fondo - <%= sector.nombre_encabezado %></option>
+										<option value="/edicion/home">Fondo - <%= sector.nombre_encabezado %></option>
 									<% } %>
 									<!-- Color de Letras -->
 									<% for (sector of color.encabezado_cl) { %>
-										<option value="/editar/home">Letras - <%= sector.nombre_encabezado %></option>
+										<option value="/edicion/home">Letras - <%= sector.nombre_encabezado %></option>
 									<% } %>
 									<% for (sector of color.titulos_cl) { %>
-										<option value="/editar/home">Letras - <%= sector.nombre_encabezado %></option>
+										<option value="/edicion/home">Letras - <%= sector.nombre_encabezado %></option>
 									<% } %>
 									<!-- Color de Botones -->
 									<% for (sector of color.titulos_cfb) { %>
-										<option value="/editar/colores/proyectos">Botón (Fondo) - <%= sector.nombre_encabezado %></option>
+										<option value="/edicion/colores/proyectos">Botón (Fondo) - <%= sector.nombre_encabezado %></option>
 									<% } %>
 									<% for (sector of color.titulos_clb) { %>
-										<option value="/editar/colores/proyectos">Botón (Letras) - <%= sector.nombre_encabezado %></option>
+										<option value="/edicion/colores/proyectos">Botón (Letras) - <%= sector.nombre_encabezado %></option>
 									<% } %>
 									<% for (sector of color.titulos_cbb) { %>
-										<option value="/editar/colores/proyectos">Botón (Borde) - <%= sector.nombre_encabezado %></option>
+										<option value="/edicion/colores/proyectos">Botón (Borde) - <%= sector.nombre_encabezado %></option>
 									<% } %>
 								</select>
 							<% } else { %>
@@ -69,7 +69,7 @@
 			</tbody>
 		</table>
 		<div id="botones">
-			<a href="/editar/home" title='Volver al "Home" de Edición'><i class="fas fa-home"></i></a>
+			<a href="/edicion/home" title='Volver al "Home" de Edición'><i class="fas fa-home"></i></a>
 			<a title="Agregar un color" id="agregar"><i class="fas fa-plus"></i></a>
 			<a href="https://htmlcolorcodes.com/es/selector-de-color/" target="_blank" title='Ir a la Paleta de Colores'><i class="fas fa-palette"></i></a>
 		</div>

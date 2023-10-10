@@ -45,7 +45,7 @@ let validarTexto = (dataEntry) => {
 let funcionModificar = async (id, dato, campo) => {
 	let entidad = document.querySelector(".imagenes input[name='entidad']").value;
 	await fetch(
-		"/editar/cambiarvalor/?entidad=" +
+		"/edicion/cambia-el-valor/?entidad=" +
 			entidad +
 			"&id=" +
 			id +

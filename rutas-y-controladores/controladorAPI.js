@@ -1,6 +1,6 @@
 // **** Requires ***********
 const BD_API = require("../base_de_datos/config/BD_API");
-const BD_obtener = require("../base_de_datos/config/BD_obtener");
+const BD_obtiene = require("../base_de_datos/config/BD_obtiene");
 const funciones = require("./funciones");
 
 // **** Exportar ***********
@@ -10,7 +10,7 @@ module.exports = {
 		asunto = "Mensaje de un contacto";
 		comentario = decodeURIComponent(comentario);
 		await funciones
-			.enviarMail(asunto, nombre, mail, telefono, comentario)
+			.enviaMail(asunto, nombre, mail, telefono, comentario)
 			.catch(console.error);
 		return res.json();
 	},
@@ -32,8 +32,8 @@ module.exports = {
 		// Borrar el archivo de imagen
 		if (entidad.includes("imagenes")) {
 			// Obtener los datos
-			datos = await BD_obtener.ObtenerPorId(entidad, id)
-			funciones.eliminarImagen(ruta, datos.archivo);
+			datos = await BD_obtiene.obtienePorId(entidad, id)
+			funciones.eliminaImagen(ruta, datos.archivo);
 		}
 		// Borrar el registro
 		await BD_API.EliminarRegistro(entidad, id);
@@ -48,7 +48,7 @@ module.exports = {
 
 	editarTextoAgregar: async (req, res) => {
 		let { entidad, contenido, grupo } = req.query;
-		orden = await BD_obtener.ObtenerTodos(entidad).then((n) =>
+		orden = await BD_obtiene.obtieneTodos(entidad).then((n) =>
 			n.filter((m) => m.grupo == grupo)
 		);
 		if (orden == [] || orden == "") {

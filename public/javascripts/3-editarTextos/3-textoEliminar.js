@@ -27,14 +27,14 @@ window.addEventListener("load", () => {
 // FÓRMULAS *************************************************
 const funcionEliminarTexto = async (id) => {
 	entidad = document.querySelector("header div.ocultar").innerHTML;
-	await fetch("/editar/eliminarregistro/?entidad=" + entidad + "&id=" + id);
+	await fetch("/edicion/elimina-registro/?entidad=" + entidad + "&id=" + id);
 	location.reload();
 };
 
 const funcionEliminarGrupo = async (grupo) => {
 	entidad = document.querySelector("header div.ocultar").innerHTML;
 	await fetch(
-		"/editar/eliminargrupo/?entidad=" + entidad + "&grupo=" + grupo
+		"/edicion/elimina-grupo/?entidad=" + entidad + "&grupo=" + grupo
 	);
 	location.reload();
 };

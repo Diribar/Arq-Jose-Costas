@@ -8,32 +8,39 @@ const API = require("./controladorAPI");
 const soloUsuarios = require("../middlewares/soloUsuarios");
 const uploadFile = require("../middlewares/multer");
 
-// Controladores Varios ************************************
-router.get("/", vista.home);
-router.post("/contactanos", vista.contactanosBackEnd);
-router.get("/loginnuevo", vista.loginForm);
-router.post("/loginnuevo", vista.loginDatos);
-router.get("/logout", vista.logout);
-router.get("/editar/home", soloUsuarios, vista.editarHome);
-router.get("/editar/colores", soloUsuarios, vista.editarColores);
-router.get("/editar/textos/:id", soloUsuarios, vista.editarTextos);
-router.get("/editar/imagenes/:id", soloUsuarios, vista.editarImagenes);
-router.get("/editar/botones/:id", soloUsuarios, vista.editarBotones);
-router.post("/editar/reemplazarImagen", uploadFile.single("imagen"), vista.reemplazarImagen);
-router.post("/editar/agregarImagen", uploadFile.single("imagen"), vista.agregarImagen);
-
-// Controladores de APIs ***********************************
+// Controladores de API ***********************************
 // Home
 router.get("/contactanos", API.contactanosFrontEnd);
-// Editar - Varios
-router.get("/editar/ordenarregistros", API.editarOrdenarRegistros);
-router.get("/editar/cambiarvalor", API.editarCambiarValor);
-router.get("/editar/eliminarregistro", API.editarEliminarRegistro);
-// Editar - Colores
-router.get("/editar/coloragregar", API.editarColorAgregar);
-// Editar - Texto
-router.get("/editar/textoagregar", API.editarTextoAgregar);
-router.get("/editar/eliminargrupo", API.editarGrupoEliminar);
+// edicion - Varios
+router.get("/edicion/ordena-registros", API.editarOrdenarRegistros);
+router.get("/edicion/cambia-el-valor", API.editarCambiarValor);
+router.get("/edicion/elimina-registro", API.editarEliminarRegistro);
+// edicion - Colores
+router.get("/edicion/coloragregar", API.editarColorAgregar);
+// edicion - Texto
+router.get("/edicion/textoagregar", API.editarTextoAgregar);
+router.get("/edicion/elimina-grupo", API.editarGrupoEliminar);
+
+// Controladores de Vistas ***********************************
+// Varios
+router.get("/", vista.home);
+router.post("/contactanos", vista.contactanosBackEnd);
+
+// Login
+router.get("/login", vista.login.form);
+router.post("/login", vista.login.guardar);
+router.get("/logout", vista.login.logout);
+
+// Edición
+router.get("/edicion/home", soloUsuarios, vista.edicion.home);
+router.get("/edicion/colores", soloUsuarios, vista.edicion.colores);
+router.get("/edicion/textos/:id", soloUsuarios, vista.edicion.textos);
+router.get("/edicion/imagenes/:id", soloUsuarios, vista.edicion.imagenes);
+router.get("/edicion/botones/:id", soloUsuarios, vista.edicion.botones);
+
+// Imagen
+router.post("/edicion/agregarImagen", uploadFile.single("imagen"), vista.imagen.agregar);
+router.post("/edicion/reemplazarImagen", uploadFile.single("imagen"), vista.imagen.reemplazar);
 
 // Exportarlo **********************************************
 module.exports = router;

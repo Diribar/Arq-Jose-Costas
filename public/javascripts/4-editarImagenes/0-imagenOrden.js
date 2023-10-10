@@ -29,7 +29,7 @@ window.addEventListener("load", () => {
 const funcionOrden = async (id1, o1, id2, o2) => {
 	entidad = document.querySelector("input[name='entidad']").value;
 	await fetch(
-		"/editar/ordenarregistros/?entidad=" +
+		"/edicion/ordena-registros/?entidad=" +
 			entidad +
 			"&id=" +
 			id1 +
@@ -37,7 +37,7 @@ const funcionOrden = async (id1, o1, id2, o2) => {
 			o1
 	);
 	await fetch(
-		"/editar/ordenarregistros/?entidad=" +
+		"/edicion/ordena-registros/?entidad=" +
 			entidad +
 			"&id=" +
 			id2 +

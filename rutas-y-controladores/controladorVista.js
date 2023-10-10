@@ -1,189 +1,173 @@
+"use strict";
 // **** Requires ***********
 const path = require("path");
-const BD_obtener = require("../base_de_datos/config/BD_obtener");
+const BD_obtiene = require("../base_de_datos/config/BD_obtiene");
 const funciones = require("./funciones");
 
 // **** Exportar ***********
 module.exports = {
 	home: async (req, res) => {
-		let encabezado = await BD_obtener.ObtenerColoresEncabezado();
+		const encabezado = await BD_obtiene.obtieneColoresEncabezado();
 		res.render("home", {
 			encabezado: encabezado[0],
-			titulos: await BD_obtener.ObtenerTitulos(),
-			inicio: await BD_obtener.ObtenerTodos("inicio"),
-			inicio_imagenes: await BD_obtener.ObtenerTodos("inicio_imagenes"),
-			habilitaciones: await BD_obtener.ObtenerTodos("habilitaciones"),
-			proyectos: await BD_obtener.ObtenerProyectos(),
-			servicios: await BD_obtener.ObtenerTodos("servicios"),
-			quienes_somos: await BD_obtener.ObtenerTodos("quienes_somos"),
-			clientes_imagenes: await BD_obtener.ObtenerTodos(
-				"quienes_somos_imagenes"
-			),
-			contactanos: await BD_obtener.ObtenerTodos("contactanos"),
+			titulos: await BD_obtiene.obtieneTitulos(),
+			inicio: await BD_obtiene.obtieneTodos("inicio"),
+			inicio_imagenes: await BD_obtiene.obtieneTodos("inicio_imagenes"),
+			habilitaciones: await BD_obtiene.obtieneTodos("habilitaciones"),
+			proyectos: await BD_obtiene.obtieneProyectos(),
+			servicios: await BD_obtiene.obtieneTodos("servicios"),
+			quienes_somos: await BD_obtiene.obtieneTodos("quienes_somos"),
+			clientes_imagenes: await BD_obtiene.obtieneTodos("quienes_somos_imagenes"),
+			contactanos: await BD_obtiene.obtieneTodos("contactanos"),
 			footer: encabezado[1],
 			suma1: Math.round(Math.random() * 12),
 			suma2: Math.round(Math.random() * 12),
 		});
 	},
-
 	contactanosBackEnd: (req, res) => {
 		return res.send(
 			"Tiene inactivado javascript en el front-end. Actívelo para poder enviar el mail correctamente. Gracias."
 		);
 	},
+	login: {
+		form: (req, res) => {
+			// Si el login se generó hace menos de una hora, va directamente a 'edicion/home
+			if (req.cookies.aceptado) return res.redirect("/edicion/home");
 
-	loginForm: (req, res) => {
-		//res.redirect("/editar/home");
-		asunto = "Código de Login";
-		nombre = "";
-		mail = "";
-		telefono = "";
-		codigo = Math.round(Math.random() * Math.pow(10, 10)) + "";
-		comentario = "El código a ingresar para el Login es: " + codigo;
-		req.session.codigo = codigo;
-		funciones
-			.enviarMail(asunto, nombre, mail, telefono, comentario)
-			.catch(console.error);
-		return res.render("login");
-	},
+			// Variables
+			let datos = {asunto: "Código de Login"};
 
-	loginDatos: (req, res) => {
-		if (req.body.codigo == req.session.codigo) {
-			return res.redirect("/editar/home");
-		} else {
+			// Genera un código y lo guarda en session
+			const codigo = Math.round(Math.random() * Math.pow(10, 10)) + "";
+			req.session.codigo = codigo;
+
+			// Envía un mail con el código
+			datos.comentario = "El código a ingresar para el Login es: " + codigo;
+			funciones.enviaMail(datos).catch(console.error);
+
+			// Va a la vista
 			return res.render("login");
-		}
+		},
+		guardar: (req, res) => {
+			if (req.body.codigo == req.session.codigo) {
+				res.cookie("aceptado", true, {maxAge: 60 * 60 * 1000});
+				return res.redirect("/edicion/home");
+			} else return res.redirect("/login");
+		},
+		logout: (req, res) => {
+			req.session.codigo = null;
+			res.cookie("aceptado", false, {maxAge: 10});
+			res.redirect("/");
+		},
 	},
-
-	logout: (req, res) => {
-		req.session.codigo = null;
-		res.redirect("/");
-	},
-
-	editarHome: async (req, res) => {
-		let encabezado = await BD_obtener.ObtenerColoresEncabezado();
-		res.render("1-editarHome", {
-			encabezado: encabezado[0],
-			titulos: await BD_obtener.ObtenerTitulos(),
-			footer: encabezado[1],
-			colores: await BD_obtener.ObtenerColores(),
-		});
-	},
-
-	editarColores: async (req, res) => {
-		res.render("2-editarColores", {
-			colores: await BD_obtener.ObtenerColoresConRelaciones(),
-		});
-	},
-
-	editarTextos: async (req, res) => {
-		url = req.url;
-		seccion = url.slice(url.lastIndexOf("/") + 1);
-		titulos = await BD_obtener.ObtenerTitulos();
-		titulo = titulos.find((n) => n.nombre_seccion == seccion);
-		res.render("3-editarTextos", {
-			seccion,
-			titulo,
-			datos: await BD_obtener.ObtenerTodos(seccion),
-		});
-	},
-
-	editarImagenes: async (req, res) => {
-		url = req.url;
-		seccion = url.slice(url.lastIndexOf("/") + 1);
-		titulos = await BD_obtener.ObtenerTitulos();
-		titulo = titulos.find((n) => n.nombre_seccion == seccion);
-		res.render("4-editarImagenes", {
-			seccion,
-			titulo,
-			datos: await BD_obtener.ObtenerTodos(seccion + "_imagenes"),
-			url,
-		});
-	},
-
-	editarBotones: async (req, res) => {
-		url = req.url;
-		seccion = url.slice(url.lastIndexOf("/") + 1);
-		titulos = await BD_obtener.ObtenerTitulos();
-		titulo = titulos.find((n) => n.nombre_seccion == seccion);
-		res.render("5-editarBotones", {
-			seccion,
-			titulo,
-			colores: await BD_obtener.ObtenerColoresConRelaciones(),
-		});
-	},
-
-	agregarImagen: async (req, res) => {
-		let { home, entidad, ruta, grupo } = req.body;
-		//return res.send(req.file)
-		let condiciones = verificarImagenNueva(ruta, req.file);
-		if (condiciones[0]) {
-			return res.render("errorImagen", {
-				condicion,
-				home,
-				archivo: req.file,
-				condiciones,
+	edicion: {
+		home: async (req, res) => {
+			const encabezado = await BD_obtiene.obtieneColoresEncabezado();
+			res.render("1-editarHome", {
+				encabezado: encabezado[0],
+				titulos: await BD_obtiene.obtieneTitulos(),
+				footer: encabezado[1],
+				colores: await BD_obtiene.obtieneColores(),
 			});
-		}
-		// Averiguar el orden
-		orden = await BD_obtener.ObtenerTodos(entidad)
-			.then((n) => n.filter((m) => m.grupo == grupo))
-			.then((n) =>
-				n.map((m) => {
-					return m.orden;
-				})
-			)
-			.then((n) => Math.max(...n) + 1);
-		// Agregar el nombre del archivo en la BD
-		await BD_obtener.AgregarImagenEnBD(
-			entidad,
-			grupo,
-			orden,
-			req.file.filename
-		);
-		// Terminar
-		res.redirect(req.body.home);
-	},
+		},
+		colores: async (req, res) => {
+			res.render("2-editarColores", {colores: await BD_obtiene.obtieneColoresConRelaciones()});
+		},
+		textos: async (req, res) => {
+			const datos = await variables(req);
+			const {seccion} = datos;
+			res.render("3-editarTextos", {...datos, datos: await BD_obtiene.obtieneTodos(seccion)});
+		},
+		imagenes: async (req, res) => {
+			// Variables
+			const datos = await variables(req);
+			const {seccion} = datos;
 
-	reemplazarImagen: async (req, res) => {
-		let { home, id, entidad, ruta } = req.body;
-		let condiciones = verificarImagenNueva(ruta, req.file);
-		if (condiciones[0]) {
-			return res.render("errorImagen", {
-				condicion,
-				home,
-				archivo: req.file,
-				condiciones,
-			});
-		}
-		// Borrar el archivo anterior
-		archivoAnterior = await BD_obtener.ObtenerPorId(entidad, id);
-		funciones.eliminarImagen(ruta, archivoAnterior.archivo);
-		// Reemplazar el nombre del archivo en la BD
-		await BD_obtener.CambiarImagenEnBD(entidad, id, req.file.filename);
-		// Terminar
-		res.redirect(home);
+			// Va a la vista
+			res.render("4-editarImagenes", {...datos, datos: await BD_obtiene.obtieneTodos(seccion + "_imagenes")});
+		},
+		botones: async (req, res) => {
+			const datos = await variables(req);
+			res.render("5-editarBotones", {...datos, colores: await BD_obtiene.obtieneColoresConRelaciones()});
+		},
+	},
+	imagen: {
+		agregar: async (req, res) => {
+			// Variables
+			const {home, entidad, ruta, grupo} = req.body;
+
+			// Verifica la nueva imagen y avisa si tiene algún error
+			const condiciones = verificarImagenNueva(ruta, req.file);
+			if (condiciones[0])
+				return res.render("errorImagen", {
+					condicion,
+					home,
+					archivo: req.file,
+					condiciones,
+				});
+
+			// Averigua el orden
+			const orden = await BD_obtiene.obtieneTodos(entidad)
+				.then((n) => n.filter((m) => m.grupo == grupo))
+				.then((n) => n.map((m) => m.orden))
+				.then((n) => Math.max(...n) + 1);
+
+			// Agrega el nombre del archivo en la BD
+			await BD_obtiene.agregaImagenEnBD(entidad, grupo, orden, req.file.filename);
+
+			// Redirecciona
+			return res.redirect(req.body.home);
+		},
+		reemplazar: async (req, res) => {
+			const {home, id, entidad, ruta} = req.body;
+			const condiciones = verificarImagenNueva(ruta, req.file);
+			if (condiciones[0]) {
+				return res.render("errorImagen", {
+					condicion,
+					home,
+					archivo: req.file,
+					condiciones,
+				});
+			}
+
+			// Borra el archivo anterior
+			const archivoAnterior = await BD_obtiene.obtienePorId(entidad, id);
+			funciones.eliminaImagen(ruta, archivoAnterior.archivo);
+
+			// Reemplaza el nombre del archivo en la BD
+			await BD_obtiene.cambiaImagenEnBD(entidad, id, req.file.filename);
+
+			// Termina
+			return res.redirect(home);
+		},
 	},
 };
 
 let verificarImagenNueva = (ruta, file) => {
-	// Verificar si la extensión del nombre corresponde a una imagen
-	let extensionesOK = [".jpg", ".png", ".gif", ".bmp"];
-	ext = path.extname(file.originalname);
-	condicion1 = !extensionesOK.includes(ext);
-	condicion1
-		? (condicion1 =
-				'La extensiones de archivo aceptadas son: "' +
-				extensionesOK.join('", "') + '"')
+	// Variables
+	const extensionesOK = [".jpg", ".png", ".gif", ".bmp"];
+	const ext = path.extname(file.originalname);
+
+	// Verificaciones
+	const condicion1 = !extensionesOK.includes(ext)
+		? 'La extensiones de archivo aceptadas son: "' + extensionesOK.join('", "') + '"'
 		: "";
-	// Verificar el tamaño
-	condicion2 = file.size > 5000000;
-	condicion2
-		? (condicion2 =
-				"El tamaño del archivo es demasiado grande. Debe ser de hasta 5 MB")
-		: "";
-	// Frenar el proceso si no se cumple alguna condición
-	condicion = condicion1 || condicion2;
-	condicion ? funciones.eliminarImagen(ruta, file.filename) : "";
+	const condicion2 = file.size > 5000000 ? "El tamaño del archivo es demasiado grande. Debe ser de hasta 5 MB" : "";
+
+	// Frena el proceso si no se cumple alguna condición
+	const condicion = condicion1 || condicion2;
+	if (condicion) funciones.eliminaImagen(ruta, file.filename);
+
+	// Termina
 	return [condicion, condicion1, condicion2];
+};
+let variables = async (req) => {
+	// Variables
+	const url = req.url;
+	const seccion = url.slice(url.lastIndexOf("/") + 1);
+	const titulos = await BD_obtiene.obtieneTitulos();
+	const titulo = titulos.find((n) => n.nombre_seccion == seccion);
+
+	// Fin
+	return {url, seccion, titulo};
 };
