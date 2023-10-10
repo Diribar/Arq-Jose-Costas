@@ -10,7 +10,7 @@
 			<% imagenes = datos.filter(n => n.grupo == grupo) %>
 			<% if (imagenes.length == 0) {break} %>
 			<h2>
-				<%= datos.filter(n => n.grupo == 2).length ? "Grupo "+grupo : "Todos las imágenes están en un mismo grupo" %>
+				<%= datos.filter(n => n.grupo == 2).length ? "Grupo "+grupo : "Todas las imágenes están en un mismo grupo" %>
 			</h2>
 			<ul class="imagenes">
 				<% for (imagen of imagenes) { %>
