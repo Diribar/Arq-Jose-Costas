@@ -95,7 +95,7 @@ module.exports = {
 		agregar: async (req, res) => {
 			// Variables
 			const {home, entidad, ruta, grupo} = req.body;
-			
+
 			// Verifica la nueva imagen y avisa si tiene algún error
 			const condiciones = verificaImagenNueva(ruta, req.file);
 			if (condiciones[0])
