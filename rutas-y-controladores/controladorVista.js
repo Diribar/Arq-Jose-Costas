@@ -95,9 +95,9 @@ module.exports = {
 		agregar: async (req, res) => {
 			// Variables
 			const {home, entidad, ruta, grupo} = req.body;
-
+			
 			// Verifica la nueva imagen y avisa si tiene algún error
-			const condiciones = verificarImagenNueva(ruta, req.file);
+			const condiciones = verificaImagenNueva(ruta, req.file);
 			if (condiciones[0])
 				return res.render("errorImagen", {
 					condicion,
@@ -120,7 +120,7 @@ module.exports = {
 		},
 		reemplazar: async (req, res) => {
 			const {home, id, entidad, ruta} = req.body;
-			const condiciones = verificarImagenNueva(ruta, req.file);
+			const condiciones = verificaImagenNueva(ruta, req.file);
 			if (condiciones[0]) {
 				return res.render("errorImagen", {
 					condicion,
@@ -143,7 +143,7 @@ module.exports = {
 	},
 };
 
-let verificarImagenNueva = (ruta, file) => {
+let verificaImagenNueva = (ruta, file) => {
 	// Variables
 	const extensionesOK = [".jpg", ".png", ".gif", ".bmp"];
 	const ext = path.extname(file.originalname);
