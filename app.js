@@ -21,8 +21,11 @@ app.set('view engine', 'ejs');
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({ secret: "keyboard cat", resave: false, saveUninitialized: false }));
+// Crea carpetas públicas - omit the first arg if you do not want the '/public' prefix for these assets
+global.carpetaExterna = path.join(__dirname, "../", "externa/");
+app.use("/publico", express.static(path.join(__dirname, "public")));
+app.use("/externa", express.static(path.join(__dirname, "../", "externa")));
 
 // ************************** Router ******************************
 var router = require("./rutas-y-controladores/ruta");
