@@ -21,7 +21,7 @@
 							<input name="ruta" value="./public/imagenes/<%= titulo.id %>-<%= titulo.nombre_seccion %>/" class="ocultar">
 							<input name="home" value="<%= url %>" class="ocultar">
 							<input name="id" value="<%= imagen.id %>" class="ocultar">
-							<label for="inputImagen<%= i %>"><img src="/externa/imagenes/<%= titulo.id %>-<%= seccion %>/<%= imagen.archivo %>"></label>
+							<label for="inputImagen<%= i %>"><img src="/externa/<%= titulo.id %>-<%= seccion %>/<%= imagen.archivo %>"></label>
 							<input name="imagen" type="file" id="inputImagen<%= i %>" class="ocultar" accept="image/*" onchange="this.form.submit()">
 							<% i=i+1 %>
 						</form>

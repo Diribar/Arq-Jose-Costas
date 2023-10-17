@@ -10,8 +10,8 @@
 	</header>
 	<main>
 		<% for (n of titulos) { %>
-			<section 
-				id="<%= n.nombre_seccion %>" 
+			<section
+				id="<%= n.nombre_seccion %>"
 				class="seccion"
 				style="background-color:<%= n.color_fondo.codigo %>; color:<%= n.color_letras.codigo %>"
 			>
@@ -19,8 +19,5 @@
 			</section>
 		<% } %>
 	</main>
-	<footer style="background-color:<%= footer.color_fondo.codigo %>">
-		<p style="color:<%= footer.color_letras.codigo %>">Sitio web creado por Diego Iribarren, para José Costas. Año 2021.</p>
-	</footer>
 </body>
 </html>

@@ -28,10 +28,10 @@
 <section id="imagenes">
 	<ul style="width: <%= inicio_imagenes.length + 1 %>00%">
 		<% for (m of inicio_imagenes) { %>
-			<li><img src="./imagenes/1-inicio/<%= m.archivo %>"></li>
+			<li><img src="/externa/1-inicio/<%= m.archivo %>"></li>
 		<% } %>
 		<li>
-			<img src="./imagenes/1-inicio/<%= inicio_imagenes[0].archivo %>">
+			<img src="/externa/1-inicio/<%= inicio_imagenes[0].archivo %>">
 		</li>
 	</ul>
 	<div id="iconos">

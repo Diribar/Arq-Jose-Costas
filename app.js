@@ -24,8 +24,9 @@ app.use(cookieParser());
 app.use(session({ secret: "keyboard cat", resave: false, saveUninitialized: false }));
 // Crea carpetas públicas - omit the first arg if you do not want the '/public' prefix for these assets
 global.carpetaExterna = path.join(__dirname, "../", "externa/");
+console.log(27,carpetaExterna);
 app.use("/publico", express.static(path.join(__dirname, "public")));
-app.use("/externa", express.static(path.join(__dirname, "../", "externa")));
+app.use("/externa", express.static(carpetaExterna));
 
 // ************************** Router ******************************
 var router = require("./rutas-y-controladores/ruta");
