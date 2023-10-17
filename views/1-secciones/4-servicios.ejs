@@ -1,5 +1,5 @@
 <h2><%= n.titulo_seccion %></h2>
-<img src="/publico/imagenes/varias/<%= n.imagen.archivo %>" alt="<%= n.imagen.nombre %>">
+<img src="/externa/varias/<%= n.imagen.archivo %>" alt="<%= n.imagen.nombre %>">
 <% grupos = servicios.filter((m) => m.orden == 1).map(m => m.grupo) %>
 <% for (grupo of grupos) { %>
 		<h3><%= servicios.find(n => n.grupo == grupo && n.orden == 1).contenido %></h3>

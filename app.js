@@ -22,9 +22,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(session({ secret: "keyboard cat", resave: false, saveUninitialized: false }));
-// Crea carpetas públicas - omit the first arg if you do not want the '/public' prefix for these assets
+// Crea carpetas públicas
 global.carpetaExterna = path.join(__dirname, "../", "externa/");
-console.log(27,carpetaExterna);
 app.use("/publico", express.static(path.join(__dirname, "public")));
 app.use("/externa", express.static(carpetaExterna));
 
