@@ -31,8 +31,8 @@
 					<td>
 						<select name="cfe">
 							<% for (n of colores) { %>
-								<option 
-									value="<%= n.id %>" 
+								<option
+									value="<%= n.id %>"
 									<%- n.id == encabezado.color_fondo_id ? 'selected' : "" %>
 								>
 									<%= n.nombre %>
@@ -43,8 +43,8 @@
 					<td>
 						<select name="cle">
 							<% for (n of colores) { %>
-								<option 
-									value="<%= n.id %>" 
+								<option
+									value="<%= n.id %>"
 									<%- n.id == encabezado.color_letras_id ? 'selected' : "" %>
 								>
 									<%= n.nombre %>
@@ -77,8 +77,8 @@
 						<td>
 							<select name="cff">
 								<% for (n of colores) { %>
-									<option 
-										value="<%= n.id %>" 
+									<option
+										value="<%= n.id %>"
 										<%- n.id == titulo.color_fondo_id ? 'selected' : "" %>
 									>
 										<%= n.nombre %>
@@ -90,8 +90,8 @@
 						<td>
 							<select name="clf">
 								<% for (n of colores) { %>
-									<option 
-										value="<%= n.id %>" 
+									<option
+										value="<%= n.id %>"
 										<%- n.id == titulo.color_letras_id ? 'selected' : "" %>
 									>
 										<%= n.nombre %>
@@ -107,7 +107,7 @@
 									<input name="ruta" value="./public/imagenes/varias/" class="ocultar">
 									<input name="home" value="/edicion/home" class="ocultar">
 									<input name="id" value="<%= titulo.imagen_id %>" class="ocultar">
-									<label for="inputImagen<%= i %>" class="pointer"><img src="/imagenes/varias/<%= titulo.imagen.archivo %>"></label>
+									<label for="inputImagen<%= i %>" class="pointer"><img src="/publico/imagenes/varias/<%= titulo.imagen.archivo %>"></label>
 									<input name="imagen" type="file" id="inputImagen<%= i %>" class="ocultar" accept="image/*" onchange="this.form.submit()">
 									<% i=i+1 %>
 								</form>
@@ -140,8 +140,8 @@
 					<td>
 						<select name="cfp">
 							<% for (n of colores) { %>
-								<option 
-									value="<%= n.id %>" 
+								<option
+									value="<%= n.id %>"
 									<%- n.id == footer.color_fondo_id ? 'selected' : "" %>
 								>
 									<%= n.nombre %>
@@ -152,8 +152,8 @@
 					<td>
 						<select name="clp">
 							<% for (n of colores) { %>
-								<option 
-									value="<%= n.id %>" 
+								<option
+									value="<%= n.id %>"
 									<%- n.id == footer.color_letras_id ? 'selected' : "" %>
 								>
 									<%= n.nombre %>
