@@ -23,11 +23,10 @@ module.exports = {
 			subject: asunto,
 			html:
 				comentario.replace(/[\r\n]/g, "<br>") +
-				"<br><br><br>" +
-				nombre +
-				"<br>" +
+				(nombre || telefono || mail ? "<br><br><br>" : "<br>") +
+				(nombre ? nombre + "<br>" : "") +
 				(telefono ? telefono + "<br>" : "") +
-				mail,
+				(mail ? mail + "<br>" : ""),
 		};
 
 		// Envía mail a José Costas
@@ -61,6 +60,6 @@ module.exports = {
 		else console.log("No se encuentra el archivo " + ruta + nombre);
 
 		// Fin
-		return
+		return;
 	},
 };
