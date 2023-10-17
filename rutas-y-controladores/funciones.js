@@ -48,7 +48,7 @@ module.exports = {
 
 	eliminaImagen: (ruta, nombre) => {
 		// Variables
-		const rutaNombre = path.resolve(__dirname, "." + ruta + nombre);
+		const rutaNombre = path.resolve(ruta + nombre);
 
 		// Si el rutaNombre existe, lo elimina
 		if (fs.existsSync(rutaNombre)) {
