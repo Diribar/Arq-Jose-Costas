@@ -104,7 +104,7 @@
 							<td class="td_imagen">
 								<form action="/edicion/reemplazarImagen" method = "POST" enctype = "multipart/form-data">
 									<input name="entidad" value="imagenes_varias" class="ocultar">
-									<input name="ruta" value="/externa/varias/" class="ocultar">
+									<input name="ruta" value="<%= carpetaExterna %>varias/" class="ocultar">
 									<input name="home" value="/edicion/home" class="ocultar">
 									<input name="id" value="<%= titulo.imagen_id %>" class="ocultar">
 									<label for="inputImagen<%= i %>" class="pointer"><img src="/externa/varias/<%= titulo.imagen.archivo %>"></label>
