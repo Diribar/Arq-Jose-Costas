@@ -21,8 +21,17 @@ app.set('view engine', 'ejs');
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({ secret: "keyboard cat", resave: false, saveUninitialized: false }));
+// Crea carpetas públicas
+global.carpetaExterna = path.join(__dirname, "../", "externa/");
+app.use("/publico", express.static(path.join(__dirname, "public")));
+app.use("/externa", express.static(carpetaExterna));
+
+// Obtiene la versión y el año
+const {exec} = require("child_process");
+const carpeta = path.basename(path.resolve());
+exec("git rev-parse --abbrev-ref HEAD", (err, stdout) => (global.version = (err ? carpeta : stdout.trim()).slice(-4)));
+exec("git rev-parse --abbrev-ref HEAD", (err, stdout) => (global.ano = (err ? carpeta : stdout.trim()).slice(0, 4)));
 
 // ************************** Router ******************************
 var router = require("./rutas-y-controladores/ruta");

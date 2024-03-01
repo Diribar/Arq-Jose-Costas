@@ -2,7 +2,7 @@
 	<section id="inputs" class="flex-col">
 		<h2><%= n.titulo_seccion %></h2>
 		<div class="relative flex-col">
-			<input class="input" type="text" name="nombre" placeholder="Nombre" 
+			<input class="input" type="text" name="nombre" placeholder="Nombre"
 				value="<%= locals.datos ? datos.nombre : null %>"
 			>
 			<i class="fas fa-times-circle ocultar"></i>
@@ -26,7 +26,7 @@
 	</section>
 	<section id="texto" class="flex-col">
 		<div class="flex-col">
-			<h3><%= contactanos.find(n => n.grupo == 1).contenido %></h3>			
+			<h3><%= contactanos.find(n => n.grupo == 1).contenido %></h3>
 			<% registros = contactanos.filter(m => (m.grupo == 2)) %>
 			<% for (registro of registros) { %>
 				<p><%= registro.contenido %></p>
@@ -53,6 +53,6 @@
 </section>
 <section id="envioExitoso" class="ocultar" style="background-color:<%= n.color_letras.codigo %>">
 	<p style="color:<%= n.color_fondo.codigo %>">¡Su mensaje fue enviado correctamente!</p>
-	<img src="/imagenes/6-contactanos/ok.png">
+	<img src="/externa/varias/ok.png">
 	<button style="background-color:<%= n.color_fondo.codigo %>; color:<%= n.color_letras.codigo %>">Entendido</button>
 </section>

@@ -21,7 +21,7 @@
 		<div class="grupo<%- i==0 ? ' flex-row' : ' ocultar' %>">
 			<% for (let j=0; j<proyectos[i].imagenes.length; j++) { %>
 				<% let texto = "imagen" + i + j + " " + (proyectos[i].imagenes.length * 5) + "s infinite normal" %>
-				<img style="animation:<%= texto %>" src="./imagenes/3-proyectos/<%= proyectos[i].imagenes[j].archivo %>">
+				<img style="animation:<%= texto %>" src="/externa/3-proyectos/<%= proyectos[i].imagenes[j].archivo %>">
 				<% if (proyectos[i].imagenes[j].texto) { %>
 					<figcaption style="animation:<%= texto %>; background-color:<%= n.color_letras.codigo %>"><%= proyectos[i].imagenes[j].texto %></figcaption>
 				<% } %>
@@ -38,7 +38,7 @@
 			@keyframes imagen<%=i%><%=j%> {
 				/* Cada "k" es un instante de la secuencia de una foto */
 				<% for (let k=0; k<cantFotos; k++) { %>
-					<%= parseInt(k/cantFotos*100) %>%,<%= parseInt((k+1)/cantFotos*100-30/cantFotos) %>% {opacity:<%- j==k ? 1 : 0 %>} 
+					<%= parseInt(k/cantFotos*100) %>%,<%= parseInt((k+1)/cantFotos*100-30/cantFotos) %>% {opacity:<%- j==k ? 1 : 0 %>}
 				<% } %>
 				100% {opacity:<%- j==0 ? 1 : 0 %>;}
 			}
