@@ -68,5 +68,4 @@ module.exports = {
 		await BD_API.EliminarGrupo(entidad, grupo);
 		return res.json();
 	},
-
 };
