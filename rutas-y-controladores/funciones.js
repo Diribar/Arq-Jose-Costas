@@ -6,19 +6,13 @@ const fs = require("fs");
 module.exports = {
 	enviaMail: async ({asunto, nombre, mail, telefono, comentario}) => {
 		// create reusable transporter object using the default SMTP transport
-		let transporter = nodemailer.createTransport({
-			host: "smtp.gmail.com",
-			port: 465,
-			secure: true, // true for 465, false for other ports
-			auth: {
-				user: process.env.direccMail, // dirección de gmail
-				pass: process.env.contrMail, // contraseña de aplicación de gmail
-			},
-		});
+		const {host, puerto, user, pass} = process.env;
+		const transporter = nodemailer.createTransport({host, port: Number(puerto), secure: true, auth: {user, pass}});
+		// secure: true for 465, false for other ports
 
 		// Contenido del mail
 		let datos = {
-			from: '"www.arquitectojosecostas.com.ar" <' + process.env.direccMail + ">",
+			from: '"www.arquitectojosecostas.com.ar" <' + user + ">",
 			to: "josericardocostas@hotmail.com",
 			subject: asunto,
 			html:
@@ -31,16 +25,21 @@ module.exports = {
 
 		// Envía mail a José Costas
 		let resultado;
+		// await transporter.sendMail(datos, (error) => {
+		// 	if (error) {
+		// 		console.log({errorEnvioDeMail: error});
+		// 		resultado = error;
+		// 	}
+		// });
+
+		// Envía mail a Diego
+		datos.to = "diegoiribarren2015@gmail.com";
 		await transporter.sendMail(datos, (error) => {
 			if (error) {
 				console.log({errorEnvioDeMail: error});
 				resultado = error;
 			}
 		});
-
-		// Envía mail a Diego
-		datos.to = "diegoiribarren2015@gmail.com";
-		await transporter.sendMail(datos);
 
 		// Fin
 		return resultado;
