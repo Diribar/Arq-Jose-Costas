@@ -25,12 +25,12 @@ module.exports = {
 
 		// Envía mail a José Costas
 		let resultado;
-		// await transporter.sendMail(datos, (error) => {
-		// 	if (error) {
-		// 		console.log({errorEnvioDeMail: error});
-		// 		resultado = error;
-		// 	}
-		// });
+		await transporter.sendMail(datos, (error) => {
+			if (error) {
+				console.log({errorEnvioDeMail: error});
+				resultado = error;
+			}
+		});
 
 		// Envía mail a Diego
 		datos.to = "diegoiribarren2015@gmail.com";
