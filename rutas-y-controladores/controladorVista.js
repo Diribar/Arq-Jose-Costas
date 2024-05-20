@@ -31,9 +31,6 @@ module.exports = {
 	},
 	login: {
 		form: (req, res) => {
-			// Si el login se generó hace menos de una hora, va directamente a 'edicion/home
-			if (req.cookies.aceptado) return res.redirect("/edicion/home");
-
 			// Variables
 			let datos = {asunto: "Código de Login"};
 
