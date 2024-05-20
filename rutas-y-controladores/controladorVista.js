@@ -38,7 +38,7 @@ module.exports = {
 			let datos = {asunto: "Código de Login"};
 
 			// Genera un código y lo guarda en session
-			const codigo = Math.round(Math.random() * Math.pow(10, 10)) + "";
+			const codigo = Math.round(Math.random() * Math.pow(10, 6)) + "";
 			req.session.codigo = codigo;
 
 			// Envía un mail con el código
