@@ -1,14 +1,10 @@
-#!/usr/bin/env node
-
 // Module dependencies.
 var app = require("./app");
 var debug = require("debug")("sitio-web:server");
 var http = require("http");
 
 // Get port from environment and store in Express
-const env = process.env.NODE_ENV;
-const puerto = {development: 3000, production: process.env.PORT};
-var port = normalizePort(puerto[env]);
+var port = normalizePort(process.env.NODE_ENV == "development" ? 3000 : process.env.PORT);
 app.set("port", port);
 
 //  Create HTTP server
