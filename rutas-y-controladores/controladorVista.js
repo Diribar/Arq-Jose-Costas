@@ -30,7 +30,7 @@ module.exports = {
 		);
 	},
 	login: {
-		form: (req, res) => {
+		form: async (req, res) => {
 			// Variables
 			let datos = {asunto: "Código de Login"};
 
@@ -40,10 +40,10 @@ module.exports = {
 
 			// Envía un mail con el código
 			datos.comentario = "El código a ingresar para el Login es: " + codigo;
-			funciones.enviaMail(datos).catch(console.error);
+			const mailEnviado = await funciones.enviaMail(datos);
 
 			// Va a la vista
-			return res.render("login");
+			return res.render("login", {mailEnviado});
 		},
 		guardar: (req, res) => {
 			if (req.body.codigo == req.session.codigo) {
