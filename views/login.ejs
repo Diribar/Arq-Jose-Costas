@@ -7,11 +7,15 @@
 	<title>Login</title>
 	<!-- ESTILOS PERSONALIZADOS - Generales -->
 	<link rel='stylesheet' href='/publico/stylesheets/0-Base/Clases.css' />
+	<link rel='stylesheet' href='/publico/stylesheets/0-Base/Fonts.css' />
 	<link rel='stylesheet' href='/publico/stylesheets/0-Base/Varios.css' />
 </head>
 <body>
-	<form action="/login" method="POST" class="flex-row">
-		<input name="codigo" type="text" autofocus autocomplete="off">
+	<form id="login" action="/login" method="POST" class="flexRow">
+		<div class="flexCol">
+			<input name="codigo" type="text" autofocus autocomplete="off">
+			<div id="mailEnviado" class="<%= mailEnviado %>"><%- mailEnviado ? "Mail enviado" : "Mail no enviado" %></div>
+		</div>
 		<button type="submit">OK</button>
 	</form>
 </body>
