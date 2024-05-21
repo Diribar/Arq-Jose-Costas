@@ -3,19 +3,17 @@
 	form {
 		display: flex; flex-direction: row; justify-content: space-evenly;
 		h2 {margin: 0;}
+		.fa-times-circle {color: red; background-color: white; border-radius: 50%; position: absolute;}
 		#inputs {
 			width: 50%;
-			.fa-times-circle {
-				top: 40px; left: -30px;
-				color: red; background-color: white; position: absolute; border-radius: 50%;
-				bottom: -25px; left: 50%; transform: translateX(-50%);
-			}
+			.fa-times-circle {top: 40px; left: -30px;}
 		}
 		:is(input, textarea) {margin-top: 30px; font-size: 1rem; padding: 10px; border-radius: 10px; resize: none; line-height: 1.5rem;}
 		#texto {
 			justify-content: center; margin-left: 20px;
 			h3 {margin-bottom: 0;}
 			p {margin-top: .5rem;}
+			.fa-times-circle {bottom: -25px; left: 50%; transform: translateX(-50%);}
 			#submit {
 				margin-top: 2rem; display: flex; flex-direction: row; justify-content: center; align-items: center;
 				.noSeleccionable {color: #F1C757; font-weight: bold; margin: 0 2px;}
@@ -24,7 +22,7 @@
 			}
 		}
 	}
-	#background {position: absolute; top: 0%; left: 0%; height: 100%; width: 100%; opacity: 50%;}
+	#background {position: absolute; top: 0%; left: 0%; height: 100%; width: 100%; opacity: 50%; background: gray;}
 	.cartel {
 		position: absolute; top: 50%; left: 50%; translate:-50% -50%; align-items: center;
 		padding: 40px 30px; border-radius: 15px;

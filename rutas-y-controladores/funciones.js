@@ -24,7 +24,7 @@ module.exports = {
 
 		// Envía mail a José Costas
 		datos.to = "josericardocostas@hotmail.com";
-		const resultado = await transporter
+		const mailEnviado = await transporter
 			.sendMail(datos)
 			.then(() => {
 				console.log("Mail enviado a " + datos.to);
@@ -37,13 +37,13 @@ module.exports = {
 
 		// Envía mail a Diego
 		datos.to = "diegoiribarren2015@gmail.com";
-		await transporter
+		transporter
 			.sendMail(datos)
 			.then(() => console.log("Mail enviado a " + datos.to))
 			.catch((error) => console.log("Mail no enviado a " + datos.to, error));
 
 		// Fin
-		return resultado;
+		return mailEnviado;
 	},
 
 	eliminaImagen: (ruta, nombre) => {
