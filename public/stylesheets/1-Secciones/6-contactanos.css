@@ -1,144 +1,44 @@
 #contactanos {
 	position: relative;
-}
-
-#contactanos form {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-evenly;
-}
-
-#contactanos form h2 {
-	margin: 0;
-}
-
-#contactanos form #inputs {
-	width: 50%;
-}
-
-#contactanos form #inputs input, 
-#contactanos form #inputs textarea {
-	margin-top: 30px;
-	font-size: 1rem;
-	padding: 10px;
-	border-radius: 10px;
-	resize: none;
-	line-height: 1.5rem;
-}
-
-#contactanos form .fa-times-circle {
-	color: red;
-	background-color: white;
-	position: absolute;
-	border-radius: 50%;
-}
-
-#contactanos form #inputs .fa-times-circle {
-	top: 40px;
-	left: -30px;
-}
-
-#contactanos form #submit .fa-times-circle {
-	bottom: -25px;
-	left: 50%;
-	transform: translateX(-50%);
-}
-
-#contactanos form #texto {
-	justify-content: center;
-	margin-left: 20px;
-}
-
-#contactanos form #texto h3 {
-	margin-bottom: 0;
-}
-
-#contactanos form #texto p {
-	margin-top: .5rem;
-}
-
-#contactanos form #texto #submit {
-	margin-top: 2rem;
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-}
-
-#contactanos form #texto #submit .noSeleccionable {
-	color: #F1C757;
-	font-weight: bold;
-	margin: 0 2px;
-}
-
-#contactanos form #texto #submit input {
-	text-align: center;
-	width: 30px;
-	margin: 0 10px;
-	padding: 5px;
-	border-radius: 10px;
-	color: black;
-}
-
-#contactanos form #texto #submit button {
-	margin-left: 20px;
-	padding: 10px 20px;
-	border-radius: 10px;
-	font-weight: bold;
-	color: RGB(118, 113, 113);
-	font-size: 1.3rem;
-}
-
-#contactanos #background {
-	position: absolute;
-	top: 0%;
-	left: 0%;
-	height: 100%;
-	width: 100%;
-	opacity: 50%;
-}
-
-#contactanos #envioExitoso {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	padding: 40px 30px;
-	/* display: flex; */
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	border-radius: 15px;
-	border: #F1C757 5px solid
-}
-
-#contactanos #envioExitoso p {
-	font-weight: bold;
-}
-
-#contactanos #envioExitoso img {
-	height: 100px;
-	margin: 40px;
-}
-
-#contactanos #envioExitoso button {
-	font-weight: bold;
-	padding: 5px 10px;
-	border-radius: 5px;
+	form {
+		display: flex; flex-direction: row; justify-content: space-evenly;
+		h2 {margin: 0;}
+		#inputs {
+			width: 50%;
+			.fa-times-circle {
+				top: 40px; left: -30px;
+				color: red; background-color: white; position: absolute; border-radius: 50%;
+				bottom: -25px; left: 50%; transform: translateX(-50%);
+			}
+		}
+		:is(input, textarea) {margin-top: 30px; font-size: 1rem; padding: 10px; border-radius: 10px; resize: none; line-height: 1.5rem;}
+		#texto {
+			justify-content: center; margin-left: 20px;
+			h3 {margin-bottom: 0;}
+			p {margin-top: .5rem;}
+			#submit {
+				margin-top: 2rem; display: flex; flex-direction: row; justify-content: center; align-items: center;
+				.noSeleccionable {color: #F1C757; font-weight: bold; margin: 0 2px;}
+				input {text-align: center; width: 30px; margin: 0 10px; padding: 5px; border-radius: 10px; color: black;}
+				button {margin-left: 20px; padding: 10px 20px; border-radius: 10px; font-weight: bold; color: RGB(118, 113, 113); font-size: 1.3rem;}
+			}
+		}
+	}
+	#background {position: absolute; top: 0%; left: 0%; height: 100%; width: 100%; opacity: 50%;}
+	.cartel {
+		position: absolute; top: 50%; left: 50%; translate:-50% -50%;
+		align-items: center;
+		padding: 40px 30px; border-radius: 15px; border: #F1C757 5px solid;
+		p {font-weight: bold;}
+		img {height: 100px; margin: 40px;}
+		button {font-weight: bold; padding: 5px 10px; border-radius: 5px;}
+	}
 }
 
 @media (max-width: 750px) {
 	#contactanos form {
-		flex-direction: column;
-		margin-left: 20px;
-	}
-
-	#contactanos form #inputs {
-    	width: 100%;
-	}
-
-	#contactanos form #texto {
-		flex-direction: column-reverse;
-		margin-left: 0;
+		flex-direction: column; margin-left: 20px;
+		#inputs {width: 100%;}
+		#texto {flex-direction: column-reverse; margin-left: 0;}
 	}
 }
