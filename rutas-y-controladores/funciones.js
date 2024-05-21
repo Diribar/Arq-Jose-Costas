@@ -13,7 +13,6 @@ module.exports = {
 		// Contenido del mail
 		let datos = {
 			from: '"www.arquitectojosecostas.com.ar" <' + user + ">",
-			to: "josericardocostas@hotmail.com",
 			subject: asunto,
 			html:
 				comentario.replace(/[\r\n]/g, "<br>") +
@@ -24,22 +23,24 @@ module.exports = {
 		};
 
 		// Envía mail a José Costas
-		let resultado;
-		await transporter.sendMail(datos, (error) => {
-			if (error) {
-				console.log({errorEnvioDeMail: error});
-				resultado = error;
-			}
-		});
+		datos.to = "josericardocostas@hotmail.com";
+		const resultado = await transporter
+			.sendMail(datos)
+			.then(() => {
+				console.log("Mail enviado a " + datos.to);
+				return true;
+			})
+			.catch((error) => {
+				console.log("Mail no enviado a " + datos.to, error);
+				return false;
+			});
 
 		// Envía mail a Diego
 		datos.to = "diegoiribarren2015@gmail.com";
-		await transporter.sendMail(datos, (error) => {
-			if (error) {
-				console.log({errorEnvioDeMail: error});
-				resultado = error;
-			}
-		});
+		await transporter
+			.sendMail(datos)
+			.then(() => console.log("Mail enviado a " + datos.to))
+			.catch((error) => console.log("Mail no enviado a " + datos.to, error));
 
 		// Fin
 		return resultado;

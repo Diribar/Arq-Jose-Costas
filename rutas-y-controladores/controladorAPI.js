@@ -10,7 +10,7 @@ module.exports = {
 		asunto = "Mensaje de un contacto";
 		comentario = decodeURIComponent(comentario);
 		await funciones
-			.enviaMail(asunto, nombre, mail, telefono, comentario)
+			.enviaMail({asunto, nombre, mail, telefono, comentario})
 			.catch(console.error);
 		return res.json();
 	},
