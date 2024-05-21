@@ -26,9 +26,9 @@
 	}
 	#background {position: absolute; top: 0%; left: 0%; height: 100%; width: 100%; opacity: 50%;}
 	.cartel {
-		position: absolute; top: 50%; left: 50%; translate:-50% -50%;
-		align-items: center;
-		padding: 40px 30px; border-radius: 15px; border: #F1C757 5px solid;
+		position: absolute; top: 50%; left: 50%; translate:-50% -50%; align-items: center;
+		padding: 40px 30px; border-radius: 15px;
+		background: snow; border: #F1C757 5px solid;
 		p {font-weight: bold;}
 		img {height: 100px; margin: 40px;}
 		button {font-weight: bold; padding: 5px 10px; border-radius: 5px;}
