@@ -20,8 +20,8 @@ module.exports = {
 			clientes_imagenes: await BD_obtiene.obtieneTodos("quienes_somos_imagenes"),
 			contactanos: await BD_obtiene.obtieneTodos("contactanos"),
 			footer: encabezado[1],
-			suma1: Math.round(Math.random() * 12),
-			suma2: Math.round(Math.random() * 12),
+			suma1: Math.round(Math.random() * 10),
+			suma2: Math.round(Math.random() * 10),
 		});
 	},
 	contactanos: (req, res) => {
