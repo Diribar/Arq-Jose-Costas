@@ -124,7 +124,7 @@ window.addEventListener("load", () => {
 
 			// Acciones si se eligió el primer botón
 			if (!i) {
-				for (n of DOM.inputs) n.value = "";
+				for (let n of DOM.inputs) n.value = "";
 				FN.cambiarSumandos();
 			}
 		});
