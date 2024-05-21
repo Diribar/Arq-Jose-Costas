@@ -33,7 +33,7 @@ window.addEventListener("load", () => {
 	// Funciones
 
 	let FN = {
-		cambiarSumandos: () => {
+		cambiaSumandos: () => {
 			DOM.suma1.innerHTML = Math.round(Math.random() * 10);
 			DOM.suma2.innerHTML = Math.round(Math.random() * 10);
 			return;
@@ -62,7 +62,7 @@ window.addEventListener("load", () => {
 
 			// Acciones
 			sumaOK ? DOM.errorSuma.classList.add("ocultar") : DOM.errorSuma.classList.remove("ocultar");
-			if (!sumaOK) this.cambiarSumandos();
+			if (!sumaOK) this.cambiaSumandos();
 
 			// Fin
 			return;
@@ -125,7 +125,7 @@ window.addEventListener("load", () => {
 			// Acciones si se eligió el primer botón
 			if (!i) {
 				for (let n of DOM.inputs) n.value = "";
-				FN.cambiarSumandos();
+				FN.cambiaSumandos();
 			}
 		});
 	});
