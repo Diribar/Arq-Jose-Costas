@@ -6,7 +6,7 @@ const funciones = require("./funciones");
 
 // **** Exportar ***********
 module.exports = {
-	contactanosFrontEnd: async (req, res) => {
+	contactanos: async (req, res) => {
 		// Variables
 		const {nombre, mail, telefono, comentario} = req.query;
 		const datos = {

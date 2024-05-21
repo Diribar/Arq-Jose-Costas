@@ -24,7 +24,7 @@ module.exports = {
 			suma2: Math.round(Math.random() * 12),
 		});
 	},
-	contactanosBackEnd: (req, res) => {
+	contactanos: (req, res) => {
 		return res.send(
 			"Tiene inactivado javascript en el front-end. Actívelo para poder enviar el mail correctamente. Gracias."
 		);
