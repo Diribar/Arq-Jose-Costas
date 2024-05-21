@@ -10,7 +10,7 @@ const uploadFile = require("../middlewares/multer");
 
 // Controladores de API ***********************************
 // Home
-router.get("/contactanos", API.contactanosFrontEnd);
+router.get("/contactanos", API.contactanos);
 // edicion - Varios
 router.get("/edicion/ordena-registros", API.editarOrdenarRegistros);
 router.get("/edicion/cambia-el-valor", API.editarCambiarValor);
@@ -24,7 +24,7 @@ router.get("/edicion/elimina-grupo", API.editarGrupoEliminar);
 // Controladores de Vistas ***********************************
 // Varios
 router.get("/", vista.home);
-router.post("/contactanos", vista.contactanosBackEnd);
+router.post("/contactanos", vista.contactanos);
 
 // Login
 router.get("/login", vista.login.form);
