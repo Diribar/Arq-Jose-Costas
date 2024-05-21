@@ -40,23 +40,16 @@ window.addEventListener("load", () => {
 	// Validar campos
 	for (let i = 0; i < inputs.length; i++) {
 		inputs[i].addEventListener("keypress", (e) => {
-			RegEx1[i].test(e.key)
-				? avisoError[i].classList.add("ocultar")
-				: e.preventDefault();
+			RegEx1[i].test(e.key) ? avisoError[i].classList.add("ocultar") : e.preventDefault();
 		});
 		inputs[i].addEventListener("change", () => {
-			RegEx2[i].test(inputs[i].value)
-				? avisoError[i].classList.add("ocultar")
-				: avisoError[i].classList.remove("ocultar");
+			RegEx2[i].test(inputs[i].value) ? avisoError[i].classList.add("ocultar") : avisoError[i].classList.remove("ocultar");
 		});
 	}
 
 	// Validar suma
 	suma.addEventListener("change", () => {
-		if (
-			parseInt(suma1.innerHTML) + parseInt(suma2.innerHTML) !=
-			suma.value
-		) {
+		if (parseInt(suma1.innerHTML) + parseInt(suma2.innerHTML) != suma.value) {
 			errorSuma.classList.remove("ocultar");
 			cambiarSumandos();
 		} else errorSuma.classList.add("ocultar");
@@ -65,23 +58,32 @@ window.addEventListener("load", () => {
 	// Acciones si se elije "submit"
 	form.addEventListener("submit", async (e) => {
 		e.preventDefault();
+
+		// Avisa si hay campos vacíos
 		let error = false;
-		for (let i = 0; i < inputs.length; i++) {
-			// Avisar si hay campos vacíos
+		for (let i = 0; i < inputs.length; i++)
 			if (!inputs[i].value && i != 2) {
 				avisoError[i].classList.remove("ocultar");
 				error = true;
 			}
-		}
+
+		// Acciones si no hay error
 		if (!error) {
+			// Obtiene los datos
 			let datos = "";
 			for (n of inputs) {
 				datos += n.name + "=" + encodeURIComponent(n.value) + "&";
 			}
-			fetch("/contactanos/?" + datos).then((n) => n.json);
-			envioExitoso.style.display = "flex";
-			background.classList.remove("ocultar");
-			entendido.focus();
+
+			// Envía el mail
+			const mailEnviado = await fetch("/contactanos/?" + datos).then((n) => n.json);
+			if (mailEnviado) {
+				envioExitoso.style.display = "flex";
+				background.classList.remove("ocultar");
+				entendido.focus();
+			} else {
+
+			}
 		}
 	});
 
