@@ -4,3 +4,11 @@ a {text-decoration: none; cursor: pointer}
 button {cursor: pointer;}
 p {margin-block-start: 0px; margin-block-end: 0px}
 html {font-size: 18px; scroll-behavior: smooth;}
+#login {
+	#mailEnviado {
+		font-weight: bold; align-self: center; margin-top: 10px;
+		&.true {color: green;}
+		&.false {color: red;}
+	}
+	button {align-self: flex-start;}
+}

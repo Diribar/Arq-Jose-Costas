@@ -1,12 +1,3 @@
-*, body, optgroup, button, select, option, input, i, a {
-	font-family: 'Open Sans', Roboto,'Helvetica Neue', sans-serif;
-}
-
-p {
-	font-size: 1rem;
-}
-
-h2 {
-	font-size: 1.6rem;
-	margin-top: .25rem;
-}
+*, body, optgroup, button, select, option, input, i, a {font-family: 'Open Sans', Roboto,'Helvetica Neue', sans-serif;}
+p {font-size: 1rem;}
+h2 {font-size: 1.6rem; margin-top: .25rem;}
