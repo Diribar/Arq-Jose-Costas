@@ -51,8 +51,12 @@
 </form>
 <section id="background" class="ocultar">
 </section>
-<section id="envioExitoso" class="ocultar" style="background-color:<%= n.color_letras.codigo %>">
+<section id="envioExitoso" class="oculta cartel flexCol" style="background-color:<%= n.color_letras.codigo %>">
 	<p style="color:<%= n.color_fondo.codigo %>">¡Su mensaje fue enviado correctamente!</p>
 	<img src="/externa/varias/ok.png">
+	<button style="background-color:<%= n.color_fondo.codigo %>; color:<%= n.color_letras.codigo %>">Entendido</button>
+</section>
+<section id="envioFallido" class="ocultar cartel flexCol" style="background-color:<%= n.color_letras.codigo %>">
+	<p style="color:<%= n.color_fondo.codigo %>">Hubo un error interno que impidió enviar su mensaje</p>
 	<button style="background-color:<%= n.color_fondo.codigo %>; color:<%= n.color_letras.codigo %>">Entendido</button>
 </section>
