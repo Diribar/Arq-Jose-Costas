@@ -28,8 +28,6 @@ app.use("/publico", express.static(path.join(__dirname, "public")));
 app.use("/imagenes", express.static(carpetaExterna));
 
 // Obtiene la versión y el año
-const {exec} = require("child_process");
-const carpeta = path.basename(path.resolve());
 global.version = process.env.version;
 
 // ************************** Router ******************************
@@ -49,5 +47,7 @@ app.use(function (err, req, res, next) {
 	res.status(err.status || 500);
 	res.render("error");
 });
+console.log(52);
+
 
 module.exports = app;
