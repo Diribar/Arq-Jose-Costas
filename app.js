@@ -44,5 +44,5 @@ global.entPrueba = path.basename(__dirname) == "2-Prueba";
 global.entDesarr = !entProducc && !entPrueba;
 
 // Listener
-const puerto = entProducc ? 4203 : entPrueba ? 4206 : 3000;
+const puerto = entProducc ? 4200 : entPrueba ? 4206 : 3000;
 app.listen(puerto, () => console.log("\nJosé Costas - Servidor funcionando...")); // Para conectarse con el servidor
