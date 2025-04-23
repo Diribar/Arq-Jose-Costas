@@ -23,13 +23,11 @@ app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(session({secret: "keyboard cat", resave: false, saveUninitialized: false}));
 // Crea carpetas públicas
-global.carpetaExterna = path.join(__dirname, "../", "externa/");
+global.carpetaExterna = path.join(__dirname, "../9-Imagenes");
 app.use("/publico", express.static(path.join(__dirname, "public")));
-app.use("/externa", express.static(carpetaExterna));
+app.use("/imagenes", express.static(carpetaExterna));
 
 // Obtiene la versión y el año
-const {exec} = require("child_process");
-const carpeta = path.basename(path.resolve());
 global.version = process.env.version;
 
 // ************************** Router ******************************
