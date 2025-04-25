@@ -46,3 +46,7 @@ global.entDesarr = !entProducc && !entPrueba;
 // Listener
 const puerto = entProducc ? 4200 : entPrueba ? 4206 : 3000;
 app.listen(puerto, () => console.log("\nJosé Costas - Servidor funcionando...")); // Para conectarse con el servidor
+
+// Rutina para dar "señales de vida" al servidor
+const cron = require("node-cron");
+cron.schedule("0 0 * * *", () => console.log(new Date()), {timezone: "America/Buenos_Aires"}); // Rutinas diarias (a las 0:00hs)
