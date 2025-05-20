@@ -11,7 +11,7 @@ module.exports = {
 		// secure: true for 465, false for other ports
 
 		// Contenido del mail
-		let datos = {
+		const datos = {
 			from: '"www.arquitectojosecostas.com.ar" <' + user + '>',
 			subject: asunto,
 			html:
