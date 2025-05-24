@@ -11,8 +11,8 @@ module.exports = {
 		// secure: true for 465, false for other ports
 
 		// Contenido del mail
-		let datos = {
-			from: '"www.arquitectojosecostas.com.ar" <' + user + ">",
+		const datos = {
+			from: '"www.arquitectojosecostas.com.ar" <' + user + '>',
 			subject: asunto,
 			html:
 				comentario.replace(/[\r\n]/g, "<br>") +
@@ -37,10 +37,7 @@ module.exports = {
 
 		// Envía mail a Diego
 		datos.to = "diegoiribarren2015@gmail.com";
-		transporter
-			.sendMail(datos)
-			.then(() => console.log("Mail enviado a " + datos.to))
-			.catch((error) => console.log("Mail no enviado a " + datos.to, error));
+		transporter.sendMail(datos);
 
 		// Fin
 		return mailEnviado;

@@ -102,7 +102,7 @@ window.addEventListener("load", () => {
 
 			// Intenta enviar el mail
 			DOM.background.classList.remove("ocultar");
-			const mailEnviado = await fetch("/contactanos/?" + datos).then((n) => n.json);
+			const mailEnviado = await fetch("/contactanos/?" + datos).then((n) => n.json());
 
 			// Acciones si el mail fue enviado
 			if (mailEnviado) {
