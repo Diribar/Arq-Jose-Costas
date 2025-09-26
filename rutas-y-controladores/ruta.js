@@ -11,13 +11,14 @@ const uploadFile = require("../middlewares/multer");
 // Controladores de API ***********************************
 // Home
 router.get("/contactanos", API.contactanos);
-// edicion - Varios
+router.get("/api-login", API.login);
+
+
+// Edicion
 router.get("/edicion/ordena-registros", API.editarOrdenarRegistros);
 router.get("/edicion/cambia-el-valor", API.editarCambiarValor);
 router.get("/edicion/elimina-registro", API.editarEliminarRegistro);
-// edicion - Colores
 router.get("/edicion/coloragregar", API.editarColorAgregar);
-// edicion - Texto
 router.get("/edicion/textoagregar", API.editarTextoAgregar);
 router.get("/edicion/elimina-grupo", API.editarGrupoEliminar);
 
