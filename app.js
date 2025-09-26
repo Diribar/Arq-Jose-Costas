@@ -1,6 +1,6 @@
 "use strict";
 
-// Start-up - última carpeta git subida: 2025-04
+// Start-up - última versión subida: 1.02
 console.clear();
 
 // Requires
