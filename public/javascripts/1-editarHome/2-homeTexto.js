@@ -40,7 +40,6 @@ let valida = (e, largoMax) => {
 };
 let validaCaracteres = (campo) => {
 	// Variables
-	const campo = e.target;
 	const valNombre = /^[A-Z][A-Za-z áéíóúüñ\d+-]+$/;
 	const contenidoOK = valNombre.test(campo.value);
 
