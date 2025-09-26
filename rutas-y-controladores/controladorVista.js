@@ -30,7 +30,7 @@ module.exports = {
 		);
 	},
 	login: {
-		form: async (req, res) => res.render("login", {mailEnviado}),
+		form: async (req, res) => res.render("login", {mailEnviado: req.session.mailEnviado}),
 		guardar: (req, res) => {
 			if (req.body.codigo == req.session.codigo) {
 				res.cookie("aceptado", true, {maxAge: 60 * 60 * 1000});
