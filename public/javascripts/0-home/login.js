@@ -6,10 +6,18 @@ window.addEventListener("load", () => {
 	const suma = document.querySelector("#contactanos #suma");
 
 	for (anchor of anchors) {
-		anchor.addEventListener("click", (e) => {
-			let limpio = true;
-			for (let i = 0; i < inputs.length - 1; i++) if (inputs[i].value) limpio = false;
-			if (parseInt(suma1.innerHTML) + parseInt(suma2.innerHTML) == suma.value && limpio) window.location.href = "/login";
+		anchor.addEventListener("click", () => {
+			// Si algún valor del formulario no está vacío, interrumpe la función
+			for (const input of inputs) if (input.value) return;
+
+			// Si la suma es incorrecta, interrumpe la función
+			if (parseInt(suma1.innerHTML) + parseInt(suma2.innerHTML) != suma.value) return;
+
+			// Envía el mail
+
+
+			// Redirige al login
+			window.location.href = "/login";
 		});
 	}
 });
