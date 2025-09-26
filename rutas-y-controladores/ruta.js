@@ -13,7 +13,6 @@ const uploadFile = require("../middlewares/multer");
 router.get("/contactanos", API.contactanos);
 router.get("/api-login", API.login);
 
-
 // Edicion
 router.get("/edicion/ordena-registros", API.editarOrdenarRegistros);
 router.get("/edicion/cambia-el-valor", API.editarCambiarValor);
