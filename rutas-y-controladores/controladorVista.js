@@ -30,26 +30,16 @@ module.exports = {
 		);
 	},
 	login: {
-		form: async (req, res) => {
-			// Variables
-			let datos = {asunto: "Código de Login"};
-
-			// Genera un código y lo guarda en session
-			const codigo = Math.round(Math.random() * Math.pow(10, 6)) + "";
-			req.session.codigo = codigo;
-
-			// Envía un mail con el código
-			datos.comentario = "El código a ingresar para el Login es: " + codigo;
-			const mailEnviado = await funciones.enviaMail(datos);
-
-			// Va a la vista
-			return res.render("login", {mailEnviado});
-		},
+		form: async (req, res) => res.render("login", {mailEnviado: req.session.mailEnviado}),
 		guardar: (req, res) => {
-			if (req.body.codigo == req.session.codigo) {
-				res.cookie("aceptado", true, {maxAge: 60 * 60 * 1000});
-				return res.redirect("/edicion/home");
-			} else return res.redirect("/login");
+			// Verifica el código
+			if (req.body.codigo == req.session.codigo) res.cookie("aceptado", true, {maxAge: 60 * 60 * 1000});
+
+			// Destino
+			const destino = req.body.codigo == req.session.codigo ? "/edicion/home" : "/login";
+
+			// Fin
+			return res.redirect(destino);
 		},
 		logout: (req, res) => {
 			req.session.codigo = null;
@@ -140,7 +130,7 @@ module.exports = {
 	},
 };
 
-let verificaImagenNueva = (ruta, file) => {
+const verificaImagenNueva = (ruta, file) => {
 	// Variables
 	const extensionesOK = [".jpg", ".png", ".gif", ".bmp"];
 	const ext = path.extname(file.originalname);
@@ -158,7 +148,7 @@ let verificaImagenNueva = (ruta, file) => {
 	// Termina
 	return [condicion, condicion1, condicion2];
 };
-let variables = async (req) => {
+const variables = async (req) => {
 	// Variables
 	const url = req.url;
 	const seccion = url.slice(url.lastIndexOf("/") + 1);

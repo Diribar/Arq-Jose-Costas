@@ -1,99 +1,42 @@
 #quienes_somos {
-	display: flex;
-	flex-direction: column;
-}
+	display: flex; flex-direction: column;
+	#arquitecto {
+		h3 {margin: 0;}
+		img {
+			max-height: 230px;
+			&#ancho {float: right; margin-left: 20px;}
+		}
+		ul {
+			margin: 0;
+			li {line-height: 1.5rem; margin-top: .5rem; margin-left: -40px; list-style: none;}
+		}
+		button {margin-top: 15px; margin-bottom: 15px; padding: 10px; font-weight: bold; border: 2px solid;}
 
-#quienes_somos #arquitecto h3 {
-	margin: 0;
-}
-
-#quienes_somos #arquitecto #ancho img {
-	float: right;
-	margin-left: 20px;
-}
-
-#quienes_somos #arquitecto img {
-	max-height: 230px;
-}
-
-#quienes_somos #arquitecto ul {
-	margin: 0;
-}
-
-#quienes_somos #arquitecto ul li {
-	line-height: 1.5rem;
-	margin-top: .5rem;
-	margin-left: -40px;
-	list-style: none;
-}
-
-#quienes_somos #arquitecto button {
-	margin-top: 15px;
-	margin-bottom: 15px;
-	padding: 10px;
-	font-weight: bold;
-	border: 2px solid;
-}
-
-#quienes_somos #clientes h3 {
-	margin-bottom: 0;
-}
-
-#quienes_somos #clientes ul {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: space-evenly;
-	padding: 0;
-	margin: 0;
-}
-
-#quienes_somos #clientes ul li {
-	margin: 20px 10px;
-	max-width: 200px;
-	max-height: 160px;
-	width: 24vw;
-	height: 19.2vw;
-	list-style: none;
-}
-
-#quienes_somos #clientes ul li img {
-	width: 100%;
-	height: 100%;
-	margin: 0;
-	object-fit: cover;
+	}
+	#clientes {
+		h3 {margin-bottom: 0;}
+		ul {
+			display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-evenly;
+			padding: 0; margin: 0;
+			li {
+				margin: 20px 10px; list-style: none;
+				max-width: 200px; max-height: 160px; width: 24vw; height: 19.2vw;
+				img {width: 100%; height: 100%; margin: 0; object-fit: cover;}
+			}
+		}
+	}
 }
 
 @media (min-width: 481px) {
-	#quienes_somos #arquitecto #angosto {
-		display: none;
-	}
+	#quienes_somos #arquitecto #angosto {display: none;}
 }
 
 @media (max-width: 480px) {
-
 	#quienes_somos #arquitecto {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
+		display: flex; flex-direction: column; align-items: center;
+		h3 {align-self: flex-start; margin-bottom: 15px;}
+		#ancho {display: none;}
+		#angosto {align-self: center;}
 	}
-
-	#quienes_somos #arquitecto h3 {
-		align-self: flex-start;
-		margin-bottom: 15px;
-	}
-
-	#quienes_somos #arquitecto #ancho {
-		display: none;
-	}
-
-	#quienes_somos #arquitecto #angosto a {
-		align-self: center;
-	}
-
-	#quienes_somos #clientes ul li {
-		width: 37vw;
-		height: 30vw;
-	}
-
+	#quienes_somos #clientes ul li {width: 37vw; height: 30vw;}
 }
