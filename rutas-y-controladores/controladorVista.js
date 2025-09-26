@@ -30,21 +30,7 @@ module.exports = {
 		);
 	},
 	login: {
-		form: async (req, res) => {
-			// Variables
-			let datos = {asunto: "Código de Login"};
-
-			// Genera un código y lo guarda en session
-			const codigo = Math.round(Math.random() * Math.pow(10, 6)) + "";
-			req.session.codigo = codigo;
-
-			// Envía un mail con el código
-			datos.comentario = "El código a ingresar para el Login es: " + codigo;
-			const mailEnviado = await funciones.enviaMail(datos);
-
-			// Va a la vista
-			return res.render("login", {mailEnviado});
-		},
+		form: async (req, res) => res.render("login", {mailEnviado}),
 		guardar: (req, res) => {
 			if (req.body.codigo == req.session.codigo) {
 				res.cookie("aceptado", true, {maxAge: 60 * 60 * 1000});
