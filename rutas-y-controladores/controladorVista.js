@@ -1,10 +1,9 @@
 "use strict";
-// **** Requires ***********
+// Variables
 const path = require("path");
 const BD_obtiene = require("../base_de_datos/config/BD_obtiene");
 const funciones = require("./funciones");
 
-// **** Exportar ***********
 module.exports = {
 	home: async (req, res) => {
 		const encabezado = await BD_obtiene.obtieneColoresEncabezado();
