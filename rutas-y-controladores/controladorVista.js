@@ -33,10 +33,12 @@ module.exports = {
 		form: async (req, res) => res.render("login", {mailEnviado: req.session.mailEnviado}),
 		guardar: (req, res) => {
 			// Verifica el código
-			if (req.body.codigo == req.session.codigo) res.cookie("aceptado", true, {maxAge: 60 * 60 * 1000});
+			if (req.body.codigo == req.session.codigo) res.cookie("aceptado", true, {maxAge: 60 * 60 * 1000}); // una hora
 
 			// Destino
 			const destino = req.body.codigo == req.session.codigo ? "/edicion/home" : "/login";
+			if (req.body.codigo == req.session.codigo) console.log("Login exitoso");
+			else console.log(39, req.body.codigo, req.session.codigo);
 
 			// Fin
 			return res.redirect(destino);
