@@ -1,6 +1,6 @@
 "use strict";
 
-// Start-up - última versión subida: 1.02
+// Start-up - última versión subida: 1.03
 console.clear();
 
 // Requires
