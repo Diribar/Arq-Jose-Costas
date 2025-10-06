@@ -23,11 +23,8 @@ module.exports = {
 			suma2: Math.round(Math.random() * 10),
 		});
 	},
-	contactanos: (req, res) => {
-		return res.send(
-			"Tiene inactivado javascript en el front-end. Actívelo para poder enviar el mail correctamente. Gracias."
-		);
-	},
+	contactanos: (req, res) =>
+		res.send("Tiene inactivado javascript en el front-end. Actívelo para poder enviar el mail correctamente. Gracias."),
 	login: {
 		form: async (req, res) => res.render("login", {mailEnviado: req.session.mailEnviado}),
 		guardar: (req, res) => {
