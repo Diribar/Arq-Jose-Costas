@@ -8,6 +8,9 @@ module.exports = {
 	contactanos: async (req, res) => {
 		// Variables
 		const {nombre, mail, telefono, comentario} = req.query;
+		if (!nombre || !mail || !comentario) return res.json(false);
+
+		// Arma los datos
 		const datos = {
 			...{nombre, mail, telefono},
 			asunto: "Mensaje de un contacto",
