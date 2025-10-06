@@ -100,7 +100,7 @@ window.addEventListener("load", () => {
 
 		// Obtiene los datos
 		let datos = "";
-		for (let n of DOM.inputs) datos += n.name + "=" + encodeURIComponent(n.value) + "&";
+		for (const input of DOM.inputs) datos += input.name + "=" + encodeURIComponent(input.value) + "&";
 
 		// Intenta enviar el mail
 		DOM.background.classList.remove("ocultar");
@@ -128,7 +128,7 @@ window.addEventListener("load", () => {
 
 			// Acciones si se eligió el primer botón
 			if (!i) {
-				for (let n of DOM.inputs) n.value = "";
+				for (const input of DOM.inputs) input.value = "";
 				FN.cambiaSumandos();
 			}
 		});
