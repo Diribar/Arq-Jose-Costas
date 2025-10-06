@@ -29,10 +29,9 @@ window.addEventListener("load", () => {
 		/^[\w\W]+$/, // Comentario
 		/^[\d]+$/, // Suma
 	];
-	let hayErrores, sumaConErrores;
+	let formConErrores, sumaConErrores;
 
 	// Funciones
-
 	const FN = {
 		cambiaSumandos: () => {
 			DOM.suma1.innerHTML = Math.round(Math.random() * 10);
@@ -41,7 +40,7 @@ window.addEventListener("load", () => {
 		},
 		validaForm: () => {
 			// Variables
-			hayErrores = false;
+			formConErrores = false;
 
 			// Revisa los campos
 			for (let i = 0; i < DOM.inputs.length; i++) {
@@ -52,7 +51,7 @@ window.addEventListener("load", () => {
 
 				// Acciones dependiendo de si hay algún error
 				DOM.avisoError[i].classList[hayError ? "remove" : "add"]("ocultar");
-				if (hayError) hayErrores = true;
+				if (hayError) formConErrores = true;
 			}
 
 			// Fin
@@ -97,7 +96,7 @@ window.addEventListener("load", () => {
 		FN.validaSuma();
 
 		// Si hay algún error, interrumpe la función
-		if (hayErrores || sumaConErrores) return;
+		if (formConErrores || sumaConErrores) return;
 
 		// Obtiene los datos
 		let datos = "";
