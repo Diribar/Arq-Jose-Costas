@@ -14,6 +14,7 @@ window.addEventListener("load", () => {
 		envioFallido: document.querySelector("#contactanos .cartel#envioFallido"),
 		entendido: document.querySelectorAll("#contactanos .cartel button"),
 	};
+
 	const RegEx1 = [
 		/[A-Z ]/i, // Nombre
 		/[\w\-\.\+\@]/i, // Mail
@@ -62,8 +63,8 @@ window.addEventListener("load", () => {
 			sumaConErrores = parseInt(DOM.suma1.innerHTML) + parseInt(DOM.suma2.innerHTML) != DOM.suma.value;
 
 			// Acciones
-			DOM.errorSuma.classList[sumaConErrores ? "add" : "remove"]("ocultar");
-			if (!sumaConErrores) this.cambiaSumandos();
+			DOM.errorSuma.classList[sumaConErrores ? "remove" : "add"]("ocultar");
+			if (sumaConErrores) this.cambiaSumandos();
 
 			// Fin
 			return;
