@@ -36,7 +36,7 @@ app.use("/imagenes", express.static(carpetaExterna));
 global.version = process.env.version;
 
 // Ruta
-const router = require("./rutas-y-controladores/ruta");
+const router = require("./rutasContrs/ruta");
 app.use("/", router);
 
 // Variables que toman valores de 'path'
