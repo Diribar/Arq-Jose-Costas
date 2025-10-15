@@ -28,7 +28,8 @@ app.set("view engine", "ejs");
 
 // Crea carpetas públicas
 global.carpetaExterna = path.join(__dirname, "../9-Imagenes");
-app.use("/publico", express.static(path.join(__dirname, "public")));
+app.use("/formato", express.static(path.join(__dirname, "publico/formatos")));
+app.use("/javascript", express.static(path.join(__dirname, "publico/javascripts")));
 app.use("/imagenes", express.static(carpetaExterna));
 
 // Obtiene la versión y el año
