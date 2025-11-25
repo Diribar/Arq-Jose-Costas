@@ -17,7 +17,7 @@
 		"multer": "^2.0.2",
 		"mysql2": "^3.9.7",
 		"node-cron": "^3.0.3",
-		"nodemailer": "^6.7.3",
+		"nodemailer": "^7.0.10",
 		"sequelize": "^6.6.5",
 		"sequelize-cli": "^6.2.0"
 	},

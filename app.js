@@ -1,6 +1,6 @@
 "use strict";
 
-// Start-up - última versión subida: 1.04
+// Start-up - última versión subida: 1.08
 console.clear();
 
 // Requires
@@ -40,7 +40,7 @@ const router = require("./rutasContrs/ruta");
 app.use("/", router);
 
 // Variables que toman valores de 'path'
-const entProducc = path.basename(__dirname) == "1-Actual";
+global.entProducc = path.basename(__dirname) == "1-Actual";
 global.entPrueba = path.basename(__dirname) == "2-Prueba";
 global.entDesarr = !entProducc && !entPrueba;
 
