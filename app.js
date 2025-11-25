@@ -1,6 +1,6 @@
 "use strict";
 
-// Start-up - última versión subida: 1.04
+// Start-up - última versión subida: 1.08
 console.clear();
 
 // Requires
@@ -40,14 +40,10 @@ const router = require("./rutasContrs/ruta");
 app.use("/", router);
 
 // Variables que toman valores de 'path'
-const entProducc = path.basename(__dirname) == "1-Actual";
+global.entProducc = path.basename(__dirname) == "1-Actual";
 global.entPrueba = path.basename(__dirname) == "2-Prueba";
 global.entDesarr = !entProducc && !entPrueba;
 
 // Listener
 const puerto = entProducc ? 4200 : entPrueba ? 4206 : 3000;
 app.listen(puerto, () => console.log("\nJosé Costas - Servidor funcionando...")); // Para conectarse con el servidor
-
-// Rutina para dar "señales de vida" al servidor
-const cron = require("node-cron");
-cron.schedule("0 0 * * *", () => console.log(new Date()), {timezone: "America/Buenos_Aires"}); // Rutinas diarias (a las 0:00hs)
