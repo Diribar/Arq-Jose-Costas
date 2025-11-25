@@ -1,7 +1,7 @@
 "use strict";
 // Variables
 const path = require("path");
-const BD_obtiene = require("../base_de_datos/config/BD_obtiene");
+const BD_obtiene = require("../baseDatos/config/BD_obtiene");
 const funciones = require("./funciones");
 
 module.exports = {

@@ -1,7 +1,7 @@
 "use strict";
 // **** Requires ***********
-const BD_API = require("../base_de_datos/config/BD_API");
-const BD_obtiene = require("../base_de_datos/config/BD_obtiene");
+const BD_API = require("../baseDatos/config/BD_API");
+const BD_obtiene = require("../baseDatos/config/BD_obtiene");
 const funciones = require("./funciones");
 
 module.exports = {
