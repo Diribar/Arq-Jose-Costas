@@ -1,7 +1,7 @@
 "use strict";
 window.addEventListener("load", () => {
 	// Variables
-	let DOM = {
+	const DOM = {
 		form: document.querySelector("#contactanos form"),
 		inputs: document.querySelectorAll("#contactanos form .input"),
 		avisoError: document.querySelectorAll("#contactanos .fa-times-circle"),
@@ -14,6 +14,7 @@ window.addEventListener("load", () => {
 		envioFallido: document.querySelector("#contactanos .cartel#envioFallido"),
 		entendido: document.querySelectorAll("#contactanos .cartel button"),
 	};
+
 	const RegEx1 = [
 		/[A-Z ]/i, // Nombre
 		/[\w\-\.\+\@]/i, // Mail
@@ -28,29 +29,29 @@ window.addEventListener("load", () => {
 		/^[\w\W]+$/, // Comentario
 		/^[\d]+$/, // Suma
 	];
-	let inputsOK, sumaOK;
+	let formConErrores, sumaConErrores;
 
 	// Funciones
-
-	let FN = {
+	const FN = {
 		cambiaSumandos: () => {
 			DOM.suma1.innerHTML = Math.round(Math.random() * 10);
 			DOM.suma2.innerHTML = Math.round(Math.random() * 10);
 			return;
 		},
-		validaCampos: () => {
+		validaForm: () => {
 			// Variables
-			inputsOK = true;
+			formConErrores = false;
 
 			// Revisa los campos
 			for (let i = 0; i < DOM.inputs.length; i++) {
 				// Averigua si hay algún error
-				const inputOK = !!DOM.inputs[i].value ? RegEx2[i].test(DOM.inputs[i].value) : i == 2;
-				// console.log();
+				const hayError =
+					((i == 2 && DOM.inputs[i].value) || i != 2) && // como el teléfono es opcional (i==2), sólo se verifica si tiene algún valor
+					!RegEx2[i].test(DOM.inputs[i].value); // si no se aprueba el test, es error
 
 				// Acciones dependiendo de si hay algún error
-				inputOK ? DOM.avisoError[i].classList.add("ocultar") : DOM.avisoError[i].classList.remove("ocultar");
-				if (inputsOK) inputsOK = inputOK;
+				DOM.avisoError[i].classList[hayError ? "remove" : "add"]("ocultar");
+				if (hayError) formConErrores = true;
 			}
 
 			// Fin
@@ -58,11 +59,11 @@ window.addEventListener("load", () => {
 		},
 		validaSuma: function () {
 			// Variables
-			sumaOK = parseInt(DOM.suma1.innerHTML) + parseInt(DOM.suma2.innerHTML) == DOM.suma.value;
+			sumaConErrores = parseInt(DOM.suma1.innerHTML) + parseInt(DOM.suma2.innerHTML) != DOM.suma.value;
 
 			// Acciones
-			sumaOK ? DOM.errorSuma.classList.add("ocultar") : DOM.errorSuma.classList.remove("ocultar");
-			if (!sumaOK) this.cambiaSumandos();
+			DOM.errorSuma.classList[sumaConErrores ? "remove" : "add"]("ocultar");
+			if (sumaConErrores) this.cambiaSumandos();
 
 			// Fin
 			return;
@@ -91,28 +92,31 @@ window.addEventListener("load", () => {
 	DOM.form.addEventListener("submit", async (e) => {
 		// Funciones
 		e.preventDefault();
-		FN.validaCampos();
+		FN.validaForm();
 		FN.validaSuma();
 
-		// Acciones si no hay error
-		if (inputsOK && sumaOK) {
-			// Obtiene los datos
-			let datos = "";
-			for (let n of DOM.inputs) datos += n.name + "=" + encodeURIComponent(n.value) + "&";
+		// Si hay algún error, interrumpe la función
+		if (formConErrores || sumaConErrores) return;
 
-			// Intenta enviar el mail
-			DOM.background.classList.remove("ocultar");
-			const mailEnviado = await fetch("/contactanos/?" + datos).then((n) => n.json());
+		// Obtiene los datos
+		let datos = "";
+		for (const input of DOM.inputs) datos += input.name + "=" + encodeURIComponent(input.value) + "&";
 
-			// Acciones si el mail fue enviado
-			if (mailEnviado) {
-				DOM.envioExitoso.style.display = "flex";
-				DOM.entendido[0].focus();
-			} else {
-				DOM.envioFallido.style.display = "flex";
-				DOM.entendido[1].focus();
-			}
+		// Intenta enviar el mail
+		DOM.background.classList.remove("ocultar");
+		const mailEnviado = await fetch("/contactanos/?" + datos).then((n) => n.json());
+
+		// Acciones si el mail fue enviado
+		if (mailEnviado) {
+			DOM.envioExitoso.style.display = "flex";
+			DOM.entendido[0].focus();
+		} else {
+			DOM.envioFallido.style.display = "flex";
+			DOM.entendido[1].focus();
 		}
+
+		// Fin
+		return;
 	});
 
 	DOM.entendido.forEach((boton, i) => {
@@ -124,7 +128,7 @@ window.addEventListener("load", () => {
 
 			// Acciones si se eligió el primer botón
 			if (!i) {
-				for (let n of DOM.inputs) n.value = "";
+				for (const input of DOM.inputs) input.value = "";
 				FN.cambiaSumandos();
 			}
 		});
