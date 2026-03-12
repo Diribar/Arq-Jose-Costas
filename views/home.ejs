@@ -1,26 +1,30 @@
-<%- include('0-head', {titulo: "Arquitectura y Habilitaciones - CABA"}) %>
-<%- include('0-headHome') %>
-<body>
-	<header>
-		<% for (n of titulos) { %>
-			<nav style="background-color:<%= encabezado.color_fondo.codigo %>; border-color:<%= encabezado.color_letras.codigo %>">
-				<a style="color:<%= encabezado.color_letras.codigo %>" href="#<%= n.nombre_seccion %>"><%= n.nombre_encabezado %></a>
-			</nav>
-		<% } %>
-	</header>
-	<main>
-		<% for (n of titulos) { %>
-			<section
-				id="<%= n.nombre_seccion %>"
-				class="seccion"
-				style="background-color:<%= n.color_fondo.codigo %>; color:<%= n.color_letras.codigo %>"
-			>
-				<%- include(n.id + "-" + n.nombre_seccion) %>
-			</section>
-		<% } %>
-	</main>
-	<footer style="background-color:<%= footer.color_fondo.codigo %>">
-		<p style="color:<%= footer.color_letras.codigo %>">Versión <%= version %></p>
-	</footer>
-</body>
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<%- include('0-head', {titulo: "Arquitectura y Habilitaciones - CABA"}) %>
+		<%- include('0-headHome') %>
+	</head>
+	<body>
+		<header>
+			<% for (n of titulos) { %>
+				<nav style="background-color:<%= encabezado.color_fondo.codigo %>; border-color:<%= encabezado.color_letras.codigo %>">
+					<a style="color:<%= encabezado.color_letras.codigo %>" href="#<%= n.nombre_seccion %>"><%= n.nombre_encabezado %></a>
+				</nav>
+			<% } %>
+		</header>
+		<main>
+			<% for (n of titulos) { %>
+				<section
+					id="<%= n.nombre_seccion %>"
+					class="seccion"
+					style="background-color:<%= n.color_fondo.codigo %>; color:<%= n.color_letras.codigo %>"
+				>
+					<%- include(n.id + "-" + n.nombre_seccion) %>
+				</section>
+			<% } %>
+		</main>
+		<footer style="background-color:<%= footer.color_fondo.codigo %>">
+			<p style="color:<%= footer.color_letras.codigo %>">Versión <%= version %></p>
+		</footer>
+	</body>
 </html>
