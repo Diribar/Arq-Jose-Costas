@@ -1,10 +1,10 @@
 "use strict";
 
-// Start-up - última versión subida: 1.09
+// Start-up - última versión subida: 1.10
 console.clear();
 
 // Requires
-require("dotenv").config();
+require('dotenv').config({ quiet: true });
 const express = require("express");
 const app = express();
 const cookieParser = require("cookie-parser");
