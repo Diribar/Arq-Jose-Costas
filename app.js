@@ -4,7 +4,7 @@
 console.clear();
 
 // Requires
-require('dotenv').config({ quiet: true });
+require("dotenv").config({quiet: true});
 const express = require("express");
 const app = express();
 const cookieParser = require("cookie-parser");
