@@ -1,9 +1,10 @@
 "use strict";
 
-// Requires
+// Variables
 const nodemailer = require("nodemailer");
 const path = require("path");
 const fs = require("fs");
+const credenciales = require("../variables/Credenciales.js");
 
 module.exports = {
 	enviaMail: async ({asunto: subject, nombre, mail, telefono, comentario}) => {
