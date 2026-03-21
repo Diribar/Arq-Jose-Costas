@@ -1,8 +1,8 @@
 "use strict";
 // **** Requires ***********
-const BD_API = require("../baseDatos/config/BD_API");
-const BD_obtiene = require("../baseDatos/config/BD_obtiene");
-const funciones = require("./funciones");
+const BD_API = require("../funciones/BD_API");
+const BD_obtiene = require("../funciones/BD_obtiene");
+const funciones = require("../funciones/varias");
 
 module.exports = {
 	contactanos: async (req, res) => {

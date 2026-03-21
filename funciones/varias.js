@@ -4,16 +4,17 @@ const path = require("path");
 const fs = require("fs");
 
 module.exports = {
-	enviaMail: async ({asunto, nombre, mail, telefono, comentario}) => {
+	enviaMail: async ({asunto: subject, nombre, mail, telefono, comentario}) => {
 		// create reusable transporter object using the default SMTP transport
-		const {host, puerto, user, pass} = process.env;
-		const transporter = nodemailer.createTransport({host, port: Number(puerto), secure: true, auth: {user, pass}});
-		// secure: true for 465, false for other ports
+		const {host, puerto, soloEnvios, contrasena: pass} = credenciales.mail;
+		const datosTransporte = {host, port: Number(puerto), auth: {user: soloEnvios, pass}, secure: true}; // secure: true for 465, false for other ports
+		const transporte = nodemailer.createTransport(datosTransporte);
 
 		// Contenido del mail
 		const datos = {
-			from: '"www.arquitectojosecostas.com.ar" <' + user + ">",
-			subject: asunto,
+			from: "Web Arquitecto Jose Costas <" + soloEnvios + ">",
+			to: entProducc ? "josericardocostas@hotmail.com" : "diegoiribarren2015@gmail.com",
+			subject,
 			html:
 				comentario.replace(/[\r\n]/g, "<br>") +
 				(nombre || telefono || mail ? "<br><br><br>" : "<br>") +
@@ -22,9 +23,8 @@ module.exports = {
 				(mail ? mail + "<br>" : ""),
 		};
 
-		// Envía mail a José Costas
-		datos.to = entProducc ? "josericardocostas@hotmail.com" : "diegoiribarren2015@gmail.com";
-		const mailEnviado = await transporter
+		// Envía mail
+		const mailEnviado = await transporte
 			.sendMail(datos)
 			.then(() => {
 				console.log("Mail enviado a " + datos.to);

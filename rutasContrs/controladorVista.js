@@ -1,8 +1,8 @@
 "use strict";
 // Variables
 const path = require("path");
-const BD_obtiene = require("../baseDatos/config/BD_obtiene");
-const funciones = require("./funciones");
+const BD_obtiene = require("../funciones/BD_obtiene");
+const funciones = require("../funciones/varias");
 
 module.exports = {
 	home: async (req, res) => {
