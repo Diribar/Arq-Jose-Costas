@@ -9,7 +9,7 @@ const tablas = {};
 
 // Agrega cada tabla a 'tablas'
 fs.readdirSync(carpModelos)
-	.filter((archivo) => archivo.indexOf(".") && archivo !== esteArch && archivo.slice(-3) === ".js")
+	.filter((archivo) => archivo.indexOf(".") > 0 && archivo !== esteArch && archivo.slice(-3) === ".js")
 	.forEach((archivo) => {
 		const tabla = require(path.join(carpModelos, archivo))(sequelize, Sequelize.DataTypes);
 		tablas[tabla.name] = tabla;
