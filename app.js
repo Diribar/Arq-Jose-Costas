@@ -33,17 +33,17 @@ app.use("/imagenes", express.static(carpetaExterna));
 global.version = "mar/2026";
 
 // Variables que toman valores de 'path'
-global.entProducc = path.basename(__dirname) == "1-Actual";
-global.entPrueba = path.basename(__dirname) == "2-Prueba";
-global.entDesarr = !entProducc && !entPrueba;
+global.entProd = path.basename(__dirname) == "1-Actual";
+const entPrueba = path.basename(__dirname) == "2-Prueba";
+const entDes = !entProd && !entPrueba;
 
 // Listener
-const puerto = entProducc ? 4200 : entPrueba ? 4206 : 3000;
+const puerto = entProd ? 4200 : entPrueba ? 4206 : 3000;
 app.listen(puerto, () => console.log("\nJosé Costas - Servidor funcionando...")); // Para conectarse con el servidor
 
 // Base de datos
 const credenciales = require("./variables/Credenciales.js");
-const entornoBd = !entDesarr ? "produccion" : "desarrollo";
+const entornoBd = !entDes ? "produccion" : "desarrollo";
 const credencsBD = credenciales.bd[entornoBd];
 const {database, username, password} = credencsBD;
 global.Sequelize = require("sequelize");

@@ -16,7 +16,7 @@ module.exports = {
 		// Contenido del mail
 		const datos = {
 			from: "Web Arquitecto Jose Costas <" + soloEnvios + ">",
-			to: entProducc ? "josericardocostas@hotmail.com" : "diegoiribarren2015@gmail.com",
+			to: entProd ? "josericardocostas@hotmail.com" : "diegoiribarren2015@gmail.com",
 			subject,
 			html:
 				comentario.replace(/[\r\n]/g, "<br>") +
