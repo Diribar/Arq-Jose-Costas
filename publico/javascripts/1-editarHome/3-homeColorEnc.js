@@ -1,3 +1,5 @@
+"use strict";
+
 window.addEventListener("load", () => {
 	// Variables del encabezado
 	let cfe = document.querySelector("#cfe");

@@ -1,3 +1,5 @@
+"use strict";
+
 const bd = require("../baseDatos");
 
 module.exports = {

@@ -1,4 +1,5 @@
 "use strict";
+
 // Variables
 const path = require("path");
 const BD_obtiene = require("../funciones/BD_obtiene");

@@ -1,3 +1,5 @@
+"use strict";
+
 window.addEventListener("load", () => {
 	// VARIABLES INICIALES
 	let confirmar = document.querySelector("#color_nuevo #confirmar");

@@ -1,4 +1,6 @@
-// Requires ************************************************
+"use strict";
+
+// Requires
 var express = require("express");
 var router = express.Router();
 const vista = require("./controladorVista");
@@ -8,7 +10,7 @@ const API = require("./controladorAPI");
 const soloUsuarios = require("../middlewares/soloUsuarios");
 const uploadFile = require("../middlewares/multer");
 
-// Controladores de API ***********************************
+// Controladores de API
 // Home
 router.get("/contactanos", API.contactanos);
 router.get("/api-login", API.login);
@@ -21,7 +23,7 @@ router.get("/edicion/coloragregar", API.editarColorAgregar);
 router.get("/edicion/textoagregar", API.editarTextoAgregar);
 router.get("/edicion/elimina-grupo", API.editarGrupoEliminar);
 
-// Controladores de Vistas ***********************************
+// Controladores de Vistas
 // Varios
 router.get("/", vista.home);
 router.post("/contactanos", vista.contactanos);
@@ -42,5 +44,5 @@ router.get("/edicion/botones/:id", soloUsuarios, vista.edicion.botones);
 router.post("/edicion/agregarImagen", uploadFile.single("imagen"), vista.imagen.agregar);
 router.post("/edicion/reemplazarImagen", uploadFile.single("imagen"), vista.imagen.reemplazar);
 
-// Exportarlo **********************************************
+// Exportarlo
 module.exports = router;

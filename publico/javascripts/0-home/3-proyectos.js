@@ -1,3 +1,5 @@
+"use strict";
+
 window.addEventListener("load", () => {
 	// Declarar las variables
 	let button = document.querySelectorAll("#proyectos #botones button");

@@ -1,3 +1,5 @@
+"use strict";
+
 window.addEventListener("load", () => {
 	// VARIABLES INICIALES
 	IDs = document.querySelectorAll("tbody tr.color_exist #id");

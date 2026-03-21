@@ -1,3 +1,5 @@
+"use strict";
+
 window.addEventListener("load", () => {
 	// Variables generales
 	let eliminar = document.querySelectorAll(".imagenes i.fa-trash-alt");
@@ -12,7 +14,7 @@ window.addEventListener("load", () => {
 	}
 });
 
-// FÓRMULAS *************************************************
+// FÓRMULAS
 const eliminaImagen = async (id) => {
 	let entidad = document.querySelector("input[name='entidad']").value;
 	let ruta = document.querySelector("input[name='ruta']").value;

@@ -1,5 +1,6 @@
 "use strict";
-// **** Requires ***********
+
+// Requires
 const BD_API = require("../funciones/BD_API");
 const BD_obtiene = require("../funciones/BD_obtiene");
 const funciones = require("../funciones/varias");

@@ -1,3 +1,5 @@
+"use strict";
+
 window.addEventListener("load", () => {
 	// Declarar las variables
 	let imagenes = document.querySelectorAll("#inicio #imagenes ul li")
@@ -64,7 +66,7 @@ window.addEventListener("load", () => {
 				iconos[1].classList.remove("ocultar");
 				iconos[2].classList.add("ocultar");
 				loop = setInterval(slider, duracionLoop)
-			} 
+			}
 			// Flecha derecha
 			if (i == 3 ) {
 				secuencia = -parseInt(contenedor.style.transform.slice(11,-3))/ancho

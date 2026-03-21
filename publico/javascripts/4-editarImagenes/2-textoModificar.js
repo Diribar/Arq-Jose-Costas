@@ -1,3 +1,5 @@
+"use strict";
+
 window.addEventListener("load", () => {
 	// Variables generales
 	let IDs = document.querySelectorAll(".imagenes input[name='id']");
