@@ -1,3 +1,5 @@
+"use strict";
+
 window.addEventListener("load", () => {
 	// Variables generales
 	IDs = document.querySelectorAll("#txt_exist #id");

@@ -1,3 +1,5 @@
+"use strict";
+
 window.addEventListener("load", () => {
 	// Variables generales
 	let id = document.querySelector("#id").innerHTML;

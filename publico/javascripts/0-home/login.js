@@ -1,3 +1,5 @@
+"use strict";
+
 window.addEventListener("load", () => {
 	const imgs = document.querySelectorAll("#arquitecto img");
 	const inputs = Array.from(document.querySelectorAll("#contactanos form .input")).slice(0,-1);

@@ -1,3 +1,5 @@
+"use strict";
+
 window.addEventListener("load", () => {
 	// VARIABLES INICIALES
 	let filaNueva = document.querySelectorAll("#texto_nvo");

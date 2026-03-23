@@ -1,3 +1,5 @@
+"use strict";
+
 window.addEventListener("load", async () => {
 	// Acciones si se cambia un valor
 	const IDs = document.querySelectorAll(".filas #id");

@@ -1,3 +1,5 @@
+"use strict";
+
 window.addEventListener("load", () => {
 	// VARIABLES INICIALES
 	let IDs = document.querySelectorAll("#txt_exist #id");

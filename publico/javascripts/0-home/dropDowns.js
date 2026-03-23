@@ -1,3 +1,5 @@
+"use strict";
+
 window.addEventListener("load", () => {
 	let homeButton = document.querySelector("#home-button");
 	let proyectosButton = document.querySelector("#proyectos-button");

@@ -1,4 +1,5 @@
 "use strict";
+
 // Variables - credenciales
 const database = "ajc_bd";
 const password = "IermFU2UpKk9";

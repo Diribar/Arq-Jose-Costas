@@ -1,3 +1,5 @@
+"use strict";
+
 window.addEventListener("load", () => {
 	// Variables generales
 	let flechasUp = document.querySelectorAll(".filas .fa-arrow-alt-circle-up");

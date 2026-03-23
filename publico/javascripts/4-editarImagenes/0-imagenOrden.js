@@ -1,3 +1,5 @@
+"use strict";
+
 window.addEventListener("load", () => {
 	// Variables generales
 	let flechasLeft = document.querySelectorAll(".imagenes .fa-arrow-alt-circle-left");

@@ -1,3 +1,5 @@
+"use strict";
+
 module.exports = (sequelize, dt) => {
 	const alias = "titulos";
 	const columns = {
