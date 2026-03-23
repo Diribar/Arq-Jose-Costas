@@ -1,29 +1,29 @@
-const db = require("../modelos");
+const bd = require("../baseDatos");
 
 module.exports = {
 	OrdenarRegistros: (entidad, id, orden) => {
-		return db[entidad].update({orden: orden}, {where: {id}});
+		return bd[entidad].update({orden: orden}, {where: {id}});
 	},
 
 	CambiarValor: (entidad, id, dato, campo) => {
-		return db[entidad].update({[campo]: dato}, {where: {id}});
+		return bd[entidad].update({[campo]: dato}, {where: {id}});
 	},
 
 	EliminarRegistro: (entidad, id) => {
-		return db[entidad].destroy({
+		return bd[entidad].destroy({
 			where: {id},
 		});
 	},
 
 	AgregarColor: (nombre, codigo) => {
-		return db.colores.create({
+		return bd.colores.create({
 			nombre,
 			codigo,
 		});
 	},
 
 	AgregarTexto: (entidad, contenido, grupo, orden) => {
-		return db[entidad].create({
+		return bd[entidad].create({
 			contenido,
 			grupo,
 			orden,
@@ -31,7 +31,7 @@ module.exports = {
 	},
 
 	EliminarGrupo: (entidad, grupo) => {
-		return db[entidad].destroy({
+		return bd[entidad].destroy({
 			where: {grupo: grupo},
 		});
 	},
