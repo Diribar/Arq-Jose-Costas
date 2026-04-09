@@ -11,7 +11,7 @@
 	"author": "Diego Iribarren",
 	"license": "ISC",
 	"scripts": {
-		"start": "nodemon -e js app"
+		"start": "nodemon -q -e js.json app.js"
 	},
 	"dependencies": {
 		"cookie-parser": "~1.4.4",
