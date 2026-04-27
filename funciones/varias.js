@@ -1,9 +1,10 @@
 "use strict";
 
-// Requires
+// Variables
 const nodemailer = require("nodemailer");
 const path = require("path");
 const fs = require("fs");
+const credenciales = require("../variables/Credenciales.js");
 
 module.exports = {
 	enviaMail: async ({asunto: subject, nombre, mail, telefono, comentario}) => {
@@ -15,7 +16,7 @@ module.exports = {
 		// Contenido del mail
 		const datos = {
 			from: "Web Arquitecto Jose Costas <" + soloEnvios + ">",
-			to: entProducc ? "josericardocostas@hotmail.com" : "diegoiribarren2015@gmail.com",
+			to: entProd ? "josericardocostas@hotmail.com" : "diegoiribarren2015@gmail.com",
 			subject,
 			html:
 				comentario.replace(/[\r\n]/g, "<br>") +
