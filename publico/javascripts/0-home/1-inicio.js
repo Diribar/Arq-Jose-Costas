@@ -2,24 +2,24 @@
 
 window.addEventListener("load", () => {
 	// Declarar las variables
-	let imagenes = document.querySelectorAll("#inicio #imagenes ul li")
-	let cantImagenes = imagenes.length;
-	let contenedor = document.querySelector("#inicio #imagenes ul")
+	const imagenes = document.querySelectorAll("#inicio #imagenes ul li")
+	const cantImagenes = imagenes.length;
+	const contenedor = document.querySelector("#inicio #imagenes ul")
 	contenedor.style.transform = 'translateX(0px)'
-	let dots = document.querySelectorAll("#inicio #imagenes .dot");
-	let iconos = document.querySelectorAll("#inicio #imagenes #iconos .fas");
-	var transicion = '1000ms'
-	let duracionLoop = 3000
+	const dots = document.querySelectorAll("#inicio #imagenes .dot");
+	const iconos = document.querySelectorAll("#inicio #imagenes #iconos .fas");
+	const transicion = '1000ms'
+	const duracionLoop = 3000
 	let secuencia = 1
 	let ancho = document.querySelector("#inicio #imagenes").offsetWidth;
 
 	// Función slider
-	let slider = () => {
+	const slider = () => {
 		contenedor.style.transitionDuration = transicion
 		secuencia = -parseInt(contenedor.style.transform.slice(11,-3))/ancho
 		dots[secuencia].classList.remove("current");
 		secuencia = secuencia + 1;
-		margen = secuencia * ancho;
+		let margen = secuencia * ancho;
 		contenedor.style.transform = 'translateX(-' + margen + 'px)'
 		if (secuencia >= imagenes.length - 1) {
 			setTimeout(() => {
