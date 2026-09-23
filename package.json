@@ -20,9 +20,17 @@
 		"express-mysql-session": "^3.0.3",
 		"express-session": "^1.19.0",
 		"multer": "^2.0.2",
-		"mysql2": "^3.9.7",
-		"nodemailer": "^8.0.1",
+		"mysql2": "^3.23.1",
+		"nodemailer": "^10.0.10",
 		"nodemon": "^3.1.14",
 		"sequelize": "^6.37.8"
+	},
+	"overrides": {
+		"express-mysql-session": {
+			"mysql2": "^3.23.1"
+		},
+		"sequelize": {
+			"uuid": "11.1.1"
+		}
 	}
 }
