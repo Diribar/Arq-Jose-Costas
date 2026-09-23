@@ -38,7 +38,7 @@ const entPrueba = path.basename(__dirname) == "2-Prueba";
 const entDes = !entProd && !entPrueba;
 
 // Listener
-const puerto = entProd ? 4200 : entPrueba ? 4206 : 3000;
+const puerto = entProd ? 4200 : entPrueba ? 4206 : 3010;
 app.listen(puerto, () => console.log("\nJosé Costas - Servidor funcionando...")); // Para conectarse con el servidor
 
 // Base de datos

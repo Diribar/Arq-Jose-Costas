@@ -7,7 +7,7 @@ window.addEventListener("load", () => {
 	const suma2 = document.querySelector("#contactanos #suma2");
 	const suma = document.querySelector("#contactanos #suma");
 
-	for (img of imgs) {
+	for (const img of imgs) {
 		img.addEventListener("click", async () => {
 			// Si algún valor del formulario no está vacío, interrumpe la función
 			for (const input of inputs) if (input.value) return;
