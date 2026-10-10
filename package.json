@@ -11,7 +11,7 @@
 	"author": "Diego Iribarren",
 	"license": "ISC",
 	"scripts": {
-		"start": "nodemon -q -e js.json app.js"
+		"start": "nodemon -q -e js,json app.js"
 	},
 	"dependencies": {
 		"cookie-parser": "~1.4.4",
@@ -22,8 +22,10 @@
 		"multer": "^2.0.2",
 		"mysql2": "^3.23.1",
 		"nodemailer": "^10.0.10",
-		"nodemon": "^3.1.14",
 		"sequelize": "^6.37.8"
+	},
+	"devDependencies": {
+		"nodemon": "^3.1.14"
 	},
 	"overrides": {
 		"express-mysql-session": {
